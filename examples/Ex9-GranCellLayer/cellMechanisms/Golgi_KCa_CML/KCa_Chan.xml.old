@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channelml xmlns="http://morphml.org/channelml/schema" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:meta="http://morphml.org/metadata/schema" 
+    xsi:schemaLocation="http://morphml.org/channelml/schema  ../../../../../NeuroMLValidator/web/NeuroMLFiles/Schemata/v1.1/Level2/ChannelML_v1.1.xsd" 
+    units="SI Units">
+
+    <meta:notes>A channel from Maex, R and De Schutter, E. Synchronization of Golgi and Granule Cell Firing in a 
+    Detailed Network Model of the Cerebellar Granule Cell Layer. J Neurophysiol, Nov 1998; 80: 2521 - 2537.
+    Note, the values used here are based on the GENESIS scripts accompanying the paper</meta:notes>
+    
+    <ion name="k" default_erev="-0.09" charge="1"/>  
+    
+    <channel_type name="Generic_KCa" density="yes">
+    
+        <meta:notes>Calcium dependent K channel</meta:notes>
+        
+        <current_voltage_relation>
+            <ohmic ion="k">
+                <conductance default_gmax="0.179811">  
+                    <rate_adjustments>
+                        <q10_settings q10_factor="3" experimental_temp="17.350264793"/>
+                        <offset value="0.010"/>
+                    </rate_adjustments>
+                    <gate power="1">
+                        <state name="m" fraction="1">
+                            <transition>
+                                <voltage_conc_gate>
+                                    <conc_dependence name="Calcium" variable_name="ca_conc" min_conc="7.55e-7" max_conc="0.050"/>
+                                    <alpha>
+                                        <generic_equation_hh expr="2500/(1 + ( (1.5e-3 *(exp (-85*v))) / ca_conc))"/>
+                                    </alpha>
+                                    <beta>
+                                        <generic_equation_hh expr="1500/(1 + (ca_conc / (1.5e-4 * (exp (-77*v)))))"/>
+                                    </beta>                                    
+                                </voltage_conc_gate>
+                            </transition>
+                        </state>
+                    </gate>
+                </conductance>
+            </ohmic>
+        </current_voltage_relation>
+    </channel_type>
+</channelml>

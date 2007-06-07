@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<networkml xmlns="http://morphml.org/networkml/schema" xmlns:meta="http://morphml.org/metadata/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://morphml.org/networkml/schema  http://www.morphml.org:8080/NeuroMLValidator/NeuroMLFiles/Schemata/v1.4/Level3/NetworkML_v1.4.xsd" lengthUnits="micron">
+
+<meta:notes>
+
+Network structure for project: Ex7-GranuleCell saved with neuroConstruct v1.0.1 on: 14:26:45, 16-Apr-07
+
+Cell Group: Gran contains 1 cells
+
+
+</meta:notes>
+
+<meta:properties>
+    <meta:property>
+        <meta:tag>neuroConstruct_random_seed</meta:tag>
+        <meta:value>473814088</meta:value>    
+    </meta:property>
+    <meta:property>
+        <meta:tag>neuroConstruct_sim_config</meta:tag>
+        <meta:value>Default Simulation Configuration</meta:value>    
+    </meta:property>
+</meta:properties>
+
+<populations>
+    <population name="Gran">
+        <cell_type>Granule_98</cell_type>
+        <instances>
+            <instance id="0">
+                <location x="17.39992" y="50.0" z="0.0"/>
+            </instance>
+        </instances>
+    </population>
+</populations>
+
+<projections units="Physiological Units"/>
+</networkml>

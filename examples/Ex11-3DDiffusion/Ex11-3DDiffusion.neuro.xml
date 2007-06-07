@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.5.0_10" class="java.beans.XMLDecoder"> 
+
+<!-- This is a neuroConstruct project file. It's best to open this
+file with neuroConstruct, as opposed to editing it directly. 
+
+Note that this file is neuroConstruct specific and isn't any 
+part of NeuroML or any standardised XML specification. -->
+
+ <object class="ucl.physiol.neuroconstruct.project.BasicProjectInfo"> 
+  <void property="projectDescription"> 
+   <string>This example illustrates an initial implementation of a method for incorporating 3D diffusion into network models. It is currently only implemented for NEURON, setting x,y,z coordinated in custom mod files. Note that the framework will be updated when a more comprehensive system for decribing cellular mechanism interactions with external substances is introduced (incorporating concepts from Systems Biology standards).
+                    
+This example simulates the release of NO from Parallel Fiber (PF) - Purkinje Cell (PC) synapses.
+
+The cell mechanism PFPCSyn releases NO when there is a coincidence of a synaptic event and the post synaptic cell firing (&gt;0mV) and all synapses detect this and alter their weights depending on distance from the releasing synapse and time since the event.</string> 
+  </void> 
+  <void property="projectFileVersion"> 
+   <string>neuroConstruct v0.9.7</string> 
+  </void> 
+  <void property="projectName"> 
+   <string>Ex11-3DDiffusion</string> 
+  </void> 
+ </object> 
+ <object class="ucl.physiol.neuroconstruct.project.RegionsInfo"> 
+  <void property="internalData"> 
+   <void method="get"> 
+    <string>Name</string> 
+    <void method="add"> 
+     <string>GranuleCellLayer</string> 
+    </void> 
+    <void method="add"> 
+     <string>PurkinjeCellLayer</string> 
+    </void> 
+   </void> 
+   <void method="get"> 
+    <string>Colour</string> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>255</int> 
+      <int>255</int> 
+      <int>255</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>255</int> 
+      <int>255</int> 
+      <int>255</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
+   </void> 
+   <void method="get"> 
+    <string>Description</string> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.RectangularBox"> 
+      <void property="parameterList"> 
+       <void index="0"> 
+        <void property="value"> 
+         <float>-50.0</float> 
+        </void> 
+       </void> 
+       <void index="2"> 
+        <void property="value"> 
+         <float>-50.0</float> 
+        </void> 
+       </void> 
+       <void index="4"> 
+        <void property="value"> 
+         <float>50.0</float> 
+        </void> 
+       </void> 
+      </void> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.RectangularBox"> 
+      <void property="parameterList"> 
+       <void index="0"> 
+        <void property="value"> 
+         <float>-70.0</float> 
+        </void> 
+       </void> 
+       <void index="1"> 
+        <void property="value"> 
+         <float>50.0</float> 
+        </void> 
+       </void> 
+       <void index="2"> 
+        <void property="value"> 
+         <float>-70.0</float> 
+        </void> 
+       </void> 
+       <void index="3"> 
+        <void property="value"> 
+         <float>140.0</float> 
+        </void> 
+       </void> 
+       <void index="4"> 
+        <void property="value"> 
+         <float>70.0</float> 
+        </void> 
+       </void> 
+       <void index="5"> 
+        <void property="value"> 
+         <float>140.0</float> 
+        </void> 
+       </void> 
+      </void> 
+     </object> 
+    </void> 
+   </void> 
+  </void> 
+ </object> 
+ <object class="ucl.physiol.neuroconstruct.project.CellGroupsInfo"> 
+  <void property="internalData"> 
+   <void method="get"> 
+    <string>Cell Packing Adapter</string> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"> 
+      <void property="parameterList"> 
+       <void index="2"> 
+        <void property="value"> 
+         <float>3.0</float> 
+        </void> 
+       </void> 
+      </void> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"> 
+      <void property="parameterList"> 
+       <void index="2"> 
+        <void property="value"> 
+         <float>3.0</float> 
+        </void> 
+       </void> 
+      </void> 
+     </object> 
+    </void> 
+   </void> 
+   <void method="get"> 
+    <string>Cell Type</string> 
+    <void method="add"> 
+     <string>GranuleCell</string> 
+    </void> 
+    <void method="add"> 
+     <string>PurkinjeCell</string> 
+    </void> 
+   </void> 
+   <void method="get"> 
+    <string>Priority</string> 
+    <void method="add"> 
+     <int>10</int> 
+    </void> 
+    <void method="add"> 
+     <int>9</int> 
+    </void> 
+   </void> 
+   <void method="get"> 
+    <string>Colour</string> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>255</int> 
+      <int>102</int> 
+      <int>0</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>51</int> 
+      <int>102</int> 
+      <int>0</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
+   </void> 
+   <void method="get"> 
+    <string>Region Name</string> 
+    <void method="add"> 
+     <string>GranuleCellLayer</string> 
+    </void> 
+    <void method="add"> 
+     <string>PurkinjeCellLayer</string> 
+    </void> 
+   </void> 
+   <void method="get"> 
+    <string>Cell Group Name</string> 
+    <void method="add"> 
+     <string>GranuleCells</string> 
+    </void> 
+    <void method="add"> 
+     <string>PurkinjeCells</string> 
+    </void> 
+   </void> 
+  </void> 
+ </object> 
+ <object class="ucl.physiol.neuroconstruct.project.SimPlotInfo"> 
+  <void property="allSimPlots"> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>GranuleCells</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GranuleCells_v</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Save only</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>GranuleCells_v</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>PurkinjeCells</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>PurkinjeCells_v</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>PurkinjeCells_v</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>PurkinjeCells</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_0</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_0</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>24</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>PurkinjeCells</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_1</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>1.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_1</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>NaConductance:m</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>PurkinjeCells</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_2</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>1.0E-7</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_2</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>*</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>SYN:NetConn_PF_PC:PFPCSyn:COND</string> 
+     </void> 
+    </object> 
+   </void> 
+  </void> 
+ </object> 
+ <object class="ucl.physiol.neuroconstruct.utils.Display3DProperties"> 
+  <void property="backgroundColour3D"> 
+   <object class="java.awt.Color"> 
+    <int>255</int> 
+    <int>255</int> 
+    <int>255</int> 
+    <int>255</int> 
+   </object> 
+  </void> 
+  <void property="cellColour3D"> 
+   <object class="java.awt.Color"> 
+    <int>102</int> 
+    <int>102</int> 
+    <int>102</int> 
+    <int>255</int> 
+   </object> 
+  </void> 
+  <void property="displayOption"> 
+   <string>Soma solid, neurite lines</string> 
+  </void> 
+  <void property="showRegions"> 
+   <boolean>false</boolean> 
+  </void> 
+  <void property="showSynapseConns"> 
+   <boolean>false</boolean> 
+  </void> 
+ </object> 
+ <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings"> 
+  <void property="nativeBlocks"> 
+   <void method="put"> 
+    <int>10</int> 
+    <string></string> 
+   </void> 
+   <void method="put"> 
+    <int>3</int> 
+    <string>graf.size(0,200.0,0.0,1.0)
+graf.view(0, 0.0, 200.0, 1.0, 80, 330, 330, 250)
+
+
+{
+
+    for i = 0, 9 {
+
+
+        strdef variableno
+        sprint(variableno, &quot;PFPCSyn[%d].local_conc_NO&quot;, i)
+
+        strdef variablesc
+        sprint(variablesc, &quot;PFPCSyn[%d].scaling&quot;, i)
+
+
+        graf.addexpr(variableno, variableno, i+1, 1, 0.8, 0.9, 2)
+
+        graf.addexpr(variablesc, variablesc, i+6, 1, 0.8, 0.9, 2)
+
+    }
+        	
+
+    graphList[0].append(graf)
+}
+
+
+
+</string> 
+   </void> 
+   <void method="put"> 
+    <int>2</int> 
+    <string></string> 
+   </void> 
+   <void method="put"> 
+    <int>1</int> 
+    <string>print &quot;Connecting up the cell mechanisms...&quot;
+
+sourceCellIndex = 0
+sourceSynapseIndex = 0
+
+for i = 0, n_PurkinjeCells-1 {
+
+    for j = 0, a_PurkinjeCells[i].synlist.count -1 {
+
+        // setting pointer to internal variable of source
+
+        setpointer a_PurkinjeCells[i].synlist.o(j).syn.emitting_NO,  a_PurkinjeCells[sourceCellIndex].synlist.o(sourceSynapseIndex).syn.releasing
+
+
+        // giving 3D location of source to target synapses (no need to make them pointers)
+
+        a_PurkinjeCells[i].synlist.o(j).syn.source_x = a_PurkinjeCells[sourceCellIndex].synlist.o(sourceSynapseIndex).syn.x
+        a_PurkinjeCells[i].synlist.o(j).syn.source_y = a_PurkinjeCells[sourceCellIndex].synlist.o(sourceSynapseIndex).syn.y
+        a_PurkinjeCells[i].synlist.o(j).syn.source_z = a_PurkinjeCells[sourceCellIndex].synlist.o(sourceSynapseIndex).syn.z
+
+
+	}
+
+}
+
+print &quot;Connected...&quot;</string> 
+   </void> 
+   <void method="put"> 
+    <int>-1</int> 
+    <string>
+objref graf
+graf = new Graph(0)
+</string> 
+   </void> 
+   <void method="put"> 
+    <int>0</int> 
+    <string></string> 
+   </void> 
+  </void> 
+  <void property="showShapePlot"> 
+   <boolean>true</boolean> 
+  </void> 
+ </object> 
+ <object class="ucl.physiol.neuroconstruct.genesis.GenesisSettings"/> 
+ <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters"> 
+  <void property="dt"> 
+   <float>0.025</float> 
+  </void> 
+  <void property="duration"> 
+   <float>100.0</float> 
+  </void> 
+  <void property="reference"> 
+   <string>Sim_189</string> 
+  </void> 
+  <void property="saveCopyGenSimFiles"> 
+   <boolean>true</boolean> 
+  </void> 
+  <void property="whatToRecord"> 
+   <int>2</int> 
+  </void> 
+ </object> 
+ <object class="ucl.physiol.neuroconstruct.project.ElecInputInfo"> 
+  <void property="allStims"> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
+     <void property="amplitude"> 
+      <void property="end"> 
+       <float>0.03</float> 
+      </void> 
+      <void property="start"> 
+       <float>0.03</float> 
+      </void> 
+     </void> 
+     <void property="cellGroup"> 
+      <string>GranuleCells</string> 
+     </void> 
+     <void property="delay"> 
+      <void property="end"> 
+       <float>10.0</float> 
+      </void> 
+      <void property="start"> 
+       <float>10.0</float> 
+      </void> 
+     </void> 
+     <void property="duration"> 
+      <void property="end"> 
+       <float>180.0</float> 
+      </void> 
+      <void property="start"> 
+       <float>180.0</float> 
+      </void> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_0</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
+     <void property="amplitude"> 
+      <void property="end"> 
+       <float>1.0</float> 
+      </void> 
+      <void property="start"> 
+       <float>1.0</float> 
+      </void> 
+     </void> 
+     <void property="cellChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.cellchoice.IndividualCells"/> 
+     </void> 
+     <void property="cellGroup"> 
+      <string>PurkinjeCells</string> 
+     </void> 
+     <void property="delay"> 
+      <void property="end"> 
+       <float>50.0</float> 
+      </void> 
+      <void property="start"> 
+       <float>50.0</float> 
+      </void> 
+     </void> 
+     <void property="duration"> 
+      <void property="end"> 
+       <float>5.0</float> 
+      </void> 
+      <void property="start"> 
+       <float>5.0</float> 
+      </void> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_1</string> 
+     </void> 
+    </object> 
+   </void> 
+  </void> 
+ </object> 
+ <object class="ucl.physiol.neuroconstruct.project.SimConfigInfo"> 
+  <void property="allSimConfigs"> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
+     <void property="cellGroups"> 
+      <void method="add"> 
+       <string>PurkinjeCells</string> 
+      </void> 
+      <void method="add"> 
+       <string>GranuleCells</string> 
+      </void> 
+     </void> 
+     <void property="description"> 
+      <string>This is the default configuration of the Cell Groups, stimulations, plots, etc for this project</string> 
+     </void> 
+     <void property="inputs"> 
+      <void method="add"> 
+       <string>Input_1</string> 
+      </void> 
+      <void method="add"> 
+       <string>Input_0</string> 
+      </void> 
+     </void> 
+     <void property="name"> 
+      <string>Default Simulation Configuration</string> 
+     </void> 
+     <void property="netConns"> 
+      <void method="add"> 
+       <string>NetConn_PF_PC</string> 
+      </void> 
+     </void> 
+     <void property="plots"> 
+      <void method="add"> 
+       <string>GranuleCells_v</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_2</string> 
+      </void> 
+      <void method="add"> 
+       <string>PurkinjeCells_v</string> 
+      </void> 
+     </void> 
+     <void property="simDuration"> 
+      <float>150.0</float> 
+     </void> 
+    </object> 
+   </void> 
+  </void> 
+ </object> 
+ <object class="ucl.physiol.neuroconstruct.project.SimpleNetworkConnectionsInfo"> 
+  <void property="internalData"> 
+   <void method="get"> 
+    <string>Name</string> 
+    <void method="add"> 
+     <string>NetConn_PF_PC</string> 
+    </void> 
+   </void> 
+   <void method="get"> 
+    <string>AP speed</string> 
+    <void method="add"> 
+     <float>3.4028235E38</float> 
+    </void> 
+   </void> 
+   <void method="get"> 
+    <string>Synapse Type</string> 
+    <void method="add"> 
+     <object class="java.util.Vector"> 
+      <void method="add"> 
+       <object class="ucl.physiol.neuroconstruct.project.SynapticProperties"> 
+        <void property="delayGenerator"> 
+         <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+          <void property="fixedNum"> 
+           <float>10.0</float> 
+          </void> 
+          <void property="numberType"> 
+           <int>11</int> 
+          </void> 
+         </object> 
+        </void> 
+        <void property="synapseType"> 
+         <string>PFPCSyn</string> 
+        </void> 
+        <void property="threshold"> 
+         <double>-20.0</double> 
+        </void> 
+        <void property="weightsGenerator"> 
+         <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+          <void property="numberType"> 
+           <int>11</int> 
+          </void> 
+         </object> 
+        </void> 
+       </object> 
+      </void> 
+     </object> 
+    </void> 
+   </void> 
+   <void method="get"> 
+    <string>Max/min</string> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.MaxMinLength"/> 
+    </void> 
+   </void> 
+   <void method="get"> 
+    <string>Search Pattern</string> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.SearchPattern"> 
+      <void property="randomCloseNumber"> 
+       <int>100</int> 
+      </void> 
+      <void property="type"> 
+       <int>1</int> 
+      </void> 
+     </object> 
+    </void> 
+   </void> 
+   <void method="get"> 
+    <string>Source</string> 
+    <void method="add"> 
+     <string>GranuleCells</string> 
+    </void> 
+   </void> 
+   <void method="get"> 
+    <string>Connectivity Conditions</string> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions"> 
+      <void property="generationDirection"> 
+       <int>1</int> 
+      </void> 
+      <void property="numConnsInitiatingCellGroup"> 
+       <void property="fixedNum"> 
+        <float>5.0</float> 
+       </void> 
+      </void> 
+     </object> 
+    </void> 
+   </void> 
+   <void method="get"> 
+    <string>Target</string> 
+    <void method="add"> 
+     <string>PurkinjeCells</string> 
+    </void> 
+   </void> 
+  </void> 
+ </object> 
+ <object class="ucl.physiol.neuroconstruct.project.ArbourConnectionsInfo"/> 
+</java> 

@@ -1,0 +1,24 @@
+
+
+begintemplate NetworkController
+
+
+public init, registerCell
+
+proc init() {
+
+print "NetworkController being initialised"
+
+
+}
+
+proc registerCell() {
+
+print "Cell being registered: "
+
+}
+
+
+
+endtemplate NetworkController
+

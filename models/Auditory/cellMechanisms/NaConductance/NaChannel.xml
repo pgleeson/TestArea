@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema  ../../Schemata/v1.1/Level2/ChannelML_v1.1.xsd" units="Physiological Units">
+    
+    <meta:notes>ChannelML file containing a single Channel description</meta:notes>
+    
+        
+    <ion name="na" charge="1" default_erev="50.01"/>  
+     
+    <channel_type name="NaConductance" density="yes">
+    
+        <meta:notes>Simple example of Na conductance in squid giant axon. Based on channel from Hodgkin and Huxley 1952</meta:notes>
+        
+
+    
+        <current_voltage_relation>
+            <ohmic ion="na">
+                <conductance default_gmax="120"> 
+                    <gate power="3">
+                        <state name="m" fraction="1">
+                            <transition>
+                                <voltage_gate>
+                                    <alpha>
+                                        <parameterised_hh type="linoid" expr="A*(k*(v-d))/(1 - exp(-(k*(v-d))))">
+                                            <parameter name="A" value="1"/>
+                                            <parameter name="k" value="0.1"/>
+                                            <parameter name="d" value="-40"/>
+                                        </parameterised_hh>
+                                    </alpha>
+                                    <beta>
+                                        <parameterised_hh type="exponential" expr="A*exp(k*(v-d))">
+                                            <parameter name="A" value="4"/>
+                                            <parameter name="k" value="-0.0555555555"/>
+                                            <parameter name="d" value="-65"/>
+                                        </parameterised_hh>
+                                    </beta>
+                                </voltage_gate>
+                            </transition>
+                        </state>
+                    </gate>
+                    <gate power="1">
+                        <state name="h" fraction="1">
+                            <transition>
+                                <voltage_gate>
+                                    <alpha>
+                                        <parameterised_hh type="exponential" expr="A*exp(k*(v-d))">
+                                            <parameter name="A" value="0.07"/>
+                                            <parameter name="k" value="-0.05"/>
+                                            <parameter name="d" value="-65"/>
+                                        </parameterised_hh>
+                                    </alpha>
+                                    <beta>
+                                        <parameterised_hh type="sigmoid" expr="A/(1 + exp(-k*(d-v)))">
+                                            <parameter name="A" value="1"/>
+                                            <parameter name="k" value="-0.1"/>
+                                            <parameter name="d" value="-35"/>
+                                        </parameterised_hh>
+                                    </beta>
+                                </voltage_gate>
+                            </transition>
+                        </state>
+                    </gate>
+                </conductance>
+            </ohmic>
+        </current_voltage_relation>
+    </channel_type>
+</channelml>

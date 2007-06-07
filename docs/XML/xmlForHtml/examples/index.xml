@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE document PUBLIC "-//APACHE//DTD Documentation V2.0//EN" "http://forrest.apache.org/dtd/document-v20.dtd">
+<document>
+  <header>
+    <title>Examples of neuroConstruct in use</title>
+  </header>
+  <body>
+      <p>Some screenshots of neuroConstruct in action are given below.
+      Click on the thumbnails to see a full size version of the screenshots</p>
+
+    <section>
+      <title>Examples included with distribution</title>
+      <anchor id="included_distrib"/>
+
+
+      <p>These examples are included with the standard distribution of neuroConstruct</p>
+
+       <p><strong>Simple single cell example</strong></p>
+       <p>This simple example is included to help check that the Java 3D is correctly installed.</p>
+
+	   <p><a href="../images/Ex1.png"><img src="../images/Ex1.png" width="200" height="170" title="Click to enlarge"
+       alt="Screenshot of single cell in neuroConstruct"/></a></p>
+
+       <anchor id="packing"/>
+       <p><strong>Cell Packing Patterns</strong></p>
+       <p>The somas can be placed in a random fashion, packed on top of one another, cubic-close packed, or
+       individually placed in specified locations in 3D.</p>
+
+   <p><a href="../images/PackingAll.png"><img src="../images/PackingAll.png" width="200" height="170" title="Click to enlarge"
+       alt="Screenshot of cell packing functionality in neuroConstruct"/></a></p>
+
+	   <anchor id="neuorgen"/>
+	   <p><strong>Simulations on both NEURON and GENESIS</strong></p>
+	   <p>neuroConstruct holds a simulator independent representation of the cell morphology and channel mechanisms.
+		   This internal model can translated into NEURON or GENESIS code and the simulation run in either environment.
+		   This shot shows a simple Hodgkin Huxley model neuron producing the same results in either simulator. Values for the Na, 
+		   K channel activation variables (m, h, n) can be plotted in each too. This also illustrates GENESIS running under Cygwin on Windows.</p>
+	   
+	   <p><a href="../images/genneu.png"><img src="../images/genneu.png" width="200" height="170" title="Click to enlarge"
+											  alt="Screenshot of Simulations on both NEURON and GENESIS"/></a></p>
+
+	   
+	   
+        <anchor id="conn"/>
+       <p><strong>Connectivity</strong></p>
+       <p>This image shows a number of cells connected using the Volume Based Connectivity mechanism.</p>
+
+	   <p><a href="../images/Connn.png"><img src="../images/Connn.png" width="200" height="150" title="Click to enlarge"
+       alt="Screenshot of connectivity"/></a></p>
+
+
+
+
+       <anchor id="cerebellum"/>
+       <p><strong>Cerebellum</strong></p>
+       <p>A simplified model of a section of the cerebellar cortex was created in neuroConstruct, containing Purkinje Cells, Granule Cells and Mossy Fibers.</p>
+
+	   <p><a href="../images/CerebSimple.png"><img src="../images/CerebSimple.png" width="200" height="170" title="Click to enlarge"
+       alt="Screenshot of section of cerebellum"/></a></p>
+
+
+    </section>
+     <section>
+      <title>General screenshots</title>
+      
+
+       <p><strong>Morphological Analysis</strong></p>
+       <p>Neuronal morphologies can be imported into neuroConstruct, tested for errors (e.g. zero length segments)
+       and, if necessary, edited. In this way too, more abstract neurons can be created.</p>
+
+       <p><a href="../images/SegSelector.png"><img src="../images/SegSelector.png" width="200" height="150" title="Click to enlarge"
+       alt="Screenshot of the Segment selectorr"/></a></p>
+
+
+       <anchor id="simbrowser"/>
+       <p><strong>Simulation Browser</strong></p>
+       <p>neuroConstructs features an interface for browsing and managing previously run simulations.
+       The important parameters of the simulation are recorded and so simulations run on different platforms,
+       with different time steps, different stimuli, etc. can be replayed and compared.</p>
+
+       <p><a href="../images/SimBrowser.png"><img src="../images/SimBrowser.png" width="200" height="170" title="Click to enlarge"
+       alt="Screenshot of the Simulation Browser"/></a></p>
+
+
+
+
+       <anchor id="channelml"/>
+       <p><strong>ChannelML</strong></p>
+	   <p>Ion channel mechanisms can be created according to the new <a href="http://www.morphml.org:8080/NeuroMLValidator/Latest.jsp?spec=ChannelML">ChannelML</a> specifications. This completely separates the
+           physiologically relevant parameters of the ion channel (e.g. rate equations for activation and inactivation variables)
+           from any specific simulator's implementation of the mechanism. The XML can then be mapped onto an NMODL file (for NEURON) or a GENESIS
+           script file.
+       </p>
+
+       <p><a href="../images/ChannelML.png"><img src="../images/ChannelML.png" width="200" height="150" title="Click to enlarge"
+       alt="Screenshot of ChannelML"/></a></p>
+
+
+
+
+       <anchor id="analysis"/>
+       <p><strong>Network Analysis</strong></p>
+       <p>Various views can be generated to visualise network activity, such as here where cells are coloured
+       according to average firing frequency.</p>
+
+       <p><a href="../images/layers.png"><img src="../images/layers.png" width="200" height="150" title="Click to enlarge"
+       alt="Screenshot of ISI colouring"/></a></p>
+
+
+    </section>
+
+
+
+    <section>
+      <title>Imported models</title>
+      <p>These well known models from computational neuroscience have been implemented in neuroConstruct</p>
+
+
+      <anchor id="morph"/>
+       <p><strong>De Schutter et al.</strong></p>
+       <p>The complex dendritic morphology used in the Purkinje Cell model by the team at <a href="http://bbf-www.uia.ac.be/">Antwerp Theoretical Neurobiology</a>
+       has been imported into neuroConstruct direct from the GENESIS *.p file.</p>
+
+       <p><a href="../images/Purkinje.png"><img src="../images/Purkinje.png" width="200" height="170" title="Click to enlarge"
+       alt="Screenshot of Purkinje model"/></a></p>
+
+
+       <p><strong>Mainen et al.</strong></p>
+       <p>Pyramidal Cell from Mainen et al <a href="http://www.cnl.salk.edu/~zach/publications.html">
+       A model of spike initiation in neocortical pyramidal neurons.</a></p>
+
+       <p><a href="../images/Mainen.png"><img src="../images/Mainen.png" width="200" height="170" title="Click to enlarge"
+       alt="Screenshot of Mainen model"/></a></p>
+
+
+
+
+       <p><strong>Santhakumar et al.</strong></p>
+       <p>This model of a section of the dentate gyrus from
+       <a href="http://jn.physiology.org/cgi/content/full/93/1/437">Santhakumar, Aradi and Soltesz</a>
+       illustrates some of the conditions which can lead to epileptiform activity. The cells from this model have been recreated in neuroConstruct,
+       allowing various 3D network configurations to be tested.</p>
+
+<p><a href="../images/dentgyr.png"><img src="../images/dentgyr.png" width="200" height="120" title="Click to enlarge"
+       alt="Screenshot of Santhakumar et al. model"/></a></p>
+
+
+
+
+
+
+    </section>
+  </body>
+</document>

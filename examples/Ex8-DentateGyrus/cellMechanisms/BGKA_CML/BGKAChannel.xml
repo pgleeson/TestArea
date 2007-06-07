@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channelml xmlns="http://morphml.org/channelml/schema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:meta="http://morphml.org/metadata/schema"
+    xsi:schemaLocation="http://morphml.org/channelml/schema  ../../Schemata/v1.3/Level2/ChannelML_v1.3.xsd"
+    units="Physiological Units">
+
+    <meta:notes>ChannelML file containing a single Channel description</meta:notes>
+
+
+    <ion name="k" charge="1" default_erev="-90"/>              <!-- phys units: mV -->
+
+
+    <channel_type name="BGKA_CML" density="yes">
+
+        <meta:notes>Specificatation in ChannelML of channel from Santhakumar et al 2005</meta:notes>
+
+        <meta:authorList>
+			<meta:modelTranslator>
+				<meta:name>Padraig Gleeson</meta:name>
+				<meta:institution>UCL</meta:institution>
+				<meta:email>p.gleeson - at - ucl.ac.uk</meta:email>
+			</meta:modelTranslator>
+        </meta:authorList>
+
+        <meta:neuronDBref>
+            <meta:modelName>K channels</meta:modelName>
+            <meta:uri>http://senselab.med.yale.edu/senselab/NeuronDB/channelGene2.htm#table3</meta:uri>
+        </meta:neuronDBref>
+
+        <current_voltage_relation>
+            <ohmic ion="k">
+                <conductance default_gmax="12">          <!-- phys units: mS/cm2-->
+
+                    <rate_adjustments>
+                        <q10_settings q10_factor="3" experimental_temp="30"/>
+                    </rate_adjustments>
+
+                    <gate power="1">
+                        <state name="n" fraction="1"/>
+                    </gate>
+                    <gate power="1">
+                        <state name="l" fraction="1"/>
+                    </gate>
+
+                </conductance>
+            </ohmic>
+        </current_voltage_relation>
+
+
+        <hh_gate state="n">
+            <transition>
+                <voltage_gate>
+
+                    <alpha>
+                        <!-- Note: extra brackets to ensure equation is GENESIS friendly... -->
+                        <generic_equation_hh expr="(exp ( (1e-3*(-3)*(v-(-33.6))*9.648e4) / (8.315*(273.16+celsius))))"/>
+                    </alpha>
+                    <beta>
+                        <generic_equation_hh expr="(exp ( (1e-3*(-3)*(0.6)*(v-(-33.6))*9.648e4) / (8.315*(273.16+celsius))))"/>
+                    </beta>
+                    <tau>
+                        <!-- Note: a non standard tau can be a function of alpha and beta. The q10 factor is not included here yet -->
+
+                        <generic_equation_hh expr="beta/((0.02)*(1+alpha))"/>
+                    </tau>
+                    <inf>
+                        <!-- Note: a non standard inf can be a function of alpha and beta. -->
+
+                        <generic_equation_hh expr="1/(1+alpha)"/>
+                    </inf>
+
+                </voltage_gate>
+            </transition>
+        </hh_gate>
+
+        <hh_gate state="l">
+            <transition>
+                <voltage_gate>
+
+                    <alpha>
+                        <generic_equation_hh expr="(exp (1e-3*4*(v-(-83))*9.648e4/(8.315*(273.16+celsius))))"/>
+                    </alpha>
+                    <beta>
+                        <generic_equation_hh expr="(exp (1e-3*4*1*(v-(-83))*9.648e4/(8.315*(273.16+celsius))))"/>
+                    </beta>
+                    <tau>
+                        <!-- Note: a non standard tau can be a function of alpha and beta. The q10 factor is not included here yet -->
+
+                        <generic_equation_hh expr="beta/((0.08)*(1+alpha))"/>
+                    </tau>
+                    <inf>
+                        <!-- Note: a non standard inf can be a function of alpha and beta. -->
+
+                        <generic_equation_hh expr="1/(1+alpha)"/>
+                    </inf>
+
+                </voltage_gate>
+            </transition>
+        </hh_gate>
+
+
+    </channel_type>
+</channelml>

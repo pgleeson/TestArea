@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema  ../../Schemata/v1.3/Level2/ChannelML_v1.3.xsd" units="Physiological Units">
+
+    <meta:notes>ChannelML file containing a single Channel description</meta:notes>
+
+
+    <ion name="nca" charge="2" default_erev="0"/>          <!-- phys units: mV -->
+
+
+
+    <channel_type name="NCa_CML" density="yes">
+
+        <meta:notes>Specificatation in ChannelML of channel from Santhakumar et al 2005</meta:notes>
+
+        <meta:authorList>
+			<meta:modelTranslator>
+				<meta:name>Padraig Gleeson</meta:name>
+				<meta:institution>UCL</meta:institution>
+				<meta:email>p.gleeson - at - ucl.ac.uk</meta:email>
+			</meta:modelTranslator>
+        </meta:authorList>
+
+
+        <meta:neuronDBref>
+            <meta:modelName>Na channels</meta:modelName>
+            <meta:uri>http://senselab.med.yale.edu/senselab/NeuronDB/channelGene2.htm#table2</meta:uri>
+        </meta:neuronDBref>
+
+
+        <current_voltage_relation>
+            <ohmic ion="nca">
+                <conductance default_gmax="2">         <!-- phys units: mS/cm2 -->
+
+                    <rate_adjustments>
+                        <q10_settings q10_factor="3" experimental_temp="6.3"/>
+                    </rate_adjustments>
+
+                    <gate power="2">
+                        <state name="c" fraction="1"/>
+                    </gate>
+                    <gate power="1">
+                        <state name="d" fraction="1"/>
+                    </gate>
+
+                </conductance>
+            </ohmic>
+        </current_voltage_relation>
+
+
+        <hh_gate state="c">
+            <transition>
+                <voltage_gate>
+                    <alpha>
+                        <parameterised_hh type="linoid" expr="A*(k*(v-d))/(1 - exp(-(k*(v-d))))">
+                            <parameter name="A" value="1.9"/>
+                            <parameter name="k" value="0.1"/>
+                            <parameter name="d" value="19.88"/>
+                        </parameterised_hh>
+                    </alpha>
+                    <beta>
+                        <parameterised_hh type="exponential" expr="A*exp(k*(v-d))">
+                            <parameter name="A" value="0.046"/>
+                            <parameter name="k" value="-0.048239267"/>
+                            <parameter name="d" value="0"/>
+                        </parameterised_hh>
+                    </beta>
+                </voltage_gate>
+            </transition>
+        </hh_gate>
+
+        <hh_gate state="d">
+            <transition>
+                <voltage_gate>
+                    <alpha>
+                        <parameterised_hh type="exponential" expr="A*exp(k*(v-d))">
+                            <parameter name="A" value="0.00016"/>
+                            <parameter name="k" value="0.020661157"/>
+                            <parameter name="d" value="0"/>
+                        </parameterised_hh>
+                    </alpha>
+                    <beta>
+                        <parameterised_hh type="sigmoid" expr="A/(1 + exp(-k*(d-v)))">
+                            <parameter name="A" value="1"/>
+                            <parameter name="k" value="-0.1"/>
+                            <parameter name="d" value="39"/>
+                        </parameterised_hh>
+                    </beta>
+                </voltage_gate>
+            </transition>
+        </hh_gate>
+
+
+    </channel_type>
+</channelml>

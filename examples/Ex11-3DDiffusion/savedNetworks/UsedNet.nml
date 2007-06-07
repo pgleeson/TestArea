@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<networkml xmlns="http://morphml.org/networkml/schema" xmlns:meta="http://morphml.org/metadata/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://morphml.org/networkml/schema  http://www.morphml.org:8080/NeuroMLValidator/NeuroMLFiles/Schemata/v1.4/Level3/NetworkML_v1.4.xsd" lengthUnits="micron">
+
+<meta:notes>
+
+Network structure for project: Ex11-3DDiffusion saved with neuroConstruct v0.9.7 on: 11:12:45, 06-Feb-07
+
+Cell Group: GranuleCells contains 3 cells
+Cell Group: PurkinjeCells contains 3 cells
+
+Network connection: NetConn_PF_PC contains 15 individual synaptic connections
+
+</meta:notes>
+
+<meta:properties>
+    <meta:property>
+        <meta:tag>neuroConstruct_random_seed</meta:tag>
+        <meta:value>-194336909</meta:value>    
+    </meta:property>
+    <meta:property>
+        <meta:tag>neuroConstruct_sim_config</meta:tag>
+        <meta:value>Default Simulation Configuration</meta:value>    
+    </meta:property>
+</meta:properties>
+
+<populations>
+    <population name="GranuleCells">
+        <cell_type>GranuleCell</cell_type>
+        <instances>
+            <instance id="0">
+                <location x="31.424835" y="39.071133" z="-41.132774"/>
+            </instance>
+            <instance id="1">
+                <location x="-30.73234" y="22.51589" z="-36.76331"/>
+            </instance>
+            <instance id="2">
+                <location x="17.22107" y="27.83764" z="35.328568"/>
+            </instance>
+        </instances>
+    </population>
+    <population name="PurkinjeCells">
+        <cell_type>PurkinjeCell</cell_type>
+        <instances>
+            <instance id="0">
+                <location x="32.42276" y="70.10562" z="-29.162067"/>
+            </instance>
+            <instance id="1">
+                <location x="-35.686504" y="89.50844" z="-32.56571"/>
+            </instance>
+            <instance id="2">
+                <location x="-38.662415" y="76.58116" z="12.493027"/>
+            </instance>
+        </instances>
+    </population>
+</populations>
+
+<projections units="Physiological Units">
+    <projection name="NetConn_PF_PC">
+        <source>GranuleCells</source>
+        <target>PurkinjeCells</target>
+        <synapse_props>
+            <synapse_type>PFPCSyn</synapse_type>
+            <default_values internal_delay="10.0" weight="1.0" threshold="-20.0"/>
+        </synapse_props>
+        <connections>
+            <connection id="0">
+                <meta:notes>
+Source synaptic location: (28.093369, 177.83765, 35.328568)
+Target synaptic location: (32.42276, 170.13144, 0.8379326)
+Separation: 35.60524</meta:notes>
+
+                <pre cell_id="2" segment_id="3" fraction_along="0.072482"/>
+                <post cell_id="0" segment_id="36" fraction_along="0.6005164"/>
+            </connection>
+            <connection id="1">
+                <meta:notes>
+Source synaptic location: (34.953873, 177.83765, 35.328568)
+Target synaptic location: (35.25941, 173.47212, 2.8953133)
+Separation: 32.72716</meta:notes>
+
+                <pre cell_id="2" segment_id="3" fraction_along="0.11821869"/>
+                <post cell_id="0" segment_id="41" fraction_along="0.56733"/>
+            </connection>
+            <connection id="2">
+                <meta:notes>
+Source synaptic location: (36.636803, 172.51588, -36.76331)
+Target synaptic location: (32.42276, 142.64883, -59.162067)
+Separation: 37.569977</meta:notes>
+
+                <pre cell_id="1" segment_id="3" fraction_along="0.4491276"/>
+                <post cell_id="0" segment_id="30" fraction_along="0.050864257"/>
+            </connection>
+            <connection id="3">
+                <meta:notes>
+Source synaptic location: (41.86827, 177.83765, 35.328568)
+Target synaptic location: (32.42276, 188.74942, 0.8379326)
+Separation: 37.388348</meta:notes>
+
+                <pre cell_id="2" segment_id="3" fraction_along="0.16431467"/>
+                <post cell_id="0" segment_id="36" fraction_along="0.97287595"/>
+            </connection>
+            <connection id="4">
+                <meta:notes>
+Source synaptic location: (32.782547, 189.07114, -41.132774)
+Target synaptic location: (36.306343, 188.94145, -50.0361)
+Separation: 9.576176</meta:notes>
+
+                <pre cell_id="0" segment_id="3" fraction_along="0.009051412"/>
+                <post cell_id="0" segment_id="17" fraction_along="0.7767166"/>
+            </connection>
+            <connection id="5">
+                <meta:notes>
+Source synaptic location: (-38.681847, 189.07114, -41.132774)
+Target synaptic location: (-38.015537, 187.79877, -66.04442)
+Separation: 24.953014</meta:notes>
+
+                <pre cell_id="0" segment_id="2" fraction_along="0.46737787"/>
+                <post cell_id="1" segment_id="34" fraction_along="0.46580678"/>
+            </connection>
+            <connection id="6">
+                <meta:notes>
+Source synaptic location: (-33.274055, 177.83765, 35.328568)
+Target synaptic location: (-35.686504, 213.56105, 7.434292)
+Separation: 45.38802</meta:notes>
+
+                <pre cell_id="2" segment_id="2" fraction_along="0.33663416"/>
+                <post cell_id="1" segment_id="42" fraction_along="0.9810522"/>
+            </connection>
+            <connection id="7">
+                <meta:notes>
+Source synaptic location: (-31.864193, 189.07114, -41.132774)
+Target synaptic location: (-33.398247, 192.39102, -48.97283)
+Separation: 8.651096</meta:notes>
+
+                <pre cell_id="0" segment_id="2" fraction_along="0.42192686"/>
+                <post cell_id="1" segment_id="17" fraction_along="0.4576518"/>
+            </connection>
+            <connection id="8">
+                <meta:notes>
+Source synaptic location: (-29.23933, 189.07114, -41.132774)
+Target synaptic location: (-31.1236, 210.13748, -85.34184)
+Separation: 49.00799</meta:notes>
+
+                <pre cell_id="0" segment_id="2" fraction_along="0.40442777"/>
+                <post cell_id="1" segment_id="32" fraction_along="0.912581"/>
+            </connection>
+            <connection id="9">
+                <meta:notes>
+Source synaptic location: (-46.17977, 172.51588, -36.76331)
+Target synaptic location: (-35.686504, 160.73555, -82.565704)
+Separation: 48.443207</meta:notes>
+
+                <pre cell_id="1" segment_id="2" fraction_along="0.10298288"/>
+                <post cell_id="1" segment_id="27" fraction_along="0.024542237"/>
+            </connection>
+            <connection id="10">
+                <meta:notes>
+Source synaptic location: (-32.505817, 177.83765, 35.328568)
+Target synaptic location: (-38.616405, 157.04126, 22.3642)
+Separation: 25.256758</meta:notes>
+
+                <pre cell_id="2" segment_id="2" fraction_along="0.33151257"/>
+                <post cell_id="2" segment_id="20" fraction_along="0.009201807"/>
+            </connection>
+            <connection id="11">
+                <meta:notes>
+Source synaptic location: (-33.89561, 177.83765, 35.328568)
+Target synaptic location: (-38.679485, 146.75188, 62.54083)
+Separation: 41.589874</meta:notes>
+
+                <pre cell_id="2" segment_id="2" fraction_along="0.34077787"/>
+                <post cell_id="2" segment_id="40" fraction_along="0.0034142954"/>
+            </connection>
+            <connection id="12">
+                <meta:notes>
+Source synaptic location: (-30.943144, 172.51588, -36.76331)
+Target synaptic location: (-38.662415, 151.78276, -27.506973)
+Separation: 23.981853</meta:notes>
+
+                <pre cell_id="1" segment_id="2" fraction_along="0.0014053583"/>
+                <post cell_id="2" segment_id="33" fraction_along="0.0040319823"/>
+            </connection>
+            <connection id="13">
+                <meta:notes>
+Source synaptic location: (-32.628323, 177.83765, 35.328568)
+Target synaptic location: (-38.662415, 148.72807, 42.493027)
+Separation: 30.57952</meta:notes>
+
+                <pre cell_id="2" segment_id="2" fraction_along="0.33232927"/>
+                <post cell_id="2" segment_id="36" fraction_along="0.042938232"/>
+            </connection>
+            <connection id="14">
+                <meta:notes>
+Source synaptic location: (-39.253593, 172.51588, -36.76331)
+Target synaptic location: (-36.855766, 164.64764, -42.56559)
+Separation: 10.066044</meta:notes>
+
+                <pre cell_id="1" segment_id="2" fraction_along="0.056808352"/>
+                <post cell_id="2" segment_id="26" fraction_along="0.36132967"/>
+            </connection>
+        </connections>
+    </projection>
+</projections>
+</networkml>

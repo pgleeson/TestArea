@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.5.0_10" class="java.beans.XMLDecoder"> 
+ <object class="ucl.physiol.neuroconstruct.project.InternalPhysicalParameter"> 
+  <void property="defaultValue"> 
+   <float>0.0010</float> 
+  </void> 
+  <void property="parameterDescription"> 
+   <string>DEFAULT Maximum conductance for the channel mechanism per unitarea. NOTE: overwritten when mechanism is placed on membrane</string> 
+  </void> 
+  <void property="parameterName"> 
+   <string>Max Conductance Density</string> 
+  </void> 
+  <void property="units"> 
+   <object class="ucl.physiol.neuroconstruct.utils.units.Units"> 
+    <void property="name"> 
+     <string>neuroConstruct_conductanceDensity</string> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="value"> 
+   <float>0.0010</float> 
+  </void> 
+ </object> 
+ <object class="ucl.physiol.neuroconstruct.project.InternalPhysicalParameter"> 
+  <void property="parameterDescription"> 
+   <string>Is this a mechanism requiring x, y, z coords of parent segment?</string> 
+  </void> 
+  <void property="parameterName"> 
+   <string>RequiresXYZ</string> 
+  </void> 
+  <void property="units"> 
+   <object class="ucl.physiol.neuroconstruct.utils.units.Units"> 
+    <void property="baseSymbol"> 
+     <string></string> 
+    </void> 
+    <void property="name"> 
+     <string>neuroConstruct_dimensionless</string> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="value"> 
+   <float>1.0</float> 
+  </void> 
+ </object> 
+</java> 

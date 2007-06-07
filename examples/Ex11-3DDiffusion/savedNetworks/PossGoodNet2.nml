@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<networkml xmlns="http://morphml.org/networkml/schema" xmlns:meta="http://morphml.org/metadata/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://morphml.org/networkml/schema  http://www.morphml.org:8080/NeuroMLValidator/NeuroMLFiles/Schemata/v1.4/Level3/NetworkML_v1.4.xsd" lengthUnits="micron">
+
+<meta:notes>
+
+Network structure for project: Ex11-3DDiffusion saved with neuroConstruct v0.9.7 on: 15:12:57, 05-Feb-07
+
+Cell Group: PurkinjeCells contains 3 cells
+Cell Group: GranuleCells contains 3 cells
+
+Network connection: NetConn_PF_PC contains 15 individual synaptic connections
+
+</meta:notes>
+
+<meta:properties>
+    <meta:property>
+        <meta:tag>neuroConstruct_random_seed</meta:tag>
+        <meta:value>1410918511</meta:value>    
+    </meta:property>
+    <meta:property>
+        <meta:tag>neuroConstruct_sim_config</meta:tag>
+        <meta:value>Default Simulation Configuration</meta:value>    
+    </meta:property>
+</meta:properties>
+
+<populations>
+    <population name="PurkinjeCells">
+        <cell_type>PurkinjeCell</cell_type>
+        <instances>
+            <instance id="0">
+                <location x="32.42276" y="70.10562" z="-29.162067"/>
+            </instance>
+            <instance id="1">
+                <location x="-35.686504" y="89.50844" z="-32.56571"/>
+            </instance>
+            <instance id="2">
+                <location x="-38.662415" y="76.58116" z="12.493027"/>
+            </instance>
+        </instances>
+    </population>
+    <population name="GranuleCells">
+        <cell_type>GranuleCell</cell_type>
+        <instances>
+            <instance id="0">
+                <location x="31.424835" y="39.071133" z="-41.132774"/>
+            </instance>
+            <instance id="1">
+                <location x="-30.73234" y="22.51589" z="-36.76331"/>
+            </instance>
+            <instance id="2">
+                <location x="17.22107" y="27.83764" z="35.328568"/>
+            </instance>
+        </instances>
+    </population>
+</populations>
+
+<projections units="Physiological Units">
+    <projection name="NetConn_PF_PC">
+        <source>GranuleCells</source>
+        <target>PurkinjeCells</target>
+        <synapse_props>
+            <synapse_type>PFPCSyn</synapse_type>
+            <default_values internal_delay="5.0" weight="1.0" threshold="-20.0"/>
+        </synapse_props>
+        <connections>
+            <connection id="0">
+                <pre cell_id="2" segment_id="3" fraction_along="0.072482"/>
+                <post cell_id="0" segment_id="36" fraction_along="0.6005164"/>
+            </connection>
+            <connection id="1">
+                <pre cell_id="1" segment_id="3" fraction_along="0.11821869"/>
+                <post cell_id="0" segment_id="41" fraction_along="0.56733"/>
+            </connection>
+            <connection id="2">
+                <pre cell_id="1" segment_id="3" fraction_along="0.4491276"/>
+                <post cell_id="0" segment_id="30" fraction_along="0.050864257"/>
+            </connection>
+            <connection id="3">
+                <pre cell_id="0" segment_id="3" fraction_along="0.16431467"/>
+                <post cell_id="0" segment_id="36" fraction_along="0.97287595"/>
+            </connection>
+            <connection id="4">
+                <pre cell_id="0" segment_id="3" fraction_along="0.009051412"/>
+                <post cell_id="0" segment_id="17" fraction_along="0.7767166"/>
+            </connection>
+            <connection id="5">
+                <pre cell_id="0" segment_id="2" fraction_along="0.46737787"/>
+                <post cell_id="1" segment_id="34" fraction_along="0.46580678"/>
+            </connection>
+            <connection id="6">
+                <pre cell_id="2" segment_id="2" fraction_along="0.33663416"/>
+                <post cell_id="1" segment_id="42" fraction_along="0.9810522"/>
+            </connection>
+            <connection id="7">
+                <pre cell_id="0" segment_id="2" fraction_along="0.42192686"/>
+                <post cell_id="1" segment_id="17" fraction_along="0.4576518"/>
+            </connection>
+            <connection id="8">
+                <pre cell_id="0" segment_id="2" fraction_along="0.40442777"/>
+                <post cell_id="1" segment_id="32" fraction_along="0.912581"/>
+            </connection>
+            <connection id="9">
+                <pre cell_id="1" segment_id="2" fraction_along="0.10298288"/>
+                <post cell_id="1" segment_id="27" fraction_along="0.024542237"/>
+            </connection>
+            <connection id="10">
+                <pre cell_id="2" segment_id="2" fraction_along="0.33151257"/>
+                <post cell_id="2" segment_id="20" fraction_along="0.009201807"/>
+            </connection>
+            <connection id="11">
+                <pre cell_id="2" segment_id="2" fraction_along="0.34077787"/>
+                <post cell_id="2" segment_id="40" fraction_along="0.0034142954"/>
+            </connection>
+            <connection id="12">
+                <pre cell_id="1" segment_id="2" fraction_along="0.0014053583"/>
+                <post cell_id="2" segment_id="33" fraction_along="0.0040319823"/>
+            </connection>
+            <connection id="13">
+                <pre cell_id="2" segment_id="2" fraction_along="0.33232927"/>
+                <post cell_id="2" segment_id="36" fraction_along="0.042938232"/>
+            </connection>
+            <connection id="14">
+                <pre cell_id="1" segment_id="2" fraction_along="0.056808352"/>
+                <post cell_id="2" segment_id="26" fraction_along="0.36132967"/>
+            </connection>
+        </connections>
+    </projection>
+</projections>
+</networkml>
