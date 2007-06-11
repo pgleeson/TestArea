@@ -9,10 +9,10 @@ part of NeuroML or any standardised XML specification. -->
 
  <object class="ucl.physiol.neuroconstruct.project.BasicProjectInfo"> 
   <void property="projectDescription"> 
-   <string>This is a simple project with a single cell placed randomly in a 3D rectangular box.</string> 
+   <string>This is a simple project with a single cell placed randomly in a 3D rectangular box. </string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v0.9.7.5</string> 
+   <string>neuroConstruct v1.0.3</string> 
   </void> 
   <void property="projectName"> 
    <string>BenchmarksBretteEtAl</string> 
