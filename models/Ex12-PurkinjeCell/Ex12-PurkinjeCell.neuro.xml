@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.5.0_10" class="java.beans.XMLDecoder"> 
+<java version="1.5.0_06" class="java.beans.XMLDecoder"> 
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -15,12 +15,12 @@ An implementation of the Purkinje Cell model from De Schutter, E. and Bower, J. 
 * Not yet complete!!!*
 
 Issues:
-Na channel: cells only equal when dt = 0.002
+Na channel: cells only equal when dt = 0.002 (too small!!)
 
 CaP chan not equal orig mod when table divs = 3000 </string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v0.9.8</string> 
+   <string>neuroConstruct v1.0.3</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex12-PurkinjeCell</string> 
@@ -371,13 +371,13 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
  </object> 
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters"> 
   <void property="dt"> 
-   <float>0.0010</float> 
+   <float>0.02</float> 
   </void> 
   <void property="duration"> 
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_164</string> 
+   <string>Sim_168</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 

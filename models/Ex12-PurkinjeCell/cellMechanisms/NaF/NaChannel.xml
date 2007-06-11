@@ -2,7 +2,7 @@
 <channelml xmlns="http://morphml.org/channelml/schema"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xmlns:meta="http://morphml.org/metadata/schema"
-           xsi:schemaLocation="http://morphml.org/channelml/schema  ../../Schemata/v1.3/Level2/ChannelML_v1.3.xsd"
+           xsi:schemaLocation="http://morphml.org/channelml/schema  ../../Schemata/v1.6/Level2/ChannelML_v1.6.xsd"
            units="Physiological Units">
 
     <meta:notes>ChannelML file containing a single Channel from De Schutter and Bower 1998</meta:notes>
@@ -127,7 +127,7 @@
         <!-- Specifying table divs to try to get as close as possible to original impl -->
 
         <impl_prefs>
-            <table_settings max_v="50" min_v="-100" table_divisions="3000"/>
+            <table_settings max_v="100" min_v="-100" table_divisions="3000"/>
         </impl_prefs>
 
 
