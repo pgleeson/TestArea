@@ -11,7 +11,7 @@ Note the following:
    Mechanism Type should only have values: Channel mechanism, Synaptic mechanism, Ion concentration
 
 </comment>
-<entry key="Description">P type Ca current</entry>
+<entry key="Description">P type Ca current. Based on Roth et al's reimplementation of original GENESIS model in NEURON</entry>
 <entry key="NEURON mapping">ChannelML_v1.6_NEURONmod.xsl</entry>
 <entry key="GENESIS mapping">ChannelML_v1.6_GENESIStab.xsl</entry>
 <entry key="Implementation method">ChannelML based Cell Mechanism</entry>

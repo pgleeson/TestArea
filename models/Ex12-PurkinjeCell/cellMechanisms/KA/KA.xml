@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema  ../../Schemata/v1.3/Level2/ChannelML_v1.3.xsd" units="Physiological Units">
+<channelml xmlns="http://morphml.org/channelml/schema" 
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	       xmlns:meta="http://morphml.org/metadata/schema" 
+	       xsi:schemaLocation="http://morphml.org/channelml/schema  ../../Schemata/v1.6/Level2/ChannelML_v1.6.xsd" 
+	       units="Physiological Units">
 
     <meta:notes>ChannelML file containing a single Channel from De Schutter and Bower 1998</meta:notes>
 
-
-    <ion name="k" charge="1" default_erev="-85"/>              <!-- phys units: mV -->
+    <ion name="k" charge="1" default_erev="-85"/>                      <!-- phys units: mV -->
 
 
     <channel_type name="KA" density="yes">
+      
+        <status value="stable">
+            <meta:notes>Verified equivalence of NEURON and GENESIS mapping to orig NEURON mod impl at 0.02ms dt with current pulse</meta:notes>
+            <meta:name>Padraig Gleeson</meta:name>
+        </status>
 
-        <meta:notes>A type K current</meta:notes>
+        <meta:notes>A type K current. Based on Roth et al's reimplementation of original GENESIS model in NEURON</meta:notes>
 
         <meta:authorList>
             <meta:modelAuthor>
@@ -58,7 +66,7 @@
 
         <current_voltage_relation>
             <ohmic ion="k">
-                <conductance default_gmax="15">             <!-- phys units: mS/cm2 -->
+                <conductance default_gmax="15">                     <!-- phys units: mS/cm2 -->
 
                     <rate_adjustments>
                         <q10_settings q10_factor="3" experimental_temp="37"/>
@@ -120,10 +128,12 @@
         </hh_gate>
 
 
-        <!-- Specifying table divs to try to get as close as possible to original impl -->
+                <!-- Specifying table divs to try to get as close as possible to original impl -->
+
+
 
         <impl_prefs>
-			<comment>Note, Using the NEURON mod file impl settings to get a closer match</comment>
+            <comment>Note, Using the NEURON mod file impl settings to get a closer match</comment>
             <table_settings max_v="100" min_v="-100" table_divisions="200"/>
         </impl_prefs>
 

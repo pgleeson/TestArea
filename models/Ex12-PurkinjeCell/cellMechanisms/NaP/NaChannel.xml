@@ -12,8 +12,10 @@
 
 
     <channel_type name="NaP" density="yes">
+      
+        <status value="known_issues"/>
 
-        <meta:notes>Persistent Na current</meta:notes>
+        <meta:notes>Persistent Na current. Based on Roth et al's reimplementation of original GENESIS model in NEURON</meta:notes>
 
         <meta:authorList>
             <meta:modelAuthor>

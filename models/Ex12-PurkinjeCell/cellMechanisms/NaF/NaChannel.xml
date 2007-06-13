@@ -12,8 +12,10 @@
 
 
     <channel_type name="NaF" density="yes">
+      
+        <status value="known_issues"/>
 
-        <meta:notes>Fast sodium channel</meta:notes>
+        <meta:notes>Fast sodium channel. Based on Roth et al's reimplementation of original GENESIS model in NEURON</meta:notes>
 
         <meta:authorList>
             <meta:modelAuthor>

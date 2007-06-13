@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema  ../../Schemata/v1.3/Level2/ChannelML_v1.3.xsd" units="Physiological Units">
+<channelml xmlns="http://morphml.org/channelml/schema" 
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+           xmlns:meta="http://morphml.org/metadata/schema" 
+           xsi:schemaLocation="http://morphml.org/channelml/schema  ../../Schemata/v1.6/Level2/ChannelML_v1.6.xsd" 
+           units="Physiological Units">
 
     <meta:notes>ChannelML file containing a single Channel from De Schutter and Bower 1998</meta:notes>
 
@@ -8,8 +12,13 @@
 
 
     <channel_type name="Kh1" density="yes">
-
-        <meta:notes>Anomalous rectifier current</meta:notes>
+      <!--
+        <status value="stable">
+            <meta:notes>Verified equivalence of NEURON and GENESIS mapping to orig NEURON mod impl at 0.02ms dt with current pulse</meta:notes>
+            <meta:name>Padraig Gleeson</meta:name>
+        </status>-->
+        
+        <meta:notes>Anomalous rectifier current. Based on Roth et al's reimplementation of original GENESIS model in NEURON</meta:notes>
 
         <meta:authorList>
             <meta:modelAuthor>

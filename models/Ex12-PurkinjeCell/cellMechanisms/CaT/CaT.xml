@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <channelml xmlns="http://morphml.org/channelml/schema"
-     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-     xmlns:meta="http://morphml.org/metadata/schema"
-     xsi:schemaLocation="http://morphml.org/channelml/schema  ../../../../../NeuroMLValidator/web/NeuroMLFiles/Schemata/v1.6/Level2/ChannelML_v1.6.xsd"
-     units="Physiological Units">
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:meta="http://morphml.org/metadata/schema"
+           xsi:schemaLocation="http://morphml.org/channelml/schema  ../../../../../NeuroMLValidator/web/NeuroMLFiles/Schemata/v1.6/Level2/ChannelML_v1.6.xsd"
+           units="Physiological Units">
 
     <meta:notes>ChannelML file containing a single Channel from De Schutter and Bower 1998</meta:notes>
 
@@ -12,8 +12,10 @@
 
 
     <channel_type name="CaT" density="yes">
+            
+        <status value="in_progress"/>
 
-        <meta:notes>T type Ca current</meta:notes>
+        <meta:notes>T type Ca current. Based on Roth et al's reimplementation of original GENESIS model in NEURON</meta:notes>
 
         <meta:authorList>
             <meta:modelAuthor>

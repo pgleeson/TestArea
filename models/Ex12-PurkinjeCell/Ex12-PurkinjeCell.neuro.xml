@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.5.0_06" class="java.beans.XMLDecoder"> 
+<java version="1.5.0_10" class="java.beans.XMLDecoder"> 
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -97,7 +97,7 @@ CaP chan not equal orig mod when table divs = 3000 </string>
    <void method="get"> 
     <string>Cell Type</string> 
     <void method="add"> 
-     <string>SomaOnly</string> 
+     <string>SomaOnly_Kh1</string> 
     </void> 
     <void method="add"> 
      <string>SomaOnly_origChans</string> 
@@ -377,7 +377,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_168</string> 
+   <string>Sim_177</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 

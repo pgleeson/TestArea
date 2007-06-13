@@ -17,9 +17,10 @@
 
 
     <channel_type name="LeakConductance" density="yes">
+      
+        <status value="stable"/>
 
-        <meta:notes>Simple example of a leak/passive conductance. Note: for GENESIS cells with a single leak conductance,
-        it is better to use the Rm and Em variables for a passive current.</meta:notes>
+        <meta:notes>Simple example of a leak/passive conductance.</meta:notes>
 
         <current_voltage_relation>
             <ohmic ion="non_specific">
