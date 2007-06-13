@@ -8,7 +8,7 @@
     
     <channel_type name="KA" density="yes">
     
-        <status value="in_progresss"/>
+        <status value="in_progress"/>
     
         <meta:notes>A type K+ channel, with rate equations expressed in tau and inf form</meta:notes>
         
