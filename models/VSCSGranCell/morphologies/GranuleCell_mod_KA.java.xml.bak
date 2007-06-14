@@ -96,7 +96,7 @@
    </void> 
   </void> 
   <void property="instanceName"> 
-   <string>GranuleCell_mod</string> 
+   <string>GranuleCell_mod_KA</string> 
   </void> 
   <void property="specAxResVsGroups"> 
    <void method="remove"> 
