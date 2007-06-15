@@ -1,22 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema   ../../../../templates/xmlTemplates/Schemata/v1.2/Level2/ChannelML_v1.2.xsd" units="Physiological Units">
+<channelml xmlns="http://morphml.org/channelml/schema" 
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+           xmlns:meta="http://morphml.org/metadata/schema" 
+           xsi:schemaLocation="http://morphml.org/channelml/schema   ../../../../templates/xmlTemplates/Schemata/v1.6/Level2/ChannelML_v1.6.xsd" units="Physiological Units">
 
-    <meta:notes>A channel from Maex, R and De Schutter, E. Synchronization of Golgi and Granule Cell Firing in a 
-    Detailed Network Model of the Cerebellar Granule Cell Layer</meta:notes>
+    <meta:notes>A channel from D'Angelo et al 2001</meta:notes>
     
     <ion name="k" charge="1" default_erev="-77"/>  
     
     <channel_type name="Kir" density="yes">
     
-        <status value="known_issues"/>
+        <status value="in_progress">
+            <meta:comment>Verified equivalence of NEURON and GENESIS mapping to orig NEURON mod impl at 0.02ms dt with current pulse</meta:comment>
+            <meta:issue>Does not follow Table 1 in D'Angelo et al. 2001</meta:issue>
+            <meta:contributor>
+                <meta:name>Padraig Gleeson</meta:name>
+            </meta:contributor>
+        </status>
     
         <meta:notes>Inward rectifying K+ channel</meta:notes>
         
+        <meta:authorList>
+            <meta:modelTranslator>
+                <meta:name>Padraig Gleeson</meta:name>
+                <meta:institution>UCL</meta:institution>
+                <meta:email>p.gleeson - at - ucl.ac.uk</meta:email>
+            </meta:modelTranslator>
+        </meta:authorList>
+        
         <meta:publication>
-           <meta:fullTitle>Maex, R and De Schutter, E. 
-           Synchronization of Golgi and Granule Cell Firing in a Detailed Network Model of the 
-           cerebellar Granule Cell Layer. J Neurophysiol, Nov 1998; 80: 2521 - 2537</meta:fullTitle>
-           <meta:pubmedRef>http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=9819260&amp;dopt=Abstract</meta:pubmedRef>
+          <meta:fullTitle>Paola Rossi, Giovanna De Filippi, Simona Armano, Vanni Taglietti, and Egidio D'Angelo. 
+            The weaver Mutation Causes a Loss of Inward Rectifier Current Regulation in Premigratory Granule Cells of the Mouse Cerebellum
+            J. Neurosci. 18: 3537-3547, 2001</meta:fullTitle>
+          <meta:pubmedRef>http://www.ncbi.nlm.nih.gov/sites/entrez?cmd=retrieve&amp;db=pubmed&amp;list_uids=9570785&amp;dopt=Abstract</meta:pubmedRef>
+        </meta:publication>  
+        
+        <meta:publication>
+          <meta:fullTitle>D'Angelo E, Nieus T, Maffei A, Armano S, Rossi P, Taglietti V, Fontana A, Naldi G. 
+            Theta-frequency bursting and resonance in cerebellar granule cells: experimental evidence and modeling of a slow k+-dependent mechanism.
+            J Neurosci. 2001 Feb 1;21(3):759-70.</meta:fullTitle>
+          <meta:pubmedRef>http://www.ncbi.nlm.nih.gov/sites/entrez?cmd=retrieve&amp;db=pubmed&amp;list_uids=11157062&amp;dopt=Abstract</meta:pubmedRef>
         </meta:publication>     
    
         <meta:neuronDBref>
@@ -27,33 +50,33 @@
         
         <current_voltage_relation>
             <ohmic ion="k">
-                <conductance default_gmax="1.14567">   
-                    <rate_adjustments>
-                        <q10_settings fixed_q10="5" experimental_temp="37"/> <!-- Note channel should only be used at 37 deg C!-->
-                        <offset value="10"/>
-                    </rate_adjustments>
+                <conductance default_gmax="0.9">   
                     <gate power="1">
                         <state name="m" fraction="1"/>
                     </gate>
                 </conductance>
             </ohmic>
         </current_voltage_relation>
-        
+ 
         
         <hh_gate state="m">
-            <transition>
-                <voltage_gate>
-                    <tau>
-                        <generic_equation_hh expr="0.410 * ((exp (( ((v) + 43.5) / (-42.8))))) + 0.167"/>
-                    </tau>
-                    <inf>
-                        <parameterised_hh type="sigmoid" expr="A/(1 + exp(k*(v-d)))">
-                            <parameter name="A" value="1"/>
-                            <parameter name="k" value="-0.050505051"/>
-                            <parameter name="d" value="-46.7"/>
-                        </parameterised_hh>
-                    </inf>
-                </voltage_gate>
+          <transition>
+            <voltage_gate>
+              <alpha>
+                <parameterised_hh type="exponential">
+                  <parameter name="A" value="0.4"/>
+                  <parameter name="k" value="-0.08"/>
+                  <parameter name="d" value="-86.3"/>
+                </parameterised_hh>
+              </alpha>
+              <beta>
+                <parameterised_hh type="exponential">
+                  <parameter name="A" value="0.4"/>
+                  <parameter name="k" value="0.04"/>
+                  <parameter name="d" value="-86.3"/>
+                </parameterised_hh>
+              </beta>
+            </voltage_gate>
             </transition>
         </hh_gate>
         

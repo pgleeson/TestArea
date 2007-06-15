@@ -226,6 +226,9 @@ BREAKPOINT {
             <xsl:for-each select="/cml:channelml/cml:ion">
                 <xsl:if test ="count(@role) = 0 or @role='PermeatedSubstance'">
     i<xsl:value-of select="@name"/> = gion*(v - e<xsl:value-of select="@name"/>)
+
+?("-- t=%g v=%g m=%g\n", t, v, m)
+
                 </xsl:if>
             </xsl:for-each>
         </xsl:otherwise>
@@ -323,7 +326,7 @@ DERIVATIVE states {
         
         <xsl:variable name="max_v">
             <xsl:choose>
-                <xsl:when test="count(cml:impl_prefs/cml:table_settings) = 0">70</xsl:when>
+                <xsl:when test="count(cml:impl_prefs/cml:table_settings) = 0">100</xsl:when>
                 <xsl:otherwise>
                     <xsl:call-template name="convert">
                         <xsl:with-param name="value"><xsl:value-of select="cml:impl_prefs/cml:table_settings/@max_v"/></xsl:with-param>
@@ -347,7 +350,7 @@ DERIVATIVE states {
         
         <xsl:variable name="table_divisions">
             <xsl:choose>
-                <xsl:when test="count(cml:impl_prefs/cml:table_settings) = 0">200</xsl:when>
+                <xsl:when test="count(cml:impl_prefs/cml:table_settings) = 0">400</xsl:when>
                 <xsl:otherwise><xsl:value-of select="cml:impl_prefs/cml:table_settings/@table_divisions"/></xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
@@ -586,8 +589,13 @@ DERIVATIVE states {
          
        <xsl:if test="count(cml:transition/cml:voltage_gate/cml:inf)=0">
     <xsl:value-of select="$stateName"/>inf = alpha/(alpha + beta)<xsl:text>
+
+
     </xsl:text>
        </xsl:if>    
+
+
+    ? printf("xml --<xsl:value-of select="$stateName"/>inf=%g alpha=%g beta=%g\n", <xsl:value-of select="$stateName"/>inf, alpha, beta)
        
     
     ?     *** Finished rate equations for gate: <xsl:value-of select="$stateName"/> ***

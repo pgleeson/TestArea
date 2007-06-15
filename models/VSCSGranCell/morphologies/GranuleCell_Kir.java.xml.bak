@@ -3,7 +3,7 @@
 
 <!-- Note that this XML is specific to the neuroConstruct Java cell object model and not any part of the NeuroML framework -->
 
- <object class="ucl.physiol.neuroconstruct.cell.examples.OneSegment"> 
+ <object class="ucl.physiol.neuroconstruct.cell.Cell"> 
   <void property="allSegments"> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.cell.Segment"> 
@@ -56,7 +56,7 @@
    </void> 
   </void> 
   <void property="cellDescription"> 
-   <string>A Granule Cell model based on that from Berends et al 2005, implemented with the original mod files (obtained from Volker Steuber &amp; Chiara Saviane)</string> 
+   <string>A Granule Cell model based on that from Berends et al 2005</string> 
   </void> 
   <void property="chanMechsVsGroups"> 
    <void method="put"> 
@@ -96,7 +96,7 @@
    </void> 
   </void> 
   <void property="instanceName"> 
-   <string>GranuleCell</string> 
+   <string>GranuleCell_Kir</string> 
   </void> 
   <void property="specAxResVsGroups"> 
    <void method="remove"> 

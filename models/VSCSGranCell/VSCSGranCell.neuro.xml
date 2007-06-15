@@ -71,10 +71,10 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
    <void method="get"> 
     <string>Cell Type</string> 
     <void method="add"> 
-     <string>GranuleCell</string> 
+     <string>GranuleCell_KA</string> 
     </void> 
     <void method="add"> 
-     <string>GranuleCell_mod</string> 
+     <string>GranuleCell_mod_KA</string> 
     </void> 
    </void> 
    <void method="get"> 
@@ -216,7 +216,7 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_17</string> 
+   <string>Sim_40</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -290,10 +290,10 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
     <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
      <void property="cellGroups"> 
       <void method="add"> 
-       <string>SampleCellGroup</string> 
+       <string>OrigModCellGroup</string> 
       </void> 
       <void method="add"> 
-       <string>OrigModCellGroup</string> 
+       <string>SampleCellGroup</string> 
       </void> 
      </void> 
      <void property="description"> 
@@ -319,7 +319,7 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
       </void> 
      </void> 
      <void property="simDuration"> 
-      <float>100.0</float> 
+      <float>1.0</float> 
      </void> 
     </object> 
    </void> 

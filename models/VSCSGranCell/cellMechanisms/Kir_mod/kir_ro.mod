@@ -51,6 +51,8 @@ STATE {
 BREAKPOINT {
   SOLVE states METHOD cnexp
   ik = gmax * m*(v-ek)
+
+    :printf("orig mod -- t=%g v=%g m=%g\n", t, v, m)
   }
 
 DERIVATIVE states {
@@ -65,6 +67,7 @@ FUNCTION malpha(v (mV)) (/ms) {
   UNITSOFF  
   malpha = Aalpha_m*exp(Kalpha_m*(v+V0alpha_m))
   UNITSON
+
   }
 
 FUNCTION mbeta(v (mV)) (/ms) {

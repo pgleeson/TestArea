@@ -3,7 +3,7 @@
 
 <!-- Note that this XML is specific to the neuroConstruct Java cell object model and not any part of the NeuroML framework -->
 
- <object class="ucl.physiol.neuroconstruct.cell.examples.OneSegment"> 
+ <object class="ucl.physiol.neuroconstruct.cell.Cell"> 
   <void property="allSegments"> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.cell.Segment"> 
@@ -80,7 +80,7 @@
       <float>9.5E-9</float> 
      </void> 
      <void property="name"> 
-      <string>Kir</string> 
+      <string>Kir_mod</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
@@ -96,7 +96,7 @@
    </void> 
   </void> 
   <void property="instanceName"> 
-   <string>GranuleCell</string> 
+   <string>GranuleCell_mod_Kir</string> 
   </void> 
   <void property="specAxResVsGroups"> 
    <void method="remove"> 
