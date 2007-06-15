@@ -374,13 +374,13 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
  </object> 
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters"> 
   <void property="dt"> 
-   <float>0.0020</float> 
+   <float>2.0E-4</float> 
   </void> 
   <void property="duration"> 
    <float>300.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_221</string> 
+   <string>Sim_226</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -396,14 +396,6 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
   <void property="allStims"> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amplitude"> 
-      <void property="end"> 
-       <float>0.3</float> 
-      </void> 
-      <void property="start"> 
-       <float>0.3</float> 
-      </void> 
-     </void> 
      <void property="cellGroup"> 
       <string>SampleCellGroup</string> 
      </void> 
@@ -430,14 +422,6 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    </void> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amplitude"> 
-      <void property="end"> 
-       <float>0.3</float> 
-      </void> 
-      <void property="start"> 
-       <float>0.3</float> 
-      </void> 
-     </void> 
      <void property="cellGroup"> 
       <string>OrigChansCellGroup</string> 
      </void> 
@@ -464,14 +448,6 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    </void> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amplitude"> 
-      <void property="end"> 
-       <float>0.3</float> 
-      </void> 
-      <void property="start"> 
-       <float>0.3</float> 
-      </void> 
-     </void> 
      <void property="cellGroup"> 
       <string>AllChansCML</string> 
      </void> 
@@ -498,14 +474,6 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    </void> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amplitude"> 
-      <void property="end"> 
-       <float>0.3</float> 
-      </void> 
-      <void property="start"> 
-       <float>0.3</float> 
-      </void> 
-     </void> 
      <void property="cellGroup"> 
       <string>AllChansOrig</string> 
      </void> 
