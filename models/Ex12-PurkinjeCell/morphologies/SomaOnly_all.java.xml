@@ -62,10 +62,10 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>1.0E-8</float> 
+      <float>7.5E-5</float> 
      </void> 
      <void property="name"> 
-      <string>NaP</string> 
+      <string>NaF</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
@@ -92,10 +92,25 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>1.0E-9</float> 
+      <float>1.0E-8</float> 
      </void> 
      <void property="name"> 
-      <string>LeakConductance</string> 
+      <string>NaP</string> 
+     </void> 
+    </object> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>soma_group</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="density"> 
+      <float>6.0E-6</float> 
+     </void> 
+     <void property="name"> 
+      <string>Kdr</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
@@ -122,25 +137,10 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>7.5E-5</float> 
+      <float>1.0E-9</float> 
      </void> 
      <void property="name"> 
-      <string>NaF</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>soma_group</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
-      <float>6.0E-6</float> 
-     </void> 
-     <void property="name"> 
-      <string>Kdr</string> 
+      <string>LeakConductance</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 

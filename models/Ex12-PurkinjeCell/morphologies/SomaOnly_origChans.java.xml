@@ -65,7 +65,7 @@
       <float>3.0E-9</float> 
      </void> 
      <void property="name"> 
-      <string>Kh1_nmodl</string> 
+      <string>Kh2_nmodl</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 

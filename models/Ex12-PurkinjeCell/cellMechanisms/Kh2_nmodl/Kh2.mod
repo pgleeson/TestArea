@@ -20,7 +20,7 @@ UNITS {
  
 NEURON {
         SUFFIX %Name%
-        USEION k WRITE ik
+        USEION k READ ek WRITE ik      :////PG///  Note!!! originally no 'READ ek' here
         RANGE  gmax, gk, minf, nexp, ik
 } 
  

@@ -7,7 +7,7 @@
 
 <!--
 
-    This file is used to convert v1.5 ChannelML files to NEURON mod files
+    This file is used to convert v1.6 ChannelML files to NEURON mod files
 
     This file has been developed as part of the neuroConstruct project
     
@@ -25,7 +25,7 @@
 <!--Main template-->
 
 <xsl:template match="/cml:channelml">
-?  This is a NEURON mod file generated from a v1.5 ChannelML file
+?  This is a NEURON mod file generated from a v1.6 ChannelML file
 
 ?  Unit system of original ChannelML file: <xsl:value-of select="$xmlFileUnitSystem"/><xsl:text>
 </xsl:text>
@@ -313,7 +313,7 @@ DERIVATIVE states {
     </xsl:choose> 
     
     ? Note, not all of these may be used, depending on the form of rate equations
-    LOCAL  alpha, beta, A, B, k, d, tau, inf<xsl:for-each select='cml:hh_gate/cml:transition/cml:voltage_conc_gate/cml:conc_dependence'
+    LOCAL  alpha, beta, gamma, zeta, A, B, k, d, tau, inf<xsl:for-each select='cml:hh_gate/cml:transition/cml:voltage_conc_gate/cml:conc_dependence'
     >, <xsl:value-of select="@variable_name"/> </xsl:for-each> <xsl:for-each select="cml:current_voltage_relation/cml:ohmic/cml:conductance/cml:gate">, temp_adj_<xsl:value-of 
     select="cml:state/@name"/></xsl:for-each>
     
@@ -323,7 +323,7 @@ DERIVATIVE states {
         
         <xsl:variable name="max_v">
             <xsl:choose>
-                <xsl:when test="count(cml:impl_prefs/cml:table_settings) = 0">70</xsl:when>
+                <xsl:when test="count(cml:impl_prefs/cml:table_settings) = 0">100</xsl:when>
                 <xsl:otherwise>
                     <xsl:call-template name="convert">
                         <xsl:with-param name="value"><xsl:value-of select="cml:impl_prefs/cml:table_settings/@max_v"/></xsl:with-param>
@@ -347,7 +347,7 @@ DERIVATIVE states {
         
         <xsl:variable name="table_divisions">
             <xsl:choose>
-                <xsl:when test="count(cml:impl_prefs/cml:table_settings) = 0">200</xsl:when>
+                <xsl:when test="count(cml:impl_prefs/cml:table_settings) = 0">400</xsl:when>
                 <xsl:otherwise><xsl:value-of select="cml:impl_prefs/cml:table_settings/@table_divisions"/></xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
@@ -363,13 +363,24 @@ DERIVATIVE states {
             <xsl:for-each select="cml:current_voltage_relation/cml:ohmic/cml:conductance/cml:rate_adjustments/cml:q10_settings">
                 <xsl:choose>
                     <xsl:when test="count(@gate) &gt; 0">
+                        <xsl:choose><xsl:when test="count(@q10_factor) &gt; 0">
     temp_adj_<xsl:value-of select="@gate"/> = <xsl:value-of select="@q10_factor" />^((celsius - <xsl:value-of select="@experimental_temp"/>)/10)
+                        </xsl:when><xsl:when test="count(@fixed_q10) &gt; 0">
+    temp_adj_<xsl:value-of select="@gate"/> = <xsl:value-of select="@fixed_q10" />
+                        </xsl:when></xsl:choose>
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:variable name="expression"><xsl:value-of select="@q10_factor" />^((celsius - <xsl:value-of select="@experimental_temp"/>)/10)</xsl:variable>
-                        <xsl:for-each select="../../cml:gate">
+                        <xsl:choose><xsl:when test="count(@q10_factor) &gt; 0">
+                            <xsl:variable name="expression"><xsl:value-of select="@q10_factor" />^((celsius - <xsl:value-of select="@experimental_temp"/>)/10)</xsl:variable>
+                            <xsl:for-each select="../../cml:gate">
     temp_adj_<xsl:value-of select="cml:state/@name"/> = <xsl:value-of select="$expression"/>
-                        </xsl:for-each>
+                            </xsl:for-each>
+                        </xsl:when><xsl:when test="count(@fixed_q10) &gt; 0">     
+                            <xsl:variable name="expression"><xsl:value-of select="@fixed_q10" /></xsl:variable>
+                            <xsl:for-each select="../../cml:gate">
+    temp_adj_<xsl:value-of select="cml:state/@name"/> = <xsl:value-of select="$expression"/>
+                            </xsl:for-each>
+                        </xsl:when></xsl:choose>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:for-each>
@@ -662,7 +673,7 @@ INITIAL {
     
     VERBATIM
 
-    printf("\n\n surf_area: %f\n", surf_area);
+    //printf("\n\n surf_area: %f\n", surf_area);
 
     ENDVERBATIM
 

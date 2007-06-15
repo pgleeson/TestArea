@@ -7,7 +7,7 @@
 
 <!--
 
-    This file is used to convert ChannelML v1.5 files to GENESIS tabchannel/tab2Dchannel/leakage based script files
+    This file is used to convert ChannelML v1.6 files to GENESIS tabchannel/tab2Dchannel/leakage based script files
 
     This file has been developed as part of the neuroConstruct project
 
@@ -33,7 +33,7 @@
 <!--Main template-->
 
 <xsl:template match="/cml:channelml">
-<xsl:text>// This is a GENESIS script file generated from a ChannelML v1.5 file
+<xsl:text>// This is a GENESIS script file generated from a ChannelML v1.6 file
 // ChannelML file is mapped onto a tabchannel object
 
 </xsl:text>
@@ -149,13 +149,24 @@ function make_<xsl:value-of select="@name"/>
             <xsl:for-each select="cml:current_voltage_relation/cml:ohmic/cml:conductance/cml:rate_adjustments/cml:q10_settings">
                 <xsl:choose>
                     <xsl:when test="count(@gate) &gt; 0">
+                        <xsl:choose><xsl:when test="count(@q10_factor) &gt; 0">
         float temp_adj_<xsl:value-of select="@gate"/> = {pow <xsl:value-of select="@q10_factor"/> {(celsius - <xsl:value-of select="@experimental_temp"/>)/10}}
+                        </xsl:when><xsl:when test="count(@fixed_q10) &gt; 0">
+        float temp_adj_<xsl:value-of select="@gate"/> = <xsl:value-of select="@fixed_q10"/>
+                        </xsl:when></xsl:choose>
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:variable name="expression">{pow <xsl:value-of select="@q10_factor"/> {(celsius - <xsl:value-of select="@experimental_temp"/>)/10}}</xsl:variable>
-                        <xsl:for-each select="../../cml:gate">
+                        <xsl:choose><xsl:when test="count(@q10_factor) &gt; 0">
+                            <xsl:variable name="expression">{pow <xsl:value-of select="@q10_factor"/> {(celsius - <xsl:value-of select="@experimental_temp"/>)/10}}</xsl:variable>
+                            <xsl:for-each select="../../cml:gate">
         float temp_adj_<xsl:value-of select="cml:state/@name"/> = <xsl:value-of select="$expression"/>
-                        </xsl:for-each>
+                            </xsl:for-each>
+                        </xsl:when><xsl:when test="count(@fixed_q10) &gt; 0">
+                            <xsl:variable name="expression"><xsl:value-of select="@fixed_q10"/></xsl:variable>
+                            <xsl:for-each select="../../cml:gate">
+        float temp_adj_<xsl:value-of select="cml:state/@name"/> = <xsl:value-of select="$expression"/>
+                            </xsl:for-each>
+                        </xsl:when></xsl:choose>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:for-each>
@@ -173,8 +184,8 @@ function make_<xsl:value-of select="@name"/>
          <xsl:variable name="max_v">
             <xsl:choose>
                 <xsl:when test="count(cml:impl_prefs/cml:table_settings) = 0"><xsl:choose>
-                            <xsl:when test="$targetUnitSystem  = 'Physiological Units'">70</xsl:when>
-                            <xsl:otherwise>0.07</xsl:otherwise>
+                            <xsl:when test="$targetUnitSystem  = 'Physiological Units'">100</xsl:when>
+                            <xsl:otherwise>0.1</xsl:otherwise>
                         </xsl:choose></xsl:when>
                 <xsl:otherwise>
                     <xsl:call-template name="convert">
@@ -202,7 +213,7 @@ function make_<xsl:value-of select="@name"/>
 
         <xsl:variable name="table_divisions">
             <xsl:choose>
-                <xsl:when test="count(cml:impl_prefs/cml:table_settings) = 0">200</xsl:when>
+                <xsl:when test="count(cml:impl_prefs/cml:table_settings) = 0">400</xsl:when>
                 <xsl:otherwise><xsl:value-of select="cml:impl_prefs/cml:table_settings/@table_divisions"/></xsl:otherwise>
             </xsl:choose>
         </xsl:variable>

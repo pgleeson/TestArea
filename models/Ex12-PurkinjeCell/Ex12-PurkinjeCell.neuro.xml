@@ -97,7 +97,7 @@ CaP chan not equal orig mod when table divs = 3000 </string>
    <void method="get"> 
     <string>Cell Type</string> 
     <void method="add"> 
-     <string>SomaOnly_Kh1</string> 
+     <string>SomaOnly</string> 
     </void> 
     <void method="add"> 
      <string>SomaOnly_origChans</string> 
@@ -329,6 +329,9 @@ CaP chan not equal orig mod when table divs = 3000 </string>
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings"> 
+  <void property="generateComments"> 
+   <boolean>false</boolean> 
+  </void> 
   <void property="nativeBlocks"> 
    <void method="put"> 
     <int>2</int> 
@@ -377,7 +380,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_177</string> 
+   <string>Sim_181</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
