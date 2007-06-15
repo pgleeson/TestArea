@@ -12,11 +12,13 @@
 
 
     <channel_type name="Kh1" density="yes">
-      <!--
-        <status value="stable">
-            <meta:notes>Verified equivalence of NEURON and GENESIS mapping to orig NEURON mod impl at 0.02ms dt with current pulse</meta:notes>
-            <meta:name>Padraig Gleeson</meta:name>
-        </status>-->
+      
+      
+      <status value="stable">
+        <meta:notes>Verified equivalence of NEURON and GENESIS mapping to orig NEURON mod impl at 0.02ms dt with current pulse</meta:notes>
+        <meta:issue>Orig NEURON impl had to be 'fixed' to include READ ek for ion, otherwise was using the internally set value of -30!</meta:issue>
+        <meta:name>Padraig Gleeson</meta:name>
+        </status>
         
         <meta:notes>Anomalous rectifier current. Based on Roth et al's reimplementation of original GENESIS model in NEURON</meta:notes>
 
@@ -102,10 +104,8 @@
         </hh_gate>
 
 
-        <!-- Specifying table divs to try to get as close as possible to original impl -->
-
         <impl_prefs>
-            <table_settings max_v="50" min_v="-100" table_divisions="3000"/>
+            <table_settings max_v="100" min_v="-100" table_divisions="200"/>
         </impl_prefs>
 
 

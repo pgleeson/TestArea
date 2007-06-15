@@ -7,13 +7,14 @@
 
     <meta:notes>ChannelML file containing a single Channel from De Schutter and Bower 1998</meta:notes>
 
-    <ion name="k" charge="1" default_erev="-85"/>                      <!-- phys units: mV -->
+    <ion name="k" charge="1" default_erev="-85"/>                
 
 
     <channel_type name="KA" density="yes">
       
         <status value="stable">
-            <meta:notes>Verified equivalence of NEURON and GENESIS mapping to orig NEURON mod impl at 0.02ms dt with current pulse</meta:notes>
+          <meta:notes>Verified equivalence of NEURON and GENESIS mapping to orig NEURON mod impl at 0.02ms dt with current pulse (but 0.002 is better)</meta:notes>
+          <meta:notes>Needs a large value of table_divisions for equivalence with orig NEURON mod impl</meta:notes>
             <meta:name>Padraig Gleeson</meta:name>
         </status>
 
@@ -128,13 +129,9 @@
         </hh_gate>
 
 
-                <!-- Specifying table divs to try to get as close as possible to original impl -->
-
-
-
         <impl_prefs>
-            <comment>Note, Using the NEURON mod file impl settings to get a closer match</comment>
-            <table_settings max_v="100" min_v="-100" table_divisions="200"/>
+          <comment>Note, Using larger table_divisions. If this is set also in the orig NEURON mod impl, a very good match is made</comment>
+            <table_settings max_v="100" min_v="-100" table_divisions="2000"/>
         </impl_prefs>
 
 

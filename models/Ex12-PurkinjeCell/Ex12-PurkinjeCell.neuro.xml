@@ -12,7 +12,7 @@ part of NeuroML or any standardised XML specification. -->
    <string>
 An implementation of the Purkinje Cell model from De Schutter, E. and Bower, J. M. (1994)
 
-* Not yet complete!!!*
+* Not yet complete!!!* See Validate for details
 
 Issues:
 Na channel: cells only equal when dt = 0.002 (too small!!)
@@ -374,13 +374,13 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
  </object> 
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters"> 
   <void property="dt"> 
-   <float>0.02</float> 
+   <float>0.0020</float> 
   </void> 
   <void property="duration"> 
-   <float>100.0</float> 
+   <float>300.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_181</string> 
+   <string>Sim_221</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -627,6 +627,34 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
       <void method="add"> 
        <string>AllChansOrig_v</string> 
       </void> 
+      <void method="add"> 
+       <string>AllChansCML_v</string> 
+      </void> 
+     </void> 
+     <void property="simDuration"> 
+      <float>300.0</float> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
+     <void property="cellGroups"> 
+      <void method="add"> 
+       <string>AllChansCML</string> 
+      </void> 
+     </void> 
+     <void property="description"> 
+      <string></string> 
+     </void> 
+     <void property="inputs"> 
+      <void method="add"> 
+       <string>Input_1</string> 
+      </void> 
+     </void> 
+     <void property="name"> 
+      <string>AllChansBothSims</string> 
+     </void> 
+     <void property="plots"> 
       <void method="add"> 
        <string>AllChansCML_v</string> 
       </void> 

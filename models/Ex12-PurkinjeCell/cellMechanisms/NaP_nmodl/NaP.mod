@@ -16,7 +16,7 @@ UNITS {
  
 NEURON {
  	SUFFIX %Name%
-	USEION na WRITE ina
+    USEION na READ ena WRITE ina             :////PG///  Note!!! originally no 'READ ena' here, so it used 45 (below), ignoring external ena
 	RANGE gmax, gna, minf, ina
 }
  
