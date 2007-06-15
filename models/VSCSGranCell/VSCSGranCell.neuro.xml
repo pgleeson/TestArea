@@ -206,7 +206,11 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
    <boolean>false</boolean> 
   </void> 
  </object> 
- <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings"/> 
+ <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings"> 
+  <void property="generateComments"> 
+   <boolean>false</boolean> 
+  </void> 
+ </object> 
  <object class="ucl.physiol.neuroconstruct.genesis.GenesisSettings"/> 
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters"> 
   <void property="dt"> 
@@ -216,7 +220,7 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_40</string> 
+   <string>Sim_45</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 

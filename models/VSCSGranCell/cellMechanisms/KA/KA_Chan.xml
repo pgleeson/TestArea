@@ -12,9 +12,9 @@
     
     <channel_type name="KA" density="yes">
       
-      <status value="in_progress">
+      <status value="known_issues">
             <meta:issue>Missing Q10 info from MDeS 98</meta:issue>
-            <meta:issue>minf and hinf are multiplied by the q10 factor in orig mods (reflected here with 5* inc in A values)</meta:issue>
+            <meta:issue>minf and hinf are multiplied by the q10 factor in orig mods! (Reflected here with 5* inc in A values)</meta:issue>
             <meta:contributor>
                 <meta:name>Padraig Gleeson</meta:name>
             </meta:contributor>
