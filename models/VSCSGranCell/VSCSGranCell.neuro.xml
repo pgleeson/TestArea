@@ -67,9 +67,21 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
     <void method="add"> 
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/> 
     </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/> 
+    </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Cell Type</string> 
+    <void method="add"> 
+     <string>GranuleCell</string> 
+    </void> 
+    <void method="add"> 
+     <string>GranuleCell_mod</string> 
+    </void> 
     <void method="add"> 
      <string>GranuleCell_all</string> 
     </void> 
@@ -84,6 +96,12 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
     </void> 
     <void method="add"> 
      <int>9</int> 
+    </void> 
+    <void method="add"> 
+     <int>8</int> 
+    </void> 
+    <void method="add"> 
+     <int>7</int> 
     </void> 
    </void> 
    <void method="get"> 
@@ -104,9 +122,31 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
       <int>255</int> 
      </object> 
     </void> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>210</int> 
+      <int>84</int> 
+      <int>122</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>204</int> 
+      <int>253</int> 
+      <int>33</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Region Name</string> 
+    <void method="add"> 
+     <string>SampleRegion</string> 
+    </void> 
+    <void method="add"> 
+     <string>SampleRegion</string> 
+    </void> 
     <void method="add"> 
      <string>SampleRegion</string> 
     </void> 
@@ -121,6 +161,12 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
     </void> 
     <void method="add"> 
      <string>OrigModCellGroup</string> 
+    </void> 
+    <void method="add"> 
+     <string>AllChansCG</string> 
+    </void> 
+    <void method="add"> 
+     <string>AllChansCG_mod</string> 
     </void> 
    </void> 
   </void> 
@@ -183,6 +229,62 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
      </void> 
     </object> 
    </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>AllChansCG</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>AllChansCG_v</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>AllChansCG_v</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>AllChansCG_mod</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>AllChansCG_mod_v</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>AllChansCG_mod_v</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+    </object> 
+   </void> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.utils.Display3DProperties"> 
@@ -210,17 +312,32 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
   <void property="generateComments"> 
    <boolean>false</boolean> 
   </void> 
+  <void property="nativeBlocks"> 
+   <void method="put"> 
+    <int>3</int> 
+    <string></string> 
+   </void> 
+   <void method="put"> 
+    <int>2</int> 
+    <string>forall {
+    if (ismembrane(&quot;na_ion&quot;)) {
+        print &quot;Changing rev pot of Na in section &quot;, secname()
+        ena = 55
+    }
+}</string> 
+   </void> 
+  </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.genesis.GenesisSettings"/> 
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters"> 
   <void property="dt"> 
-   <float>0.0020</float> 
+   <float>2.0E-4</float> 
   </void> 
   <void property="duration"> 
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_61</string> 
+   <string>Sim_80</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -348,6 +465,35 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
      <void property="plots"> 
       <void method="add"> 
        <string>SamplePlot</string> 
+      </void> 
+     </void> 
+     <void property="simDuration"> 
+      <float>100.0</float> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
+     <void property="cellGroups"> 
+      <void method="add"> 
+       <string>AllChansCG</string> 
+      </void> 
+      <void method="add"> 
+       <string>AllChansCG_mod</string> 
+      </void> 
+     </void> 
+     <void property="description"> 
+      <string></string> 
+     </void> 
+     <void property="name"> 
+      <string>AllChans</string> 
+     </void> 
+     <void property="plots"> 
+      <void method="add"> 
+       <string>AllChansCG_mod_v</string> 
+      </void> 
+      <void method="add"> 
+       <string>AllChansCG_v</string> 
       </void> 
      </void> 
      <void property="simDuration"> 
