@@ -10,7 +10,14 @@
      
     <synapse_type name="GABAA">
       
-    <meta:notes>GABA A synaptic mechamism from Golgis to Granule cells</meta:notes>
+            
+        <status value="stable">
+            <meta:contributor>
+                <meta:name>Padraig Gleeson</meta:name>
+            </meta:contributor>
+        </status>
+        
+        <meta:notes>GABA A synaptic mechamism from Golgis to Granule cells</meta:notes>
         
         <meta:neuronDBref>
         <meta:modelName>Receptor properties</meta:modelName>

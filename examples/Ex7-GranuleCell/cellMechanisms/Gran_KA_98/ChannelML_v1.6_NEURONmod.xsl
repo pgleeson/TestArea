@@ -7,14 +7,14 @@
 
 <!--
 
-    This file is used to convert v1.3 ChannelML files to NEURON mod files
+    This file is used to convert v1.6 ChannelML files to NEURON mod files
 
     This file has been developed as part of the neuroConstruct project
     
     Funding for this work has been received from the Medical Research Council
     
     Author: Padraig Gleeson
-    Copyright 2006 Department of Physiology, UCL
+    Copyright 2007 Department of Physiology, UCL
     
 -->
 
@@ -25,7 +25,7 @@
 <!--Main template-->
 
 <xsl:template match="/cml:channelml">
-?  This is a NEURON mod file generated from a v1.3 ChannelML file
+?  This is a NEURON mod file generated from a v1.6 ChannelML file
 
 ?  Unit system of original ChannelML file: <xsl:value-of select="$xmlFileUnitSystem"/><xsl:text>
 </xsl:text>
@@ -88,6 +88,8 @@ UNITS {
 </xsl:variable>
     
 NEURON {
+<xsl:choose>
+<xsl:when test="count(cml:current_voltage_relation/cml:ohmic) &gt; 0">  <!-- i.e. normal ohmic channel-->
     SUFFIX <xsl:value-of select="@name"/>
     
     <xsl:for-each select="/cml:channelml/cml:ion[@name!='non_specific']">
@@ -114,9 +116,21 @@ NEURON {
     <xsl:for-each select="cml:current_voltage_relation/cml:ohmic/cml:conductance/cml:gate">
     RANGE <xsl:value-of select="cml:state/@name"/>inf, <xsl:value-of select="cml:state/@name"/>tau
     </xsl:for-each>
+</xsl:when>
+<xsl:when test="count(cml:current_voltage_relation/cml:integrate_and_fire) &gt; 0">  <!-- i.e. I&F-->
+    ? Note this implementation is based on that used in the COBA based I and F model as used in Brette et al (2006)
+    ? and the NEURON script files from http://senselab.med.yale.edu/SenseLab/ModelDB/ShowModel.asp?model=83319
+    
+    POINT_PROCESS <xsl:value-of select="@name"/>
+    GLOBAL thresh, t_refrac, v_reset, g_refrac
+    NONSPECIFIC_CURRENT i
+</xsl:when>
+</xsl:choose>
 }
 
 PARAMETER { 
+<xsl:choose>
+<xsl:when test="count(cml:current_voltage_relation/cml:ohmic) &gt; 0">  <!-- i.e. normal ohmic channel-->
     gmax = <xsl:call-template name="convert">
             <xsl:with-param name="value" select="cml:current_voltage_relation/cml:ohmic/cml:conductance/@default_gmax"/>
             <xsl:with-param name="quantity">Conductance Density</xsl:with-param>
@@ -127,11 +141,33 @@ PARAMETER {
             <xsl:with-param name="quantity">Voltage</xsl:with-param>
             </xsl:call-template> (mV)
     </xsl:if>
+</xsl:when>
+<xsl:when test="count(cml:current_voltage_relation/cml:integrate_and_fire) &gt; 0">  <!-- i.e. I&F-->
+    thresh = <xsl:call-template name="convert">
+            <xsl:with-param name="value" select="cml:current_voltage_relation/cml:integrate_and_fire/@threshold"/>
+            <xsl:with-param name="quantity">Voltage</xsl:with-param>
+            </xsl:call-template> (mV)
+    t_refrac = <xsl:call-template name="convert">
+            <xsl:with-param name="value" select="cml:current_voltage_relation/cml:integrate_and_fire/@t_refrac"/>
+            <xsl:with-param name="quantity">Time</xsl:with-param>
+            </xsl:call-template> (ms)
+    v_reset = <xsl:call-template name="convert">
+            <xsl:with-param name="value" select="cml:current_voltage_relation/cml:integrate_and_fire/@v_reset"/>
+            <xsl:with-param name="quantity">Voltage</xsl:with-param>
+            </xsl:call-template> (mV)
+    g_refrac = <xsl:call-template name="convert">
+            <xsl:with-param name="value" select="cml:current_voltage_relation/cml:integrate_and_fire/@g_refrac"/>
+            <xsl:with-param name="quantity">Conductance</xsl:with-param>
+            </xsl:call-template> (uS)
+</xsl:when>
+</xsl:choose>
 }
 
 
 
 ASSIGNED {
+<xsl:choose>
+<xsl:when test="count(cml:current_voltage_relation/cml:ohmic) &gt; 0">  <!-- i.e. normal ohmic channel-->
     v (mV)
     <xsl:choose>
         <xsl:when test="string($nonSpecificCurrent)='yes'">    
@@ -163,9 +199,19 @@ ASSIGNED {
     </xsl:text></xsl:for-each>
         </xsl:otherwise>
         </xsl:choose>
+</xsl:when>
+<xsl:when test="count(cml:current_voltage_relation/cml:integrate_and_fire) &gt; 0">  <!-- i.e. I&F-->
+    i (nanoamp)
+    v (millivolt)
+    g (microsiemens)
+
+</xsl:when>
+</xsl:choose>
 }
 
 BREAKPOINT {
+<xsl:choose>
+<xsl:when test="count(cml:current_voltage_relation/cml:ohmic) &gt; 0">  <!-- i.e. normal ohmic channel-->
     <xsl:choose>
         <xsl:when test="string($nonSpecificCurrent)='yes'">
     i = gmax*(v - e) 
@@ -184,7 +230,35 @@ BREAKPOINT {
             </xsl:for-each>
         </xsl:otherwise>
         </xsl:choose>
+</xsl:when>
+<xsl:when test="count(cml:current_voltage_relation/cml:integrate_and_fire) &gt; 0">  <!-- i.e. I&F-->
+    i = g*(v - v_reset)
+</xsl:when>
+</xsl:choose>
 }
+
+
+<xsl:if test="count(cml:current_voltage_relation/cml:integrate_and_fire) &gt; 0">
+
+INITIAL {
+    net_send(0, 3)
+    g = 0
+}
+
+NET_RECEIVE(w) {
+
+    if (flag == 1) {
+        net_event(t)
+        net_send(t_refrac, 2)
+        v = v_reset
+        g = g_refrac
+    }else if (flag == 2) {
+        g = 0
+    }else if (flag == 3) {
+        WATCH (v > thresh) 1
+    }	
+}   
+</xsl:if>
     
 <xsl:if test="count(cml:current_voltage_relation/cml:ohmic/cml:conductance/cml:gate) &gt; 0">
 INITIAL {
@@ -239,8 +313,9 @@ DERIVATIVE states {
     </xsl:choose> 
     
     ? Note, not all of these may be used, depending on the form of rate equations
-    LOCAL  alpha, beta, A, B, k, d, tau, inf, temp_adj<xsl:for-each select='cml:hh_gate/cml:transition/cml:voltage_conc_gate/cml:conc_dependence'
-    >, <xsl:value-of select="@variable_name"/> </xsl:for-each>
+    LOCAL  alpha, beta, gamma, zeta, A, B, k, d, tau, inf<xsl:for-each select='cml:hh_gate/cml:transition/cml:voltage_conc_gate/cml:conc_dependence'
+    >, <xsl:value-of select="@variable_name"/> </xsl:for-each> <xsl:for-each select="cml:current_voltage_relation/cml:ohmic/cml:conductance/cml:gate">, temp_adj_<xsl:value-of 
+    select="cml:state/@name"/></xsl:for-each>
     
     <xsl:variable name="numGates"><xsl:value-of select="count(cml:hh_gate)"/></xsl:variable>
     
@@ -248,7 +323,7 @@ DERIVATIVE states {
         
         <xsl:variable name="max_v">
             <xsl:choose>
-                <xsl:when test="count(cml:impl_prefs/cml:table_settings) = 0">70</xsl:when>
+                <xsl:when test="count(cml:impl_prefs/cml:table_settings) = 0">100</xsl:when>
                 <xsl:otherwise>
                     <xsl:call-template name="convert">
                         <xsl:with-param name="value"><xsl:value-of select="cml:impl_prefs/cml:table_settings/@max_v"/></xsl:with-param>
@@ -272,7 +347,7 @@ DERIVATIVE states {
         
         <xsl:variable name="table_divisions">
             <xsl:choose>
-                <xsl:when test="count(cml:impl_prefs/cml:table_settings) = 0">200</xsl:when>
+                <xsl:when test="count(cml:impl_prefs/cml:table_settings) = 0">400</xsl:when>
                 <xsl:otherwise><xsl:value-of select="cml:impl_prefs/cml:table_settings/@table_divisions"/></xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
@@ -285,11 +360,35 @@ DERIVATIVE states {
     <xsl:choose>
         <xsl:when test="count(cml:current_voltage_relation/cml:ohmic/cml:conductance/cml:rate_adjustments/cml:q10_settings) &gt; 0">
     ? There is a Q10 factor which will alter the tau of the gates 
-    temp_adj = <xsl:value-of select="cml:current_voltage_relation/cml:ohmic/cml:conductance/cml:rate_adjustments/cml:q10_settings/@q10_factor"
-    />^((celsius - <xsl:value-of select="cml:current_voltage_relation/cml:ohmic/cml:conductance/cml:rate_adjustments/cml:q10_settings/@experimental_temp"/>)/10)
+            <xsl:for-each select="cml:current_voltage_relation/cml:ohmic/cml:conductance/cml:rate_adjustments/cml:q10_settings">
+                <xsl:choose>
+                    <xsl:when test="count(@gate) &gt; 0">
+                        <xsl:choose><xsl:when test="count(@q10_factor) &gt; 0">
+    temp_adj_<xsl:value-of select="@gate"/> = <xsl:value-of select="@q10_factor" />^((celsius - <xsl:value-of select="@experimental_temp"/>)/10)
+                        </xsl:when><xsl:when test="count(@fixed_q10) &gt; 0">
+    temp_adj_<xsl:value-of select="@gate"/> = <xsl:value-of select="@fixed_q10" />
+                        </xsl:when></xsl:choose>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:choose><xsl:when test="count(@q10_factor) &gt; 0">
+                            <xsl:variable name="expression"><xsl:value-of select="@q10_factor" />^((celsius - <xsl:value-of select="@experimental_temp"/>)/10)</xsl:variable>
+                            <xsl:for-each select="../../cml:gate">
+    temp_adj_<xsl:value-of select="cml:state/@name"/> = <xsl:value-of select="$expression"/>
+                            </xsl:for-each>
+                        </xsl:when><xsl:when test="count(@fixed_q10) &gt; 0">     
+                            <xsl:variable name="expression"><xsl:value-of select="@fixed_q10" /></xsl:variable>
+                            <xsl:for-each select="../../cml:gate">
+    temp_adj_<xsl:value-of select="cml:state/@name"/> = <xsl:value-of select="$expression"/>
+                            </xsl:for-each>
+                        </xsl:when></xsl:choose>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:for-each>
         </xsl:when>
         <xsl:otherwise>
-    temp_adj = 1
+    <xsl:for-each select="cml:current_voltage_relation/cml:ohmic/cml:conductance/cml:gate">temp_adj_<xsl:value-of 
+    select="cml:state/@name"/> = 1
+    </xsl:for-each>
         </xsl:otherwise>
     </xsl:choose>
     
@@ -466,7 +565,7 @@ DERIVATIVE states {
         </xsl:choose>
                 
        <xsl:if test="name()='tau'">
-    <xsl:value-of select="$stateName"/>tau = tau/temp_adj<xsl:text>
+    <xsl:value-of select="$stateName"/>tau = tau/temp_adj_<xsl:value-of select="$stateName"/><xsl:text>
     </xsl:text>   
        </xsl:if>    
                    
@@ -481,7 +580,7 @@ DERIVATIVE states {
 
          
         <xsl:if test="count(cml:transition/cml:voltage_gate/cml:tau)=0">
-    <xsl:value-of select="$stateName"/>tau = 1/(temp_adj*(alpha + beta))<xsl:text>
+    <xsl:value-of select="$stateName"/>tau = 1/(temp_adj_<xsl:value-of select="$stateName"/>*(alpha + beta))<xsl:text>
     </xsl:text>
        </xsl:if>       
          
@@ -574,7 +673,7 @@ INITIAL {
     
     VERBATIM
 
-    printf("\n\n surf_area: %f\n", surf_area);
+    //printf("\n\n surf_area: %f\n", surf_area);
 
     ENDVERBATIM
 

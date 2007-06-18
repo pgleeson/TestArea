@@ -13,13 +13,13 @@ part of NeuroML or any standardised XML specification. -->
 
 Maex, R and De Schutter, E. Synchronization of Golgi and Granule Cell Firing in a Detailed Network Model of the Cerebellar Granule Cell Layer J Neurophysiol, Nov 1998; 80: 2521 - 2537.  
 
-based on scripts obtained from:
-http://www.tnb.ua.ac.be/models/network.shtml
+Based on scripts obtained from: http://www.tnb.ua.ac.be/models/network.shtml
 
-This project shows how a cell model with multiple active conductances can produce the same behaviour on NEURON and GENESIS through the specification of channel mechanisms in ChannelML. </string> 
+This project shows how a cell model with multiple active conductances can produce the same behaviour on NEURON and GENESIS through the specification of channel mechanisms in ChannelML. 
+NOTE: Channel mechanisms updated to NeuroML v1.6 (extra comments mainly) in neuroConstruct v1.0.3</string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.0.1</string> 
+   <string>neuroConstruct v1.0.3</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex7-GranuleCell</string> 

@@ -5,8 +5,14 @@
     
      
     <synapse_type name="MFSpikeSyn">
+                
+        <status value="stable">
+            <meta:contributor>
+                <meta:name>Padraig Gleeson</meta:name>
+            </meta:contributor>
+        </status>
     
-        <meta:notes>Fast spikeing synapse, used for input to Mossy Fibers</meta:notes>
+        <meta:notes>Fast spiking synapse, used for input to Mossy Fibers</meta:notes>
 
         
         <doub_exp_syn max_conductance="1.0E-4" rise_time=".24" decay_time=".26" reversal_potential="40"/>

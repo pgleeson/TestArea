@@ -2,7 +2,7 @@
 <channelml xmlns="http://morphml.org/channelml/schema" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
     xmlns:meta="http://morphml.org/metadata/schema" 
-    xsi:schemaLocation="http://morphml.org/channelml/schema   ../../../../templates/xmlTemplates/Schemata/v1.2/Level2/ChannelML_v1.2.xsd" 
+    xsi:schemaLocation="http://morphml.org/channelml/schema   ../../../../templates/xmlTemplates/Schemata/v1.6/Level2/ChannelML_v1.6.xsd" 
     units="Physiological Units">
 
     <meta:notes>A channel from Maex, R and De Schutter, E. Synchronization of Golgi and Granule Cell Firing in a 
@@ -11,6 +11,14 @@
     <ion name="k" charge="1" default_erev="-90"/>  
     
     <channel_type name="Gran_KA_98" density="yes">
+        
+        <status value="stable">
+            <meta:comment>Verified equivalence of NEURON and GENESIS mapping to orig GENESIS impl from www.tnb.ua.ac.be</meta:comment>
+            <meta:contributor>
+                <meta:name>Padraig Gleeson</meta:name>
+            </meta:contributor>
+        </status>
+        
     
         <meta:notes>A-type K channel, with rate equations expressed in tau and inf form</meta:notes>
         

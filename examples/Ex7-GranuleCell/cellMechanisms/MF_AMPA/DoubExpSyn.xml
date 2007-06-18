@@ -5,6 +5,13 @@
     
      
     <synapse_type name="MF_AMPA">
+            
+        <status value="stable">
+            <meta:contributor>
+                <meta:name>Padraig Gleeson</meta:name>
+            </meta:contributor>
+        </status>
+        
       
         <meta:notes>Mossy fiber to Granule Cell AMPA synapse</meta:notes>
       
