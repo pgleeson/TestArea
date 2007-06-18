@@ -71,10 +71,10 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
    <void method="get"> 
     <string>Cell Type</string> 
     <void method="add"> 
-     <string>GranuleCell_KA</string> 
+     <string>GranuleCell_all</string> 
     </void> 
     <void method="add"> 
-     <string>GranuleCell_mod_KA</string> 
+     <string>GranuleCell_mod_all</string> 
     </void> 
    </void> 
    <void method="get"> 
@@ -90,9 +90,9 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
     <string>Colour</string> 
     <void method="add"> 
      <object class="java.awt.Color"> 
+      <int>153</int> 
+      <int>0</int> 
       <int>255</int> 
-      <int>0</int> 
-      <int>0</int> 
       <int>255</int> 
      </object> 
     </void> 
@@ -214,13 +214,13 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
  <object class="ucl.physiol.neuroconstruct.genesis.GenesisSettings"/> 
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters"> 
   <void property="dt"> 
-   <float>0.02</float> 
+   <float>0.0020</float> 
   </void> 
   <void property="duration"> 
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_45</string> 
+   <string>Sim_61</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -323,7 +323,7 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
       </void> 
      </void> 
      <void property="simDuration"> 
-      <float>1.0</float> 
+      <float>100.0</float> 
      </void> 
     </object> 
    </void> 

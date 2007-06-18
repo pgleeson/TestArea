@@ -2,23 +2,24 @@
 <channelml xmlns="http://morphml.org/channelml/schema" 
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
            xmlns:meta="http://morphml.org/metadata/schema" 
-           xsi:schemaLocation="http://morphml.org/channelml/schema   ../../../../templates/xmlTemplates/Schemata/v1.6/Level2/ChannelML_v1.6.xsd" units="Physiological Units">
+           xsi:schemaLocation="http://morphml.org/channelml/schema   ../../../../templates/xmlTemplates/Schemata/v1.6/Level2/ChannelML_v1.6.xsd"
+           units="Physiological Units">
 
     <meta:notes>A channel from D'Angelo et al 2001</meta:notes>
     
     <ion name="k" charge="1" default_erev="-77"/>  
     
-    <channel_type name="Kir" density="yes">
-    
+    <channel_type name="Ksl" density="yes">
+            
         <status value="stable">
             <meta:comment>Verified equivalence of NEURON and GENESIS mapping to orig NEURON mod impl at 0.02ms dt with current pulse</meta:comment>
-            <meta:issue>Does not follow Table 1 in D'Angelo et al. 2001</meta:issue>
+            <meta:issue>Comment in original mod: Special infinity values have still to be implemented</meta:issue>
             <meta:contributor>
                 <meta:name>Padraig Gleeson</meta:name>
             </meta:contributor>
         </status>
     
-        <meta:notes>Inward rectifying K+ channel</meta:notes>
+        <meta:notes>Slow K+ current, taken from D'Angelo et al 2001</meta:notes>
         
         <meta:authorList>
             <meta:modelTranslator>
@@ -50,7 +51,7 @@
         
         <current_voltage_relation>
             <ohmic ion="k">
-                <conductance default_gmax="0.9">   
+                <conductance default_gmax="0.35">   
                     <gate power="1">
                         <state name="m" fraction="1"/>
                     </gate>
@@ -64,18 +65,25 @@
             <voltage_gate>
               <alpha>
                 <parameterised_hh type="exponential">
-                  <parameter name="A" value="0.4"/>
-                  <parameter name="k" value="-0.08"/>
-                  <parameter name="d" value="-86.3"/>
+                  <parameter name="A" value="0.008"/>
+                  <parameter name="k" value="0.025"/>
+                  <parameter name="d" value="-30"/>
                 </parameterised_hh>
               </alpha>
               <beta>
                 <parameterised_hh type="exponential">
-                  <parameter name="A" value="0.4"/>
-                  <parameter name="k" value="0.04"/>
-                  <parameter name="d" value="-86.3"/>
+                  <parameter name="A" value="0.008"/>
+                  <parameter name="k" value="-0.05"/>
+                  <parameter name="d" value="-30"/>
                 </parameterised_hh>
               </beta>
+              <inf>
+                <parameterised_hh type="sigmoid">
+                  <parameter name="A" value="1"/>
+                  <parameter name="k" value="-0.16666667"/>
+                  <parameter name="d" value="-30"/>
+                </parameterised_hh>
+              </inf>
             </voltage_gate>
             </transition>
         </hh_gate>

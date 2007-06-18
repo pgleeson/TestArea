@@ -25,8 +25,9 @@ UNITS {
   }
 
 PARAMETER {
+  gmax = %Max Conductance Density% (S/cm2): PG: was 9.5e-4
+
   shift = 0 (mV): DA 0
-  gmax = %Max Conductance Density% (S/cm2): PG was 9.5e-4
 
   Aalpha_m = 0.4 (/ms): 
   Kalpha_m = -0.08: ~24.4 :
