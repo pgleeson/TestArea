@@ -2,7 +2,7 @@
 <channelml xmlns="http://morphml.org/channelml/schema" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
     xmlns:meta="http://morphml.org/metadata/schema" 
-    xsi:schemaLocation="http://morphml.org/channelml/schema  ../../../../templates/xmlTemplates/Schemata/v1.2/Level2/ChannelML_v1.2.xsd" 
+    xsi:schemaLocation="http://morphml.org/channelml/schema  ../../../../templates/xmlTemplates/Schemata/v1.6/Level2/ChannelML_v1.6.xsd" 
     units="SI Units">
 
     <meta:notes>A channel from Maex, R and De Schutter, E. Synchronization of Golgi and Granule Cell Firing in a 
@@ -12,10 +12,33 @@
     <ion name="na" charge="1" default_erev="0.055"/>  
     
     <channel_type name="Gran_NaF_98" density="yes">
+        
+                
+        <status value="stable">
+            <meta:comment>Verified equivalence of NEURON and GENESIS mapping to orig GENESIS impl from www.tnb.ua.ac.be</meta:comment>
+            <meta:issue>The abrupt change in the value of tau means that a quite small dt (~0.001 ms) is needed to give 
+                the same results for a cell with just this channel (and a leak current) on NEURON and GENESIS</meta:issue>
+            <meta:contributor>
+                <meta:name>Padraig Gleeson</meta:name>
+            </meta:contributor>
+        </status>
     
-        <meta:notes>Inactivating fast Na+ channel. Note that the abrupt change in the value of tau means that a quite small
-        dt (~0.001 ms) is needed to give the same results for a cell with just this channel (and a leak current) on 
-        NEURON and GENESIS</meta:notes>
+        <meta:notes>Fast inactivating Na+ channel</meta:notes>
+        
+        
+        <meta:authorList>
+            <meta:modelAuthor>
+                <meta:name>Maex, R.</meta:name>
+            </meta:modelAuthor>
+            <meta:modelAuthor>
+                <meta:name>De Schutter, E.</meta:name>
+            </meta:modelAuthor>
+            <meta:modelTranslator>
+                <meta:name>Padraig Gleeson</meta:name>
+                <meta:institution>UCL</meta:institution>    
+                <meta:email>p.gleeson - at - ucl.ac.uk</meta:email>
+            </meta:modelTranslator>
+        </meta:authorList>
         
         
         <meta:publication>
