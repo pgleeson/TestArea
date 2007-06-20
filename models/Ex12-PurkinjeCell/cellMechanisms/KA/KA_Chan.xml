@@ -13,9 +13,11 @@
     <channel_type name="KA" density="yes">
       
         <status value="stable">
-          <meta:notes>Verified equivalence of NEURON and GENESIS mapping to orig NEURON mod impl at 0.02ms dt with current pulse (but 0.002 is better)</meta:notes>
-          <meta:notes>Needs a large value of table_divisions for equivalence with orig NEURON mod impl</meta:notes>
-            <meta:name>Padraig Gleeson</meta:name>
+            <meta:comment>Verified equivalence of NEURON and GENESIS mapping to orig NEURON mod impl at 0.02ms dt with current pulse (but 0.002 is better)</meta:comment>
+            <meta:comment>Needs a large value of table_divisions for equivalence with orig NEURON mod impl</meta:comment>
+            <meta:contributor>
+                <meta:name>Padraig Gleeson</meta:name>
+            </meta:contributor>
         </status>
 
         <meta:notes>A type K current. Based on Roth et al's reimplementation of original GENESIS model in NEURON</meta:notes>

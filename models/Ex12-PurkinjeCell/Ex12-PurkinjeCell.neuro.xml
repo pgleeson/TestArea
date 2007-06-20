@@ -374,13 +374,13 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
  </object> 
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters"> 
   <void property="dt"> 
-   <float>2.0E-4</float> 
+   <float>0.02</float> 
   </void> 
   <void property="duration"> 
    <float>300.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_226</string> 
+   <string>Sim_228</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 

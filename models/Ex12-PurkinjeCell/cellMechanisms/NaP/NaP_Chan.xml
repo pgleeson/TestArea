@@ -14,9 +14,11 @@
     <channel_type name="NaP" density="yes">
       
         <status value="stable">
-            <meta:notes>Verified equivalence of NEURON and GENESIS mapping to orig NEURON mod impl at 0.02ms dt with current pulse (but 0.002ms is better)</meta:notes>
+            <meta:comment>Verified equivalence of NEURON and GENESIS mapping to orig NEURON mod impl at 0.02ms dt with current pulse (but 0.002ms is better)</meta:comment>
             <meta:issue>Orig NEURON impl had to be 'fixed' to include READ ena for ion, otherwise was using the internally set value of 45</meta:issue>
-            <meta:name>Padraig Gleeson</meta:name>
+            <meta:contributor>
+                <meta:name>Padraig Gleeson</meta:name>
+            </meta:contributor>
         </status>
 
         <meta:notes>Persistent Na current. Based on Roth et al's reimplementation of original GENESIS model in NEURON</meta:notes>

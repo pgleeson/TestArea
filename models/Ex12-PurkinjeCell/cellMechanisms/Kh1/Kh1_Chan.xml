@@ -15,9 +15,11 @@
       
       
       <status value="stable">
-        <meta:notes>Verified equivalence of NEURON and GENESIS mapping to orig NEURON mod impl at 0.02ms dt with current pulse</meta:notes>
+        <meta:comment>Verified equivalence of NEURON and GENESIS mapping to orig NEURON mod impl at 0.02ms dt with current pulse</meta:comment>
         <meta:issue>Orig NEURON impl had to be 'fixed' to include READ ek for ion, otherwise was using the internally set value of -30!</meta:issue>
-        <meta:name>Padraig Gleeson</meta:name>
+        <meta:contributor>
+                <meta:name>Padraig Gleeson</meta:name>
+            </meta:contributor>
         </status>
         
         <meta:notes>Anomalous rectifier current. Based on Roth et al's reimplementation of original GENESIS model in NEURON</meta:notes>
