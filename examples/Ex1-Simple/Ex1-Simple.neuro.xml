@@ -11,7 +11,7 @@ part of NeuroML or any standardised XML specification. -->
   <void property="projectDescription"> 
    <string>Simple example with a single cell positioned randomly in a 3D volume.
     
-To generate and view:            
+To generate and view:             
  
 1) Click on tab Generate -&gt; Generate Cell Positions and Connections 
 2) Go to tab Visualisation and click View, with Latest Generated Positions selected in the drop down box. You&apos;ll see an abstract cell placed in a 3D region with axes showing the X (green), Y (yellow) and Z (red) directions. The cone like structure represents the electrical stimulation.
@@ -20,7 +20,7 @@ To change the number and layout of cells in the example, go to tab Cell Groups, 
 </string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v0.9.8</string> 
+   <string>neuroConstruct v1.0.3</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex1-Simple</string> 
