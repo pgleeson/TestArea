@@ -71,6 +71,8 @@ BREAKPOINT {
 	ina = g*(v - ena)
 	alpha_m = alp_m(v)
 	beta_m = bet_m(v) 
+
+    : PG for testing/// printf("orig mod -- t=%g v=%g m=%g alpha_m=%g beta_m=%g \n ", t, v, m, alpha_m, beta_m)
 } 
  
 DERIVATIVE states { 

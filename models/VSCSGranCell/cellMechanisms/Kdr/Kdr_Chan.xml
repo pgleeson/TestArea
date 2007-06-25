@@ -9,24 +9,22 @@
     
     <ion name="k" charge="1" default_erev="-77"/>  
     
-    <channel_type name="KA" density="yes">
-      
-      <status value="known_issues">
-            <meta:issue>Missing Q10 info from MDeS 98</meta:issue>
-            <meta:issue>minf and hinf are multiplied by the q10 factor in orig mods! (Reflected here with 5* inc in A values)</meta:issue>
+    <channel_type name="Kdr" density="yes">
+            
+        <status value="in_progress">
             <meta:contributor>
                 <meta:name>Padraig Gleeson</meta:name>
             </meta:contributor>
         </status>
     
-        <meta:notes>A type K+ channel, with rate equations expressed in tau and inf form.</meta:notes>
+        <meta:notes>Delayed rectifier K+ current</meta:notes>
         
         <meta:authorList>
-          <meta:modelTranslator>
-            <meta:name>Padraig Gleeson</meta:name>
-            <meta:institution>UCL</meta:institution>
-            <meta:email>p.gleeson - at - ucl.ac.uk</meta:email>
-          </meta:modelTranslator>
+            <meta:modelTranslator>
+                <meta:name>Padraig Gleeson</meta:name>
+                <meta:institution>UCL</meta:institution>
+                <meta:email>p.gleeson - at - ucl.ac.uk</meta:email>
+            </meta:modelTranslator>
         </meta:authorList>
         
         <meta:publication>
@@ -42,6 +40,8 @@
             Neural Comp. 2005 17: 2531-2547</meta:fullTitle>
           <meta:pubmedRef>http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=16212761&amp;dopt=Abstract</meta:pubmedRef>
         </meta:publication>  
+        
+    
    
         <meta:neuronDBref>
             <meta:modelName>K channels</meta:modelName>
@@ -51,7 +51,7 @@
         
         <current_voltage_relation>
             <ohmic ion="k">
-                <conductance default_gmax="1">   
+                <conductance default_gmax="3">   
                     <rate_adjustments>
                         <q10_settings fixed_q10="5" experimental_temp="37"/> <!-- Note channel should only be used at 37 deg C!-->
                         <offset value="10"/>
@@ -65,21 +65,18 @@
                 </conductance>
             </ohmic>
         </current_voltage_relation>
-        
-        
+ 
+
+
         <hh_gate state="m">
             <transition>
                 <voltage_gate>
-                    <tau>
-                      <generic_equation_hh expr="0.082 * ((exp (( ((v) + 43.5) / (-42.8))))) + 0.0334"/>
-                    </tau>
-                    <inf>
-                        <parameterised_hh type="sigmoid">
-                          <parameter name="A" value="1"/>
-                            <parameter name="k" value="-0.050505051"/>
-                            <parameter name="d" value="-46.7"/>
-                        </parameterised_hh>
-                    </inf>
+                    <alpha>
+                        <generic_equation_hh expr="170 * ((exp (0.073 *(v - (-38)))))"/>
+                    </alpha>
+                    <beta>
+                        <generic_equation_hh expr="170 * ((exp ((-0.018) *(v - (-38)))))"/>
+                    </beta>                                    
                 </voltage_gate>
             </transition>
         </hh_gate>
@@ -88,19 +85,18 @@
         <hh_gate state="h">
             <transition>
                 <voltage_gate>
-                    <tau>
-                      <generic_equation_hh expr="2.16 + (0.006 * v)  + (0.2 / (57.9 * (exp (v *0.127)) + (134e-6 * (exp (v * -0.059)))))"/>
-                    </tau>
-                    <inf>
-                        <parameterised_hh type="sigmoid">
-                          <parameter name="A" value="1"/>
-                            <parameter name="k" value="0.119047619"/>
-                            <parameter name="d" value="-78.8"/>
-                        </parameterised_hh>
-                    </inf>
+                    <alpha>
+                        <generic_equation_hh expr="v &gt; -46 ? 0.76 : 0.7 + 0.065*(exp (-0.080*(v - (-46))))"/>
+                    </alpha>
+                    <beta>
+                        <generic_equation_hh expr="1.1/(1 + (exp (-0.0807 * (v - (-44)))))"/>
+                    </beta>                                    
                 </voltage_gate>
             </transition>
         </hh_gate>
+        
+        
+        
 
         
     </channel_type>
