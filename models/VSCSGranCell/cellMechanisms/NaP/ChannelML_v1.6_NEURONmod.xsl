@@ -591,7 +591,7 @@ DERIVATIVE states {
     </xsl:text>
        </xsl:if>    
        
-    printf("- xml - t=%g v=%g m=%g alpha_m=%g beta_m=%g \n", t, v,m, alpha, beta)
+    ? printf("- xml - t=%g v=%g m=%g alpha_m=%g beta_m=%g \n", t, v,m, alpha, beta)
     ?     *** Finished rate equations for gate: <xsl:value-of select="$stateName"/> ***
     
         </xsl:for-each>  <!-- <xsl:for-each select='../../../../cml:hh_gate[@state=$stateName]'>-->

@@ -56,16 +56,16 @@
    </void> 
   </void> 
   <void property="cellDescription"> 
-   <string>A Granule Cell model based on that from Berends et al 2005, implemented with the original mod files (obtained from Volker Steuber &amp; Chiara Saviane)</string> 
+   <string>A Granule Cell model based on that from Berends et al 2005, implemented with the original mod files (obtained from Volker Steuber and Chiara Saviane)</string> 
   </void> 
   <void property="chanMechsVsGroups"> 
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>3.0E-8</float> 
+      <float>6.366E-10</float> 
      </void> 
      <void property="name"> 
-      <string>Kdr</string> 
+      <string>GranCellPassiveCond</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
@@ -77,10 +77,10 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>6.366E-10</float> 
+      <float>3.0E-8</float> 
      </void> 
      <void property="name"> 
-      <string>GranCellPassiveCond</string> 
+      <string>Kdr</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 

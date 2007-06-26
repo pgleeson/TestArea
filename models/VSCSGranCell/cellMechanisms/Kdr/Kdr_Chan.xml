@@ -7,11 +7,13 @@
 
     <meta:notes>A channel originally from Maex, R and De Schutter, E. 1998, used in Berends et al 2005</meta:notes>
     
-    <ion name="k" charge="1" default_erev="-77"/>  
+    <ion name="k" charge="1" default_erev="-90"/>  
     
     <channel_type name="Kdr" density="yes">
             
-        <status value="in_progress">
+        <status value="stable">            
+            <meta:comment>Verified equivalence of NEURON and GENESIS mapping to orig NEURON mod impl at 0.02ms dt with current pulse</meta:comment>
+            <meta:issue>From orig mod file:  V0beta_h = -44(mV) : or should it be +44?</meta:issue>
             <meta:contributor>
                 <meta:name>Padraig Gleeson</meta:name>
             </meta:contributor>
@@ -51,12 +53,14 @@
         
         <current_voltage_relation>
             <ohmic ion="k">
-                <conductance default_gmax="3">   
+                <conductance default_gmax="3">  
+                    
                     <rate_adjustments>
                         <q10_settings fixed_q10="5" experimental_temp="37"/> <!-- Note channel should only be used at 37 deg C!-->
                         <offset value="10"/>
                     </rate_adjustments>
-                    <gate power="3">
+                    
+                    <gate power="4">
                         <state name="m" fraction="1"/>
                     </gate>
                     <gate power="1">
@@ -65,17 +69,24 @@
                 </conductance>
             </ohmic>
         </current_voltage_relation>
+
  
-
-
         <hh_gate state="m">
             <transition>
                 <voltage_gate>
                     <alpha>
-                        <generic_equation_hh expr="170 * ((exp (0.073 *(v - (-38)))))"/>
+                        <parameterised_hh type="exponential" expr="A*exp(k*(v-d))">
+                            <parameter name="A" value="0.17"/>
+                            <parameter name="k" value="0.073"/>
+                            <parameter name="d" value="-38"/>
+                        </parameterised_hh>
                     </alpha>
                     <beta>
-                        <generic_equation_hh expr="170 * ((exp ((-0.018) *(v - (-38)))))"/>
+                        <parameterised_hh type="exponential" expr="A*exp(k*(v-d))">
+                            <parameter name="A" value="0.17"/>
+                            <parameter name="k" value="-0.018"/>
+                            <parameter name="d" value="-38"/>
+                        </parameterised_hh>
                     </beta>                                    
                 </voltage_gate>
             </transition>
@@ -86,17 +97,25 @@
             <transition>
                 <voltage_gate>
                     <alpha>
-                        <generic_equation_hh expr="v &gt; -46 ? 0.76 : 0.7 + 0.065*(exp (-0.080*(v - (-46))))"/>
+                        <generic_equation_hh expr="v &gt; -46 ? 0.00076 : 0.0007 + 6.0e-5*(exp (-0.080*(v - (-46))))"/>
                     </alpha>
                     <beta>
-                        <generic_equation_hh expr="1.1/(1 + (exp (-0.0807 * (v - (-44)))))"/>
+                        <parameterised_hh type="sigmoid">
+                            <parameter name="A" value="1.1e-3"/>
+                            <parameter name="k" value="-0.0807"/>
+                            <parameter name="d" value="-44"/>
+                        </parameterised_hh>
                     </beta>                                    
                 </voltage_gate>
             </transition>
         </hh_gate>
         
         
-        
+        <impl_prefs>
+            <comment>Note, Using larger table_divisions to get a closer match</comment>
+            <table_settings max_v="100" min_v="-100" table_divisions="800"/>
+        </impl_prefs>
+
 
         
     </channel_type>

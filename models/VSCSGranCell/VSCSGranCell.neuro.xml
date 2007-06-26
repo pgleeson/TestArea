@@ -324,20 +324,30 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
         print &quot;Changing rev pot of Na in section &quot;, secname()
         ena = 55
     }
+
+
+    if (ismembrane(&quot;k_ion&quot;)) {
+        print &quot;Changing rev pot of K in section &quot;, secname()
+        ek = -90
+    }
 }</string> 
+   </void> 
+   <void method="put"> 
+    <int>1</int> 
+    <string></string> 
    </void> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.genesis.GenesisSettings"/> 
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters"> 
   <void property="dt"> 
-   <float>0.02</float> 
+   <float>0.0020</float> 
   </void> 
   <void property="duration"> 
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_105</string> 
+   <string>Sim_123</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
