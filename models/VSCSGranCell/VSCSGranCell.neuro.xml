@@ -474,13 +474,13 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
  <object class="ucl.physiol.neuroconstruct.genesis.GenesisSettings"/> 
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters"> 
   <void property="dt"> 
-   <float>0.0020</float> 
+   <float>0.02</float> 
   </void> 
   <void property="duration"> 
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_137</string> 
+   <string>Sim_139</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
