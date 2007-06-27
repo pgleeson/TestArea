@@ -18,7 +18,7 @@
    </object> 
   </void> 
   <void property="value"> 
-   <float>0.0010</float> 
+   <float>1.8E-7</float> 
   </void> 
  </object> 
 </java> 

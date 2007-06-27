@@ -62,6 +62,36 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
+      <float>9.5E-9</float> 
+     </void> 
+     <void property="name"> 
+      <string>Kir_mod</string> 
+     </void> 
+    </object> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>all</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="density"> 
+      <float>0.0010</float> 
+     </void> 
+     <void property="name"> 
+      <string>KCa_mod</string> 
+     </void> 
+    </object> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>all</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="density"> 
       <float>0.0010</float> 
      </void> 
      <void property="name"> 
@@ -92,21 +122,6 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>9.5E-9</float> 
-     </void> 
-     <void property="name"> 
-      <string>Kir_mod</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>all</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
       <float>0.0010</float> 
      </void> 
      <void property="name"> 
@@ -122,10 +137,10 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>3.5E-9</float> 
+      <float>0.0010</float> 
      </void> 
      <void property="name"> 
-      <string>Ksl_mod</string> 
+      <string>Kdr_mod</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
@@ -170,21 +185,6 @@
       <float>0.0010</float> 
      </void> 
      <void property="name"> 
-      <string>KCa_mod</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>all</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
-      <float>0.0010</float> 
-     </void> 
-     <void property="name"> 
       <string>CaPool_mod</string> 
      </void> 
     </object> 
@@ -197,10 +197,10 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>0.0010</float> 
+      <float>3.5E-9</float> 
      </void> 
      <void property="name"> 
-      <string>Kdr_mod</string> 
+      <string>Ksl_mod</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
