@@ -9,12 +9,13 @@
     Detailed Network Model of the Cerebellar Granule Cell Layer</meta:notes>
 
     
-<ion name="k" default_erev="-0.09" charge="1" role="PermeatedSubstance">
+    <ion name="k" default_erev="-0.09" charge="1" role="PermeatedSubstance">
         <meta:notes>The ion which actually flows through the channel</meta:notes>
     </ion>
 	<ion name="ca" charge="2" role="ModulatingSubstance">
         <meta:notes>The channel's conductance of K is dependent on this ion's concentration</meta:notes>
     </ion>
+    
     
     <channel_type name="Gran_KCa_98" density="yes">
         
