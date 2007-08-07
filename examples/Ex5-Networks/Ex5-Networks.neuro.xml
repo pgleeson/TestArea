@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.5.0_10" class="java.beans.XMLDecoder"> 
+<java version="1.5.0_06" class="java.beans.XMLDecoder"> 
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -18,7 +18,7 @@ Just click Generate -&gt; Generate Cell Positions and Connections, followed by V
 These allow a single neuroConstruct project to illustrate many different types of network configurations for the cells in a project. In tab Generate choose in the drop down box a Simulation Configuration which will generate a different network. Edit Simulation Configs shows what Cell Groups, Net Conns, Plots and Inputs are used in each. </string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.0.1</string> 
+   <string>neuroConstruct v1.0.4</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex5-Networks</string> 
@@ -532,7 +532,7 @@ These allow a single neuroConstruct project to illustrate many different types o
       <string>LowerCellGroup</string> 
      </void> 
      <void property="cellNumber"> 
-      <string>40%</string> 
+      <string>60%</string> 
      </void> 
      <void property="graphWindow"> 
       <string>GraphWin_0</string> 
@@ -869,7 +869,7 @@ These allow a single neuroConstruct project to illustrate many different types o
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_1</string> 
+   <string>Sim_4</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 

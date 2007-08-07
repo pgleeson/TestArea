@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.5.0_06" class="java.beans.XMLDecoder"> 
+<java version="1.5.0_10" class="java.beans.XMLDecoder"> 
 
 <!-- Note that this XML is specific to the neuroConstruct Java cell object model and not any part of the NeuroML framework -->
 
- <object class="ucl.physiol.neuroconstruct.cell.examples.SimpleCell"> 
+ <object class="ucl.physiol.neuroconstruct.cell.Cell"> 
   <void property="allSegments"> 
    <void method="add"> 
     <object id="Segment0" class="ucl.physiol.neuroconstruct.cell.Segment"> 
@@ -106,70 +106,48 @@
      </void> 
     </object> 
    </void> 
+  </void> 
+  <void property="axonalArbours"> 
    <void method="add"> 
-    <object class="ucl.physiol.neuroconstruct.cell.Segment"> 
-     <void property="endPointPositionX"> 
-      <float>0.0</float> 
+    <object class="ucl.physiol.neuroconstruct.cell.AxonalConnRegion"> 
+     <void property="name"> 
+      <string>AxonalArbour_0</string> 
      </void> 
-     <void property="endPointPositionY"> 
-      <float>20.0</float> 
-     </void> 
-     <void property="endPointPositionZ"> 
-      <float>0.0</float> 
-     </void> 
-     <void property="fractionAlongParent"> 
-      <float>0.5</float> 
-     </void> 
-     <void property="parentSegment"> 
-      <object idref="Segment0"/> 
-     </void> 
-     <void property="radius"> 
-      <float>1.0</float> 
-     </void> 
-     <void property="section"> 
-      <object class="ucl.physiol.neuroconstruct.cell.Section"> 
-       <void property="groups"> 
-        <void method="add"> 
-         <string>axon_group</string> 
+     <void property="region"> 
+      <object class="ucl.physiol.neuroconstruct.project.ConicalRegion"> 
+       <void property="parameterList"> 
+        <void index="1"> 
+         <void property="value"> 
+          <float>120.0</float> 
+         </void> 
+        </void> 
+        <void index="4"> 
+         <void property="value"> 
+          <float>0.0</float> 
+         </void> 
+        </void> 
+        <void index="6"> 
+         <void property="value"> 
+          <float>70.0</float> 
+         </void> 
         </void> 
        </void> 
-       <void property="sectionName"> 
-        <string>AxonSec</string> 
-       </void> 
-       <void property="startPointPositionX"> 
-        <float>0.0</float> 
-       </void> 
-       <void property="startPointPositionY"> 
-        <float>0.0</float> 
-       </void> 
-       <void property="startPointPositionZ"> 
-        <float>0.0</float> 
-       </void> 
-       <void property="startRadius"> 
-        <float>1.0</float> 
-       </void> 
       </object> 
-     </void> 
-     <void property="segmentId"> 
-      <int>2</int> 
-     </void> 
-     <void property="segmentName"> 
-      <string>AxonSeg</string> 
      </void> 
     </object> 
    </void> 
   </void> 
   <void property="cellDescription"> 
-   <string>A Simple cell whose connectivity method is via a Morphology Defined Connection</string> 
+   <string>A Simple cell whose connectivity method is via a Volume Defined Connection</string> 
   </void> 
   <void property="chanMechsVsGroups"> 
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>1.2E-6</float> 
+      <float>3.0E-9</float> 
      </void> 
      <void property="name"> 
-      <string>NaConductance</string> 
+      <string>LeakConductance</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
@@ -181,10 +159,10 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>3.0E-9</float> 
+      <float>1.2E-6</float> 
      </void> 
      <void property="name"> 
-      <string>LeakConductance</string> 
+      <string>NaConductance</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
@@ -209,8 +187,13 @@
     </object> 
    </void> 
   </void> 
+  <void property="initialPotential"> 
+   <void property="numberType"> 
+    <int>11</int> 
+   </void> 
+  </void> 
   <void property="instanceName"> 
-   <string>SampleCell</string> 
+   <string>AxonalArbourCell</string> 
   </void> 
   <void property="synapsesVsGroups"> 
    <void method="put"> 

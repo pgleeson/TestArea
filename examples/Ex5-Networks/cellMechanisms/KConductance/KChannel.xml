@@ -4,7 +4,7 @@
     Based on Michael Hines's initial proposal.
 -->
 
-<channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema  ../../Schemata/v1.2/Level2/ChannelML_v1.2.xsd" units="Physiological Units">
+<channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema  ../../Schemata/v1.6/Level2/ChannelML_v1.6.xsd" units="Physiological Units">
 
     <meta:notes>ChannelML file containing a single Channel description</meta:notes>
 
@@ -12,6 +12,13 @@
 
 
     <channel_type name="KConductance" density="yes">
+        
+        <status value="stable">
+            <meta:comment>Equations adapted from paper for modern convention of external potential being zero</meta:comment>
+            <meta:contributor>
+                <meta:name>Padraig Gleeson</meta:name>
+            </meta:contributor>
+        </status>
 
         <meta:notes>Simple example of K conductance in squid giant axon. Based on channel from Hodgkin and Huxley 1952</meta:notes>
 
@@ -44,7 +51,9 @@
             <transition>
                 <voltage_gate>
                     <alpha>
-                        <parameterised_hh type="linoid" expr="A*(k*(v-d))/(1 - exp(-(k*(v-d))))">
+                            <!-- Note: type attr determines how A,k,d are used in parameterised_hh, expr is just for completeness-->
+
+                        <parameterised_hh type="linoid" expr="A*(k*(v-d))/(1 - exp(-(k*(v-d))))"> 
                             <parameter name="A" value="0.1"/>
                             <parameter name="k" value="0.1"/>
                             <parameter name="d" value="-55"/>
