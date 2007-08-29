@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.5.0_10" class="java.beans.XMLDecoder"> 
+<java version="1.5.0_12" class="java.beans.XMLDecoder"> 
 
 <!-- Note that this XML is specific to the neuroConstruct Java cell object model and not any part of the NeuroML framework -->
 
@@ -93,9 +93,6 @@
   <void property="initialPotential"> 
    <void property="fixedNum"> 
     <float>-68.0</float> 
-   </void> 
-   <void property="numberType"> 
-    <int>11</int> 
    </void> 
   </void> 
   <void property="instanceName"> 
