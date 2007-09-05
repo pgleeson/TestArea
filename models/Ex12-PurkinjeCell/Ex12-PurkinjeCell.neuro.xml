@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.5.0_12" class="java.beans.XMLDecoder"> 
+<java version="1.5.0_06" class="java.beans.XMLDecoder"> 
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -594,6 +594,9 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
     <string></string> 
    </void> 
   </void> 
+  <void property="varTimeStep"> 
+   <boolean>true</boolean> 
+  </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.genesis.GenesisSettings"> 
   <void property="generateComments"> 
@@ -608,7 +611,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    <float>300.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_265</string> 
+   <string>Sim_266</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
