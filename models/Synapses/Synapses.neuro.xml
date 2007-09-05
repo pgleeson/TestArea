@@ -12,7 +12,7 @@ part of NeuroML or any standardised XML specification. -->
    <string>This is a simple project with a single cell placed randomly in a 3D rectangular box.</string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v0.9.5</string> 
+   <string>neuroConstruct v1.0.7</string> 
   </void> 
   <void property="projectName"> 
    <string>Synapses</string> 
@@ -27,6 +27,25 @@ part of NeuroML or any standardised XML specification. -->
     </void> 
     <void method="add"> 
      <string>Regions_2</string> 
+    </void> 
+   </void> 
+   <void method="get"> 
+    <string>Colour</string> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>255</int> 
+      <int>255</int> 
+      <int>255</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>255</int> 
+      <int>255</int> 
+      <int>255</int> 
+      <int>255</int> 
+     </object> 
     </void> 
    </void> 
    <void method="get"> 
@@ -399,6 +418,68 @@ part of NeuroML or any standardised XML specification. -->
      </void> 
     </object> 
    </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CellGroup_2</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_0</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>4.0E-5</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_1</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>*</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>SYN:NetConn_SampleCellGroup_CellGroup_2_3:GABAA:COND</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>SampleCellGroup</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_2</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>1.0E-4</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_2</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>*</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>SYN:NetConn_SampleCellGroup_SampleCellGroup:PlasticSyn:COND</string> 
+     </void> 
+    </object> 
+   </void> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.utils.Display3DProperties"> 
@@ -421,12 +502,6 @@ part of NeuroML or any standardised XML specification. -->
   <void property="showAxonalArbours"> 
    <boolean>false</boolean> 
   </void> 
-  <void property="showRegions"> 
-   <boolean>false</boolean> 
-  </void> 
-  <void property="showSynapseConns"> 
-   <boolean>false</boolean> 
-  </void> 
   <void property="showSynapseEndpoints"> 
    <boolean>false</boolean> 
   </void> 
@@ -441,7 +516,7 @@ part of NeuroML or any standardised XML specification. -->
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_78</string> 
+   <string>Sim_87</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -620,7 +695,7 @@ part of NeuroML or any standardised XML specification. -->
      </void> 
      <void property="netConns"> 
       <void method="add"> 
-       <string>NetConn_SampleCellGroup_CellGroup_2_3</string> 
+       <string>NetConn_SampleCellGroup_SampleCellGroup</string> 
       </void> 
      </void> 
      <void property="plots"> 
@@ -629,6 +704,9 @@ part of NeuroML or any standardised XML specification. -->
       </void> 
       <void method="add"> 
        <string>CellGroup_5_v</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_2</string> 
       </void> 
       <void method="add"> 
        <string>CellGroup_2_v</string> 
@@ -759,6 +837,57 @@ part of NeuroML or any standardised XML specification. -->
      </void> 
     </object> 
    </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
+     <void property="cellGroups"> 
+      <void method="add"> 
+       <string>CellGroup_2</string> 
+      </void> 
+      <void method="add"> 
+       <string>SampleCellGroup</string> 
+      </void> 
+     </void> 
+     <void property="description"> 
+      <string></string> 
+     </void> 
+     <void property="inputs"> 
+      <void method="add"> 
+       <string>Input_3</string> 
+      </void> 
+      <void method="add"> 
+       <string>SampleIClamp</string> 
+      </void> 
+     </void> 
+     <void property="name"> 
+      <string>GABA inhib</string> 
+     </void> 
+     <void property="netConns"> 
+      <void method="add"> 
+       <string>NetConn_SampleCellGroup_CellGroup_2_3</string> 
+      </void> 
+     </void> 
+     <void property="plots"> 
+      <void method="add"> 
+       <string>SamplePlot</string> 
+      </void> 
+      <void method="add"> 
+       <string>CellGroup_5_v</string> 
+      </void> 
+      <void method="add"> 
+       <string>CellGroup_2_v</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_1</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_0</string> 
+      </void> 
+     </void> 
+     <void property="simDuration"> 
+      <float>200.0</float> 
+     </void> 
+    </object> 
+   </void> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.project.SimpleNetworkConnectionsInfo"> 
@@ -785,6 +914,30 @@ part of NeuroML or any standardised XML specification. -->
     </void> 
     <void method="add"> 
      <string>NetConn_SampleCellGroup_CellGroup_2_3</string> 
+    </void> 
+   </void> 
+   <void method="get"> 
+    <string>AP speed</string> 
+    <void method="add"> 
+     <float>3.4028235E38</float> 
+    </void> 
+    <void method="add"> 
+     <float>3.4028235E38</float> 
+    </void> 
+    <void method="add"> 
+     <float>3.4028235E38</float> 
+    </void> 
+    <void method="add"> 
+     <float>3.4028235E38</float> 
+    </void> 
+    <void method="add"> 
+     <float>3.4028235E38</float> 
+    </void> 
+    <void method="add"> 
+     <float>3.4028235E38</float> 
+    </void> 
+    <void method="add"> 
+     <float>3.4028235E38</float> 
     </void> 
    </void> 
    <void method="get"> 
