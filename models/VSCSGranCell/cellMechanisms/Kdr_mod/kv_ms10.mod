@@ -103,7 +103,7 @@ FUNCTION bet_m(v(mV))(/ms) {
  
 FUNCTION alp_h(v(mV))(/ms) {             
 	alp_h = TC*(0.0007 (/ms) + Aalpha_h*expn(v+shift,V0alpha_h,Kalpha_h))
-	if (alp_h < 7.6e-4){
+	if (alp_h < TC*7.6e-4){                                              :::::::::::::::::::::::::::   corrected by PG, origially was if (alp_h < 7.6e-4){
 	alp_h = TC*7.6e-4
 	} 
 } 

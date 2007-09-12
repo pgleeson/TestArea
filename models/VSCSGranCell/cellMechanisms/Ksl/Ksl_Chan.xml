@@ -7,7 +7,9 @@
 
     <meta:notes>A channel from D'Angelo et al 2001</meta:notes>
     
-    <ion name="k" charge="1" default_erev="-77"/>  
+    <ion name="k" charge="1" default_erev="-84.7">
+      <meta:notes>Using rev pot from D'Angelo et al 2001</meta:notes>
+    </ion>
     
     <channel_type name="Ksl" density="yes">
             
@@ -86,7 +88,14 @@
               </inf>
             </voltage_gate>
             </transition>
-        </hh_gate>
+          </hh_gate>
+          
+          
+          <impl_prefs>
+            <comment>Note, Using same table_divisions to get a closer match</comment>
+            <table_settings max_v="100" min_v="-100" table_divisions="200"/>
+          </impl_prefs>
+
         
         
 

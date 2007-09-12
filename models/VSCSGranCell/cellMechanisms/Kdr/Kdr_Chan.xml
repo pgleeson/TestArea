@@ -7,13 +7,16 @@
 
     <meta:notes>A channel originally from Maex, R and De Schutter, E. 1998, used in Berends et al 2005</meta:notes>
     
-    <ion name="k" charge="1" default_erev="-90"/>  
+    <ion name="k" charge="1" default_erev="-84.7">
+        <meta:notes>Using rev pot from D'Angelo et al 2001</meta:notes>
+    </ion>
     
     <channel_type name="Kdr" density="yes">
             
         <status value="stable">            
-            <meta:comment>Verified equivalence of NEURON and GENESIS mapping to orig NEURON mod impl at 0.02ms dt with current pulse</meta:comment>
-            <meta:issue>From orig mod file:  V0beta_h = -44(mV) : or should it be +44?</meta:issue>
+          <meta:comment>Verified equivalence of NEURON and GENESIS mapping to orig NEURON mod impl at 0.02ms dt with current pulse</meta:comment>
+            <meta:issue>From orig mod file:  V0beta_h = -44(mV) : or should it be +44? Left that as it was...</meta:issue>
+            <meta:issue>Orig mod file had: "if (alp_h &lt; 7.6e-4){" in proc for alp_h, PG changed it to: "if (alp_h &lt; TC*7.6e-4){"</meta:issue>
             <meta:contributor>
                 <meta:name>Padraig Gleeson</meta:name>
             </meta:contributor>
@@ -42,6 +45,13 @@
             Neural Comp. 2005 17: 2531-2547</meta:fullTitle>
           <meta:pubmedRef>http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=16212761&amp;dopt=Abstract</meta:pubmedRef>
         </meta:publication>  
+        
+        <meta:publication>
+          <meta:fullTitle>D'Angelo E, Nieus T, Maffei A, Armano S, Rossi P, Taglietti V, Fontana A, Naldi G. 
+            Theta-frequency bursting and resonance in cerebellar granule cells: experimental evidence and modeling of a slow k+-dependent mechanism.
+            J Neurosci. 2001 Feb 1;21(3):759-70.</meta:fullTitle>
+          <meta:pubmedRef>http://www.ncbi.nlm.nih.gov/sites/entrez?cmd=retrieve&amp;db=pubmed&amp;list_uids=11157062&amp;dopt=Abstract</meta:pubmedRef>
+        </meta:publication>     
         
     
    
@@ -77,14 +87,14 @@
                     <alpha>
                         <parameterised_hh type="exponential" expr="A*exp(k*(v-d))">
                             <parameter name="A" value="0.17"/>
-                            <parameter name="k" value="0.073"/>
+                            <parameter name="k" value="0.0729927"/>
                             <parameter name="d" value="-38"/>
                         </parameterised_hh>
                     </alpha>
                     <beta>
                         <parameterised_hh type="exponential" expr="A*exp(k*(v-d))">
                             <parameter name="A" value="0.17"/>
-                            <parameter name="k" value="-0.018"/>
+                            <parameter name="k" value="-0.0180018"/>
                             <parameter name="d" value="-38"/>
                         </parameterised_hh>
                     </beta>                                    
@@ -102,7 +112,7 @@
                     <beta>
                         <parameterised_hh type="sigmoid">
                             <parameter name="A" value="1.1e-3"/>
-                            <parameter name="k" value="-0.0807"/>
+                            <parameter name="k" value="-0.080645161"/>
                             <parameter name="d" value="-44"/>
                         </parameterised_hh>
                     </beta>                                    
@@ -112,8 +122,8 @@
         
         
         <impl_prefs>
-            <comment>Note, Using larger table_divisions to get a closer match</comment>
-            <table_settings max_v="100" min_v="-100" table_divisions="800"/>
+            <comment>Note, Using same table_divisions to get a closer match</comment>
+            <table_settings max_v="100" min_v="-100" table_divisions="200"/>
         </impl_prefs>
 
 

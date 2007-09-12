@@ -90,11 +90,6 @@
     </object> 
    </void> 
   </void> 
-  <void property="initialPotential"> 
-   <void property="numberType"> 
-    <int>11</int> 
-   </void> 
-  </void> 
   <void property="instanceName"> 
    <string>GranuleCell_mod_NaP</string> 
   </void> 
