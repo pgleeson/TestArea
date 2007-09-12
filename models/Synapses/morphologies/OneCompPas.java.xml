@@ -80,7 +80,7 @@
   </void> 
   <void property="synapsesVsGroups"> 
    <void method="put"> 
-    <string>PlasticSyn</string> 
+    <string>NMDA</string> 
     <object class="java.util.Vector"> 
      <void method="add"> 
       <string>all</string> 
@@ -88,7 +88,7 @@
     </object> 
    </void> 
    <void method="put"> 
-    <string>NMDA</string> 
+    <string>PlasticSyn</string> 
     <object class="java.util.Vector"> 
      <void method="add"> 
       <string>all</string> 
