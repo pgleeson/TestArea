@@ -7,12 +7,12 @@
 
     <meta:notes>A channel originally from Berends et al 2005</meta:notes>
     
-    <ion name="na" charge="1" default_erev="55"/>  
+    <ion name="na" charge="1" default_erev="87.4"/>  
     
     <channel_type name="NaP" density="yes">
       
-      <status value="stable">
-            <meta:comment>Verified equivalence of NEURON and GENESIS mapping to orig NEURON mod impl at 0.02ms dt with current pulse</meta:comment>
+      <status value="in_progress">
+            <meta:comment>GENESIS issues??????????? Verified equivalence of NEURON and GENESIS mapping to orig NEURON mod impl at 0.02ms dt with current pulse</meta:comment>
             <meta:issue>Comment in orig mod file: Special infinity values still to be implemented</meta:issue>
             <meta:contributor>
                 <meta:name>Padraig Gleeson</meta:name>

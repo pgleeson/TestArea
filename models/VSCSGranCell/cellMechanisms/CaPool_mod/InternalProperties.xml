@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.5.0_10" class="java.beans.XMLDecoder"> 
+<java version="1.5.0_12" class="java.beans.XMLDecoder"> 
  <object class="ucl.physiol.neuroconstruct.project.InternalPhysicalParameter"> 
   <void property="defaultValue"> 
    <float>0.0010</float> 
