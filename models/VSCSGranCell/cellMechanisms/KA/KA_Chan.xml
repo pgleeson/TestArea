@@ -11,9 +11,11 @@
     
     <channel_type name="KA" density="yes">
       
-      <status value="known_issues">
-            <meta:issue>Missing Q10 info from MDeS 98</meta:issue>
+      <status value="stable">
+            <meta:issue>Missing temp varying Q10 info which had been in MDeS 98</meta:issue>
             <meta:issue>minf and hinf are multiplied by the q10 factor in orig mods! (Reflected here with 5* inc in A values)</meta:issue>
+            <meta:issue>tau expressions multiplied by Q10 factor (5) instead of divided by it. Factor of 25 introduced in taus to fix this</meta:issue>
+            <meta:issue>See note on tau expression for h gate regarding shift</meta:issue>
             <meta:contributor>
                 <meta:name>Padraig Gleeson</meta:name>
             </meta:contributor>
@@ -51,7 +53,7 @@
         
         <current_voltage_relation>
             <ohmic ion="k">
-                <conductance default_gmax="1">   
+                <conductance default_gmax="4">   
                     <rate_adjustments>
                         <q10_settings fixed_q10="5" experimental_temp="37"/> <!-- Note channel should only be used at 37 deg C!-->
                         <offset value="10"/>
@@ -71,7 +73,7 @@
             <transition>
                 <voltage_gate>
                     <tau>
-                      <generic_equation_hh expr="0.082 * ((exp (( ((v) + 43.5) / (-42.8))))) + 0.0334"/>
+                      <generic_equation_hh expr="25*(0.082 * ((exp (( ((v) + 43.5) / (-42.8))))) + 0.0334)"/>
                     </tau>
                     <inf>
                         <parameterised_hh type="sigmoid">
@@ -89,7 +91,10 @@
             <transition>
                 <voltage_gate>
                     <tau>
-                      <generic_equation_hh expr="2.16 + (0.006 * v)  + (0.2 / (57.9 * (exp (v *0.127)) + (134e-6 * (exp (v * -0.059)))))"/>
+                      <meta:notes>Original line in mod: tau_h = TC*(2.16+0.006*v+(0.2/(57.9*exp(0.127*v)+0.000134*exp(-0.059*v))))
+                      Note: this doesn't explicitly include the 'shift', so adding it on again here. 
+                      This should be cleared up before using the channel on any other cell!</meta:notes>
+                      <generic_equation_hh expr="25*(2.16 + (0.006 * (v+10))  + (0.2 / (57.9 * (exp ((v+10) *0.127)) + (134e-6 * (exp ((v+10) * -0.059))))))"/>
                     </tau>
                     <inf>
                         <parameterised_hh type="sigmoid">
@@ -102,6 +107,9 @@
             </transition>
         </hh_gate>
 
+        <impl_prefs>
+            <table_settings max_v="100" min_v="-100" table_divisions="200"/>
+        </impl_prefs>
         
     </channel_type>
 </channelml>

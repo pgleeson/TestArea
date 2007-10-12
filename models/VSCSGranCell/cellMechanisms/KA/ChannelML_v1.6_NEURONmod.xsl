@@ -305,7 +305,7 @@ DERIVATIVE states {
     <xsl:for-each select="cml:current_voltage_relation/cml:ohmic/cml:conductance/cml:gate">
     <xsl:value-of select="cml:state/@name"/>' = (<xsl:value-of select="cml:state/@name"/>inf - <xsl:value-of select="cml:state/@name"/>)/<xsl:value-of select="cml:state/@name"/>tau<xsl:text>
     </xsl:text>
-printf("- xml - t=%g v=%g <xsl:value-of select="cml:state/@name"/>=%g\n", t, v, <xsl:value-of select="cml:state/@name"/>)<xsl:text>
+       ? printf("- xml - t=%g v=%g <xsl:value-of select="cml:state/@name"/>=%g\n", t, v, <xsl:value-of select="cml:state/@name"/>)<xsl:text>
     </xsl:text></xsl:for-each>
 }
 
@@ -590,6 +590,9 @@ printf("- xml - t=%g v=%g <xsl:value-of select="cml:state/@name"/>=%g\n", t, v, 
     <xsl:value-of select="$stateName"/>inf = alpha/(alpha + beta)<xsl:text>
     </xsl:text>
        </xsl:if>    
+
+ 
+    ?  printf("- xml - t=%g v=%g <xsl:value-of select="$stateName"/>tau=%g\n", t, v, <xsl:value-of select="$stateName"/>tau)
        
     
     ?     *** Finished rate equations for gate: <xsl:value-of select="$stateName"/> ***
@@ -675,7 +678,7 @@ INITIAL {
     
     VERBATIM
 
-    printf("\n\n surf_area: %f\n", surf_area);
+    //printf("\n\n surf_area: %f\n", surf_area);
 
     ENDVERBATIM
 

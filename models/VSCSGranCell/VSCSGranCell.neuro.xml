@@ -9,11 +9,9 @@ part of NeuroML or any standardised XML specification. -->
 
  <object class="ucl.physiol.neuroconstruct.project.BasicProjectInfo"> 
   <void property="projectDescription"> 
-   <string>This is a simple project with a single cell placed randomly in a 3D rectangular box.
+   <string>Conversion to NeuroML of a model granule cell developed by Volker Steuber and Chiara Saviane.
 
-Go to tab Generate, press Generate Cell Positions and Connections, and then to visualise the results, go to tab Visualisation and press View, with Latest Generated Positions selected in the drop down box.
-
-If NEURON or GENESIS are installed, the cell can be simulated via tab Export Network.</string> 
+Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex &amp; De Schutter 2005</string> 
   </void> 
   <void property="projectFileVersion"> 
    <string>neuroConstruct v1.0.7</string> 
@@ -95,10 +93,10 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
      <string>GranuleCell_mod_all</string> 
     </void> 
     <void method="add"> 
-     <string>GranuleCell_NaP</string> 
+     <string>GranuleCell_KA</string> 
     </void> 
     <void method="add"> 
-     <string>GranuleCell_mod_NaP</string> 
+     <string>GranuleCell_mod_KA</string> 
     </void> 
    </void> 
    <void method="get"> 
@@ -994,7 +992,7 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
       <string>0</string> 
      </void> 
      <void property="valuePlotted"> 
-      <string>NaP:m</string> 
+      <string>KA:m</string> 
      </void> 
     </object> 
    </void> 
@@ -1025,7 +1023,7 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
       <string>0</string> 
      </void> 
      <void property="valuePlotted"> 
-      <string>NaP_mod:m</string> 
+      <string>KA_mod:m</string> 
      </void> 
     </object> 
    </void> 
@@ -1122,6 +1120,68 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
      </void> 
     </object> 
    </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>AllChansCG</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_5</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>1.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_24</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>KA:h</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>AllChansCG_mod</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_5</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>1.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_25</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>KA_mod:h</string> 
+     </void> 
+    </object> 
+   </void> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.utils.Display3DProperties"> 
@@ -1195,13 +1255,13 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
  <object class="ucl.physiol.neuroconstruct.genesis.GenesisSettings"/> 
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters"> 
   <void property="dt"> 
-   <float>0.0020</float> 
+   <float>0.02</float> 
   </void> 
   <void property="duration"> 
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_245</string> 
+   <string>Sim_284</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -1534,7 +1594,13 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
        <string>Var_10</string> 
       </void> 
       <void method="add"> 
+       <string>Var_25</string> 
+      </void> 
+      <void method="add"> 
        <string>AllChansCG_v</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_24</string> 
       </void> 
       <void method="add"> 
        <string>Var_23</string> 
@@ -1635,6 +1701,12 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
        <string>OneChanMod_v</string> 
       </void> 
       <void method="add"> 
+       <string>Var_25</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_24</string> 
+      </void> 
+      <void method="add"> 
        <string>Var_20</string> 
       </void> 
      </void> 
@@ -1667,6 +1739,9 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
       </void> 
       <void method="add"> 
        <string>Var_19</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_24</string> 
       </void> 
      </void> 
      <void property="simDuration"> 
