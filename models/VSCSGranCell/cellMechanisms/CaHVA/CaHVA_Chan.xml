@@ -43,7 +43,7 @@
     
         <current_voltage_relation>
             <ohmic ion="ca">
-                <conductance default_gmax="90"> 
+                <conductance default_gmax=".9"> 
                     <rate_adjustments>
                         <q10_settings fixed_q10="5" experimental_temp="37"/> <!-- Note channel should only be used at 37 deg C!-->
                         <offset value="10"/>
@@ -65,7 +65,7 @@
                     <alpha>
                         <parameterised_hh type="sigmoid" expr="A/(1 + exp(-k*(d-v)))">
                             <parameter name="A" value="1.6"/>
-                            <parameter name="k" value="-0.071942"/>
+                            <parameter name="k" value="-0.071942446"/>
                             <parameter name="d" value="5"/>
                         </parameterised_hh>
                     </alpha>

@@ -81,10 +81,10 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
    <void method="get"> 
     <string>Cell Type</string> 
     <void method="add"> 
-     <string>GranuleCell_NaF</string> 
+     <string>GranuleCell_CaHVA</string> 
     </void> 
     <void method="add"> 
-     <string>GranuleCell_mod_NaF</string> 
+     <string>GranuleCell_mod_CaHVA</string> 
     </void> 
     <void method="add"> 
      <string>GranuleCell_all</string> 
@@ -1123,7 +1123,7 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
      <void property="cellGroup"> 
-      <string>AllChansCG</string> 
+      <string>OneChanCML</string> 
      </void> 
      <void property="cellNumber"> 
       <string>0</string> 
@@ -1154,7 +1154,7 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
      <void property="cellGroup"> 
-      <string>AllChansCG_mod</string> 
+      <string>OneChanMod</string> 
      </void> 
      <void property="cellNumber"> 
       <string>0</string> 
@@ -1230,8 +1230,8 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
 
 
     if (ismembrane(&quot;ca_ion&quot;)) {
-        ///print &quot;Changing rev pot of Ca in section &quot;, secname()
-        ///eca = 80
+        print &quot;Changing rev pot of Ca in section &quot;, secname()
+        eca = 80
     }
 
 
@@ -1239,11 +1239,11 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
 }</string> 
    </void> 
    <void method="put"> 
-    <int>-1</int> 
+    <int>1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
-    <int>1</int> 
+    <int>-1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
@@ -1261,7 +1261,7 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_284</string> 
+   <string>Sim_295</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -1493,16 +1493,22 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
      </void> 
      <void property="plots"> 
       <void method="add"> 
-       <string>Var_9</string> 
-      </void> 
-      <void method="add"> 
-       <string>Var_8</string> 
-      </void> 
-      <void method="add"> 
        <string>OrigModCellGroup_v</string> 
       </void> 
       <void method="add"> 
+       <string>Var_3</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_2</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_1</string> 
+      </void> 
+      <void method="add"> 
        <string>SamplePlot</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_0</string> 
       </void> 
      </void> 
      <void property="simDuration"> 
@@ -1530,10 +1536,13 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
      </void> 
      <void property="plots"> 
       <void method="add"> 
+       <string>Var_1</string> 
+      </void> 
+      <void method="add"> 
        <string>SamplePlot</string> 
       </void> 
       <void method="add"> 
-       <string>Var_8</string> 
+       <string>Var_0</string> 
       </void> 
      </void> 
      <void property="simDuration"> 
@@ -1724,11 +1733,6 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
      </void> 
      <void property="description"> 
       <string></string> 
-     </void> 
-     <void property="inputs"> 
-      <void method="add"> 
-       <string>Input_3</string> 
-      </void> 
      </void> 
      <void property="name"> 
       <string>OneChanBothSims</string> 
