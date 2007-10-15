@@ -709,46 +709,14 @@ NOTE: Channel mechanisms updated to NeuroML v1.6 (extra comments mainly) in neur
    </void> 
    <void method="put"> 
     <int>2</int> 
-    <string>print &quot;Changing the conc of calcium...&quot;
-
-// NOTE: this code is needed to fix an issue/feature with the original cell model in GENESIS. The reversal potential of calcium does not change in that model
-// despite the fact that the internal calcium concentration is changing. NEURON would normally recalculate eca based on cai and cao, this forces eca 
-// to be kept constant.
-
-forall {
-    if (ismembrane(&quot;ca_ion&quot;)) {
-
-        cai = 7.55e-05
-        eca = 80
-
-        print &quot;Initial Ion style for ca: &quot;, ion_style(&quot;ca_ion&quot;)
-
-        // see http://www.neuron.yale.edu/neuron/docs/help/neuron/neuron/nrnoc.html#ion_charge
-
-        eadvance = 0 	// normally =1, 0 leads to the rev pot not being updated when the concentration changes
-        einit = 1	// same as normal
-        e_style = 2	// same as normal
-        cinit = 1	// same as normal
-        c_style = 1	// same as normal
-
-        ion_style(&quot;ca_ion&quot;, c_style, e_style, einit, eadvance, cinit)
-
-        print &quot;Altered Ion style for ca: &quot;, ion_style(&quot;ca_ion&quot;)
-    }
-
-    if (ismembrane(&quot;na_ion&quot;)) {
-	ena = 55
-    }
-
-
-}</string> 
-   </void> 
-   <void method="put"> 
-    <int>-1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
     <int>1</int> 
+    <string></string> 
+   </void> 
+   <void method="put"> 
+    <int>-1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
@@ -808,7 +776,7 @@ end</string>
    <float>700.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_470</string> 
+   <string>Sim_507</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 

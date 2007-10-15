@@ -9,7 +9,8 @@
     Detailed Network Model of the Cerebellar Granule Cell Layer</meta:notes>
 
                 
-    <ion name="ca" charge="2" default_erev="0.080"/>  
+    <!--<ion name="ca" charge="2" default_erev="0.080"/>   -->
+    <ion name="ca" charge="2" default_erev="0.080" role="PermeatedSubstanceFixedRevPot"/>   
      
     <channel_type name="Gran_CaHVA_98" density="yes">
     
