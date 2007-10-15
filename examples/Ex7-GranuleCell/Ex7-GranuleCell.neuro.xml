@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.5.0_10" class="java.beans.XMLDecoder"> 
+<java version="1.5.0_12" class="java.beans.XMLDecoder"> 
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -19,7 +19,7 @@ This project shows how a cell model with multiple active conductances can produc
 NOTE: Channel mechanisms updated to NeuroML v1.6 (extra comments mainly) in neuroConstruct v1.0.3</string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.0.3</string> 
+   <string>neuroConstruct v1.0.7</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex7-GranuleCell</string> 

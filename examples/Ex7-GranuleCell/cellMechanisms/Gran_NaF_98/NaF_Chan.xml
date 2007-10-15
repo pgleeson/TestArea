@@ -16,8 +16,10 @@
                 
         <status value="stable">
             <meta:comment>Verified equivalence of NEURON and GENESIS mapping to orig GENESIS impl from www.tnb.ua.ac.be</meta:comment>
-            <meta:issue>The abrupt change in the value of tau means that a quite small dt (~0.001 ms) is needed to give 
-                the same results for a cell with just this channel (and a leak current) on NEURON and GENESIS</meta:issue>
+            <meta:issue>This ChannelML file is intended ONLY to replicate the original GENESIS functionality. A new Granule cell model is being developed based on
+                D'Angelo et al 2001 and Berends, Maex and De Schutter 2005, and the ChannelML files will be updated</meta:issue>
+            <meta:issue>Quite a small dt (~0.001 ms) is needed to give matching results for a cell with just 
+                this channel (and a leak current) on NEURON and GENESIS</meta:issue>
             <meta:contributor>
                 <meta:name>Padraig Gleeson</meta:name>
             </meta:contributor>

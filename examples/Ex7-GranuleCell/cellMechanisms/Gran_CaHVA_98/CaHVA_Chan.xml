@@ -13,6 +13,16 @@
      
     <channel_type name="Gran_CaHVA_98" density="yes">
     
+        
+        <status value="stable">
+            <meta:issue>This ChannelML file is intended ONLY to replicate the original GENESIS functionality. A new Granule cell model is being developed based on
+                D'Angelo et al 2001 and Berends, Maex and De Schutter 2005, and the ChannelML files will be updated</meta:issue>
+            <meta:contributor>
+                <meta:name>Padraig Gleeson</meta:name>
+            </meta:contributor>
+        </status>
+        
+        
         <meta:notes>A High Voltage Activated Ca2+ channel</meta:notes>
 
         <meta:publication>
