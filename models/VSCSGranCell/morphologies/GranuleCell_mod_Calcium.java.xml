@@ -56,16 +56,16 @@
    </void> 
   </void> 
   <void property="cellDescription"> 
-   <string>A Granule Cell model based on that from Berends et al 2005</string> 
+   <string>A Granule Cell model based on that from Berends et al 2005, implemented with the original mod files (obtained from Volker Steuber &amp; Chiara Saviane)</string> 
   </void> 
   <void property="chanMechsVsGroups"> 
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>9.0E-9</float> 
+      <float>0.0010</float> 
      </void> 
      <void property="name"> 
-      <string>CaHVA</string> 
+      <string>CaPool_mod</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
@@ -77,10 +77,10 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>3.5E-9</float> 
+      <float>9.0E-9</float> 
      </void> 
      <void property="name"> 
-      <string>Ksl</string> 
+      <string>CaHVA_mod</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
@@ -104,84 +104,9 @@
      </void> 
     </object> 
    </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
-      <float>9.5E-9</float> 
-     </void> 
-     <void property="name"> 
-      <string>Kir</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>all</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
-      <float>2.0E-10</float> 
-     </void> 
-     <void property="name"> 
-      <string>NaP</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>all</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
-      <float>3.0E-8</float> 
-     </void> 
-     <void property="name"> 
-      <string>Kdr</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>all</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
-      <float>4.0E-7</float> 
-     </void> 
-     <void property="name"> 
-      <string>NaF</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>all</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
-      <float>4.0E-8</float> 
-     </void> 
-     <void property="name"> 
-      <string>KA</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>all</string> 
-     </void> 
-    </object> 
-   </void> 
   </void> 
   <void property="instanceName"> 
-   <string>GranuleCell_all</string> 
+   <string>GranuleCell_mod_Calcium</string> 
   </void> 
   <void property="specAxResVsGroups"> 
    <void method="remove"> 

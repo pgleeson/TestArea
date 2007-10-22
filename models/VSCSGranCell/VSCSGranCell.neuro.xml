@@ -81,10 +81,10 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
    <void method="get"> 
     <string>Cell Type</string> 
     <void method="add"> 
-     <string>GranuleCell_CaHVA</string> 
+     <string>GranuleCell_Calcuim</string> 
     </void> 
     <void method="add"> 
-     <string>GranuleCell_mod_CaHVA</string> 
+     <string>GranuleCell_mod_Calcium</string> 
     </void> 
     <void method="add"> 
      <string>GranuleCell_all</string> 
@@ -1230,8 +1230,8 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
 
 
     if (ismembrane(&quot;ca_ion&quot;)) {
-        print &quot;Changing rev pot of Ca in section &quot;, secname()
-        eca = 80
+        //print &quot;Changing rev pot of Ca in section &quot;, secname()
+        //eca = 80
     }
 
 
@@ -1239,11 +1239,11 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
 }</string> 
    </void> 
    <void method="put"> 
-    <int>1</int> 
+    <int>-1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
-    <int>-1</int> 
+    <int>1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
@@ -1261,7 +1261,7 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_295</string> 
+   <string>Sim_296</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -1493,7 +1493,19 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
      </void> 
      <void property="plots"> 
       <void method="add"> 
+       <string>Var_7</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_6</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_5</string> 
+      </void> 
+      <void method="add"> 
        <string>OrigModCellGroup_v</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_4</string> 
       </void> 
       <void method="add"> 
        <string>Var_3</string> 
