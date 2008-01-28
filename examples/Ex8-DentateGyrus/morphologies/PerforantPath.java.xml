@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.5.0_10" class="java.beans.XMLDecoder"> 
+<java version="1.5.0_13" class="java.beans.XMLDecoder"> 
 
 <!-- Note that this XML is specific to the neuroConstruct Java cell object model and not any part of the NeuroML framework -->
 
@@ -189,9 +189,6 @@
    <void property="fixedNum"> 
     <float>-60.0</float> 
    </void> 
-   <void property="numberType"> 
-    <int>11</int> 
-   </void> 
   </void> 
   <void property="instanceName"> 
    <string>PerforantPath</string> 
@@ -232,7 +229,7 @@
     </object> 
    </void> 
    <void method="put"> 
-    <string>PPMCSyn</string> 
+    <string>PPBCSyn</string> 
     <object class="java.util.Vector"> 
      <void method="add"> 
       <string>SynLoc</string> 
@@ -240,7 +237,7 @@
     </object> 
    </void> 
    <void method="put"> 
-    <string>PPBCSyn</string> 
+    <string>PPMCSyn</string> 
     <object class="java.util.Vector"> 
      <void method="add"> 
       <string>SynLoc</string> 

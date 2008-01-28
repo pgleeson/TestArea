@@ -62,25 +62,10 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>1.2E-7</float> 
+      <float>1.6E-7</float> 
      </void> 
      <void property="name"> 
-      <string>BGKA_CML</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>all</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
-      <float>6.0E-8</float> 
-     </void> 
-     <void property="name"> 
-      <string>Ks_CML</string> 
+      <string>Kf_CML</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
@@ -107,10 +92,10 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>1.6E-7</float> 
+      <float>4.0E-10</float> 
      </void> 
      <void property="name"> 
-      <string>Kf_CML</string> 
+      <string>GranLeakCond</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
@@ -137,10 +122,25 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>4.0E-10</float> 
+      <float>6.0E-8</float> 
      </void> 
      <void property="name"> 
-      <string>GranLeakCond</string> 
+      <string>Ks_CML</string> 
+     </void> 
+    </object> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>all</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="density"> 
+      <float>1.2E-7</float> 
+     </void> 
+     <void property="name"> 
+      <string>BGKA_CML</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 

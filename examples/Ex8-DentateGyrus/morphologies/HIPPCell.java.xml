@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.5.0_10" class="java.beans.XMLDecoder"> 
+<java version="1.5.0_13" class="java.beans.XMLDecoder"> 
 
 <!-- Note that this XML is specific to the neuroConstruct Java cell object model and not any part of the NeuroML framework -->
 
@@ -704,25 +704,10 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>2.0E-6</float> 
+      <float>1.5E-8</float> 
      </void> 
      <void property="name"> 
-      <string>Nat_CML</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>soma_group</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
-      <float>3.6E-10</float> 
-     </void> 
-     <void property="name"> 
-      <string>HIPPLeakCond</string> 
+      <string>lca</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
@@ -733,28 +718,46 @@
    </void> 
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="density"> 
+      <float>2.0E-6</float> 
+     </void> 
      <void property="name"> 
       <string>Nat_CML</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
      <void method="add"> 
-      <string>ddend</string> 
+      <string>pdend</string> 
      </void> 
     </object> 
    </void> 
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>6.0E-8</float> 
+      <float>3.0E-8</float> 
      </void> 
      <void property="name"> 
-      <string>Kf_CML</string> 
+      <string>gskch</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
      <void method="add"> 
-      <string>pdend</string> 
+      <string>all</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="density"> 
+      <float>1.5E-10</float> 
+     </void> 
+     <void property="name"> 
+      <string>hyperde3</string> 
+     </void> 
+    </object> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>all</string> 
      </void> 
     </object> 
    </void> 
@@ -781,32 +784,17 @@
     </object> 
     <object class="java.util.Vector"> 
      <void method="add"> 
-      <string>soma_group</string> 
+      <string>pdend</string> 
      </void> 
     </object> 
    </void> 
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>3.0E-8</float> 
+      <float>8.0E-9</float> 
      </void> 
      <void property="name"> 
-      <string>cagk</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>all</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
-      <float>3.0E-8</float> 
-     </void> 
-     <void property="name"> 
-      <string>gskch</string> 
+      <string>borgka</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
@@ -826,22 +814,7 @@
     </object> 
     <object class="java.util.Vector"> 
      <void method="add"> 
-      <string>pdend</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
-      <float>1.5E-10</float> 
-     </void> 
-     <void property="name"> 
-      <string>hyperde3</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>all</string> 
+      <string>soma_group</string> 
      </void> 
     </object> 
    </void> 
@@ -863,15 +836,30 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>1.5E-8</float> 
+      <float>3.6E-10</float> 
      </void> 
      <void property="name"> 
-      <string>lca</string> 
+      <string>HIPPLeakCond</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
      <void method="add"> 
       <string>all</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="density"> 
+      <float>6.0E-8</float> 
+     </void> 
+     <void property="name"> 
+      <string>Kf_CML</string> 
+     </void> 
+    </object> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>soma_group</string> 
      </void> 
     </object> 
    </void> 
@@ -890,10 +878,10 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>8.0E-9</float> 
+      <float>3.0E-8</float> 
      </void> 
      <void property="name"> 
-      <string>borgka</string> 
+      <string>cagk</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
@@ -902,13 +890,22 @@
      </void> 
     </object> 
    </void> 
+   <void method="put"> 
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="name"> 
+      <string>Nat_CML</string> 
+     </void> 
+    </object> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>ddend</string> 
+     </void> 
+    </object> 
+   </void> 
   </void> 
   <void property="initialPotential"> 
    <void property="fixedNum"> 
     <float>-70.0</float> 
-   </void> 
-   <void property="numberType"> 
-    <int>11</int> 
    </void> 
   </void> 
   <void property="instanceName"> 
@@ -950,18 +947,18 @@
     </object> 
    </void> 
    <void method="put"> 
-    <string>GCHIPPSyn</string> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>pdend</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
     <string>HIPPMCSyn</string> 
     <object class="java.util.Vector"> 
      <void method="add"> 
       <string>soma_group</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
+    <string>GCHIPPSyn</string> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>pdend</string> 
      </void> 
     </object> 
    </void> 
