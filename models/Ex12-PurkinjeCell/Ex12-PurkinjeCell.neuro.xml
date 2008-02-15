@@ -15,11 +15,7 @@ Based on Arnd Roth&apos;s conversion of the original GENESIS code to NEURON
 * Not yet complete!!!* Press Validate for details
 
 Note: Sim configs with BothSims in title use only ChannelML based mechanisms and so can be used on NEURON and GENESIS.
-
-Issues:
-Na channel: cells only equal when dt = 0.002 (too small!!)
-
-CaP chan not equal orig mod when table divs = 3000 </string> 
+</string> 
   </void> 
   <void property="projectFileVersion"> 
    <string>neuroConstruct v1.0.9</string> 
@@ -102,10 +98,10 @@ CaP chan not equal orig mod when table divs = 3000 </string>
    <void method="get"> 
     <string>Cell Type</string> 
     <void method="add"> 
-     <string>SomaOnly_CaT</string> 
+     <string>SomaOnly_ca</string> 
     </void> 
     <void method="add"> 
-     <string>SomaOnly_origChans_CaT</string> 
+     <string>SomaOnly_origChans_ca</string> 
     </void> 
     <void method="add"> 
      <string>SomaOnly_all</string> 
@@ -1282,6 +1278,316 @@ CaP chan not equal orig mod when table divs = 3000 </string>
      </void> 
     </object> 
    </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>SampleCellGroup</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_5</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>1.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_28</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>KMnew2:m</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>OrigChansCellGroup</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_5</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>1.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_29</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>KMnew2_nmodl:m</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>SampleCellGroup</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_6</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>1.0E-20</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_30</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>cad:CONC:ca</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>OrigChansCellGroup</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_6</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>0.01</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_31</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>cai</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>SampleCellGroup</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_7</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>2.0E-7</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-4.0E-6</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_32</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>CaP:CURR_DENS:ca</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>OrigChansCellGroup</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_7</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>0.02</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-0.4</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_33</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>ica</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>SampleCellGroup</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_8</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>1.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_34</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>KC:m</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>SampleCellGroup</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_8</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>1.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_35</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>KC:z</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>OrigChansCellGroup</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_8</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>1.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_36</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>KC_nmodl:m</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>OrigChansCellGroup</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_8</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>1.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_37</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>KC_nmodl:z</string> 
+     </void> 
+    </object> 
+   </void> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.project.ProjectProperties"> 
@@ -1316,6 +1622,14 @@ CaP chan not equal orig mod when table divs = 3000 </string>
   </void> 
   <void property="nativeBlocks"> 
    <void method="put"> 
+    <int>10</int> 
+    <string></string> 
+   </void> 
+   <void method="put"> 
+    <int>3</int> 
+    <string></string> 
+   </void> 
+   <void method="put"> 
     <int>2</int> 
     <string>forall if (ismembrane(&quot;na_ion&quot;)) {
 		
@@ -1335,7 +1649,13 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
 forall if (ismembrane(&quot;ca_ion&quot;)) {
 		
 	print &quot;Rev pot of k being changed for section &quot;, secname()
-	cai = 4e-5 cao = 2.4
+
+	// Should be: cai = 4e-5 
+
+	cai = 4e-5
+
+	cao = 2.4
+
                              eca = 12.5*log(cao/cai)
                               ion_style(&quot;ca_ion&quot;, 1, 1, 0, 0, 0)
 }</string> 
@@ -1344,9 +1664,51 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
     <int>1</int> 
     <string></string> 
    </void> 
+   <void method="put"> 
+    <int>-1</int> 
+    <string></string> 
+   </void> 
+   <void method="put"> 
+    <int>0</int> 
+    <string></string> 
+   </void> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.genesis.GenesisSettings"> 
+  <void property="nativeBlocks"> 
+   <void method="put"> 
+    <int>10</int> 
+    <string>str someTempCompName
+
+float restCa = 4e-5
+float initCa = 4e-5
+
+
+
+if ({exists  /cells/SampleCellGroup})
+
+    foreach someTempCompName ({el /cells/SampleCellGroup/#/#})
+
+         if ({exists  {someTempCompName}/cad})
+	
+            echo &quot;Resetting Ca resting conc of: &quot; {someTempCompName}/cad
+
+            if (units == &quot;GENESIS Physiological Units&quot;)
+                setfield {someTempCompName}/cad Ca {initCa / 1000000}
+                setfield {someTempCompName}/cad C   {{initCa - restCa} / 1000000}
+            else
+                setfield {someTempCompName}/cad Ca initCa
+                setfield {someTempCompName}/cad C {initCa - restCa}
+            end
+
+        end
+
+    end
+
+end
+</string> 
+   </void> 
+  </void> 
   <void property="unitSystemToUse"> 
    <int>3</int> 
   </void> 
@@ -1359,7 +1721,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    <float>300.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_375</string> 
+   <string>Sim_461</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -1521,6 +1883,9 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
       <void method="add"> 
        <string>SampleCellGroup</string> 
       </void> 
+      <void method="add"> 
+       <string>OrigChansCellGroup</string> 
+      </void> 
      </void> 
      <void property="description"> 
       <string>This is the default configuration of the Cell Groups, stimulations, plots, etc for this project</string> 
@@ -1541,19 +1906,19 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
        <string>OrigChansCellGroup_v</string> 
       </void> 
       <void method="add"> 
-       <string>Var_27</string> 
-      </void> 
-      <void method="add"> 
-       <string>Var_26</string> 
-      </void> 
-      <void method="add"> 
-       <string>Var_25</string> 
-      </void> 
-      <void method="add"> 
-       <string>Var_24</string> 
-      </void> 
-      <void method="add"> 
        <string>SamplePlot</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_37</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_36</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_35</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_34</string> 
       </void> 
      </void> 
      <void property="simDuration"> 

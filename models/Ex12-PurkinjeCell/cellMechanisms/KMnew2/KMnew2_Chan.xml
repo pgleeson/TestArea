@@ -13,7 +13,12 @@
 
     <channel_type name="KMnew2" density="yes">
       
-        <status value="known_issues"/>
+        <status value="stable">
+            <meta:comment>Verified equivalence of NEURON and GENESIS mapping to orig NEURON mod impl at 0.02ms dt with current pulse (but 0.002 is better)</meta:comment>
+          <meta:contributor>
+              <meta:name>Padraig Gleeson</meta:name>
+          </meta:contributor>
+        </status>
 
         <meta:notes>Persistent potassium current. Based on Roth et al's reimplementation of original GENESIS model in NEURON</meta:notes>
 
@@ -101,10 +106,8 @@
         </hh_gate>
 
 
-        <!-- Specifying table divs to try to get as close as possible to original impl -->
-
         <impl_prefs>
-            <table_settings max_v="50" min_v="-100" table_divisions="3000"/>
+            <table_settings max_v="50" min_v="-100" table_divisions="200"/>
         </impl_prefs>
 
 
