@@ -67,7 +67,7 @@ PROCEDURE rates(v) {  :Computes rate and other constants at current v.
                       :Call once from HOC to initialize inf at resting v.
                       
         LOCAL  q10, tinc, alpha, beta, sum
-        TABLE minf, mexp, hinf, hexp DEPEND dt, celsius FROM -100 TO 100 WITH 200
+        TABLE minf, mexp, hinf, hexp DEPEND dt, celsius FROM -100 TO 150 WITH 250   : PG altered this to above eca for testing...
         
         q10 = 3^((celsius - 37)/10)
         tinc = -dt * q10

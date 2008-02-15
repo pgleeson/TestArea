@@ -133,7 +133,7 @@
 
 
         <impl_prefs>
-            <table_settings max_v="100" min_v="-100" table_divisions="2000"/>
+            <table_settings max_v="100" min_v="-100" table_divisions="200"/>
         </impl_prefs>
 
 

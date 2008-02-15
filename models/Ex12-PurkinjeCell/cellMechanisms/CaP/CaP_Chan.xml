@@ -12,8 +12,14 @@
 
 
     <channel_type name="CaP" density="yes">
-	    
-	    <status value="in_progress"/>
+        
+        <status value="stable">
+            <meta:comment>Verified equivalence of NEURON and GENESIS mapping to orig NEURON mod impl at 0.02ms dt with current pulse (but 0.002 is better)</meta:comment>
+            <meta:comment>Changed to a larger value of max_v for testing equivalence with orig NEURON mod impl at v close to ca rev pot (~137mV)</meta:comment>
+            <meta:contributor>
+                <meta:name>Padraig Gleeson</meta:name>
+            </meta:contributor>
+        </status>
 
         <meta:notes>P type Ca current. Based on Roth et al's reimplementation of original GENESIS model in NEURON</meta:notes>
 
@@ -132,7 +138,7 @@
 
 
         <impl_prefs>
-            <table_settings max_v="150" min_v="-100" table_divisions="3000"/> <!-- 150 max v as eca is high... -->
+            <table_settings max_v="150" min_v="-100" table_divisions="250"/> <!-- 150 max v as eca is high... -->
         </impl_prefs>
 
 

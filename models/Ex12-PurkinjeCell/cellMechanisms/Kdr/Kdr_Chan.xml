@@ -2,7 +2,7 @@
 <channelml xmlns="http://morphml.org/channelml/schema"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xmlns:meta="http://morphml.org/metadata/schema"
-           xsi:schemaLocation="http://morphml.org/channelml/schema  ../../../../../NeuroMLValidator/web/NeuroMLFiles/Schemata/v1.6/Level2/ChannelML_v1.6.xsd"
+           xsi:schemaLocation="http://morphml.org/channelml/schema  ../../../../../NeuroMLValidator/web/NeuroMLFiles/Schemata/v1.7.1/Level2/ChannelML_v1.7.1.xsd"
            units="Physiological Units">
 
     <meta:notes>ChannelML file containing a single Channel from De Schutter and Bower 1998</meta:notes>
