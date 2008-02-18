@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.5.0_13" class="java.beans.XMLDecoder"> 
+<java version="1.6.0_03" class="java.beans.XMLDecoder"> 
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -31,7 +31,7 @@ RI10sp.hoc: line 1108, 1 instead of 10?
 </string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.0.7</string> 
+   <string>neuroConstruct v1.0.9</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex8-DentateGyrus</string> 
@@ -856,6 +856,9 @@ RI10sp.hoc: line 1108, 1 instead of 10?
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings"> 
+  <void property="copySimFiles"> 
+   <boolean>true</boolean> 
+  </void> 
   <void property="generateComments"> 
    <boolean>false</boolean> 
   </void> 
@@ -1011,7 +1014,7 @@ cao_ccanl=2
    <float>700.0</float> 
   </void> 
   <void property="reference"> 
-   <string>basicNetwork_176</string> 
+   <string>basicNetwork_180</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
