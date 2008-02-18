@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.5.0_13" class="java.beans.XMLDecoder"> 
+<java version="1.6.0_03" class="java.beans.XMLDecoder"> 
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -18,7 +18,7 @@ Just click Generate -&gt; Generate Cell Positions and Connections, followed by V
 These allow a single neuroConstruct project to illustrate many different types of network configurations for the cells in a project. In tab Generate choose in the drop down box a Simulation Configuration which will generate a different network. Edit Simulation Configs shows what Cell Groups, Net Conns, Plots and Inputs are used in each. </string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.0.7</string> 
+   <string>neuroConstruct v1.0.9</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex5-Networks</string> 
@@ -870,7 +870,7 @@ These allow a single neuroConstruct project to illustrate many different types o
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_8</string> 
+   <string>Sim_13</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -1297,7 +1297,7 @@ These allow a single neuroConstruct project to illustrate many different types o
       </void> 
      </void> 
      <void property="description"> 
-      <string>A cell connects only to cells in the specified axonal connction volume, but with a non uniform connectivity probability (specified in Network Connection NonuniformConn). To see synapse location better in 3D, change the cell detail option to &quot;Lines only&quot;, hide the synaptic connections and show the synaptic end points in 3D Settings.</string> 
+      <string>A cell connects only to cells in the specified axonal connction volume, but with a non uniform connectivity probability (specified in Network Connection NonuniformConn). To see synapse location better in 3D, change the cell detail option to Lines only, hide the synaptic connections and show the synaptic end points in 3D Settings.</string> 
      </void> 
      <void property="inputs"> 
       <void method="add"> 
