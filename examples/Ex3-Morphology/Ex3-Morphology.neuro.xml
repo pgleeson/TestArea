@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.5.0_13" class="java.beans.XMLDecoder"> 
+<java version="1.6.0_03" class="java.beans.XMLDecoder"> 
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -17,11 +17,11 @@ A pyramidal cell neuron as included with the standard NEURON distribution is als
 
 There are also examples included of a Neurolucida format file, a MorphML file and an SWC format morphology.
 
-For more details on importing each format see the documentation under menu item Help -&gt; Help -&gt; Importing morphology files
+For more details on importing each format see the documentation under menu item Help -&gt; Help -&gt; Importing morphology files. 
  </string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.0.7</string> 
+   <string>neuroConstruct v1.0.9</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex3-Morphology</string> 

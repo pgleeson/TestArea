@@ -139,6 +139,12 @@ function make_<xsl:value-of select="@name"/>
         </xsl:text>
             </xsl:otherwise>
         </xsl:choose>
+        <xsl:for-each select="cml:parameters/cml:parameter">
+        addfield <xsl:value-of select="@name"/>
+        <xsl:text>
+        </xsl:text>
+        <xsl:value-of select="@name"/> = <xsl:value-of select="@value"/> // Note units of this will be determined by it's usage in the generic functions
+        </xsl:for-each>
 
         <xsl:if test="count(cml:current_voltage_relation/cml:ohmic/cml:conductance/*) &gt; 0">
             
@@ -474,12 +480,16 @@ function make_<xsl:value-of select="@name"/>
             setfield {chanpath} <xsl:value-of select="$gateRef"/>_B-><xsl:value-of select="$tableEntry"/> {inf}-->
             
             // Working out the "real" alpha and beta expressions from the tau and inf
+            <xsl:if test="count(cml:transition/cml:voltage_gate/cml:alpha | cml:transition/cml:voltage_conc_gate/cml:alpha)=0">
+            float alpha</xsl:if>
+            <xsl:if test="count(cml:transition/cml:voltage_gate/cml:beta | cml:transition/cml:voltage_conc_gate/cml:beta)=0">
+            float beta</xsl:if>
             alpha = inf / tau   
             beta = (1- inf)/tau
             
             
             setfield {chanpath} <xsl:value-of select="$gateRef"/>_A-><xsl:value-of select="$tableEntry"/> {alpha}
-            setfield {chanpath} <xsl:value-of select="$gateRef"/>_B-><xsl:value-of select="$tableEntry"/> {(alpha + beta)}
+            setfield {chanpath} <xsl:value-of select="$gateRef"/>_B-><xsl:value-of select="$tableEntry"/> {alpha + beta}
 
                 </xsl:otherwise>
             </xsl:choose>
@@ -764,7 +774,7 @@ end
             select="$d_cml" />, in units: <xsl:value-of select="$xmlFileUnitSystem"/>
 
             <xsl:choose>
-                <xsl:when test="string($name) = 'alpha' or string($name) = 'beta'">
+                <xsl:when test="string($name) = 'alpha' or string($name) = 'beta' or string($name) = 'gamma' or string($name) = 'zeta'">
             A = <xsl:call-template name="convert">
                     <xsl:with-param name="value"><xsl:value-of select="$A_cml"/></xsl:with-param>
                     <xsl:with-param name="quantity">InvTime</xsl:with-param>
@@ -779,6 +789,9 @@ end
                 <xsl:when test="string($name) = 'inf'">
             A = <xsl:value-of select="$A_cml"/>
                 </xsl:when>
+                <xsl:otherwise>
+            A = <xsl:value-of select="$A_cml"/> // Warning: unrecognised rate variable! Don't know how to convert units!
+                </xsl:otherwise>
             </xsl:choose>
 
             k = <xsl:call-template name="convert">
