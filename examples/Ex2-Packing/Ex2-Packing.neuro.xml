@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.5.0_13" class="java.beans.XMLDecoder"> 
+<java version="1.6.0_03" class="java.beans.XMLDecoder"> 
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -18,7 +18,7 @@ Just click Generate -&gt; Generate Cell Positions and Connections, followed by V
 Try adjusting the packing by clicking on the entries in the Cell Packing Adapter column of the table under tab Cell Groups. You can change the various parameters (e.g. cell number/spacing) which are used for generating the cell positions.     </string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.0.7</string> 
+   <string>neuroConstruct v1.0.9</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex2-Packing</string> 
