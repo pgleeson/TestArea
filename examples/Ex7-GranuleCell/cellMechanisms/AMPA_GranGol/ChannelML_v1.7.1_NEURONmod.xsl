@@ -7,7 +7,7 @@
 
 <!--
 
-    This file is used to convert v1.7 ChannelML files to NEURON mod files
+    This file is used to convert v1.7.1 ChannelML files to NEURON mod files
 
     This file has been developed as part of the neuroConstruct project
     
@@ -22,10 +22,19 @@
 
 <xsl:variable name="xmlFileUnitSystem"><xsl:value-of select="/cml:channelml/@units"/></xsl:variable>   
 
+
+<!-- Some parameters which can be changed to make more/less verbose output, etc.-->
+
+<xsl:variable name="debug">1</xsl:variable>  <!-- Comments printed during run e.g. when syn mechanism receives event-->
+<xsl:variable name="favourPublicParameters">0</xsl:variable>  <!-- make e.g. A, k, d of parameterised_hh accessible parameters in hoc-->
+
+
+
+
 <!--Main template-->
 
 <xsl:template match="/cml:channelml">
-?  This is a NEURON mod file generated from a v1.7 ChannelML file
+?  This is a NEURON mod file generated from a v1.7.1 ChannelML file
 
 ?  Unit system of original ChannelML file: <xsl:value-of select="$xmlFileUnitSystem"/><xsl:text>
 </xsl:text>
@@ -117,7 +126,15 @@ NEURON {
     </xsl:if>
     RANGE gmax, gion
     <xsl:for-each select="cml:current_voltage_relation/cml:ohmic/cml:conductance/cml:gate">
-    RANGE <xsl:value-of select="cml:state/@name"/>inf, <xsl:value-of select="cml:state/@name"/>tau
+        <xsl:variable name="state"><xsl:value-of select="cml:state/@name"/></xsl:variable>
+    RANGE <xsl:value-of select="$state"/>inf, <xsl:value-of select="$state"/>tau<xsl:if test="$favourPublicParameters = 1">
+    <xsl:for-each select="../../../../cml:hh_gate[@state=$state]/cml:transition/cml:voltage_gate/*/cml:parameterised_hh">
+        <xsl:for-each select="cml:parameter">, <xsl:value-of select="$state"/>_<xsl:value-of select="name(../..)"/>_<xsl:value-of select="@name"/>
+        </xsl:for-each>
+    </xsl:for-each></xsl:if>
+    </xsl:for-each>
+    <xsl:for-each select="cml:parameters/cml:parameter">
+    RANGE <xsl:value-of select="@name"/>
     </xsl:for-each>
 </xsl:when>
 <xsl:when test="count(cml:current_voltage_relation/cml:integrate_and_fire) &gt; 0">  <!-- i.e. I&F-->
@@ -144,6 +161,14 @@ PARAMETER {
             <xsl:with-param name="quantity">Voltage</xsl:with-param>
             </xsl:call-template> (mV)
     </xsl:if>
+    <xsl:if test="$favourPublicParameters = 1">
+    <xsl:for-each select="cml:hh_gate/cml:transition/cml:voltage_gate/*/cml:parameterised_hh">
+        <xsl:for-each select="cml:parameter">
+    <xsl:value-of select="../../../../../@state"/>_<xsl:value-of select="name(../..)"/>_<xsl:value-of select="@name"/> = <xsl:value-of select="@value"/><xsl:text>
+    </xsl:text>
+                
+        </xsl:for-each>
+    </xsl:for-each></xsl:if>
 </xsl:when>
 <xsl:when test="count(cml:current_voltage_relation/cml:integrate_and_fire) &gt; 0">  <!-- i.e. I&F-->
     thresh = <xsl:call-template name="convert">
@@ -164,6 +189,9 @@ PARAMETER {
             </xsl:call-template> (uS)
 </xsl:when>
 </xsl:choose>
+<xsl:for-each select="cml:parameters/cml:parameter">
+    <xsl:value-of select="@name"/> = <xsl:value-of select="@value"/> : Note units of this will be determined by it's usage in the generic functions
+</xsl:for-each>
 }
 
 
@@ -212,7 +240,11 @@ ASSIGNED {
 </xsl:choose>
 }
 
-BREAKPOINT {
+BREAKPOINT { <xsl:if test="count(cml:current_voltage_relation/cml:ohmic/cml:conductance/cml:conc_factor) &gt; 0">LOCAL g_factor, <xsl:value-of 
+select="cml:current_voltage_relation/cml:ohmic/cml:conductance/cml:conc_factor/@variable_name"/><xsl:text>
+    
+</xsl:text>
+</xsl:if>
 <xsl:choose>
 <xsl:when test="count(cml:current_voltage_relation/cml:ohmic) &gt; 0">  <!-- i.e. normal ohmic channel-->
     <xsl:choose>
@@ -221,11 +253,33 @@ BREAKPOINT {
         </xsl:when>
         <xsl:otherwise>
     <xsl:choose><xsl:when test="$voltConcDependence='yes'">SOLVE states METHOD derivimplicit</xsl:when> <!-- Needed for concentration dependence-->
-    <xsl:when test="count(cml:current_voltage_relation/cml:ohmic/cml:conductance/cml:gate) &gt; 0">SOLVE states METHOD cnexp</xsl:when> <!-- When it's not a nonSpecificCurrent but there are no gates, this statement is not needed-->
+    <xsl:when test="count(cml:current_voltage_relation/cml:ohmic/cml:conductance/cml:gate) &gt; 0">
+    SOLVE states METHOD cnexp
+    </xsl:when> <!-- When it's not a nonSpecificCurrent but there are no gates, this statement is not needed-->
     </xsl:choose>
+    
+        
     
     gion = gmax<xsl:for-each select="cml:current_voltage_relation/cml:ohmic/cml:conductance/cml:gate">*((<xsl:if test="count(cml:state/@fraction) &gt; 0">
             <xsl:value-of select="cml:state/@fraction"/>*</xsl:if><xsl:value-of select="cml:state/@name"/>)^<xsl:value-of select="@power"/>)</xsl:for-each>
+    
+            
+  
+    <xsl:for-each select="cml:current_voltage_relation/cml:ohmic/cml:conductance/cml:conc_factor">
+    <xsl:text>
+        </xsl:text><xsl:value-of select="@variable_name"/> = <xsl:value-of select="@ion"/>i / <xsl:call-template name="convert">
+                        <xsl:with-param name="value">1</xsl:with-param>
+                        <xsl:with-param name="quantity">Concentration</xsl:with-param>
+                    </xsl:call-template>
+    <xsl:call-template name="formatExpression">
+        <xsl:with-param name="variable">g_factor</xsl:with-param>
+        <xsl:with-param name="oldExpression">
+            <xsl:value-of select="@expr" />
+        </xsl:with-param>
+    </xsl:call-template>
+    
+    gion = gion * g_factor
+    </xsl:for-each>
     
             <xsl:for-each select="/cml:channelml/cml:ion">
                 <xsl:if test ="count(@role) = 0 or @role='PermeatedSubstance' or @role='PermeatedSubstanceFixedRevPot'">
@@ -239,6 +293,7 @@ BREAKPOINT {
     i = g*(v - v_reset)
 </xsl:when>
 </xsl:choose>
+
 }
 
 
@@ -290,6 +345,7 @@ INITIAL {
     <xsl:for-each select="cml:current_voltage_relation/cml:ohmic/cml:conductance/cml:gate">
     <xsl:value-of select="cml:state/@name"/> = <xsl:value-of select="cml:state/@name"/>inf<xsl:text>
     </xsl:text></xsl:for-each>
+    
 }
     
 STATE {
@@ -357,7 +413,8 @@ DERIVATIVE states {
         </xsl:variable>
         
     TABLE <xsl:for-each select="cml:current_voltage_relation/cml:ohmic/cml:conductance/cml:gate"><xsl:value-of 
-    select="cml:state/@name"/>inf, <xsl:value-of select="cml:state/@name"/>tau<xsl:if test="position() &lt; number($numGates)">,</xsl:if> </xsl:for-each> DEPEND celsius FROM <xsl:value-of select="$min_v"/> TO <xsl:value-of select="$max_v"/> WITH <xsl:value-of select="$table_divisions"/></xsl:if>
+    select="cml:state/@name"/>inf, <xsl:value-of select="cml:state/@name"/>tau<xsl:if test="position() &lt; number($numGates)">,</xsl:if> 
+    </xsl:for-each> DEPEND celsius<xsl:for-each select="cml:parameters/cml:parameter">, <xsl:value-of select="@name"/></xsl:for-each> FROM <xsl:value-of select="$min_v"/> TO <xsl:value-of select="$max_v"/> WITH <xsl:value-of select="$table_divisions"/></xsl:if>
     
     
     UNITSOFF
@@ -426,11 +483,18 @@ DERIVATIVE states {
         <xsl:if  test="name()!='conc_dependence'">
             <xsl:choose>
                 <xsl:when  test="count(cml:parameterised_hh) &gt; 0">
-    ? Found a parameterised form of rate equation for <xsl:value-of select="name()"/>, using expression: <xsl:value-of select="cml:parameterised_hh/@expr" /><xsl:text>
+    ? Found a parameterised form of rate equation for <xsl:value-of select="name()"/>, using expression: <xsl:choose>
+                                        <xsl:when test="cml:parameterised_hh/@type='linoid'" >A*(k*(v-d)) / (1 - exp(-(k*(v-d))))</xsl:when>
+                                        <xsl:when test="cml:parameterised_hh/@type='exponential'" >A*exp(k*(v-d))</xsl:when>
+                                        <xsl:when test="cml:parameterised_hh/@type='sigmoid'" >A / (1 + exp(k*(v-d)))</xsl:when>
+                                        <xsl:otherwise >Unsupported expression type!</xsl:otherwise></xsl:choose><xsl:text>
     </xsl:text>   
     
                     <xsl:for-each select="cml:parameterised_hh/cml:parameter">
-    <xsl:value-of select="@name"/> = <xsl:value-of select="@value"/><xsl:text>
+    <xsl:value-of select="@name"/> = <xsl:choose>
+         <xsl:when test="$favourPublicParameters = 1"><xsl:value-of select="$stateName"/>_<xsl:value-of select="name(../..)"/>_<xsl:value-of select="@name"/></xsl:when>
+         <xsl:otherwise><xsl:value-of select="@value"/></xsl:otherwise>
+         </xsl:choose><xsl:text>
     </xsl:text>
                     </xsl:for-each>
     
@@ -488,7 +552,7 @@ DERIVATIVE states {
     
                 </xsl:when>
                 <xsl:when test="count(cml:generic_equation_hh) &gt; 0">
-    ? Found a generic form of rate equation for <xsl:value-of select="name()"/>, using expression: <xsl:value-of select="cml:generic_equation_hh/@expr" /><xsl:text>
+    ? Found a generic form of the rate equation for <xsl:value-of select="name()"/>, using expression: <xsl:value-of select="cml:generic_equation_hh/@expr" /><xsl:text>
                     </xsl:text>  
                     <xsl:if test="string($xmlFileUnitSystem) = 'SI Units'">
     ? Note: Equation (and all ChannelML file values) in <xsl:value-of select="$xmlFileUnitSystem"/> so need to convert v first...<xsl:text>
@@ -512,6 +576,16 @@ DERIVATIVE states {
                         <xsl:with-param name="quantity">Time</xsl:with-param>   
                     </xsl:call-template>     
                         </xsl:if>
+                      
+                    </xsl:if>
+                    <xsl:if test="string($xmlFileUnitSystem) = 'Physiological Units' and $voltConcDependence='yes'">
+    ? Equations can depend on concentration. NEURON uses 'SI Units' internally for concentration, 
+    ? but ChannelML file is in Physiological Units...
+    <xsl:value-of select="../cml:conc_dependence/@variable_name"/> = <xsl:value-of select="../cml:conc_dependence/@variable_name"/> / <xsl:call-template name="convert">
+                        <xsl:with-param name="value">1</xsl:with-param>
+                        <xsl:with-param name="quantity">Concentration</xsl:with-param>
+                    </xsl:call-template> <xsl:text>
+    </xsl:text>  
                     </xsl:if>
                     
     <xsl:call-template name="formatExpression">
@@ -558,7 +632,15 @@ DERIVATIVE states {
                         <xsl:with-param name="quantity">InvTime</xsl:with-param>   
                     </xsl:call-template>  ? resetting beta
         </xsl:if>
-    </xsl:if>      <xsl:text>
+    </xsl:if>
+                    <xsl:if test="string($xmlFileUnitSystem) = 'Physiological Units' and $voltConcDependence='yes'">
+    ? Resetting concentration...
+    <xsl:value-of select="../cml:conc_dependence/@variable_name"/> = <xsl:value-of select="../cml:conc_dependence/@variable_name"/> * <xsl:call-template name="convert">
+                        <xsl:with-param name="value">1</xsl:with-param>
+                        <xsl:with-param name="quantity">Concentration</xsl:with-param>
+                    </xsl:call-template>  <xsl:text>
+    </xsl:text>  
+                    </xsl:if>      <xsl:text>
     </xsl:text>  
            
             </xsl:when>
@@ -653,7 +735,14 @@ NEURON {
     
     RANGE <xsl:value-of select="$ionused"/>i
     
-    RANGE rest_conc, tau
+    RANGE rest_conc
+    
+    <xsl:if test="count(cml:decaying_pool_model/cml:decay_constant) &gt; 0">
+    RANGE tau
+    </xsl:if>
+    <xsl:if test="count(cml:decaying_pool_model/cml:inv_decay_constant) &gt; 0">
+    RANGE beta
+    </xsl:if>
     <xsl:if test="count(cml:decaying_pool_model/cml:ceiling) &gt; 0">
     RANGE ceiling
     </xsl:if>
@@ -705,10 +794,19 @@ PARAMETER {
                     <xsl:with-param name="value"><xsl:value-of select="cml:decaying_pool_model/cml:resting_conc"/></xsl:with-param>
               <xsl:with-param name="quantity">Concentration</xsl:with-param>
           </xsl:call-template> (mM)
+          
+    <xsl:if test="count(cml:decaying_pool_model/cml:decay_constant) &gt; 0">
     tau = <xsl:call-template name="convert">
               <xsl:with-param name="value"><xsl:value-of select="cml:decaying_pool_model/cml:decay_constant"/></xsl:with-param>
               <xsl:with-param name="quantity">Time</xsl:with-param>
           </xsl:call-template> (ms)
+   </xsl:if>
+    <xsl:if test="count(cml:decaying_pool_model/cml:inv_decay_constant) &gt; 0">
+    beta = <xsl:call-template name="convert">
+              <xsl:with-param name="value"><xsl:value-of select="cml:decaying_pool_model/cml:inv_decay_constant"/></xsl:with-param>
+              <xsl:with-param name="quantity">InvTime</xsl:with-param>
+          </xsl:call-template> (/ms)
+   </xsl:if>
           
     <xsl:if test="count(cml:decaying_pool_model/cml:ceiling) &gt; 0">
     ceiling = <xsl:call-template name="convert">
@@ -750,6 +848,10 @@ BREAKPOINT {
 }
 
 DERIVATIVE conc {
+    <xsl:variable name="timeConstFactor"><xsl:choose>
+        <xsl:when test="count(cml:decaying_pool_model/cml:inv_decay_constant) &gt; 0">* beta</xsl:when>
+        <xsl:otherwise>/tau</xsl:otherwise></xsl:choose>
+    </xsl:variable>
     <xsl:if test="count(cml:decaying_pool_model/cml:pool_volume_info) &gt; 0">
     LOCAL thickness_cm, surf_area_cm2, volume_cm3 ? Note, normally dimensions are in um, but curr dens is in mA/cm2, etc
     
@@ -760,10 +862,10 @@ DERIVATIVE conc {
     total_current = i<xsl:value-of select="$ionused"/> * surf_area_cm2
 
 
-    <xsl:value-of select="$ionused"/>i' =  ((-1 * total_current)/(<xsl:value-of select="$valency"/> * F * volume_cm3)) - ((<xsl:value-of select="$ionused"/>i - rest_conc)/tau)
+    <xsl:value-of select="$ionused"/>i' =  ((-1 * total_current)/(<xsl:value-of select="$valency"/> * F * volume_cm3)) - ((<xsl:value-of select="$ionused"/>i - rest_conc)<xsl:value-of select="$timeConstFactor"/>)
     </xsl:if>
     <xsl:if test="count(cml:decaying_pool_model/cml:fixed_pool_info) &gt; 0">
-    <xsl:value-of select="$ionused"/>i' = - (phi * i<xsl:value-of select="$ionused"/>) - ((<xsl:value-of select="$ionused"/>i - rest_conc)/tau)
+    <xsl:value-of select="$ionused"/>i' = - (phi * i<xsl:value-of select="$ionused"/>) - ((<xsl:value-of select="$ionused"/>i - rest_conc)<xsl:value-of select="$timeConstFactor"/>)
     </xsl:if>
 
 }
@@ -779,7 +881,7 @@ DERIVATIVE conc {
         <xsl:when test="$xmlFileUnitSystem  = 'Physiological Units'">
             <xsl:choose>
                 <xsl:when test="$quantity = 'Conductance Density'"><xsl:value-of select="number($value div 1000)"/></xsl:when>
-                <xsl:when test="$quantity = 'Conductance'"><xsl:value-of select="number($value * 1000)"/></xsl:when>
+                <xsl:when test="$quantity = 'Conductance'"><xsl:value-of select="number($value) * 1000"/></xsl:when>
                 <xsl:when test="$quantity = 'Voltage'"><xsl:value-of select="$value"/></xsl:when>                       <!-- same -->
                 <xsl:when test="$quantity = 'InvVoltage'"><xsl:value-of select="$value"/></xsl:when>                    <!-- same -->
                 <xsl:when test="$quantity = 'Time'"><xsl:value-of select="number($value)"/></xsl:when>                  <!-- same -->
@@ -822,11 +924,16 @@ DERIVATIVE conc {
     <xsl:if test="count(cml:blocking_syn)>0">
 ? Creating NMDA like synaptic mechanism, based on NEURON source impl of Exp2Syn
     </xsl:if>
-    <xsl:if test="count(cml:plastic_syn)>0">
+    <xsl:if test="count(cml:multi_decay_syn)>0">
 ? Creating synaptic mechanism, based on Volker Steuber &amp; Chiara Saviane implementation of 3 decay component facilitating synapse
-
-DEFINE nspikes 50
     </xsl:if>
+    <xsl:variable name="hasMultiDecay">
+        <xsl:choose>
+            <xsl:when test="count(cml:multi_decay_syn)>0 or 
+                            (count(cml:fac_dep_syn)>0 and count(cml:fac_dep_syn/@max_conductance_2)>0)">yes</xsl:when>
+            <xsl:otherwise>no</xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable>
 
 TITLE Channel: <xsl:value-of select="@name"/>
 
@@ -855,23 +962,25 @@ NEURON {
     GLOBAL total
 </xsl:if>
 
-<xsl:if test="count(cml:plastic_syn)>0">
-    RANGE tau_decay_2, tau_decay_3, ampl
-    <xsl:if test="count(cml:plastic_syn/cml:plasticity)>0">
-    RANGE Taurec, Taufac, Uinit
-    :RANGE plastic
-    </xsl:if>
+<xsl:if test="$hasMultiDecay = 'yes'">
+    RANGE tau_decay_2, tau_decay_3, gmax_2, gmax_3, ampl
+</xsl:if>
+<xsl:if test="count(cml:fac_dep_syn)>0">
+    RANGE tau_rec, tau_facil, U, Uinit
+    <!--:RANGE plastic
+    
     RANGE Des         : Including or not desensitisation
     RANGE Taudes
-    RANGE Correlation : Indicates whether the des is correlated to the release prob or not (1 for yes)
+    RANGE Correlation : Indicates whether the des is correlated to the release prob or not (1 for yes)-->
 </xsl:if>
+
     RANGE i, e, gmax
     NONSPECIFIC_CURRENT i
-    RANGE g
+    RANGE g, factor<xsl:if test="count(cml:multi_decay_syn)>0">, factor_2, factor_3</xsl:if>
 
 }
 
-PARAMETER {<xsl:for-each select="cml:doub_exp_syn | cml:blocking_syn | cml:plastic_syn">
+PARAMETER {<xsl:for-each select="cml:doub_exp_syn | cml:blocking_syn | cml:multi_decay_syn | cml:fac_dep_syn">
     gmax = <xsl:call-template name="convert">
               <xsl:with-param name="value"><xsl:value-of select="@max_conductance"/></xsl:with-param>
               <xsl:with-param name="quantity">Conductance</xsl:with-param></xsl:call-template>
@@ -899,76 +1008,133 @@ PARAMETER {<xsl:for-each select="cml:doub_exp_syn | cml:blocking_syn | cml:plast
               <xsl:with-param name="quantity">InvVoltage</xsl:with-param></xsl:call-template> 
               
 </xsl:for-each>
-<xsl:for-each select="cml:plastic_syn">
+<xsl:for-each select="cml:multi_decay_syn | cml:fac_dep_syn">
+    
+    <xsl:choose>
+        <xsl:when test="count(@decay_time_2) &gt; 0 and count(@max_conductance_2) &gt; 0">     
+    gmax_2 = <xsl:call-template name="convert">
+              <xsl:with-param name="value"><xsl:choose>
+                                    <xsl:when test="count(@max_conductance_2)>0"><xsl:value-of select="@max_conductance_2"/></xsl:when>
+                                    <xsl:otherwise>0</xsl:otherwise></xsl:choose>
+              </xsl:with-param>
+              <xsl:with-param name="quantity">Conductance</xsl:with-param></xsl:call-template> 
+              
     tau_decay_2 = <xsl:call-template name="convert">
               <xsl:with-param name="value"><xsl:choose>
                                     <xsl:when test="count(@decay_time_2)>0"><xsl:value-of select="@decay_time_2"/></xsl:when>
                                     <xsl:otherwise>0</xsl:otherwise></xsl:choose>
               </xsl:with-param>
               <xsl:with-param name="quantity">Time</xsl:with-param></xsl:call-template> (ms) &lt;1e-9,1e9&gt;
+        </xsl:when>
+        <xsl:otherwise>
+    gmax_2 = 0
+    tau_decay_2 = 100000
+        </xsl:otherwise>  
+    </xsl:choose>
+    <xsl:choose>
+        <xsl:when test="count(@decay_time_3) &gt; 0 and count(@max_conductance_3) &gt; 0">     
+        
+    gmax_3 = <xsl:call-template name="convert">
+              <xsl:with-param name="value"><xsl:choose>
+                                    <xsl:when test="count(@max_conductance_3)>0"><xsl:value-of select="@max_conductance_3"/></xsl:when>
+                                    <xsl:otherwise>0</xsl:otherwise></xsl:choose>
+              </xsl:with-param>
+              <xsl:with-param name="quantity">Conductance</xsl:with-param></xsl:call-template> 
+              
     tau_decay_3 = <xsl:call-template name="convert">
               <xsl:with-param name="value"><xsl:choose>
                                     <xsl:when test="count(@decay_time_3)>0"><xsl:value-of select="@decay_time_3"/></xsl:when>
                                     <xsl:otherwise>0</xsl:otherwise></xsl:choose>
               </xsl:with-param>
               <xsl:with-param name="quantity">Time</xsl:with-param></xsl:call-template> (ms) &lt;1e-9,1e9&gt;
+        </xsl:when>
+        <xsl:otherwise>
+    gmax_3 = 0
+    tau_decay_3 = 100000
+        </xsl:otherwise>            
+    </xsl:choose>
               
               
 <xsl:if test="count(cml:plasticity)>0">
-    Taurec = <xsl:call-template name="convert">
+    tau_rec = <xsl:call-template name="convert">
               <xsl:with-param name="value"><xsl:value-of select="cml:plasticity/@tau_rec"/></xsl:with-param>
-              <xsl:with-param name="quantity">Time</xsl:with-param></xsl:call-template> (ms) &lt;1e-9,1e9&gt; 
-    Taufac = <xsl:call-template name="convert">
+              <xsl:with-param name="quantity">Time</xsl:with-param></xsl:call-template> (ms) &lt; 1e-9, 1e9 &gt; 
+    tau_facil = <xsl:call-template name="convert">
               <xsl:with-param name="value"><xsl:value-of select="cml:plasticity/@tau_fac"/></xsl:with-param>
-              <xsl:with-param name="quantity">Time</xsl:with-param></xsl:call-template> (ms) &lt;1e-9,1e9&gt; 
-    Uinit = <xsl:value-of select="cml:plasticity/@init_release_prob"/> :release probability
-</xsl:if>
-       
-    ampl = 1.74362
-    Arat1 = 0.8 : 3 decaying components included so that the sum up to 1. 
-    Arat2 = 0.16    : 3rd component has amplitude of (1-Arat1-Arat2)
-
+              <xsl:with-param name="quantity">Time</xsl:with-param></xsl:call-template> (ms) &lt; 0 ,1e9 &gt; 
+              
+    Uinit = <xsl:value-of select="cml:plasticity/@init_release_prob"/> (1)  &lt; 0, 1 &gt; :release probability
     
-       : plastic=1   :if 1 it is depressing, 0 no plasticity
-        Des = 0     :des included if 1
-        Correlation=1   :this means that the reduction in Q depends on the release P, otherwise it is a constant factor
-    taudes=38.8 :fitting DQ 38.8 for correlation 18.7 for constant reduction. Fitting NormSTP: 20.3 for corr, 10.0 for const
-</xsl:for-each>}
+</xsl:if>
+</xsl:for-each>
+}
 
 
-<xsl:if test="count(cml:doub_exp_syn)>0 or count(cml:blocking_syn)>0 ">
+<xsl:if test="count(cml:doub_exp_syn)>0 or count(cml:blocking_syn)>0 or count(cml:multi_decay_syn)>0  or count(cml:fac_dep_syn)>0 ">
 ASSIGNED {
     v (mV)
     i (nA)
     g (uS)
-    factor
+    factor <xsl:if test="$hasMultiDecay = 'yes'">
+    factor_2
+    factor_3
+    </xsl:if>
     total (uS)
+<xsl:if test="count(cml:fac_dep_syn)>0 ">
+    R
+    U</xsl:if>
 <xsl:if test="count(cml:blocking_syn)>0">    gblock</xsl:if>
 }
 
 STATE {
     A (uS)
-    B (uS)
+    B (uS)<xsl:if test="$hasMultiDecay = 'yes'">
+    C (uS)
+    D (uS)</xsl:if>
 }
 
 INITIAL {
-    LOCAL tp
+    LOCAL tp<xsl:if test="$hasMultiDecay = 'yes'">, tp_2, tp_3</xsl:if>
     total = 0
-    if (tau_rise/tau_decay > .9999) {
-        tau_rise = .9999*tau_decay
+    
+    if (tau_rise == 0) {
+        tau_rise = 1e-9  : will effectively give a single exponential timecourse synapse
+    }
+    
+    if (tau_rise/tau_decay > .999999) {
+        tau_rise = .999999*tau_decay : will result in an "alpha" synapse waveform
     }
     A = 0
-    B = 0
+    B = 0<xsl:if test="$hasMultiDecay = 'yes'">
+    C = 0
+    D = 0
+    </xsl:if>
     tp = (tau_rise*tau_decay)/(tau_decay - tau_rise) * log(tau_decay/tau_rise)
     factor = -exp(-tp/tau_rise) + exp(-tp/tau_decay)
-    factor = 1/factor
+    factor = 1/factor<xsl:if test="$hasMultiDecay = 'yes'">
+        
+    tp_2 = (tau_rise*tau_decay_2)/(tau_decay_2 - tau_rise) * log(tau_decay_2/tau_rise)
+    factor_2 = -exp(-tp_2/tau_rise) + exp(-tp_2/tau_decay_2)
+    factor_2 = 1/factor_2
+    
+    tp_3 = (tau_rise*tau_decay_3)/(tau_decay_3 - tau_rise) * log(tau_decay_3/tau_rise)
+    factor_3 = -exp(-tp_3/tau_rise) + exp(-tp_3/tau_decay_3)
+    factor_3 = 1/factor_3
+    </xsl:if>
+    <xsl:if test="count(cml:fac_dep_syn)>0 ">
+    
+    </xsl:if>
 }
 
 BREAKPOINT {
     SOLVE state METHOD cnexp
-    <xsl:if test="count(cml:doub_exp_syn)>0">g = gmax * (B - A)</xsl:if>
-    <xsl:if test="count(cml:blocking_syn)>0">gblock = 1 / (1+ (<xsl:value-of select="cml:blocking_syn/cml:block/@species"/>_conc * eta * exp(-1 * gamma * v)))
-    g = gmax * gblock * (B - A)</xsl:if>
+    <xsl:choose>
+    <xsl:when test="count(cml:blocking_syn)>0">gblock = 1 / (1+ (<xsl:value-of select="cml:blocking_syn/cml:block/@species"/>_conc * eta * exp(-1 * gamma * v)))
+    g = gmax * gblock * (B - A)</xsl:when>
+    <xsl:when test="$hasMultiDecay = 'yes'">g = (gmax * (B - A)) + (gmax_2 * (C - A)) + (gmax_3 * (D - A))</xsl:when>
+    <xsl:otherwise>g = gmax * (B - A)</xsl:otherwise>
+    </xsl:choose>
+    
     
     i = g*(v - e)
 }
@@ -976,113 +1142,90 @@ BREAKPOINT {
 
 DERIVATIVE state {
     A' = -A/tau_rise
-    B' = -B/tau_decay 
+    B' = -B/tau_decay <xsl:if test="$hasMultiDecay = 'yes'">
+    C' = -C/tau_decay_2
+    D' = -D/tau_decay_3
+    </xsl:if>
 }
 
-NET_RECEIVE(weight (uS)) {
-    state_discontinuity(A, A + weight*factor)
-    state_discontinuity(B, B + weight*factor)
-    total = total+weight
-}
+NET_RECEIVE(weight (uS)<xsl:if test="count(cml:fac_dep_syn)>0 ">, U, R, tsyn (ms)</xsl:if>) {
+    <xsl:if test="count(cml:fac_dep_syn)>0 ">
+    LOCAL RUD
 
-</xsl:if>
-
-<xsl:if test="count(cml:plastic_syn)>0">
-ASSIGNED {
-        v (mV)
-        i (nA)
-        g (uS)
-    tspike[nspikes] (ms)
-    RUD[nspikes]    :multiplicative factor that include the change in probability (fac+dep) and des (D)
-    R[nspikes]
-    U[nspikes]
-    D[nspikes]
-}
-
-
-INITIAL {
-    LOCAL cspike
-    cspike = 0
-    while (cspike &lt; nspikes) {
-        tspike[cspike] = 0
-        R[cspike] = 1 
-<xsl:if test="count(cml:plastic_syn/cml:plasticity)>0">
-        U[cspike] = Uinit
-</xsl:if>
-        D[cspike]=1
-        cspike = cspike + 1
-            
-    }
-}
-
-BREAKPOINT {
-        g = gtrace(t)
-        i = g*(v - e)
-}
-
-
-
-FUNCTION myexp(x) {
-        if (x &lt; -100) {
-            myexp = 0
-        } else {
-            myexp = exp(x)
-        }
-}
-
-FUNCTION gtrace(x) {
-    LOCAL cspike
-    cspike = 0
-    gtrace = 0
-    while ((cspike &lt; nspikes) &amp;&amp; (tspike[cspike] != 0)) {
-            gtrace = gtrace + RUD[cspike]*D[cspike]* (-myexp(-(x-tspike[cspike])/taur) + Arat1*myexp(-(x-tspike[cspike])/taud1) + Arat2*myexp(-(x-tspike[cspike])/taud2) + (1-Arat1-Arat2)*myexp(-(x-tspike[cspike])/taud3)) 
-        cspike = cspike + 1
-    } 
-    gtrace = gtrace*ampl*gmax
-}
-
-
-NET_RECEIVE(weight) {
-    LOCAL cspike1
-    cspike1 = nspikes - 1
-    while (cspike1 &gt; 0) {
-        tspike[cspike1] = tspike[(cspike1 - 1)]
-<xsl:if test="count(cml:plastic_syn/cml:plasticity)>0">
-        U[cspike1] = U[(cspike1 - 1)]       
-</xsl:if>
-        R[cspike1] = R[(cspike1 - 1)]       
-        RUD[cspike1] = RUD[(cspike1 - 1)]       
-        cspike1 = cspike1 - 1
-    }
+    INITIAL {
+        tsyn = -1
+        <xsl:if test="$debug = 1">printf("-- In the INITIAL statement in NET_RECEIVE\n")</xsl:if>
     
-    tspike[0] = t
+        U = Uinit
+        R = 1
+    
+        <xsl:if test="$debug = 1">printf("-- t: %g, delt: %g, g: %g, U: %g, R: %g\n", t, t-tsyn, g, U, R)</xsl:if>
+    
+    }
+
+    <xsl:if test="$debug = 1">printf("------------------------------------------------------------\n")</xsl:if>
+    <xsl:if test="$debug = 1">
+        printf("-- t: %g, delt: %g, g: %g, U: %g, R: %g\n", t, t-tsyn, g, U, R)
+    </xsl:if>
+
+
+    if (tsyn > 0) {
+    
+        R = R * (1-U) * exp(-(t - tsyn)/tau_rec) + 1 - exp(-(t - tsyn)/tau_rec)
+
+     
+        if (tau_facil > 0) {
         
-<xsl:choose>
-    <xsl:when test="count(cml:plastic_syn/cml:plasticity)>0">
-    if ((tspike[1] != 0)) { : check if cell has spiked before; in that case the modifications are occurring
-        U[0] = U[1]*myexp(-(tspike[0]-tspike[1])/Taufac)+ Uinit*(1-U[1]*myexp(-(tspike[0]-tspike[1])/Taufac)) 
-        R[0] = R[1]*(1-U[1])*myexp(-(tspike[0]-tspike[1])/Taurec) + 1 - myexp(-(tspike[0]-tspike[1])/Taurec)
-        RUD[0] = R[0]*U[0]/Uinit
-    } else {
-        RUD[0] = 1
-    }
-    </xsl:when>
-    <xsl:otherwise>
-    RUD[0] = 1
-    </xsl:otherwise>
-</xsl:choose>
-
-    if ((tspike[1] != 0) &amp;&amp; (Des == 1)) {  : maybe there is no presynaptic plasticity but desensitisation
-        if (Correlation == 1){
-            D[0]=1-myexp(-(tspike[0]-tspike[1])/taudes)+D[1]*(1-(0.48*RUD[1]-0.1)*myexp(10/taudes))*myexp(-(tspike[0]-tspike[1])/taudes)
+            U = U * exp(-(t - tsyn)/tau_facil) + Uinit * (1 - (U * exp(-(t - tsyn)/tau_facil)))
+    
         } else {
-            D[0]=1-myexp(-(tspike[0]-tspike[1])/taudes)+D[1]*(1-0.193305802*myexp(10/taudes))*myexp(-(tspike[0]-tspike[1])/taudes)  
+    
+            U = Uinit
         }
-    } else {
-        D[0]=1
-    }
+    
 
+    } else {
+
+        <xsl:if test="$debug = 1">printf("-- At first spike...\n")</xsl:if>
+
+    }
+        
+    RUD = (U*R)
+
+    <xsl:if test="$debug = 1">printf("-- t: %g, delt: %g, g: %g, U: %g, R: %g, RUD: %g\n", t, t-tsyn, g, U, R, RUD)</xsl:if>
+
+    </xsl:if>
+    <xsl:choose>
+        <xsl:when test="$hasMultiDecay = 'yes'"> LOCAL Ajump, Bjump, Cjump, Djump
+    Bjump = weight*factor
+    Cjump = weight*factor_2
+    Djump = weight*factor_3
+    
+    Ajump = (gmax*Bjump + gmax_2*Cjump + gmax_3*Djump)/(gmax + gmax_2 + gmax_3)
+    
+    state_discontinuity(A, A + Ajump)
+    state_discontinuity(B, B + Bjump)
+    state_discontinuity(C, C + Cjump)
+    state_discontinuity(D, D + Djump)
+        </xsl:when>
+        <xsl:otherwise>
+    state_discontinuity(A, A + weight*factor<xsl:if test="count(cml:fac_dep_syn)>0 ">*RUD</xsl:if>)
+    state_discontinuity(B, B + weight*factor<xsl:if test="count(cml:fac_dep_syn)>0 ">*RUD</xsl:if>)
+
+    </xsl:otherwise>
+    </xsl:choose>
+
+    <xsl:if test="$debug = 1">printf("-- Synaptic event processed at time %f!\n", t)
+    </xsl:if>
+    
+    
+    <xsl:if test="count(cml:fac_dep_syn)>0 ">
+    tsyn = t
+    </xsl:if>
+    
+    :total = total+weight
 }
+
 </xsl:if>
 
 

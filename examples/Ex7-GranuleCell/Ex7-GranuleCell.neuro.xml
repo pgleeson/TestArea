@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.5.0_13" class="java.beans.XMLDecoder"> 
+<java version="1.6.0_03" class="java.beans.XMLDecoder"> 
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -16,11 +16,10 @@ Maex, R and De Schutter, E. Synchronization of Golgi and Granule Cell Firing in 
 Based on scripts obtained from: http://www.tnb.ua.ac.be/models/network.shtml
 
 This project shows how a cell model with multiple active conductances can produce the same behaviour on NEURON and GENESIS through the specification of channel mechanisms in ChannelML. 
-
-NOTE: Channel mechanisms updated to NeuroML v1.6 (extra comments mainly) in neuroConstruct v1.0.3 </string> 
+</string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.0.7</string> 
+   <string>neuroConstruct v1.0.9</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex7-GranuleCell</string> 
@@ -700,6 +699,9 @@ NOTE: Channel mechanisms updated to NeuroML v1.6 (extra comments mainly) in neur
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings"> 
+  <void property="generateComments"> 
+   <boolean>false</boolean> 
+  </void> 
   <void property="nativeBlocks"> 
    <void method="put"> 
     <int>10</int> 
@@ -714,11 +716,11 @@ NOTE: Channel mechanisms updated to NeuroML v1.6 (extra comments mainly) in neur
     <string></string> 
    </void> 
    <void method="put"> 
-    <int>-1</int> 
+    <int>1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
-    <int>1</int> 
+    <int>-1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
@@ -778,7 +780,7 @@ end</string>
    <float>700.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_507</string> 
+   <string>Sim_521</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 

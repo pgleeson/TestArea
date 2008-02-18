@@ -7,7 +7,7 @@
 
 <!--
 
-    This file is used to convert ChannelML v1.6 files to GENESIS tabchannel/tab2Dchannel/leakage based script files
+    This file is used to convert ChannelML v1.7.1 files to GENESIS tabchannel/tab2Dchannel/leakage based script files
 
     This file has been developed as part of the neuroConstruct project
 
@@ -33,8 +33,8 @@
 <!--Main template-->
 
 <xsl:template match="/cml:channelml">
-<xsl:text>// This is a GENESIS script file generated from a ChannelML v1.6 file
-// ChannelML file is mapped onto a tabchannel object
+<xsl:text>// This is a GENESIS script file generated from a ChannelML v1.7.1 file
+// The ChannelML file is mapped onto a tabchannel object
 
 </xsl:text>
 // Units of ChannelML file: <xsl:value-of select="$xmlFileUnitSystem"/>, units of GENESIS file generated: <xsl:value-of
@@ -139,6 +139,12 @@ function make_<xsl:value-of select="@name"/>
         </xsl:text>
             </xsl:otherwise>
         </xsl:choose>
+        <xsl:for-each select="cml:parameters/cml:parameter">
+        addfield <xsl:value-of select="@name"/>
+        <xsl:text>
+        </xsl:text>
+        <xsl:value-of select="@name"/> = <xsl:value-of select="@value"/> // Note units of this will be determined by it's usage in the generic functions
+        </xsl:for-each>
 
         <xsl:if test="count(cml:current_voltage_relation/cml:ohmic/cml:conductance/*) &gt; 0">
             
@@ -449,7 +455,7 @@ function make_<xsl:value-of select="@name"/>
                 </xsl:when>
                 <xsl:otherwise>
 
-            // Using the tau and inf expressions to populate the tables
+            // Evaluating the tau and inf expressions
 
                     <xsl:choose>
                         <xsl:when test="count(cml:transition/cml:voltage_gate/cml:tau | cml:transition/cml:voltage_conc_gate/cml:tau)=0">
@@ -468,12 +474,25 @@ function make_<xsl:value-of select="@name"/>
                 echo "Tab <xsl:value-of select="$gateRef"/>: conc: " {<xsl:value-of select="cml:transition/cml:voltage_conc_gate/cml:conc_dependence/@variable_name"/>}
                 </xsl:if>
             </xsl:if>
-
+<!--
             setfield {chanpath} <xsl:value-of select="$gateRef"/>_A-><xsl:value-of select="$tableEntry"/> {tau}
 
-            setfield {chanpath} <xsl:value-of select="$gateRef"/>_B-><xsl:value-of select="$tableEntry"/> {inf}
+            setfield {chanpath} <xsl:value-of select="$gateRef"/>_B-><xsl:value-of select="$tableEntry"/> {inf}-->
+            
+            // Working out the "real" alpha and beta expressions from the tau and inf
+            <xsl:if test="count(cml:transition/cml:voltage_gate/cml:alpha | cml:transition/cml:voltage_conc_gate/cml:alpha)=0">
+            float alpha</xsl:if>
+            <xsl:if test="count(cml:transition/cml:voltage_gate/cml:beta | cml:transition/cml:voltage_conc_gate/cml:beta)=0">
+            float beta</xsl:if>
+            alpha = inf / tau   
+            beta = (1- inf)/tau
+            
+            
+            setfield {chanpath} <xsl:value-of select="$gateRef"/>_A-><xsl:value-of select="$tableEntry"/> {alpha}
+            setfield {chanpath} <xsl:value-of select="$gateRef"/>_B-><xsl:value-of select="$tableEntry"/> {alpha + beta}
+
                 </xsl:otherwise>
-                </xsl:choose>
+            </xsl:choose>
 
             v = v + dv
 
@@ -485,11 +504,11 @@ function make_<xsl:value-of select="@name"/>
         end // end of for (c = 0; c &lt;= ({tab_divs}); c = c + 1)
                 </xsl:if>
 
-            <xsl:if test='count(cml:transition/cml:voltage_gate/cml:tau | cml:transition/cml:voltage_conc_gate/cml:tau) &gt; 0 or
+      <!--      <xsl:if test='count(cml:transition/cml:voltage_gate/cml:tau | cml:transition/cml:voltage_conc_gate/cml:tau) &gt; 0 or
                       count(cml:transition/cml:voltage_gate/cml:inf | cml:transition/cml:voltage_conc_gate/cml:inf) &gt; 0'>
         // Using the tau, inf form of rate equations, so tweaking...
         tweaktau {chanpath} <xsl:value-of select="$gateRef"/>
-            </xsl:if>
+            </xsl:if>-->
 
         setfield {chanpath} <xsl:value-of select="$gateRef"/>_A->calc_mode 1 <xsl:value-of select="$gateRef"/>_B->calc_mode 1
 
@@ -509,6 +528,24 @@ end
 
 <xsl:template match="cml:ion_concentration">
 
+        <xsl:if test="count(cml:decaying_pool_model/cml:ceiling) &gt; 0">
+            
+function __catchCeiling__(action)
+
+    call . PROCESS -parent  // Carry out all normal actions 
+
+    float caval = {getfield Ca}
+    float cabase = {getfield Ca_base}
+    float ceil = {getfield ceiling}
+
+    if (caval > ceil)
+        setfield Ca {ceil}
+        setfield C {ceil - cabase}
+    end 
+
+end
+        </xsl:if>
+        
 function make_<xsl:value-of select="@name"/>
         <xsl:if test="count(meta:notes) &gt; 0">
 
@@ -551,7 +588,19 @@ function make_<xsl:value-of select="@name"/>
                                     <xsl:with-param name="quantity">Length</xsl:with-param>
                                </xsl:call-template>
         </xsl:if>
-
+        
+        
+        <xsl:if test="count(cml:decaying_pool_model/cml:ceiling) &gt; 0">
+            
+        addfield {chanpath} ceiling -description "Maximum concentration pool will be allowed reach"
+        setfield {chanpath} ceiling <xsl:call-template name="convert">
+                                    <xsl:with-param name="value" select="cml:decaying_pool_model/cml:ceiling"/>
+                                    <xsl:with-param name="quantity">Concentration</xsl:with-param>
+                               </xsl:call-template>
+                               
+        addaction {chanpath} PROCESS __catchCeiling__
+        </xsl:if>
+        
 end
 
 </xsl:template>
@@ -588,6 +637,10 @@ function makechannel_<xsl:value-of select="@name"/>(compartment, name)
               <xsl:with-param name="value"><xsl:value-of select="cml:doub_exp_syn/@max_conductance"/></xsl:with-param>
               <xsl:with-param name="quantity">Conductance</xsl:with-param></xsl:call-template>
 
+            if ({tau1} == 0)
+                tau1 = 1e-9
+            end
+            
             addmsg   {compartment}/{name}   {compartment} CHANNEL Gk Ek
             addmsg   {compartment}   {compartment}/{name} VOLTAGE Vm
 </xsl:if>
@@ -664,6 +717,7 @@ end
     <xsl:param name="quantity" />
     <xsl:choose>
         <xsl:when test="$xmlFileUnitSystem  = $targetUnitSystem"><xsl:value-of select="$value"/></xsl:when>
+        
         <xsl:when test="$xmlFileUnitSystem  = 'Physiological Units' and $targetUnitSystem  = 'SI Units'">
             <xsl:choose>
                 <xsl:when test="$quantity = 'Conductance Density'"><xsl:value-of select="number($value*10)"/></xsl:when>
@@ -675,9 +729,12 @@ end
                 <xsl:when test="$quantity = 'InvTime'"><xsl:value-of select="number($value * 1000)"/></xsl:when>
                 <xsl:when test="$quantity = 'Concentration'"><xsl:value-of select="number($value * 1000000)"/></xsl:when>
                 <xsl:when test="$quantity = 'InvConcentration'"><xsl:value-of select="number($value div 1000000)"/></xsl:when>
+                <xsl:when test="$quantity = 'Current'"><xsl:value-of select="number($value * 1000000)"/></xsl:when>
+                <xsl:when test="$quantity = 'InvCurrent'"><xsl:value-of select="number($value div 1000000)"/></xsl:when>
                 <xsl:otherwise><xsl:value-of select="number($value)"/></xsl:otherwise>
             </xsl:choose>
         </xsl:when>
+        
         <xsl:when test="$xmlFileUnitSystem  = 'SI Units' and $targetUnitSystem  = 'Physiological Units'">
             <xsl:choose>
                 <xsl:when test="$quantity = 'Conductance Density'"><xsl:value-of select="number($value div 10)"/></xsl:when>
@@ -689,9 +746,12 @@ end
                 <xsl:when test="$quantity = 'InvTime'"><xsl:value-of select="number($value div 1000)"/></xsl:when>
                 <xsl:when test="$quantity = 'Concentration'"><xsl:value-of select="number($value div 1000000)"/></xsl:when>
                 <xsl:when test="$quantity = 'InvConcentration'"><xsl:value-of select="number($value * 1000000)"/></xsl:when>
+                <xsl:when test="$quantity = 'Current'"><xsl:value-of select="number($value div 1000000)"/></xsl:when>
+                <xsl:when test="$quantity = 'InvCurrent'"><xsl:value-of select="number($value * 1000000)"/></xsl:when>
                 <xsl:otherwise><xsl:value-of select="number($value)"/></xsl:otherwise>
             </xsl:choose>
         </xsl:when>
+        
         <xsl:when test="$xmlFileUnitSystem  = 'SI Units'">si</xsl:when>
     </xsl:choose>
 </xsl:template>
@@ -714,7 +774,7 @@ end
             select="$d_cml" />, in units: <xsl:value-of select="$xmlFileUnitSystem"/>
 
             <xsl:choose>
-                <xsl:when test="string($name) = 'alpha' or string($name) = 'beta'">
+                <xsl:when test="string($name) = 'alpha' or string($name) = 'beta' or string($name) = 'gamma' or string($name) = 'zeta'">
             A = <xsl:call-template name="convert">
                     <xsl:with-param name="value"><xsl:value-of select="$A_cml"/></xsl:with-param>
                     <xsl:with-param name="quantity">InvTime</xsl:with-param>
@@ -729,6 +789,9 @@ end
                 <xsl:when test="string($name) = 'inf'">
             A = <xsl:value-of select="$A_cml"/>
                 </xsl:when>
+                <xsl:otherwise>
+            A = <xsl:value-of select="$A_cml"/> // Warning: unrecognised rate variable! Don't know how to convert units!
+                </xsl:otherwise>
             </xsl:choose>
 
             k = <xsl:call-template name="convert">
