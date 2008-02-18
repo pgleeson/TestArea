@@ -467,6 +467,9 @@ The SomaStimNeuroML and DendStimNeuroML Sim Configs use cells fully specified in
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings"> 
+  <void property="copySimFiles"> 
+   <boolean>true</boolean> 
+  </void> 
   <void property="generateComments"> 
    <boolean>false</boolean> 
   </void> 
@@ -623,7 +626,7 @@ gmax_LeakCond = F/rm
 #SIM_CONFIG_INCLUDE Default Simulation Configuration
 #SIM_CONFIG_INCLUDE DendriticStimulation
 
-print &quot;Manually adding graph for iseg.&quot;
+//print &quot;Manually adding graph for iseg.&quot;
 
 {
     GraphWin_0.addexpr(&quot;a_OriginalCell[0].iseg.v&quot;, &quot;a_OriginalCell[0].iseg.v(0.5)&quot;, 7,1)
@@ -663,7 +666,7 @@ forsec &quot;myelin&quot; a_OriginalCell[0].active.remove()
 // --------------------------------------------------------------
 
 
-a_OriginalCell[0].dend9[76] dsite = new SectionRef()
+a_OriginalCell[0].dend9_76_ dsite = new SectionRef()
 site_loc = 0.5  // distance = 416 um
 
 
@@ -916,7 +919,7 @@ forall if (ismembrane(&quot;kd3&quot;)) ek = Ek
    <float>-54.6</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_31</string> 
+   <string>Sim_48</string> 
   </void> 
   <void property="temperature"> 
    <float>23.0</float> 
