@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.5.0_10" class="java.beans.XMLDecoder"> 
+<java version="1.6.0_03" class="java.beans.XMLDecoder"> 
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -16,12 +16,16 @@ Maex, R and De Schutter, E. Synchronization of Golgi and Granule Cell Firing in 
 The default Simulation Configuration replicates the 1D 75 granule cell example from: 
 http://www.tnb.ua.ac.be/models/network.shtml
 
+*****
+Note that the latest version of the single granule cell model, using the latest ChannelML version is in Ex7-GranuleCell 
+*****
+
 The 3DNetworkModel Sim Config has 75 granule cells with 3D placement and random connections. A much more interesting example is the Large3DNetwork Simulation Configuration which has 600 granule cells, 96 mossy fiber terminals and 32 Golgi cells and exhibits synchrony of Golgi cell firing with greater synchrony of cells within the same parallel fiber beam.
 
 Note that the plots associated with these simulations slow the simulation down and, especially with NEURON, it&apos;s better to run the simualtions in &apos;No GUI mode&apos; after checking that they run correctly.</string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.0.3</string> 
+   <string>neuroConstruct v1.0.9</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex9-GranCellLayer</string> 
@@ -1553,6 +1557,7 @@ Note that the plots associated with these simulations slow the simulation down a
    </void> 
   </void> 
  </object> 
+ <object class="ucl.physiol.neuroconstruct.project.ProjectProperties"/> 
  <object class="ucl.physiol.neuroconstruct.utils.Display3DProperties"> 
   <void property="backgroundColour3D"> 
    <object class="java.awt.Color"> 
@@ -1630,11 +1635,11 @@ forall {
 }</string> 
    </void> 
    <void method="put"> 
-    <int>-1</int> 
+    <int>1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
-    <int>1</int> 
+    <int>-1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
@@ -1693,7 +1698,7 @@ end</string>
    <float>700.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_435</string> 
+   <string>Sim_439</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
