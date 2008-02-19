@@ -1617,9 +1617,6 @@ Note: Sim configs with BothSims in title use only ChannelML based mechanisms and
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings"> 
-  <void property="copySimFiles"> 
-   <boolean>true</boolean> 
-  </void> 
   <void property="nativeBlocks"> 
    <void method="put"> 
     <int>10</int> 
@@ -1715,13 +1712,13 @@ end
  </object> 
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters"> 
   <void property="dt"> 
-   <float>0.02</float> 
+   <float>0.0020</float> 
   </void> 
   <void property="duration"> 
    <float>300.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_461</string> 
+   <string>Sim_501</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -1920,6 +1917,18 @@ end
       <void method="add"> 
        <string>Var_34</string> 
       </void> 
+      <void method="add"> 
+       <string>Var_33</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_32</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_31</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_30</string> 
+      </void> 
      </void> 
      <void property="simDuration"> 
       <float>300.0</float> 
@@ -1949,10 +1958,16 @@ end
        <string>SamplePlot</string> 
       </void> 
       <void method="add"> 
-       <string>Var_5</string> 
+       <string>Var_35</string> 
       </void> 
       <void method="add"> 
-       <string>Var_4</string> 
+       <string>Var_34</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_32</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_30</string> 
       </void> 
      </void> 
      <void property="simDuration"> 

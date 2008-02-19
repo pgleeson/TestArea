@@ -26,6 +26,7 @@
         </status>
         
         
+        <meta:notes>Ca2+ dependent K current. Based on Roth et al's reimplementation of original GENESIS model in NEURON</meta:notes>
 
     
 
@@ -38,7 +39,7 @@
 		            <gate power="1">
                         <state name="m" fraction="1"/>
                     </gate>
-                    
+                   
                     <gate power="2">
                         <state name="z" fraction="1"/>
                     </gate>
@@ -59,7 +60,7 @@
                         <parameterised_hh type="exponential">
                             <parameter name="A" value="0.11"/>
                             <parameter name="k" value="-0.06711409"/>
-                            <parameter name="d" value="-35"/>
+                            <parameter name="d" value="35"/>
                         </parameterised_hh>
                     </beta> 
                 </voltage_conc_gate>
@@ -71,9 +72,9 @@
         <hh_gate state="z">
             <transition>
                 <voltage_conc_gate>
-                    <conc_dependence name="Calcium" ion="ca" variable_name="ca_conc_z" min_conc="0" max_conc="0.050"/>
+                    <conc_dependence name="Calcium" ion="ca" variable_name="ca_conc_z" min_conc="0" max_conc="1e-8"/>
                     <alpha>
-                        <generic_equation_hh expr="4/(ca_conc_z*1000)"/>
+                        <generic_equation_hh expr="4/( (ca_conc_z*1e6) *1000)"/>
                     </alpha>
                     <beta>
                         <generic_equation_hh expr="1"/>
