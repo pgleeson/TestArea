@@ -528,7 +528,7 @@ end
 
 <xsl:template match="cml:ion_concentration">
 
-        <xsl:if test="count(cml:decaying_pool_model/cml:ceiling) &gt; 0">
+        <xsl:if test="count(cml:decaying_pool_model/cml:ceiling) &gt; 0 or count(cml:decaying_pool_model/@ceiling) &gt; 0">
             
 function __catchCeiling__(action)
 
@@ -570,12 +570,26 @@ function make_<xsl:value-of select="@name"/>
         // Setting params for a decaying_pool_model
 
         setfield {chanpath} \
-            tau               <xsl:call-template name="convert">
-                                    <xsl:with-param name="value" select="cml:decaying_pool_model/cml:decay_constant"/>
-                                    <xsl:with-param name="quantity">Time</xsl:with-param>
-                               </xsl:call-template> \
+            tau               <xsl:choose>
+                                  <xsl:when test="count(cml:decaying_pool_model/cml:decay_constant) &gt; 0 or count(cml:decaying_pool_model/@decay_constant) &gt; 0">
+                                       <xsl:call-template name="convert">
+                                            <xsl:with-param name="value">
+                                                <xsl:value-of select="cml:decaying_pool_model/cml:decay_constant"/><xsl:value-of select="cml:decaying_pool_model/@decay_constant"/> <!-- Either element or attr will be present...-->
+                                            </xsl:with-param>
+                                            <xsl:with-param name="quantity">Time</xsl:with-param>
+                                       </xsl:call-template>
+                                   </xsl:when>
+                                  <xsl:when test="count(cml:inv_decaying_pool_model/cml:decay_constant) &gt; 0 or count(cml:decaying_pool_model/@inv_decay_constant) &gt; 0">{ 1 / <xsl:call-template name="convert">
+                                            <xsl:with-param name="value">
+                                                <xsl:value-of select="cml:decaying_pool_model/cml:inv_decay_constant"/><xsl:value-of select="cml:decaying_pool_model/@inv_decay_constant"/> <!-- Either element or attr will be present...-->
+                                            </xsl:with-param>
+                                            <xsl:with-param name="quantity">Time</xsl:with-param>
+                                       </xsl:call-template> }  </xsl:when>
+                               </xsl:choose>  \
             Ca_base               <xsl:call-template name="convert">
-                                    <xsl:with-param name="value" select="cml:decaying_pool_model/cml:resting_conc"/>
+                                      <xsl:with-param name="value">
+                                          <xsl:value-of select="cml:decaying_pool_model/cml:resting_conc"/><xsl:value-of select="cml:decaying_pool_model/@resting_conc"/> <!-- Either element or attr will be present...-->
+                                      </xsl:with-param>
                                     <xsl:with-param name="quantity">Concentration</xsl:with-param>
                                </xsl:call-template>
         </xsl:if>
@@ -584,17 +598,21 @@ function make_<xsl:value-of select="@name"/>
 
         setfield {chanpath} \
             thick               <xsl:call-template name="convert">
-                                    <xsl:with-param name="value" select="cml:decaying_pool_model/cml:pool_volume_info/cml:shell_thickness"/>
+                                    <xsl:with-param name="value">
+                                        <xsl:value-of select="cml:decaying_pool_model/cml:pool_volume_info/cml:shell_thickness"/><xsl:value-of select="cml:decaying_pool_model/cml:pool_volume_info/@shell_thickness"/> <!-- Either element or attr will be present...-->
+                                    </xsl:with-param>
                                     <xsl:with-param name="quantity">Length</xsl:with-param>
                                </xsl:call-template>
         </xsl:if>
         
         
-        <xsl:if test="count(cml:decaying_pool_model/cml:ceiling) &gt; 0">
+        <xsl:if test="count(cml:decaying_pool_model/cml:ceiling) &gt; 0 or count(cml:decaying_pool_model/@ceiling) &gt; 0">
             
         addfield {chanpath} ceiling -description "Maximum concentration pool will be allowed reach"
         setfield {chanpath} ceiling <xsl:call-template name="convert">
-                                    <xsl:with-param name="value" select="cml:decaying_pool_model/cml:ceiling"/>
+                                    <xsl:with-param name="value">
+                                        <xsl:value-of select="cml:decaying_pool_model/cml:ceiling"/><xsl:value-of select="cml:decaying_pool_model/@ceiling"/> <!-- Either element or attr will be present...-->
+                                    </xsl:with-param>
                                     <xsl:with-param name="quantity">Concentration</xsl:with-param>
                                </xsl:call-template>
                                

@@ -737,13 +737,13 @@ NEURON {
     
     RANGE rest_conc
     
-    <xsl:if test="count(cml:decaying_pool_model/cml:decay_constant) &gt; 0">
+    <xsl:if test="count(cml:decaying_pool_model/cml:decay_constant) &gt; 0 or count(cml:decaying_pool_model/@decay_constant) &gt; 0">
     RANGE tau
     </xsl:if>
-    <xsl:if test="count(cml:decaying_pool_model/cml:inv_decay_constant) &gt; 0">
+    <xsl:if test="count(cml:decaying_pool_model/cml:inv_decay_constant) &gt; 0 or count(cml:decaying_pool_model/@inv_decay_constant) &gt; 0">
     RANGE beta
     </xsl:if>
-    <xsl:if test="count(cml:decaying_pool_model/cml:ceiling) &gt; 0">
+    <xsl:if test="count(cml:decaying_pool_model/cml:ceiling) &gt; 0 or count(cml:decaying_pool_model/@ceiling) &gt; 0">
     RANGE ceiling
     </xsl:if>
     
@@ -777,11 +777,6 @@ INITIAL {
     
     surf_area = (diam*diam)*3.14159
     
-    VERBATIM
-
-    //printf("\n\n surf_area: %f\n", surf_area);
-
-    ENDVERBATIM
     </xsl:if>
     <xsl:value-of select="$ionused"/>i = rest_conc
 
@@ -791,26 +786,34 @@ PARAMETER {
 
     total_current
     rest_conc = <xsl:call-template name="convert">
-                    <xsl:with-param name="value"><xsl:value-of select="cml:decaying_pool_model/cml:resting_conc"/></xsl:with-param>
+                    <xsl:with-param name="value">
+                        <xsl:value-of select="cml:decaying_pool_model/cml:resting_conc"/><xsl:value-of select="cml:decaying_pool_model/@resting_conc"/> <!-- Either element or attr will be present...-->
+                    </xsl:with-param>
               <xsl:with-param name="quantity">Concentration</xsl:with-param>
           </xsl:call-template> (mM)
           
-    <xsl:if test="count(cml:decaying_pool_model/cml:decay_constant) &gt; 0">
+    <xsl:if test="count(cml:decaying_pool_model/cml:decay_constant) &gt; 0 or count(cml:decaying_pool_model/@decay_constant) &gt; 0">
     tau = <xsl:call-template name="convert">
-              <xsl:with-param name="value"><xsl:value-of select="cml:decaying_pool_model/cml:decay_constant"/></xsl:with-param>
+              <xsl:with-param name="value">
+                  <xsl:value-of select="cml:decaying_pool_model/cml:decay_constant"/><xsl:value-of select="cml:decaying_pool_model/@decay_constant"/>  <!-- Either element or attr will be present...-->
+              </xsl:with-param>
               <xsl:with-param name="quantity">Time</xsl:with-param>
           </xsl:call-template> (ms)
    </xsl:if>
-    <xsl:if test="count(cml:decaying_pool_model/cml:inv_decay_constant) &gt; 0">
+    <xsl:if test="count(cml:decaying_pool_model/cml:inv_decay_constant) &gt; 0 or count(cml:decaying_pool_model/@inv_decay_constant) &gt; 0">
     beta = <xsl:call-template name="convert">
-              <xsl:with-param name="value"><xsl:value-of select="cml:decaying_pool_model/cml:inv_decay_constant"/></xsl:with-param>
+              <xsl:with-param name="value">
+                  <xsl:value-of select="cml:decaying_pool_model/cml:inv_decay_constant"/><xsl:value-of select="cml:decaying_pool_model/@inv_decay_constant"/>  <!-- Either element or attr will be present...-->
+              </xsl:with-param>
               <xsl:with-param name="quantity">InvTime</xsl:with-param>
           </xsl:call-template> (/ms)
    </xsl:if>
           
-    <xsl:if test="count(cml:decaying_pool_model/cml:ceiling) &gt; 0">
+    <xsl:if test="count(cml:decaying_pool_model/cml:ceiling) &gt; 0 or count(cml:decaying_pool_model/@ceiling) &gt; 0">
     ceiling = <xsl:call-template name="convert">
-                    <xsl:with-param name="value"><xsl:value-of select="cml:decaying_pool_model/cml:ceiling"/></xsl:with-param>
+                    <xsl:with-param name="value">
+                        <xsl:value-of select="cml:decaying_pool_model/cml:ceiling"/><xsl:value-of select="cml:decaying_pool_model/@ceiling"/>  <!-- Either element or attr will be present...-->
+                    </xsl:with-param>
               <xsl:with-param name="quantity">Concentration</xsl:with-param>
           </xsl:call-template> (mM)
     </xsl:if>
@@ -818,7 +821,9 @@ PARAMETER {
     F = 96494 (C)
     
     thickness = <xsl:call-template name="convert">
-                    <xsl:with-param name="value"><xsl:value-of select="cml:decaying_pool_model/cml:pool_volume_info/cml:shell_thickness"/></xsl:with-param>
+                    <xsl:with-param name="value">
+                        <xsl:value-of select="cml:decaying_pool_model/cml:pool_volume_info/cml:shell_thickness"/><xsl:value-of select="cml:decaying_pool_model/cml:pool_volume_info/@shell_thickness"/>
+                    </xsl:with-param>
                     <xsl:with-param name="quantity">Length</xsl:with-param>
                 </xsl:call-template> (um)   
                 
@@ -840,7 +845,7 @@ STATE {
 BREAKPOINT {
 
     SOLVE conc METHOD derivimplicit
-    <xsl:if test="count(cml:decaying_pool_model/cml:ceiling) &gt; 0">
+    <xsl:if test="count(cml:decaying_pool_model/cml:ceiling) &gt; 0 or count(cml:decaying_pool_model/@ceiling) &gt; 0">
     if( <xsl:value-of select="$ionused"/>i &lt; 0 ){ <xsl:value-of select="$ionused"/>i = 0 }
     if( <xsl:value-of select="$ionused"/>i &gt; ceiling ){ <xsl:value-of select="$ionused"/>i = ceiling }
     </xsl:if>
@@ -849,7 +854,7 @@ BREAKPOINT {
 
 DERIVATIVE conc {
     <xsl:variable name="timeConstFactor"><xsl:choose>
-        <xsl:when test="count(cml:decaying_pool_model/cml:inv_decay_constant) &gt; 0">* beta</xsl:when>
+        <xsl:when test="count(cml:decaying_pool_model/cml:inv_decay_constant) &gt; 0 or count(cml:decaying_pool_model/@inv_decay_constant) &gt; 0">* beta</xsl:when>
         <xsl:otherwise>/tau</xsl:otherwise></xsl:choose>
     </xsl:variable>
     <xsl:if test="count(cml:decaying_pool_model/cml:pool_volume_info) &gt; 0">
