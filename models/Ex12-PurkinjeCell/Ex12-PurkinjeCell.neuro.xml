@@ -1491,7 +1491,7 @@ Note: Sim configs with BothSims in title use only ChannelML based mechanisms and
       <string>0</string> 
      </void> 
      <void property="valuePlotted"> 
-      <string>KC:m</string> 
+      <string>K2:m</string> 
      </void> 
     </object> 
    </void> 
@@ -1522,7 +1522,7 @@ Note: Sim configs with BothSims in title use only ChannelML based mechanisms and
       <string>0</string> 
      </void> 
      <void property="valuePlotted"> 
-      <string>KC:z</string> 
+      <string>K2:z</string> 
      </void> 
     </object> 
    </void> 
@@ -1553,7 +1553,7 @@ Note: Sim configs with BothSims in title use only ChannelML based mechanisms and
       <string>0</string> 
      </void> 
      <void property="valuePlotted"> 
-      <string>KC_nmodl:m</string> 
+      <string>K2_nmodl:m</string> 
      </void> 
     </object> 
    </void> 
@@ -1584,7 +1584,7 @@ Note: Sim configs with BothSims in title use only ChannelML based mechanisms and
       <string>0</string> 
      </void> 
      <void property="valuePlotted"> 
-      <string>KC_nmodl:z</string> 
+      <string>K2_nmodl:z</string> 
      </void> 
     </object> 
    </void> 
@@ -1785,11 +1785,11 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
 }</string> 
    </void> 
    <void method="put"> 
-    <int>1</int> 
+    <int>-1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
-    <int>-1</int> 
+    <int>1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
@@ -1833,9 +1833,6 @@ end
 </string> 
    </void> 
   </void> 
-  <void property="unitSystemToUse"> 
-   <int>3</int> 
-  </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters"> 
   <void property="dt"> 
@@ -1845,7 +1842,7 @@ end
    <float>300.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_562</string> 
+   <string>Sim_580</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 

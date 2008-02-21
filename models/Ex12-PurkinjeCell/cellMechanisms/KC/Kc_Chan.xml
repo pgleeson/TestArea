@@ -17,9 +17,8 @@
 
     <channel_type name="KC" density="yes">
         
-        <status value="known_issues">
-            <meta:comment>...other comms... </meta:comment>
-            <meta:comment>NOTE: no Q10 in orig mod</meta:comment>
+        <status value="in_progress">
+            <meta:comment>Getting there...</meta:comment>
             <meta:contributor>
                 <meta:name>Padraig Gleeson</meta:name>
             </meta:contributor>
