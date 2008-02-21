@@ -15,7 +15,7 @@
 
 
 
-    <channel_type name="KC" density="yes">
+    <channel_type name="KC_tabfix" density="yes">
         
         <status value="known_issues">
             <meta:comment>...other comms... </meta:comment>
@@ -73,9 +73,9 @@
                     <conc_dependence name="Calcium" ion="ca" variable_name="ca_conc_z" min_conc="0" max_conc="1e-8"/>
                     <alpha>
                     
-                        <generic_equation_hh expr="4/( (ca_conc_z*1e6) *1000)"/>  <!-- ...ideally...  -->
+                      <!--  <generic_equation_hh expr="4/( (ca_conc_z*1e6) *1000)"/>  ...ideally...  -->
                         
-                     <!--   <generic_equation_hh expr="4/( ( floor(((ca_conc_z*1e6) - 4e-5)/9.9986667e-5)*9.9986667e-5 + 4e-5) *1000)"/>   With fix -->
+                        <generic_equation_hh expr="4/( ( floor(((ca_conc_z*1e6) - 4e-5)/9.9986667e-5)*9.9986667e-5 + 4e-5) *1000)"/>  <!--  With tab fix -->
                         
                     </alpha>
                     <beta>

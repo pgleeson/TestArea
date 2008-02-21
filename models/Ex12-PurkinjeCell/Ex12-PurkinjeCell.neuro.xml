@@ -10,7 +10,7 @@ part of NeuroML or any standardised XML specification. -->
  <object class="ucl.physiol.neuroconstruct.project.BasicProjectInfo"> 
   <void property="projectDescription"> 
    <string>An implementation of the Purkinje Cell model from De Schutter, E. and Bower, J. M. (1994)
-Based on Arnd Roth&apos;s conversion of the original GENESIS code to NEURON
+Based on Arnd Roth el al&apos;s conversion of the original GENESIS code to NEURON
 
 * Not yet complete!!!* Press Validate for details
 
@@ -413,16 +413,16 @@ Note: Sim configs with BothSims in title use only ChannelML based mechanisms and
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
      <void property="cellGroup"> 
-      <string>SampleCellGroup</string> 
+      <string>AllChansCML</string> 
      </void> 
      <void property="cellNumber"> 
       <string>0</string> 
      </void> 
      <void property="graphWindow"> 
-      <string>GraphWin_0</string> 
+      <string>GraphWin_4</string> 
      </void> 
      <void property="maxValue"> 
-      <float>0.1</float> 
+      <float>1.0</float> 
      </void> 
      <void property="minValue"> 
       <float>0.0</float> 
@@ -444,16 +444,16 @@ Note: Sim configs with BothSims in title use only ChannelML based mechanisms and
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
      <void property="cellGroup"> 
-      <string>OrigChansCellGroup</string> 
+      <string>AllChansOrig</string> 
      </void> 
      <void property="cellNumber"> 
       <string>0</string> 
      </void> 
      <void property="graphWindow"> 
-      <string>GraphWin_0</string> 
+      <string>GraphWin_4</string> 
      </void> 
      <void property="maxValue"> 
-      <float>0.1</float> 
+      <float>1.0</float> 
      </void> 
      <void property="minValue"> 
       <float>0.0</float> 
@@ -847,7 +847,7 @@ Note: Sim configs with BothSims in title use only ChannelML based mechanisms and
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
      <void property="cellGroup"> 
-      <string>SampleCellGroup</string> 
+      <string>AllChansCML</string> 
      </void> 
      <void property="cellNumber"> 
       <string>0</string> 
@@ -878,7 +878,7 @@ Note: Sim configs with BothSims in title use only ChannelML based mechanisms and
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
      <void property="cellGroup"> 
-      <string>OrigChansCellGroup</string> 
+      <string>AllChansOrig</string> 
      </void> 
      <void property="cellNumber"> 
       <string>0</string> 
@@ -1588,6 +1588,130 @@ Note: Sim configs with BothSims in title use only ChannelML based mechanisms and
      </void> 
     </object> 
    </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>AllChansCML</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_0</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>1.0E-20</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_38</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>cad:CONC:ca</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>AllChansOrig</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_0</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>0.01</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_39</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>cai</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>AllChansCML</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_9</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-1.0E-5</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_40</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>CaP:CURR_DENS:ca</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>AllChansOrig</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_10</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-1.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_41</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>ica</string> 
+     </void> 
+    </object> 
+   </void> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.project.ProjectProperties"> 
@@ -1617,6 +1741,9 @@ Note: Sim configs with BothSims in title use only ChannelML based mechanisms and
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings"> 
+  <void property="copySimFiles"> 
+   <boolean>true</boolean> 
+  </void> 
   <void property="nativeBlocks"> 
    <void method="put"> 
     <int>10</int> 
@@ -1718,7 +1845,7 @@ end
    <float>300.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_501</string> 
+   <string>Sim_562</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -1929,6 +2056,18 @@ end
       <void method="add"> 
        <string>Var_30</string> 
       </void> 
+      <void method="add"> 
+       <string>Var_23</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_22</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_21</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_20</string> 
+      </void> 
      </void> 
      <void property="simDuration"> 
       <float>300.0</float> 
@@ -1969,6 +2108,12 @@ end
       <void method="add"> 
        <string>Var_30</string> 
       </void> 
+      <void method="add"> 
+       <string>Var_21</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_20</string> 
+      </void> 
      </void> 
      <void property="simDuration"> 
       <float>300.0</float> 
@@ -2001,10 +2146,34 @@ end
      </void> 
      <void property="plots"> 
       <void method="add"> 
-       <string>AllChansOrig_v</string> 
+       <string>Var_15</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_14</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_41</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_40</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_39</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_38</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_1</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_0</string> 
       </void> 
       <void method="add"> 
        <string>AllChansCML_v</string> 
+      </void> 
+      <void method="add"> 
+       <string>AllChansOrig_v</string> 
       </void> 
      </void> 
      <void property="simDuration"> 
@@ -2031,6 +2200,15 @@ end
       <string>AllChansBothSims</string> 
      </void> 
      <void property="plots"> 
+      <void method="add"> 
+       <string>Var_14</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_40</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_38</string> 
+      </void> 
       <void method="add"> 
        <string>AllChansCML_v</string> 
       </void> 

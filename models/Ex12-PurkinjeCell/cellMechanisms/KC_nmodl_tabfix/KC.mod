@@ -60,8 +60,8 @@ BREAKPOINT {
 : only BREAKPOINT sets up the correct pointers to range variables.
 PROCEDURE state() {	: exact when v held constant; integrates over dt step
 	rate(v)
-	:::::::::::ratezinf(floor((cai - 4e-5)/9.9986667e-5)*9.9986667e-5 + 4e-5)
-    ratezinf(cai)
+	ratezinf(floor((cai - 4e-5)/9.9986667e-5)*9.9986667e-5 + 4e-5)
+    :::::::::::ratezinf(cai)
 	m = m + mexp*(minf - m)
 	z = z + zexp*(zinf - z)
     :::::::::::printf("-- t: %g, v: %g, z: %g, zinf: %g, alp: %g\n", t, v, z, zinf, alp(0,cai))

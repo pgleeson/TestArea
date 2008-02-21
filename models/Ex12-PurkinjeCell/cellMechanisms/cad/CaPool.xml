@@ -14,6 +14,7 @@
     <ion_concentration name="cad">
         
         <status value="in_progress">
+            <meta:comment>Due to different num integration method in orig mod a dt of 0.002 is needed for very close agreement</meta:comment>
             <meta:contributor>
                 <meta:name>Padraig Gleeson</meta:name>
             </meta:contributor>
@@ -21,7 +22,45 @@
     
         <meta:notes>An expontially decaying pool of calcium</meta:notes>
         
+        <meta:authorList>
+            <meta:modelAuthor>
+                <meta:name>De Schutter, E.</meta:name>
+            </meta:modelAuthor>
+            <meta:modelAuthor>
+                <meta:name>Bower, J.</meta:name>
+            </meta:modelAuthor>
+            <meta:modelTranslator>
+                <meta:name>Padraig Gleeson</meta:name>
+                <meta:institution>UCL</meta:institution>
+                <meta:email>p.gleeson - at - ucl.ac.uk</meta:email>
+            </meta:modelTranslator>
+            <meta:modelTranslator>
+                <meta:name>Jenny Davie</meta:name>
+                <meta:institution>UCL</meta:institution>
+                <meta:comment>Conversion of GENESIS model to NEURON</meta:comment>
+            </meta:modelTranslator>
+            <meta:modelTranslator>
+                <meta:name>Arnd Roth</meta:name>
+                <meta:institution>UCL</meta:institution>
+                <meta:comment>Conversion of GENESIS model to NEURON</meta:comment>
+            </meta:modelTranslator>
+            <meta:modelTranslator>
+                <meta:name>Volker Steuber</meta:name>
+                <meta:institution>UCL</meta:institution>
+                <meta:comment>Conversion of GENESIS model to NEURON</meta:comment>
+            </meta:modelTranslator>
+            <meta:modelTranslator>
+                <meta:name>Michael Hausser</meta:name>
+                <meta:institution>UCL</meta:institution>
+                <meta:comment>Conversion of GENESIS model to NEURON</meta:comment>
+            </meta:modelTranslator>
 
+        </meta:authorList>
+
+        <meta:publication>
+            <meta:fullTitle>De Schutter, E., and Bower, J. M. (1994). An active membrane model of the cerebellar Purkinje cell. I. Simulation of current clamps in slice. J Neurophysiol 71, 375-400.</meta:fullTitle>
+            <meta:pubmedRef>http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=pubmed&amp;cmd=Retrieve&amp;dopt=AbstractPlus&amp;list_uids=7512629</meta:pubmedRef>
+        </meta:publication>
         
         <ion_species>ca</ion_species>
         
