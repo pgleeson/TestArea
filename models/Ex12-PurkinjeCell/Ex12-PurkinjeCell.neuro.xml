@@ -91,9 +91,6 @@ Note: Sim configs with BothSims in title use only ChannelML based mechanisms and
     <void method="add"> 
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/> 
     </void> 
-    <void method="add"> 
-     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/> 
-    </void> 
    </void> 
    <void method="get"> 
     <string>Cell Type</string> 
@@ -109,9 +106,6 @@ Note: Sim configs with BothSims in title use only ChannelML based mechanisms and
     <void method="add"> 
      <string>SomaOnly_origChans_all</string> 
     </void> 
-    <void method="add"> 
-     <string>Purk2M9s_CML</string> 
-    </void> 
    </void> 
    <void method="get"> 
     <string>Priority</string> 
@@ -126,9 +120,6 @@ Note: Sim configs with BothSims in title use only ChannelML based mechanisms and
     </void> 
     <void method="add"> 
      <int>7</int> 
-    </void> 
-    <void method="add"> 
-     <int>6</int> 
     </void> 
    </void> 
    <void method="get"> 
@@ -165,20 +156,9 @@ Note: Sim configs with BothSims in title use only ChannelML based mechanisms and
       <int>255</int> 
      </object> 
     </void> 
-    <void method="add"> 
-     <object class="java.awt.Color"> 
-      <int>0</int> 
-      <int>153</int> 
-      <int>204</int> 
-      <int>255</int> 
-     </object> 
-    </void> 
    </void> 
    <void method="get"> 
     <string>Region Name</string> 
-    <void method="add"> 
-     <string>SampleRegion</string> 
-    </void> 
     <void method="add"> 
      <string>SampleRegion</string> 
     </void> 
@@ -205,9 +185,6 @@ Note: Sim configs with BothSims in title use only ChannelML based mechanisms and
     </void> 
     <void method="add"> 
      <string>AllChansOrig</string> 
-    </void> 
-    <void method="add"> 
-     <string>PurkCML</string> 
     </void> 
    </void> 
   </void> 
@@ -2212,40 +2189,6 @@ end
      </void> 
      <void property="simDuration"> 
       <float>300.0</float> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="add"> 
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
-     <void property="cellGroups"> 
-      <void method="add"> 
-       <string>PurkCML</string> 
-      </void> 
-     </void> 
-     <void property="description"> 
-      <string>The original Purk in CML</string> 
-     </void> 
-     <void property="inputs"> 
-      <void method="add"> 
-       <string>Input_3</string> 
-      </void> 
-     </void> 
-     <void property="name"> 
-      <string>Purkinje</string> 
-     </void> 
-     <void property="plots"> 
-      <void method="add"> 
-       <string>DistalDend_v</string> 
-      </void> 
-      <void method="add"> 
-       <string>MidpointDend_v</string> 
-      </void> 
-      <void method="add"> 
-       <string>PurkCML_v</string> 
-      </void> 
-     </void> 
-     <void property="simDuration"> 
-      <float>1300.0</float> 
      </void> 
     </object> 
    </void> 
