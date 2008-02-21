@@ -1762,11 +1762,11 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
 }</string> 
    </void> 
    <void method="put"> 
-    <int>-1</int> 
+    <int>1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
-    <int>1</int> 
+    <int>-1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
@@ -1810,6 +1810,9 @@ end
 </string> 
    </void> 
   </void> 
+  <void property="unitSystemToUse"> 
+   <int>3</int> 
+  </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters"> 
   <void property="dt"> 
@@ -1819,7 +1822,7 @@ end
    <float>300.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_580</string> 
+   <string>Sim_581</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
