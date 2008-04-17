@@ -13,7 +13,7 @@
     
     <channel_type name="Ksl" density="yes">
             
-        <status value="in_progress">
+        <status value="stable">
             <meta:comment>Verified equivalence of NEURON and GENESIS mapping to orig NEURON mod impl at 0.02ms dt with current pulse</meta:comment>
             <meta:issue>Comment in original mod: Special infinity values have still to be implemented</meta:issue>
             <meta:contributor>

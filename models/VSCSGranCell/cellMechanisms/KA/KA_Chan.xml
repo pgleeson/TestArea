@@ -6,8 +6,10 @@
            units="Physiological Units">
 
     <meta:notes>A channel originally from Maex, R and De Schutter, E. 1998, used in Berends et al 2005</meta:notes>
-    
-    <ion name="k" charge="1" default_erev="-77"/>  
+	
+	<ion name="k" charge="1" default_erev="-84.7">
+		<meta:notes>Using rev pot from D'Angelo et al 2001</meta:notes>
+    </ion>
     
     <channel_type name="KA" density="yes">
       
