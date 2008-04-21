@@ -17,12 +17,13 @@ Original model scripts obtained from: http://senselab.med.yale.edu/senselab/mode
 
 Note that this is a 3D recreation of a 1D model which didn&apos;t take spatial location into account, and so the network won&apos;t look very &quot;biologically realistic&quot;. This replicates the topographic strip (Figure 3C) as opposed to the topographic ring in the downloaded script file. This project illustrates reuse of the existing mod files to create channel mechanisms, and so can only be run on NEURON at this time.
 
-A number of the channel mechanisms are covered by the scope of ChannelML and behaviour of a simple cell incorporating these channels can be seen in the Test and TestNG Simulation Configurations (needs further work!). Further expansion of the scope of ChannelML should allow the model to be run on GENESIS also.
+A number of the channel mechanisms are covered by the scope of ChannelML and behaviour of a simple cell incorporating these channels can be seen in the Test and TestNG Simulation Configurations (needs further work!). Further expansion of the scope of ChannelML should allow the full model to be run on GENESIS also.
 
 Some open issues:
 Is there a PP HIPP synapse? None in file from Modeldb
 Paper: 1:1 GC to BC divergence, 1:2 in RI10sp.hoc
 RI10sp.hoc: line 1108, 1 instead of 10?
+Max allowed electrotonic length of 0.2 is long...
 
 
 
@@ -1013,8 +1014,11 @@ cao_ccanl=2
   <void property="duration"> 
    <float>700.0</float> 
   </void> 
+  <void property="maxElectroLen"> 
+   <float>0.2</float> 
+  </void> 
   <void property="reference"> 
-   <string>basicNetwork_180</string> 
+   <string>basicNetwork_182</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 

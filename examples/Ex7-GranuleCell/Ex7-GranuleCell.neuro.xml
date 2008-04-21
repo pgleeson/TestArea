@@ -716,11 +716,11 @@ This project shows how a cell model with multiple active conductances can produc
     <string></string> 
    </void> 
    <void method="put"> 
-    <int>1</int> 
+    <int>-1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
-    <int>-1</int> 
+    <int>1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
@@ -780,7 +780,7 @@ end</string>
    <float>700.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_530</string> 
+   <string>Sim_531</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
