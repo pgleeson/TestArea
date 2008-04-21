@@ -449,6 +449,9 @@ Note that the plots associated with these simulations slow the simulation down a
       </void> 
      </object> 
     </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.packing.SinglePositionedCellPackingAdapter"/> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Cell Type</string> 
@@ -482,6 +485,9 @@ Note that the plots associated with these simulations slow the simulation down a
     <void method="add"> 
      <string>Golgi_98_3D</string> 
     </void> 
+    <void method="add"> 
+     <string>Granule_98</string> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Priority</string> 
@@ -514,6 +520,9 @@ Note that the plots associated with these simulations slow the simulation down a
     </void> 
     <void method="add"> 
      <int>12</int> 
+    </void> 
+    <void method="add"> 
+     <int>0</int> 
     </void> 
    </void> 
    <void method="get"> 
@@ -598,6 +607,14 @@ Note that the plots associated with these simulations slow the simulation down a
       <int>255</int> 
      </object> 
     </void> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>91</int> 
+      <int>132</int> 
+      <int>154</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Region Name</string> 
@@ -631,6 +648,9 @@ Note that the plots associated with these simulations slow the simulation down a
     <void method="add"> 
      <string>Large3DGranuleCellLayer</string> 
     </void> 
+    <void method="add"> 
+     <string>1DMossyFibers</string> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Cell Group Name</string> 
@@ -663,6 +683,9 @@ Note that the plots associated with these simulations slow the simulation down a
     </void> 
     <void method="add"> 
      <string>GoC_3D</string> 
+    </void> 
+    <void method="add"> 
+     <string>SingleGranule</string> 
     </void> 
    </void> 
   </void> 
@@ -976,118 +999,6 @@ Note that the plots associated with these simulations slow the simulation down a
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
      <void property="cellGroup"> 
-      <string>SingleGran</string> 
-     </void> 
-     <void property="cellNumber"> 
-      <string>*</string> 
-     </void> 
-     <void property="graphWindow"> 
-      <string>GraphWin_0</string> 
-     </void> 
-     <void property="maxValue"> 
-      <float>50.0</float> 
-     </void> 
-     <void property="minValue"> 
-      <float>-90.0</float> 
-     </void> 
-     <void property="plotAndOrSave"> 
-      <string>Plot and save</string> 
-     </void> 
-     <void property="plotReference"> 
-      <string>SingleGran_v</string> 
-     </void> 
-     <void property="segmentId"> 
-      <string>0</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="add"> 
-    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
-     <void property="cellGroup"> 
-      <string>SingleGolgi</string> 
-     </void> 
-     <void property="cellNumber"> 
-      <string>*</string> 
-     </void> 
-     <void property="graphWindow"> 
-      <string>SingleGolgi_v</string> 
-     </void> 
-     <void property="maxValue"> 
-      <float>50.0</float> 
-     </void> 
-     <void property="minValue"> 
-      <float>-90.0</float> 
-     </void> 
-     <void property="plotAndOrSave"> 
-      <string>Plot and save</string> 
-     </void> 
-     <void property="plotReference"> 
-      <string>SingleGolgi_v</string> 
-     </void> 
-     <void property="segmentId"> 
-      <string>0</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="add"> 
-    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
-     <void property="cellGroup"> 
-      <string>SingleGolgi2</string> 
-     </void> 
-     <void property="cellNumber"> 
-      <string>*</string> 
-     </void> 
-     <void property="graphWindow"> 
-      <string>SingleGolgi_v</string> 
-     </void> 
-     <void property="maxValue"> 
-      <float>50.0</float> 
-     </void> 
-     <void property="minValue"> 
-      <float>-90.0</float> 
-     </void> 
-     <void property="plotAndOrSave"> 
-      <string>Plot and save</string> 
-     </void> 
-     <void property="plotReference"> 
-      <string>SingleGolgi2_v</string> 
-     </void> 
-     <void property="segmentId"> 
-      <string>0</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="add"> 
-    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
-     <void property="cellGroup"> 
-      <string>SingleGran2</string> 
-     </void> 
-     <void property="cellNumber"> 
-      <string>*</string> 
-     </void> 
-     <void property="graphWindow"> 
-      <string>GraphWin_0</string> 
-     </void> 
-     <void property="maxValue"> 
-      <float>50.0</float> 
-     </void> 
-     <void property="minValue"> 
-      <float>-90.0</float> 
-     </void> 
-     <void property="plotAndOrSave"> 
-      <string>Plot and save</string> 
-     </void> 
-     <void property="plotReference"> 
-      <string>SingleGran2_v</string> 
-     </void> 
-     <void property="segmentId"> 
-      <string>0</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="add"> 
-    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
-     <void property="cellGroup"> 
       <string>Golgis</string> 
      </void> 
      <void property="cellNumber"> 
@@ -1141,59 +1052,6 @@ Note that the plots associated with these simulations slow the simulation down a
      </void> 
      <void property="valuePlotted"> 
       <string>SPIKE:-20</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="add"> 
-    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
-     <void property="cellGroup"> 
-      <string>SomeMossies</string> 
-     </void> 
-     <void property="cellNumber"> 
-      <string>*</string> 
-     </void> 
-     <void property="graphWindow"> 
-      <string>SomeMossies_v</string> 
-     </void> 
-     <void property="maxValue"> 
-      <float>50.0</float> 
-     </void> 
-     <void property="minValue"> 
-      <float>-90.0</float> 
-     </void> 
-     <void property="plotReference"> 
-      <string>SomeMossies_v</string> 
-     </void> 
-     <void property="segmentId"> 
-      <string>0</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="add"> 
-    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
-     <void property="cellGroup"> 
-      <string>SomeGrans</string> 
-     </void> 
-     <void property="cellNumber"> 
-      <string>*</string> 
-     </void> 
-     <void property="graphWindow"> 
-      <string>SomeGrans_v</string> 
-     </void> 
-     <void property="maxValue"> 
-      <float>50.0</float> 
-     </void> 
-     <void property="minValue"> 
-      <float>-90.0</float> 
-     </void> 
-     <void property="plotAndOrSave"> 
-      <string>Plot and save</string> 
-     </void> 
-     <void property="plotReference"> 
-      <string>SomeGrans_v</string> 
-     </void> 
-     <void property="segmentId"> 
-      <string>0</string> 
      </void> 
     </object> 
    </void> 
@@ -1555,6 +1413,34 @@ Note that the plots associated with these simulations slow the simulation down a
      </void> 
     </object> 
    </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>SingleGranule</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>SingleGranule_v</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>SingleGranule_v</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+    </object> 
+   </void> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.project.ProjectProperties"/> 
@@ -1586,8 +1472,8 @@ Note that the plots associated with these simulations slow the simulation down a
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings"> 
-  <void property="graphicsMode"> 
-   <boolean>false</boolean> 
+  <void property="copySimFiles"> 
+   <boolean>true</boolean> 
   </void> 
   <void property="nativeBlocks"> 
    <void method="put"> 
@@ -1600,7 +1486,9 @@ Note that the plots associated with these simulations slow the simulation down a
    </void> 
    <void method="put"> 
     <int>2</int> 
-    <string>print &quot;Changing the conc of calcium...&quot;
+    <string>/*
+
+print &quot;Changing the conc of calcium...&quot;
 
 // NOTE: this code is needed to fix an issue/feature with the original cell model in GENESIS. The reversal potential of calcium does not change in that model
 // despite the fact that the internal calcium concentration is changing. NEURON would normally recalculate eca based on cai and cao, this forces eca 
@@ -1632,7 +1520,9 @@ forall {
     }
 
 
-}</string> 
+}
+
+*/</string> 
    </void> 
    <void method="put"> 
     <int>1</int> 
@@ -1698,7 +1588,7 @@ end</string>
    <float>700.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_439</string> 
+   <string>Sim_442</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -1821,6 +1711,40 @@ end</string>
      </void> 
      <void property="synapseType"> 
       <string>MFSpikeSyn</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
+     <void property="amplitude"> 
+      <void property="end"> 
+       <float>0.01</float> 
+      </void> 
+      <void property="start"> 
+       <float>0.01</float> 
+      </void> 
+     </void> 
+     <void property="cellGroup"> 
+      <string>SingleGranule</string> 
+     </void> 
+     <void property="delay"> 
+      <void property="end"> 
+       <float>100.0</float> 
+      </void> 
+      <void property="start"> 
+       <float>100.0</float> 
+      </void> 
+     </void> 
+     <void property="duration"> 
+      <void property="end"> 
+       <float>500.0</float> 
+      </void> 
+      <void property="start"> 
+       <float>500.0</float> 
+      </void> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_1</string> 
      </void> 
     </object> 
    </void> 
@@ -1993,6 +1917,34 @@ end</string>
      </void> 
      <void property="simDuration"> 
       <float>4000.0</float> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
+     <void property="cellGroups"> 
+      <void method="add"> 
+       <string>SingleGranule</string> 
+      </void> 
+     </void> 
+     <void property="description"> 
+      <string>Pulse input to single granule cell</string> 
+     </void> 
+     <void property="inputs"> 
+      <void method="add"> 
+       <string>Input_1</string> 
+      </void> 
+     </void> 
+     <void property="name"> 
+      <string>Single Granule cell</string> 
+     </void> 
+     <void property="plots"> 
+      <void method="add"> 
+       <string>SingleGranule_v</string> 
+      </void> 
+     </void> 
+     <void property="simDuration"> 
+      <float>700.0</float> 
      </void> 
     </object> 
    </void> 

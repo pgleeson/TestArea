@@ -5,6 +5,13 @@
     
      
     <synapse_type name="NMDA">
+        
+        <status value="stable">
+            <meta:contributor>
+                <meta:name>Padraig Gleeson</meta:name>
+            </meta:contributor>
+        </status>
+        
     
         <meta:notes>Example of an NMDA receptor synaptic mechanism, based on Maex DeSchutter 1998, Gabbiani et al, 1994</meta:notes>
         

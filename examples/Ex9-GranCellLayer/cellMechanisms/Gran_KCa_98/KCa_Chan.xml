@@ -2,21 +2,30 @@
 <channelml xmlns="http://morphml.org/channelml/schema" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
     xmlns:meta="http://morphml.org/metadata/schema" 
-    xsi:schemaLocation="http://morphml.org/channelml/schema  ../../../../../NeuroMLValidator/web/NeuroMLFiles/Schemata/v1.2/Level2/ChannelML_v1.2.xsd" 
+    xsi:schemaLocation="http://morphml.org/channelml/schema  ../../../../../NeuroMLValidator/web/NeuroMLFiles/Schemata/v1.6/Level2/ChannelML_v1.6.xsd" 
     units="SI Units">
 
     <meta:notes>A channel from Maex, R and De Schutter, E. Synchronization of Golgi and Granule Cell Firing in a 
     Detailed Network Model of the Cerebellar Granule Cell Layer</meta:notes>
 
     
-<ion name="k" default_erev="-0.09" charge="1" role="PermeatedSubstance">
+    <ion name="k" default_erev="-0.09" charge="1" role="PermeatedSubstance">
         <meta:notes>The ion which actually flows through the channel</meta:notes>
     </ion>
 	<ion name="ca" charge="2" role="ModulatingSubstance">
         <meta:notes>The channel's conductance of K is dependent on this ion's concentration</meta:notes>
     </ion>
     
+    
     <channel_type name="Gran_KCa_98" density="yes">
+        
+        <status value="stable">
+            <meta:issue>This ChannelML file is intended ONLY to replicate the original GENESIS functionality. A new Granule cell model is being developed based on
+                D'Angelo et al 2001 and Berends, Maex and De Schutter 2005, and the ChannelML files will be updated</meta:issue>
+            <meta:contributor>
+                <meta:name>Padraig Gleeson</meta:name>
+            </meta:contributor>
+        </status>
     
         <meta:notes>Calcium dependent K channel</meta:notes>
         

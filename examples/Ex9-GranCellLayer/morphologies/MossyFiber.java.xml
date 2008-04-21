@@ -108,22 +108,6 @@
      </void> 
     </object> 
    </void> 
-   <void method="put"> 
-    <string>AMPA3DFast</string> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>soma_group</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <string>AMPA3DSlow</string> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>soma_group</string> 
-     </void> 
-    </object> 
-   </void> 
   </void> 
  </object> 
 </java> 
