@@ -12,6 +12,8 @@
 
 
     <channel_type name="KConductance_CML" density="yes">
+        
+        <status value="stable"/>
 
         <meta:notes>Simple example of K conductance in squid giant axon. Based on channel from Hodgkin and Huxley 1952</meta:notes>
 

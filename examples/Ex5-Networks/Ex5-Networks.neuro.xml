@@ -850,6 +850,9 @@ These allow a single neuroConstruct project to illustrate many different types o
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings"> 
+  <void property="copySimFiles"> 
+   <boolean>true</boolean> 
+  </void> 
   <void property="showShapePlot"> 
    <boolean>true</boolean> 
   </void> 
@@ -870,7 +873,7 @@ These allow a single neuroConstruct project to illustrate many different types o
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_13</string> 
+   <string>Sim_20</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 

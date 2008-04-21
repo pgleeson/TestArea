@@ -5,6 +5,8 @@
     
      
     <synapse_type name="DoubExpSyn">
+        
+        <status value="stable"/>
     
         <meta:notes>Simple example of a synaptic mechanism, which consists of a postsynaptic conductance which changes as 
         double exponential function of time</meta:notes>

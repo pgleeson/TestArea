@@ -14,6 +14,8 @@
 
 
     <channel_type name="NaConductance_CML" density="yes">
+        
+        <status value="stable"/>
 
         <meta:notes>Simple example of Na conductance in squid giant axon. Based on channel from Hodgkin and Huxley 1952</meta:notes>
 
