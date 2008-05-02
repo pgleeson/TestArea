@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.5.0_15" class="java.beans.XMLDecoder"> 
+<java version="1.5.0_06" class="java.beans.XMLDecoder"> 
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -1294,7 +1294,7 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
 
     if (ismembrane(&quot;ca_ion&quot;)) {
         print &quot;Changing rev pot of Ca in section &quot;, secname()
-        eca = 80
+        ///eca = 80
 
     cai = init_cai
     }
@@ -1304,11 +1304,11 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
 }</string> 
    </void> 
    <void method="put"> 
-    <int>1</int> 
+    <int>-1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
-    <int>-1</int> 
+    <int>1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
@@ -1352,7 +1352,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_350</string> 
+   <string>Sim_354</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
