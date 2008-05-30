@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.6.0_03" class="java.beans.XMLDecoder"> 
+<java version="1.5.0_06" class="java.beans.XMLDecoder"> 
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -22,7 +22,7 @@ The SomaStimNeuroML and DendStimNeuroML Sim Configs use cells fully specified in
 </string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.0.9</string> 
+   <string>neuroConstruct v1.1.0</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex10-MainenEtAl</string> 
@@ -426,6 +426,192 @@ The SomaStimNeuroML and DendStimNeuroML Sim Configs use cells fully specified in
      </void> 
     </object> 
    </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>One_orig</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_1</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_0</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>na3:m</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>One_orig</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_1</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>1.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_1</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>na3:h</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>One_ChannelML</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_1</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>1.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_2</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>Na_ChannelML:m</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>One_ChannelML</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_1</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>1.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_3</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>Na_ChannelML:h</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>One_orig</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_4</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>0.1</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_4</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>kd3:n</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>One_ChannelML</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_4</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>0.1</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_5</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>K_ChannelML:n</string> 
+     </void> 
+    </object> 
+   </void> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.project.ProjectProperties"> 
@@ -486,6 +672,21 @@ The SomaStimNeuroML and DendStimNeuroML Sim Configs use cells fully specified in
    <void method="put"> 
     <int>2</int> 
     <string></string> 
+   </void> 
+   <void method="put"> 
+    <int>1</int> 
+    <string>
+#SIM_CONFIG_INCLUDE Default Simulation Configuration
+#SIM_CONFIG_INCLUDE DendriticStimulation
+
+//print &quot;Manually adding graph for iseg.&quot;
+
+{
+    GraphWin_0.addexpr(&quot;a_OriginalCell[0].iseg.v&quot;, &quot;a_OriginalCell[0].iseg.v(0.5)&quot;, 7,1)
+}
+
+#END_SIM_CONFIG_INCLUDE Default Simulation Configuration
+#END_SIM_CONFIG_INCLUDE DendriticStimulation</string> 
    </void> 
    <void method="put"> 
     <int>-1</int> 
@@ -619,21 +820,6 @@ gmax_LeakCond = F/rm
 
 
 </string> 
-   </void> 
-   <void method="put"> 
-    <int>1</int> 
-    <string>
-#SIM_CONFIG_INCLUDE Default Simulation Configuration
-#SIM_CONFIG_INCLUDE DendriticStimulation
-
-//print &quot;Manually adding graph for iseg.&quot;
-
-{
-    GraphWin_0.addexpr(&quot;a_OriginalCell[0].iseg.v&quot;, &quot;a_OriginalCell[0].iseg.v(0.5)&quot;, 7,1)
-}
-
-#END_SIM_CONFIG_INCLUDE Default Simulation Configuration
-#END_SIM_CONFIG_INCLUDE DendriticStimulation</string> 
    </void> 
    <void method="put"> 
     <int>0</int> 
@@ -919,7 +1105,7 @@ forall if (ismembrane(&quot;kd3&quot;)) ek = Ek
    <float>-54.6</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_48</string> 
+   <string>Sim_54</string> 
   </void> 
   <void property="temperature"> 
    <float>23.0</float> 
@@ -1249,6 +1435,24 @@ forall if (ismembrane(&quot;kd3&quot;)) ek = Ek
       </void> 
       <void method="add"> 
        <string>Plot_1</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_5</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_4</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_3</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_2</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_1</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_0</string> 
       </void> 
      </void> 
      <void property="simDuration"> 
