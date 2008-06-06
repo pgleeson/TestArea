@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.5.0_06" class="java.beans.XMLDecoder"> 
+<java version="1.6.0_03" class="java.beans.XMLDecoder"> 
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -12,7 +12,7 @@ part of NeuroML or any standardised XML specification. -->
    <string>A simplifed model showing something which happens in the ear, or something... </string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v0.9.5</string> 
+   <string>neuroConstruct v1.1.0</string> 
   </void> 
   <void property="projectName"> 
    <string>Auditory</string> 
@@ -105,6 +105,18 @@ part of NeuroML or any standardised XML specification. -->
     </void> 
    </void> 
    <void method="get"> 
+    <string>Priority</string> 
+    <void method="add"> 
+     <int>10</int> 
+    </void> 
+    <void method="add"> 
+     <int>9</int> 
+    </void> 
+    <void method="add"> 
+     <int>8</int> 
+    </void> 
+   </void> 
+   <void method="get"> 
     <string>Colour</string> 
     <void method="add"> 
      <object class="java.awt.Color"> 
@@ -176,6 +188,9 @@ part of NeuroML or any standardised XML specification. -->
      <void property="minValue"> 
       <float>-90.0</float> 
      </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
      <void property="plotReference"> 
       <string>Plot_1</string> 
      </void> 
@@ -201,6 +216,9 @@ part of NeuroML or any standardised XML specification. -->
      <void property="minValue"> 
       <float>-90.0</float> 
      </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
      <void property="plotReference"> 
       <string>Plot_0</string> 
      </void> 
@@ -211,6 +229,7 @@ part of NeuroML or any standardised XML specification. -->
    </void> 
   </void> 
  </object> 
+ <object class="ucl.physiol.neuroconstruct.project.ProjectProperties"/> 
  <object class="ucl.physiol.neuroconstruct.utils.Display3DProperties"> 
   <void property="backgroundColour3D"> 
    <object class="java.awt.Color"> 
@@ -249,7 +268,7 @@ part of NeuroML or any standardised XML specification. -->
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_17</string> 
+   <string>Sim_18</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -378,62 +397,79 @@ part of NeuroML or any standardised XML specification. -->
     </void> 
    </void> 
    <void method="get"> 
+    <string>AP speed</string> 
+    <void method="add"> 
+     <float>3.4028235E38</float> 
+    </void> 
+    <void method="add"> 
+     <float>3.4028235E38</float> 
+    </void> 
+   </void> 
+   <void method="get"> 
     <string>Synapse Type</string> 
     <void method="add"> 
-     <object class="ucl.physiol.neuroconstruct.project.SynapticProperties"> 
-      <void property="delayGenerator"> 
-       <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
-        <void property="fixedNum"> 
-         <float>0.0</float> 
+     <object class="java.util.Vector"> 
+      <void method="add"> 
+       <object class="ucl.physiol.neuroconstruct.project.SynapticProperties"> 
+        <void property="delayGenerator"> 
+         <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+          <void property="fixedNum"> 
+           <float>0.0</float> 
+          </void> 
+          <void property="numberType"> 
+           <int>11</int> 
+          </void> 
+         </object> 
         </void> 
-        <void property="numberType"> 
-         <int>11</int> 
+        <void property="synapseType"> 
+         <string>DoubExpSyn</string> 
         </void> 
-       </object> 
-      </void> 
-      <void property="synapseType"> 
-       <string>DoubExpSyn</string> 
-      </void> 
-      <void property="threshold"> 
-       <double>-20.0</double> 
-      </void> 
-      <void property="weightsGenerator"> 
-       <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
-        <void property="fixedNum"> 
-         <float>0.2</float> 
+        <void property="threshold"> 
+         <double>-20.0</double> 
         </void> 
-        <void property="numberType"> 
-         <int>11</int> 
+        <void property="weightsGenerator"> 
+         <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+          <void property="fixedNum"> 
+           <float>0.2</float> 
+          </void> 
+          <void property="numberType"> 
+           <int>11</int> 
+          </void> 
+         </object> 
         </void> 
        </object> 
       </void> 
      </object> 
     </void> 
     <void method="add"> 
-     <object class="ucl.physiol.neuroconstruct.project.SynapticProperties"> 
-      <void property="delayGenerator"> 
-       <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
-        <void property="fixedNum"> 
-         <float>0.0</float> 
+     <object class="java.util.Vector"> 
+      <void method="add"> 
+       <object class="ucl.physiol.neuroconstruct.project.SynapticProperties"> 
+        <void property="delayGenerator"> 
+         <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+          <void property="fixedNum"> 
+           <float>0.0</float> 
+          </void> 
+          <void property="numberType"> 
+           <int>11</int> 
+          </void> 
+         </object> 
         </void> 
-        <void property="numberType"> 
-         <int>11</int> 
+        <void property="synapseType"> 
+         <string>DoubExpSyn</string> 
         </void> 
-       </object> 
-      </void> 
-      <void property="synapseType"> 
-       <string>DoubExpSyn</string> 
-      </void> 
-      <void property="threshold"> 
-       <double>-20.0</double> 
-      </void> 
-      <void property="weightsGenerator"> 
-       <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
-        <void property="fixedNum"> 
-         <float>0.2</float> 
+        <void property="threshold"> 
+         <double>-20.0</double> 
         </void> 
-        <void property="numberType"> 
-         <int>11</int> 
+        <void property="weightsGenerator"> 
+         <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+          <void property="fixedNum"> 
+           <float>0.2</float> 
+          </void> 
+          <void property="numberType"> 
+           <int>11</int> 
+          </void> 
+         </object> 
         </void> 
        </object> 
       </void> 
