@@ -12,14 +12,14 @@ part of NeuroML or any standardised XML specification. -->
    <string>A project illustrating the behaviour of the Granule Cell model from:
 
 Maex, R and De Schutter, E. Synchronization of Golgi and Granule Cell Firing in a Detailed Network Model of the Cerebellar Granule Cell Layer J Neurophysiol, Nov 1998; 80: 2521 - 2537.  
-
+ 
 Based on scripts obtained from: http://www.tnb.ua.ac.be/models/network.shtml
 
 This project shows how a cell model with multiple active conductances can produce the same behaviour on NEURON and GENESIS through the specification of channel mechanisms in ChannelML. 
 </string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.0.9</string> 
+   <string>neuroConstruct v1.1.1</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex7-GranuleCell</string> 
@@ -699,6 +699,9 @@ This project shows how a cell model with multiple active conductances can produc
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings"> 
+  <void property="copySimFiles"> 
+   <boolean>true</boolean> 
+  </void> 
   <void property="generateComments"> 
    <boolean>false</boolean> 
   </void> 
@@ -780,7 +783,7 @@ end</string>
    <float>700.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_531</string> 
+   <string>Sim_532</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -1031,6 +1034,34 @@ end</string>
      </void> 
      <void property="simDuration"> 
       <float>70.0</float> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
+     <void property="cellGroups"> 
+      <void method="add"> 
+       <string>Gran</string> 
+      </void> 
+     </void> 
+     <void property="description"> 
+      <string>Only plot/save voltage for 1 cell</string> 
+     </void> 
+     <void property="inputs"> 
+      <void method="add"> 
+       <string>Gran_10pA</string> 
+      </void> 
+     </void> 
+     <void property="name"> 
+      <string>OnlyVoltage</string> 
+     </void> 
+     <void property="plots"> 
+      <void method="add"> 
+       <string>Gran_v</string> 
+      </void> 
+     </void> 
+     <void property="simDuration"> 
+      <float>700.0</float> 
      </void> 
     </object> 
    </void> 
