@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channelml xmlns="http://morphml.org/channelml/schema" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:meta="http://morphml.org/metadata/schema" 
+    xsi:schemaLocation="http://morphml.org/channelml/schema  http://www.morphml.org:8080/NeuroMLValidator/NeuroMLFiles/Schemata/v1.6/Level2/ChannelML_v1.6.xsd" 
+    units="Physiological Units">
+
+    <meta:notes>ChannelML file based on Traub et al. 2003</meta:notes>
+
+    <ion name="cat_a" charge="1" default_erev="125">  
+        <meta:notes>Since the original mod file stipulates that the inflow *doesn't alter the internal calcium*, giving the ion a different name here, to avoid interaction with other Ca based channel mechanisms</meta:notes>
+    </ion>
+
+
+    <channel_type name="cat_a" density="yes">
+        
+        <status value="in_progress">
+            <meta:contributor>
+                <meta:name>Padraig Gleeson</meta:name>
+            </meta:contributor>
+        </status>
+        
+
+        <current_voltage_relation>
+            <ohmic ion="cat_a">
+                <conductance default_gmax="0.1">        <!-- phys units: mS/cm2 -->
+
+                    <gate power="2">
+                        <state name="m" fraction="1"/>
+                    </gate>
+                    
+                    <gate power="1">
+		                <state name="h" fraction="1"/>
+                    </gate>
+                    
+                </conductance>
+            </ohmic>
+        </current_voltage_relation>
+        
+        
+        <hh_gate state="m">
+            <transition>
+                <voltage_gate>
+
+                    <initialisation value="0"/> <!-- An incorrect initialisation value for this state variable, in order to match orig mod!!-->
+
+                    <tau>
+                                        <!-- orig: 1 + .33 / ( exp( ( v + 27.0 ) / 10.0 ) + (exp ( ( - v - 102 ) / 15.0 )) )-->
+                                            
+                        <generic_equation_hh expr="1 + 0.33 / ( (exp ((v + 27.0) / 10.0 )) + (exp ((- v - 102) / 15.0)) )"/>
+                    </tau>
+                    
+                          <!-- orig: minf  = 1 / ( 1 + exp( ( -v - 52 ) / 7.4 ) )-->
+                    <inf>
+                        <parameterised_hh type="sigmoid">  <!-- Form of equation: A / (1 + exp(k*(v-d))) -->
+                            <parameter name="A" value="1"/>
+                            <parameter name="k" value="-0.1351351351"/>
+                            <parameter name="d" value="-52.0"/>
+                        </parameterised_hh>
+                    </inf>
+                </voltage_gate>
+            </transition>
+        </hh_gate>
+        
+	
+	   <hh_gate state="h">
+            <transition>
+                <voltage_gate>
+                    <tau>
+                        <!-- orig: htau = 28.30 +.33 / (exp(( v + 48.0)/ 4.0) + exp( ( -v - 407.0) / 50.0 ) )  -->
+                        
+                       <generic_equation_hh expr="28.30 +.33 / ((exp (( v + 48.0)/ 4.0)) + (exp ( ( -v - 407.0) / 50.0 )) ) "/>
+                    </tau>
+                    <inf>
+                         <!-- orig: hinf  = 1 / ( 1 + exp( ( v + 80 ) / 5 ) ) -->
+                         
+                        <parameterised_hh type="sigmoid">  <!-- Form of equation: A / (1 + exp(k*(v-d))) -->
+                            <parameter name="A" value="1"/>
+                            <parameter name="k" value="0.2"/>
+                            <parameter name="d" value="-80"/>
+                        </parameterised_hh>
+                    </inf>
+                </voltage_gate>
+            </transition>
+        </hh_gate>
+        
+        
+        
+        <impl_prefs>
+            <comment>Using the NEURON mod file impl settings to get a closer match</comment>
+            <table_settings max_v="40" min_v="-120" table_divisions="641"/>
+        </impl_prefs>
+        
+    </channel_type>
+</channelml>
