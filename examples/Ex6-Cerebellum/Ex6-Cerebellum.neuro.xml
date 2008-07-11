@@ -20,7 +20,7 @@ Just click Generate -&gt; Generate Cell Positions and Connections, followed by V
 To run in NEURON go to Simulation Settings -&gt; Create files for local execution, and then run the hoc file. The location of the NEURON home directory may need to be set under Settings. To view the data again, go to Visualisations, press Previous Simulations..., select the recorded simulation and press OK.</string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.0.9</string> 
+   <string>neuroConstruct v1.1.1</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex6-Cerebellum</string> 
@@ -526,7 +526,7 @@ To run in NEURON go to Simulation Settings -&gt; Create files for local executio
    <float>-54.6</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_39</string> 
+   <string>Sim_42</string> 
   </void> 
   <void property="temperature"> 
    <float>25.0</float> 

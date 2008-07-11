@@ -7,7 +7,7 @@
 
 <!--
 
-    This file is used to convert ChannelML v1.7.1 files to GENESIS tabchannel/tab2Dchannel/leakage based script files
+    This file is used to convert ChannelML v1.7.2 files to GENESIS tabchannel/tab2Dchannel/leakage based script files
 
     This file has been developed as part of the neuroConstruct project
 
@@ -33,7 +33,7 @@
 <!--Main template-->
 
 <xsl:template match="/cml:channelml">
-<xsl:text>// This is a GENESIS script file generated from a ChannelML v1.7.1 file
+<xsl:text>// This is a GENESIS script file generated from a ChannelML v1.7.2 file
 // The ChannelML file is mapped onto a tabchannel object
 
 </xsl:text>
@@ -341,8 +341,9 @@ function init_<xsl:value-of select="@name"/>(chanpath)
                             <xsl:with-param name="d_cml" select="cml:parameterised_hh/cml:parameter[@name='d']/@value"/>
                         </xsl:call-template>
                     </xsl:when>
-                    <xsl:when test="count(cml:generic_equation_hh) &gt; 0">
-            // Found a generic form of rate equation for <xsl:value-of select="name()"/>, using expression: <xsl:value-of select="cml:generic_equation_hh/@expr" />
+                    <xsl:when test="count(cml:generic_equation_hh) &gt; 0 or count(cml:generic) &gt; 0">
+                    <xsl:variable name="expr"><xsl:value-of select="cml:generic_equation_hh/@expr" /><xsl:value-of select="cml:generic/@expr" /></xsl:variable> <!--Will be one or the other-->
+            // Found a generic form of rate equation for <xsl:value-of select="name()"/>, using expression: <xsl:value-of select="$expr" />
             // Will translate this for GENESIS compatibility...<xsl:text>
                     </xsl:text>
                     <xsl:if test="string($xmlFileUnitSystem) != string($targetUnitSystem)">
@@ -355,8 +356,8 @@ function init_<xsl:value-of select="@name"/>(chanpath)
                     </xsl:call-template> // temporarily set v to units of equation...<xsl:text>
             </xsl:text>
                         <xsl:if test="(name()='tau' or name()='inf') and
-                                      (contains(string(cml:generic_equation_hh/@expr), 'alpha') or
-                                      contains(string(cml:generic_equation_hh/@expr), 'beta'))">
+                                      (contains(string($expr), 'alpha') or
+                                      contains(string($expr), 'beta'))">
             // Equation depends on alpha/beta, so converting them too...
             alpha = alpha * <xsl:call-template name="convert">
                                 <xsl:with-param name="value">1</xsl:with-param>
@@ -369,7 +370,7 @@ function init_<xsl:value-of select="@name"/>(chanpath)
             </xsl:text>
                         </xsl:if>
                         <xsl:if test="name()='beta' and
-                                      contains(string(cml:generic_equation_hh/@expr), 'alpha')">
+                                      contains(string($expr), 'alpha')">
             // Equation depends on alpha, so converting it...
             alpha = alpha * <xsl:call-template name="convert">
                                 <xsl:with-param name="value">1</xsl:with-param>
@@ -395,7 +396,7 @@ function init_<xsl:value-of select="@name"/>(chanpath)
                                 <xsl:value-of select="name()"/>
                             </xsl:with-param>
                             <xsl:with-param name="oldExpression">
-                                <xsl:value-of select="cml:generic_equation_hh/@expr" />
+                                <xsl:value-of select="$expr" />
                             </xsl:with-param>
                         </xsl:call-template>
                     </xsl:variable>
@@ -408,8 +409,8 @@ function init_<xsl:value-of select="@name"/>(chanpath)
                     </xsl:call-template> // reset v<xsl:text>
             </xsl:text>
                     <xsl:if test="(name()='tau' or name()='inf') and
-                                      (contains(string(cml:generic_equation_hh/@expr), 'alpha') or
-                                      contains(string(cml:generic_equation_hh/@expr), 'beta'))">
+                                      (contains(string($expr), 'alpha') or
+                                      contains(string($expr), 'beta'))">
             alpha = alpha * <xsl:call-template name="convert">
                                 <xsl:with-param name="value">1</xsl:with-param>
                                 <xsl:with-param name="quantity">InvTime</xsl:with-param>
@@ -421,7 +422,7 @@ function init_<xsl:value-of select="@name"/>(chanpath)
                         </xsl:if>
                         
                     <xsl:if test="name()='beta' and
-                                      contains(string(cml:generic_equation_hh/@expr), 'alpha')">
+                                      contains(string($expr), 'alpha')">
             alpha = alpha * <xsl:call-template name="convert">
                                 <xsl:with-param name="value">1</xsl:with-param>
                                 <xsl:with-param name="quantity">InvTime</xsl:with-param>

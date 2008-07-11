@@ -18,7 +18,7 @@ Just click Generate -&gt; Generate Cell Positions and Connections, followed by V
 These allow a single neuroConstruct project to illustrate many different types of network configurations for the cells in a project. In tab Generate choose in the drop down box a Simulation Configuration which will generate a different network. Edit Simulation Configs shows what Cell Groups, Net Conns, Plots and Inputs are used in each. </string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.0.9</string> 
+   <string>neuroConstruct v1.1.1</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex5-Networks</string> 
@@ -873,7 +873,7 @@ These allow a single neuroConstruct project to illustrate many different types o
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_20</string> 
+   <string>Sim_24</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -932,11 +932,8 @@ These allow a single neuroConstruct project to illustrate many different types o
    </void> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amplitude"> 
-      <void property="end"> 
-       <float>0.2</float> 
-      </void> 
-      <void property="start"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
        <float>0.2</float> 
       </void> 
      </void> 
@@ -963,12 +960,12 @@ These allow a single neuroConstruct project to illustrate many different types o
      <void property="cellGroup"> 
       <string>LowerCellGroup</string> 
      </void> 
-     <void property="duration"> 
-      <void property="end"> 
+     <void property="dur"> 
+      <void property="fixedNum"> 
        <float>10.0</float> 
       </void> 
-      <void property="start"> 
-       <float>10.0</float> 
+      <void property="numberType"> 
+       <int>11</int> 
       </void> 
      </void> 
      <void property="reference"> 
@@ -1004,23 +1001,17 @@ These allow a single neuroConstruct project to illustrate many different types o
    </void> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amplitude"> 
-      <void property="end"> 
-       <float>0.06</float> 
-      </void> 
-      <void property="start"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
        <float>0.06</float> 
       </void> 
      </void> 
      <void property="cellGroup"> 
       <string>SingleAxArbourCell</string> 
      </void> 
-     <void property="duration"> 
-      <void property="end"> 
-       <float>60.0</float> 
-      </void> 
-      <void property="start"> 
-       <float>60.0</float> 
+     <void property="dur"> 
+      <void property="numberType"> 
+       <int>11</int> 
       </void> 
      </void> 
      <void property="reference"> 
@@ -1030,23 +1021,17 @@ These allow a single neuroConstruct project to illustrate many different types o
    </void> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amplitude"> 
-      <void property="end"> 
-       <float>0.06</float> 
-      </void> 
-      <void property="start"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
        <float>0.06</float> 
       </void> 
      </void> 
      <void property="cellGroup"> 
       <string>NonuniformConnCellGroup</string> 
      </void> 
-     <void property="duration"> 
-      <void property="end"> 
-       <float>60.0</float> 
-      </void> 
-      <void property="start"> 
-       <float>60.0</float> 
+     <void property="dur"> 
+      <void property="numberType"> 
+       <int>11</int> 
       </void> 
      </void> 
      <void property="reference"> 
