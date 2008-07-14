@@ -18,7 +18,7 @@ Just click Generate -&gt; Generate Cell Positions and Connections, followed by V
 Try adjusting the packing by clicking on the entries in the Cell Packing Adapter column of the table under tab Cell Groups. You can change the various parameters (e.g. cell number/spacing) which are used for generating the cell positions.     </string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.0.9</string> 
+   <string>neuroConstruct v1.1.2</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex2-Packing</string> 
