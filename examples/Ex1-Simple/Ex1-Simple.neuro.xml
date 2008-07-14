@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.5.0_13" class="java.beans.XMLDecoder"> 
+<java version="1.6.0_03" class="java.beans.XMLDecoder"> 
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -10,17 +10,20 @@ part of NeuroML or any standardised XML specification. -->
  <object class="ucl.physiol.neuroconstruct.project.BasicProjectInfo"> 
   <void property="projectDescription"> 
    <string>Simple example with a single cell positioned randomly in a 3D volume.
-    
+     
 To generate and view:               
  
 1) Click on tab Generate -&gt; Generate Cell Positions and Connections 
-2) Go to tab Visualisation and click View, with Latest Generated Positions selected in the drop down box. You&apos;ll see an abstract cell placed in a 3D region with axes showing the X (green), Y (yellow) and Z (red) directions. The cone like structure represents the electrical stimulation.
+
+2) Go to tab Visualisation and click View, with Latest Generated Positions selected in the drop down box. You&apos;ll see an abstract cell placed in a 3D region with axes showing the X (green), Y (yellow) and Z (red) directions. The cone like structure represents the point of electrical stimulation.
+
+This example shows a current pulse being applied to a cell with resting membrane potential (due to passive/leak conductance) of -60 mV. The membrane is depolarised at the start of the pulse at 20ms, and gradually returns to resting membrane potential after 80ms.
  
-To change the number and layout of cells in the example, go to tab Cell Groups, click on the column under Cell Packing Adapter, change the values in the fields and the Packing Pattern and regenerate. More Cell Groups and 3D Regions can be added at the appropriate tab. 
+To change the number and layout of cells in the example, go to tab Cell Groups, click on the column under Cell Packing Adapter, change the values in the fields and the Packing Pattern and regenerate. More Cell Groups and 3D Regions can be added at the appropriate tabs. 
 </string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.0.7</string> 
+   <string>neuroConstruct v1.1.2</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex1-Simple</string> 
@@ -218,7 +221,7 @@ To change the number and layout of cells in the example, go to tab Cell Groups, 
    <float>-65.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_30</string> 
+   <string>Sim_42</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -231,23 +234,17 @@ To change the number and layout of cells in the example, go to tab Cell Groups, 
   <void property="allStims"> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amplitude"> 
-      <void property="end"> 
-       <float>0.4</float> 
-      </void> 
-      <void property="start"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
        <float>0.4</float> 
       </void> 
      </void> 
      <void property="cellGroup"> 
       <string>SampleCellGroup</string> 
      </void> 
-     <void property="duration"> 
-      <void property="end"> 
-       <float>60.0</float> 
-      </void> 
-      <void property="start"> 
-       <float>60.0</float> 
+     <void property="dur"> 
+      <void property="numberType"> 
+       <int>11</int> 
       </void> 
      </void> 
      <void property="reference"> 
