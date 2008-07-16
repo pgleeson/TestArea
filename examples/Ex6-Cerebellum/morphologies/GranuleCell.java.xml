@@ -584,7 +584,7 @@
     </object> 
     <object class="java.util.Vector"> 
      <void method="add"> 
-      <string>axon_group</string> 
+      <string>soma_group</string> 
      </void> 
     </object> 
    </void> 
@@ -644,7 +644,7 @@
     </object> 
     <object class="java.util.Vector"> 
      <void method="add"> 
-      <string>soma_group</string> 
+      <string>axon_group</string> 
      </void> 
     </object> 
    </void> 

@@ -2159,15 +2159,30 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>3.6E-7</float> 
+      <float>1.2E-6</float> 
      </void> 
      <void property="name"> 
-      <string>KConductance</string> 
+      <string>NaConductance</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
      <void method="add"> 
       <string>dendrite_group</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="density"> 
+      <float>3.0E-9</float> 
+     </void> 
+     <void property="name"> 
+      <string>PassiveCond</string> 
+     </void> 
+    </object> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>axon_group</string> 
      </void> 
     </object> 
    </void> 
@@ -2182,7 +2197,22 @@
     </object> 
     <object class="java.util.Vector"> 
      <void method="add"> 
-      <string>dendrite_group</string> 
+      <string>soma_group</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="density"> 
+      <float>3.6E-7</float> 
+     </void> 
+     <void property="name"> 
+      <string>KConductance</string> 
+     </void> 
+    </object> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>soma_group</string> 
      </void> 
     </object> 
    </void> 
@@ -2242,37 +2272,7 @@
     </object> 
     <object class="java.util.Vector"> 
      <void method="add"> 
-      <string>soma_group</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
-      <float>3.0E-9</float> 
-     </void> 
-     <void property="name"> 
-      <string>PassiveCond</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
       <string>axon_group</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
-      <float>1.2E-6</float> 
-     </void> 
-     <void property="name"> 
-      <string>NaConductance</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>soma_group</string> 
      </void> 
     </object> 
    </void> 
@@ -2287,7 +2287,7 @@
     </object> 
     <object class="java.util.Vector"> 
      <void method="add"> 
-      <string>axon_group</string> 
+      <string>dendrite_group</string> 
      </void> 
     </object> 
    </void> 

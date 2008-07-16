@@ -10,17 +10,19 @@ part of NeuroML or any standardised XML specification. -->
  <object class="ucl.physiol.neuroconstruct.project.BasicProjectInfo"> 
   <void property="projectDescription"> 
    <string>Example of a section of the cerebellar cortex containing some of the main cell types. 
-     
-*******
-NOTE: this is a highly simplified model, only intended to reproduce some basic anatomical details; none of the cells have realistic sets of ion channels. Any resemblance with the actual behaviour of the cerebellum is entirely coincidental. 
-******* 
+      
+*******************************************************************************************
+NOTE: this is a highly simplified model, only intended to reproduce some basic 
+anatomical details; none of the cells have realistic sets of ion channels. Any 
+resemblance with the actual behaviour of the cerebellum is entirely coincidental...
+*******************************************************************************************
     
 Just click Generate -&gt; Generate Cell Positions and Connections, followed by Visualisation -&gt; View, with Latest Generated Positions selected to see the demo.  
   
 To run in NEURON go to Simulation Settings -&gt; Create files for local execution, and then run the hoc file. The location of the NEURON home directory may need to be set under Settings. To view the data again, go to Visualisations, press Previous Simulations..., select the recorded simulation and press OK.</string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.1.1</string> 
+   <string>neuroConstruct v1.1.2</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex6-Cerebellum</string> 
@@ -115,6 +117,11 @@ To run in NEURON go to Simulation Settings -&gt; Create files for local executio
     <void method="add"> 
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"> 
       <void property="parameterList"> 
+       <void index="1"> 
+        <void property="value"> 
+         <float>0.0</float> 
+        </void> 
+       </void> 
        <void index="2"> 
         <void property="value"> 
          <float>12.0</float> 
@@ -126,6 +133,11 @@ To run in NEURON go to Simulation Settings -&gt; Create files for local executio
     <void method="add"> 
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"> 
       <void property="parameterList"> 
+       <void index="1"> 
+        <void property="value"> 
+         <float>0.0</float> 
+        </void> 
+       </void> 
        <void index="2"> 
         <void property="value"> 
          <float>80.0</float> 
@@ -137,6 +149,11 @@ To run in NEURON go to Simulation Settings -&gt; Create files for local executio
     <void method="add"> 
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"> 
       <void property="parameterList"> 
+       <void index="1"> 
+        <void property="value"> 
+         <float>0.0</float> 
+        </void> 
+       </void> 
        <void index="2"> 
         <void property="value"> 
          <float>4.0</float> 
@@ -148,6 +165,11 @@ To run in NEURON go to Simulation Settings -&gt; Create files for local executio
     <void method="add"> 
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"> 
       <void property="parameterList"> 
+       <void index="1"> 
+        <void property="value"> 
+         <float>0.0</float> 
+        </void> 
+       </void> 
        <void index="2"> 
         <void property="value"> 
          <float>4.0</float> 
@@ -469,9 +491,6 @@ To run in NEURON go to Simulation Settings -&gt; Create files for local executio
   <void property="resolution3DElements"> 
    <int>22</int> 
   </void> 
-  <void property="showInputs"> 
-   <boolean>false</boolean> 
-  </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings"> 
   <void property="generateComments"> 
@@ -526,7 +545,7 @@ To run in NEURON go to Simulation Settings -&gt; Create files for local executio
    <float>-54.6</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_42</string> 
+   <string>Sim_44</string> 
   </void> 
   <void property="temperature"> 
    <float>25.0</float> 
