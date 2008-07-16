@@ -377,7 +377,7 @@
 			</mml:cables>
 			<!--Adding the biophysical parameters-->
 			<biophysics units="Physiological Units">
-				<bio:mechanism name="PassiveCond" type="Channel Mechanism">
+				<bio:mechanism name="LeakConductance" type="Channel Mechanism">
 					<bio:parameter name="gmax" value="0.3">
 						<bio:group>soma_group</bio:group>
 						<bio:group>dendrite_group</bio:group>
@@ -413,10 +413,6 @@
 						<bio:group>all</bio:group>
 					</bio:parameter>
 				</bio:initialMembPotential>
-				<net:potentialSynapticLocation>
-					<net:synapse_type>GranPurkSyn</net:synapse_type>
-					<net:group>main_dends</net:group>
-				</net:potentialSynapticLocation>
 			</biophysics>
 		</cell>
 	</cells>

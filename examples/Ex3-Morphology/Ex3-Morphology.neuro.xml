@@ -10,7 +10,7 @@ part of NeuroML or any standardised XML specification. -->
  <object class="ucl.physiol.neuroconstruct.project.BasicProjectInfo"> 
   <void property="projectDescription"> 
    <string>This example demonstrates importation of a number of cell morphology files in different formats, including the Purkinje Cell Model of Erik De Schutter and Jim Bower.
-   
+    
 To include the cells in the project go to the tab Cell Types, click Add New Cell Type to Project. Click on GenesisMorphReader (or any of the others...) and browse to the directory: examples/Ex3-Morphology/importedMorphologies. Here you will find examples of morphologies you can import into the project. After these are loaded you can click: View/edit morphology to see it in 3D. 
  
 A pyramidal cell neuron as included with the standard NEURON distribution is also included. The importation of this shows how the validation checks can help highlight potential problems when using a morphology from one simulator on another platform. Try viewing the cell with Original Compartmentalisation selected to see sections, segments, and connections more clearly.
@@ -21,7 +21,7 @@ For more details on importing each format see the documentation under menu item 
  </string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.0.9</string> 
+   <string>neuroConstruct v1.1.2</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex3-Morphology</string> 
