@@ -10,13 +10,13 @@ part of NeuroML or any standardised XML specification. -->
  <object class="ucl.physiol.neuroconstruct.project.BasicProjectInfo"> 
   <void property="projectDescription"> 
    <string>This example illustrates an INITIAL implementation of a method for incorporating 3D diffusion into network models. It is currently only implemented for NEURON, setting x,y,z coordinated in custom mod files. Note that the framework will be updated when a more comprehensive system for decribing cellular mechanism interactions with external substances is introduced (incorporating concepts from Systems Biology standards).
-                    
+                     
 This example simulates the release of NO from Parallel Fiber (PF) - Purkinje Cell (PC) synapses.
 
 The cell mechanism PFPCSyn releases NO when there is a coincidence of a synaptic event and the post synaptic cell firing (&gt;0mV) and all synapses detect this and alter their weights depending on distance from the releasing synapse and time since the event.</string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.0.9</string> 
+   <string>neuroConstruct v1.1.2</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex11-3DDiffusion</string> 
@@ -416,13 +416,6 @@ graf.view(0, 0.0, 200.0, 1.0, 80, 330, 330, 250)
     <string></string> 
    </void> 
    <void method="put"> 
-    <int>-1</int> 
-    <string>
-objref graf
-graf = new Graph(0)
-</string> 
-   </void> 
-   <void method="put"> 
     <int>1</int> 
     <string>print &quot;Connecting up the cell mechanisms...&quot;
 
@@ -452,6 +445,13 @@ for i = 0, n_PurkinjeCells-1 {
 print &quot;Connected...&quot;</string> 
    </void> 
    <void method="put"> 
+    <int>-1</int> 
+    <string>
+objref graf
+graf = new Graph(0)
+</string> 
+   </void> 
+   <void method="put"> 
     <int>0</int> 
     <string></string> 
    </void> 
@@ -469,7 +469,7 @@ print &quot;Connected...&quot;</string>
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_189</string> 
+   <string>Sim_193</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -482,31 +482,25 @@ print &quot;Connected...&quot;</string>
   <void property="allStims"> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amplitude"> 
-      <void property="end"> 
-       <float>0.03</float> 
-      </void> 
-      <void property="start"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
        <float>0.03</float> 
       </void> 
      </void> 
      <void property="cellGroup"> 
       <string>GranuleCells</string> 
      </void> 
-     <void property="delay"> 
-      <void property="end"> 
-       <float>10.0</float> 
-      </void> 
-      <void property="start"> 
+     <void property="del"> 
+      <void property="fixedNum"> 
        <float>10.0</float> 
       </void> 
      </void> 
-     <void property="duration"> 
-      <void property="end"> 
+     <void property="dur"> 
+      <void property="fixedNum"> 
        <float>180.0</float> 
       </void> 
-      <void property="start"> 
-       <float>180.0</float> 
+      <void property="numberType"> 
+       <int>11</int> 
       </void> 
      </void> 
      <void property="reference"> 
@@ -516,11 +510,8 @@ print &quot;Connected...&quot;</string>
    </void> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amplitude"> 
-      <void property="end"> 
-       <float>1.0</float> 
-      </void> 
-      <void property="start"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
        <float>1.0</float> 
       </void> 
      </void> 
@@ -530,20 +521,17 @@ print &quot;Connected...&quot;</string>
      <void property="cellGroup"> 
       <string>PurkinjeCells</string> 
      </void> 
-     <void property="delay"> 
-      <void property="end"> 
-       <float>50.0</float> 
-      </void> 
-      <void property="start"> 
+     <void property="del"> 
+      <void property="fixedNum"> 
        <float>50.0</float> 
       </void> 
      </void> 
-     <void property="duration"> 
-      <void property="end"> 
+     <void property="dur"> 
+      <void property="fixedNum"> 
        <float>5.0</float> 
       </void> 
-      <void property="start"> 
-       <float>5.0</float> 
+      <void property="numberType"> 
+       <int>11</int> 
       </void> 
      </void> 
      <void property="reference"> 
