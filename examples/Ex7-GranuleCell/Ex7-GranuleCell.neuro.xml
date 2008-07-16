@@ -10,7 +10,7 @@ part of NeuroML or any standardised XML specification. -->
  <object class="ucl.physiol.neuroconstruct.project.BasicProjectInfo"> 
   <void property="projectDescription"> 
    <string>A project illustrating the behaviour of the Granule Cell model from:
-
+ 
 Maex, R and De Schutter, E. Synchronization of Golgi and Granule Cell Firing in a Detailed Network Model of the Cerebellar Granule Cell Layer J Neurophysiol, Nov 1998; 80: 2521 - 2537.  
  
 Based on scripts obtained from: http://www.tnb.ua.ac.be/models/network.shtml
@@ -19,7 +19,7 @@ This project shows how a cell model with multiple active conductances can produc
 </string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.1.1</string> 
+   <string>neuroConstruct v1.1.2</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex7-GranuleCell</string> 
@@ -783,7 +783,7 @@ end</string>
    <float>700.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_532</string> 
+   <string>Sim_541</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -799,31 +799,25 @@ end</string>
   <void property="allStims"> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amplitude"> 
-      <void property="end"> 
-       <float>0.01</float> 
-      </void> 
-      <void property="start"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
        <float>0.01</float> 
       </void> 
      </void> 
      <void property="cellGroup"> 
       <string>Gran</string> 
      </void> 
-     <void property="delay"> 
-      <void property="end"> 
-       <float>100.0</float> 
-      </void> 
-      <void property="start"> 
+     <void property="del"> 
+      <void property="fixedNum"> 
        <float>100.0</float> 
       </void> 
      </void> 
-     <void property="duration"> 
-      <void property="end"> 
+     <void property="dur"> 
+      <void property="fixedNum"> 
        <float>500.0</float> 
       </void> 
-      <void property="start"> 
-       <float>500.0</float> 
+      <void property="numberType"> 
+       <int>11</int> 
       </void> 
      </void> 
      <void property="reference"> 
@@ -833,31 +827,25 @@ end</string>
    </void> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amplitude"> 
-      <void property="end"> 
-       <float>-0.0050</float> 
-      </void> 
-      <void property="start"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
        <float>-0.0050</float> 
       </void> 
      </void> 
      <void property="cellGroup"> 
       <string>Gran2</string> 
      </void> 
-     <void property="delay"> 
-      <void property="end"> 
-       <float>100.0</float> 
-      </void> 
-      <void property="start"> 
+     <void property="del"> 
+      <void property="fixedNum"> 
        <float>100.0</float> 
       </void> 
      </void> 
-     <void property="duration"> 
-      <void property="end"> 
+     <void property="dur"> 
+      <void property="fixedNum"> 
        <float>500.0</float> 
       </void> 
-      <void property="start"> 
-       <float>500.0</float> 
+      <void property="numberType"> 
+       <int>11</int> 
       </void> 
      </void> 
      <void property="reference"> 
@@ -867,31 +855,25 @@ end</string>
    </void> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amplitude"> 
-      <void property="end"> 
-       <float>5.0</float> 
-      </void> 
-      <void property="start"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
        <float>5.0</float> 
       </void> 
      </void> 
      <void property="cellGroup"> 
       <string>SomeMossies</string> 
      </void> 
-     <void property="delay"> 
-      <void property="end"> 
-       <float>40.0</float> 
-      </void> 
-      <void property="start"> 
+     <void property="del"> 
+      <void property="fixedNum"> 
        <float>40.0</float> 
       </void> 
      </void> 
-     <void property="duration"> 
-      <void property="end"> 
+     <void property="dur"> 
+      <void property="fixedNum"> 
        <float>1.0</float> 
       </void> 
-      <void property="start"> 
-       <float>1.0</float> 
+      <void property="numberType"> 
+       <int>11</int> 
       </void> 
      </void> 
      <void property="reference"> 

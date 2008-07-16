@@ -7,7 +7,7 @@
 
 <!--
 
-    This file is used to convert ChannelML v1.7.1 files to GENESIS tabchannel/tab2Dchannel/leakage based script files
+    This file is used to convert ChannelML v1.7.2 files to GENESIS tabchannel/tab2Dchannel/leakage based script files
 
     This file has been developed as part of the neuroConstruct project
 
@@ -33,7 +33,7 @@
 <!--Main template-->
 
 <xsl:template match="/cml:channelml">
-<xsl:text>// This is a GENESIS script file generated from a ChannelML v1.7.1 file
+<xsl:text>// This is a GENESIS script file generated from a ChannelML v1.7.2 file
 // The ChannelML file is mapped onto a tabchannel object
 
 </xsl:text>
@@ -341,8 +341,9 @@ function init_<xsl:value-of select="@name"/>(chanpath)
                             <xsl:with-param name="d_cml" select="cml:parameterised_hh/cml:parameter[@name='d']/@value"/>
                         </xsl:call-template>
                     </xsl:when>
-                    <xsl:when test="count(cml:generic_equation_hh) &gt; 0">
-            // Found a generic form of rate equation for <xsl:value-of select="name()"/>, using expression: <xsl:value-of select="cml:generic_equation_hh/@expr" />
+                    <xsl:when test="count(cml:generic_equation_hh) &gt; 0 or count(cml:generic) &gt; 0">
+                    <xsl:variable name="expr"><xsl:value-of select="cml:generic_equation_hh/@expr" /><xsl:value-of select="cml:generic/@expr" /></xsl:variable> <!--Will be one or the other-->
+            // Found a generic form of rate equation for <xsl:value-of select="name()"/>, using expression: <xsl:value-of select="$expr" />
             // Will translate this for GENESIS compatibility...<xsl:text>
                     </xsl:text>
                     <xsl:if test="string($xmlFileUnitSystem) != string($targetUnitSystem)">
@@ -355,8 +356,8 @@ function init_<xsl:value-of select="@name"/>(chanpath)
                     </xsl:call-template> // temporarily set v to units of equation...<xsl:text>
             </xsl:text>
                         <xsl:if test="(name()='tau' or name()='inf') and
-                                      (contains(string(cml:generic_equation_hh/@expr), 'alpha') or
-                                      contains(string(cml:generic_equation_hh/@expr), 'beta'))">
+                                      (contains(string($expr), 'alpha') or
+                                      contains(string($expr), 'beta'))">
             // Equation depends on alpha/beta, so converting them too...
             alpha = alpha * <xsl:call-template name="convert">
                                 <xsl:with-param name="value">1</xsl:with-param>
@@ -369,7 +370,7 @@ function init_<xsl:value-of select="@name"/>(chanpath)
             </xsl:text>
                         </xsl:if>
                         <xsl:if test="name()='beta' and
-                                      contains(string(cml:generic_equation_hh/@expr), 'alpha')">
+                                      contains(string($expr), 'alpha')">
             // Equation depends on alpha, so converting it...
             alpha = alpha * <xsl:call-template name="convert">
                                 <xsl:with-param name="value">1</xsl:with-param>
@@ -395,7 +396,7 @@ function init_<xsl:value-of select="@name"/>(chanpath)
                                 <xsl:value-of select="name()"/>
                             </xsl:with-param>
                             <xsl:with-param name="oldExpression">
-                                <xsl:value-of select="cml:generic_equation_hh/@expr" />
+                                <xsl:value-of select="$expr" />
                             </xsl:with-param>
                         </xsl:call-template>
                     </xsl:variable>
@@ -408,8 +409,8 @@ function init_<xsl:value-of select="@name"/>(chanpath)
                     </xsl:call-template> // reset v<xsl:text>
             </xsl:text>
                     <xsl:if test="(name()='tau' or name()='inf') and
-                                      (contains(string(cml:generic_equation_hh/@expr), 'alpha') or
-                                      contains(string(cml:generic_equation_hh/@expr), 'beta'))">
+                                      (contains(string($expr), 'alpha') or
+                                      contains(string($expr), 'beta'))">
             alpha = alpha * <xsl:call-template name="convert">
                                 <xsl:with-param name="value">1</xsl:with-param>
                                 <xsl:with-param name="quantity">InvTime</xsl:with-param>
@@ -421,7 +422,7 @@ function init_<xsl:value-of select="@name"/>(chanpath)
                         </xsl:if>
                         
                     <xsl:if test="name()='beta' and
-                                      contains(string(cml:generic_equation_hh/@expr), 'alpha')">
+                                      contains(string($expr), 'alpha')">
             alpha = alpha * <xsl:call-template name="convert">
                                 <xsl:with-param name="value">1</xsl:with-param>
                                 <xsl:with-param name="quantity">InvTime</xsl:with-param>
@@ -677,35 +678,43 @@ function make_<xsl:value-of select="@name"/>
         create Ca_concen {chanpath}
 
         <xsl:if test="count(cml:decaying_pool_model) &gt; 0">
+            
+            <xsl:variable name="tau_val">
+                <xsl:choose>
+                  <xsl:when test="count(cml:decaying_pool_model/cml:decay_constant) &gt; 0 or count(cml:decaying_pool_model/@decay_constant) &gt; 0">
+                       <xsl:call-template name="convert">
+                            <xsl:with-param name="value">
+                                <xsl:value-of select="cml:decaying_pool_model/cml:decay_constant"/><xsl:value-of select="cml:decaying_pool_model/@decay_constant"/> <!-- Either element or attr will be present...-->
+                            </xsl:with-param>
+                            <xsl:with-param name="quantity">Time</xsl:with-param>
+                       </xsl:call-template>
+                   </xsl:when>
+                  <xsl:when test="count(cml:decaying_pool_model/cml:inv_decay_constant) &gt; 0 or count(cml:decaying_pool_model/@inv_decay_constant) &gt; 0">{ 1.0 / <xsl:call-template name="convert">
+                            <xsl:with-param name="value">
+                                <xsl:value-of select="cml:decaying_pool_model/cml:inv_decay_constant"/><xsl:value-of select="cml:decaying_pool_model/@inv_decay_constant"/> <!-- Either element or attr will be present...-->
+                            </xsl:with-param>
+                            <xsl:with-param name="quantity">InvTime</xsl:with-param>
+                       </xsl:call-template> }  </xsl:when>
+                </xsl:choose>
+            </xsl:variable>
+                
 
         // Setting params for a decaying_pool_model
 
         setfield {chanpath} \
-            tau               <xsl:choose>
-                                  <xsl:when test="count(cml:decaying_pool_model/cml:decay_constant) &gt; 0 or count(cml:decaying_pool_model/@decay_constant) &gt; 0">
-                                       <xsl:call-template name="convert">
-                                            <xsl:with-param name="value">
-                                                <xsl:value-of select="cml:decaying_pool_model/cml:decay_constant"/><xsl:value-of select="cml:decaying_pool_model/@decay_constant"/> <!-- Either element or attr will be present...-->
-                                            </xsl:with-param>
-                                            <xsl:with-param name="quantity">Time</xsl:with-param>
-                                       </xsl:call-template>
-                                   </xsl:when>
-                                  <xsl:when test="count(cml:decaying_pool_model/cml:inv_decay_constant) &gt; 0 or count(cml:decaying_pool_model/@inv_decay_constant) &gt; 0">{ 1.0 / <xsl:call-template name="convert">
-                                            <xsl:with-param name="value">
-                                                <xsl:value-of select="cml:decaying_pool_model/cml:inv_decay_constant"/><xsl:value-of select="cml:decaying_pool_model/@inv_decay_constant"/> <!-- Either element or attr will be present...-->
-                                            </xsl:with-param>
-                                            <xsl:with-param name="quantity">InvTime</xsl:with-param>
-                                       </xsl:call-template> }  </xsl:when>
-                               </xsl:choose>  \
+            tau                   <xsl:value-of select="$tau_val"/>  \
             Ca_base               <xsl:call-template name="convert">
                                       <xsl:with-param name="value">
                                           <xsl:value-of select="cml:decaying_pool_model/cml:resting_conc"/><xsl:value-of select="cml:decaying_pool_model/@resting_conc"/> <!-- Either element or attr will be present...-->
                                       </xsl:with-param>
                                     <xsl:with-param name="quantity">Concentration</xsl:with-param>
                                </xsl:call-template>
-        </xsl:if>
+        
+        
+        addfield {chanpath} beta -description "Inverse of tau, needed as this is parameter used in some implementations. If beta > 0, this will be used in preference to tau"
+        setfield {chanpath} beta -1  
 
-        <xsl:if test="count(cml:decaying_pool_model/cml:pool_volume_info) &gt; 0">
+            <xsl:if test="count(cml:decaying_pool_model/cml:pool_volume_info) &gt; 0">
 
         setfield {chanpath} \
             thick               <xsl:call-template name="convert">
@@ -714,10 +723,10 @@ function make_<xsl:value-of select="@name"/>
                                     </xsl:with-param>
                                     <xsl:with-param name="quantity">Length</xsl:with-param>
                                </xsl:call-template>
-        </xsl:if>
+            </xsl:if>
         
         
-        <xsl:if test="count(cml:decaying_pool_model/cml:ceiling) &gt; 0 or count(cml:decaying_pool_model/@ceiling) &gt; 0">
+            <xsl:if test="count(cml:decaying_pool_model/cml:ceiling) &gt; 0 or count(cml:decaying_pool_model/@ceiling) &gt; 0">
             
         addfield {chanpath} ceiling -description "Maximum concentration pool will be allowed reach"
         setfield {chanpath} ceiling <xsl:call-template name="convert">
@@ -728,8 +737,24 @@ function make_<xsl:value-of select="@name"/>
                                </xsl:call-template>
                                
         addaction {chanpath} PROCESS __catchCeiling__
-        </xsl:if>
+            </xsl:if>
+            
         
+        </xsl:if> 
+end
+
+function init_<xsl:value-of select="@name"/>(chanpath)
+
+    float curr_beta = {getfield {chanpath} beta}
+    if (curr_beta > 0)
+        
+        echo "Using the value of beta " {curr_beta} " in place of tau"
+        setfield {chanpath} tau {1 / {curr_beta}}
+    else
+        echo "Keeping existing tau: " {getfield {chanpath} tau} " not beta: " {curr_beta}
+    end
+    
+
 end
 
 </xsl:template>
@@ -766,8 +791,9 @@ function makechannel_<xsl:value-of select="@name"/>(compartment, name)
               <xsl:with-param name="value"><xsl:value-of select="cml:doub_exp_syn/@max_conductance"/></xsl:with-param>
               <xsl:with-param name="quantity">Conductance</xsl:with-param></xsl:call-template>
 
-            if ({getfield {compartment}/{name} tau1} == 0)
-                setfield {compartment}/{name} tau1 1e-9
+            float tau1 = {getfield {compartment}/{name} tau1}
+            if (tau1 == 0)
+                setfield {compartment}/{name} tau1 1e-9  
             end
             
             addmsg   {compartment}/{name}   {compartment} CHANNEL Gk Ek
@@ -789,7 +815,8 @@ function makechannel_<xsl:value-of select="@name"/>(compartment, name)
               <xsl:with-param name="value"><xsl:value-of select="cml:blocking_syn/@max_conductance"/></xsl:with-param>
               <xsl:with-param name="quantity">Conductance</xsl:with-param></xsl:call-template>
               
-            if ({getfield {compartment}/{name} tau1} == 0)
+            float tau1 = {getfield {compartment}/{name} tau1}
+            if (tau1 == 0)
                 setfield {compartment}/{name} tau1 1e-9
             end
             

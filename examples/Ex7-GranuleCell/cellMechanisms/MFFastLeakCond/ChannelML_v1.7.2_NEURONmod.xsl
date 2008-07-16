@@ -7,7 +7,7 @@
 
 <!--
 
-    This file is used to convert v1.7.1 ChannelML files to NEURON mod files
+    This file is used to convert v1.7.2 ChannelML files to NEURON mod files
 
     This file has been developed as part of the neuroConstruct project
     
@@ -38,7 +38,7 @@
 <!--Main template-->
 
 <xsl:template match="/cml:channelml">
-?  This is a NEURON mod file generated from a v1.7.1 ChannelML file
+?  This is a NEURON mod file generated from a v1.7.2 ChannelML file
 
 ?  Unit system of original ChannelML file: <xsl:value-of select="$xmlFileUnitSystem"/><xsl:text>
 </xsl:text>
@@ -46,7 +46,7 @@
 <xsl:if test="count(/cml:channelml/cml:channel_type/cml:ks_gate) &gt; 0">
     *** Note: Kinetic scheme based ChannelML description cannot be mapped in to mod files in this version. ***
     Please use the alternative XSL file which maps on to NEURON's KS Channel Builder format 
-    (usually ChannelML_v1.2_NEURONChanBuild.xsl)
+    (should be ChannelML_v1.X.X_NEURONChanBuild.xsl)
     
 </xsl:if>
 <xsl:if test="count(meta:notes) &gt; 0">
@@ -575,8 +575,9 @@ DERIVATIVE states {
     
     
                 </xsl:when>
-                <xsl:when test="count(cml:generic_equation_hh) &gt; 0">
-    ? Found a generic form of the rate equation for <xsl:value-of select="name()"/>, using expression: <xsl:value-of select="cml:generic_equation_hh/@expr" /><xsl:text>
+                <xsl:when test="count(cml:generic_equation_hh) &gt; 0 or count(cml:generic) &gt; 0">
+                    <xsl:variable name="expr"><xsl:value-of select="cml:generic_equation_hh/@expr" /><xsl:value-of select="cml:generic/@expr" /></xsl:variable> <!--Will be one or the other-->
+    ? Found a generic form of the rate equation for <xsl:value-of select="name()"/>, using expression: <xsl:value-of select="$expr" /><xsl:text>
                     </xsl:text>  
                     <xsl:if test="string($xmlFileUnitSystem) = 'SI Units'">
     ? Note: Equation (and all ChannelML file values) in <xsl:value-of select="$xmlFileUnitSystem"/> so need to convert v first...<xsl:text>
@@ -588,8 +589,8 @@ DERIVATIVE states {
             
     </xsl:text>
                         <xsl:if test="(name()='tau' or name()='inf') and 
-                      (contains(string(cml:generic_equation_hh/@expr), 'alpha') or
-                       contains(string(cml:generic_equation_hh/@expr), 'beta'))">
+                      (contains(string($expr), 'alpha') or
+                       contains(string($expr), 'beta'))">
     ? Equation depends on alpha/beta, so converting them too...
     alpha = alpha * <xsl:call-template name="convert">
                         <xsl:with-param name="value">1</xsl:with-param>
@@ -617,7 +618,7 @@ DERIVATIVE states {
             <xsl:value-of select="name()"/>
         </xsl:with-param>
         <xsl:with-param name="oldExpression">
-            <xsl:value-of select="cml:generic_equation_hh/@expr" />
+            <xsl:value-of select="$expr" />
         </xsl:with-param>
     </xsl:call-template>
     <xsl:if test="string($xmlFileUnitSystem) = 'SI Units'">
@@ -645,8 +646,8 @@ DERIVATIVE states {
                 <xsl:with-param name="quantity">Voltage</xsl:with-param>
             </xsl:call-template>   ? reset v
         <xsl:if test="(name()='tau' or name()='inf') and 
-                      (contains(string(cml:generic_equation_hh/@expr), 'alpha') or
-                       contains(string(cml:generic_equation_hh/@expr), 'beta'))">
+                      (contains(string($expr), 'alpha') or
+                       contains(string($expr), 'beta'))">
     alpha = alpha * <xsl:call-template name="convert">
                         <xsl:with-param name="value">1</xsl:with-param>
                         <xsl:with-param name="quantity">InvTime</xsl:with-param>

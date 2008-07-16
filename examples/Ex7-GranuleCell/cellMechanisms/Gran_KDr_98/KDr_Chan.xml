@@ -2,7 +2,7 @@
 <channelml xmlns="http://morphml.org/channelml/schema" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
     xmlns:meta="http://morphml.org/metadata/schema" 
-    xsi:schemaLocation="http://morphml.org/channelml/schema  ../../Schemata/v1.2/Level2/ChannelML_v1.2.xsd" 
+    xsi:schemaLocation="http://morphml.org/channelml/schema  ../../Schemata/v1.7.2/Level2/ChannelML_v1.7.2.xsd" 
     units="SI Units">
 
     <meta:notes>A channel from Maex, R and De Schutter, E. Synchronization of Golgi and Granule Cell Firing in a 
@@ -62,10 +62,10 @@
             <transition>
                 <voltage_gate>
                     <alpha>
-                        <generic_equation_hh expr="170 * ((exp (73 *(v - (-0.038)))))"/>
+                        <generic expr="170 * ((exp (73 *(v - (-0.038)))))"/>
                     </alpha>
                     <beta>
-                        <generic_equation_hh expr="170 * ((exp ((-18) *(v - (-0.038)))))"/>
+                        <generic expr="170 * ((exp ((-18) *(v - (-0.038)))))"/>
                     </beta>                                    
                 </voltage_gate>
             </transition>
@@ -76,10 +76,10 @@
             <transition>
                 <voltage_gate>
                     <alpha>
-                        <generic_equation_hh expr="v &gt; -0.046 ? 0.76 : 0.7 + 0.065*(exp (-80*(v - (-0.046))))"/>
+                        <generic expr="v &gt; -0.046 ? 0.76 : 0.7 + 0.065*(exp (-80*(v - (-0.046))))"/>
                     </alpha>
                     <beta>
-                        <generic_equation_hh expr="1.1/(1 + (exp (-80.7 * (v - (-0.044)))))"/>
+                        <generic expr="1.1/(1 + (exp (-80.7 * (v - (-0.044)))))"/>
                     </beta>                                    
                 </voltage_gate>
             </transition>

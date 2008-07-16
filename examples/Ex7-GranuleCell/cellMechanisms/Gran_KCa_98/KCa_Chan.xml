@@ -2,7 +2,7 @@
 <channelml xmlns="http://morphml.org/channelml/schema" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
     xmlns:meta="http://morphml.org/metadata/schema" 
-    xsi:schemaLocation="http://morphml.org/channelml/schema  ../../../../../NeuroMLValidator/web/NeuroMLFiles/Schemata/v1.6/Level2/ChannelML_v1.6.xsd" 
+    xsi:schemaLocation="http://morphml.org/channelml/schema  ../../../../../NeuroMLValidator/web/NeuroMLFiles/Schemata/v1.7.2/Level2/ChannelML_v1.7.2.xsd" 
     units="SI Units">
 
     <meta:notes>A channel from Maex, R and De Schutter, E. Synchronization of Golgi and Granule Cell Firing in a 
@@ -63,10 +63,10 @@
                 <voltage_conc_gate>
                     <conc_dependence name="Calcium" ion="ca" variable_name="ca_conc" min_conc="7.55e-7" max_conc="0.050"/>
                     <alpha>
-                        <generic_equation_hh expr="2500/(1 + ( (1.5e-3 *(exp (-85*v))) / ca_conc))"/>
+                        <generic expr="2500/(1 + ( (1.5e-3 *(exp (-85*v))) / ca_conc))"/>
                     </alpha>
                     <beta>
-                        <generic_equation_hh expr="1500/(1 + (ca_conc / (1.5e-4 * (exp (-77*v)))))"/>
+                        <generic expr="1500/(1 + (ca_conc / (1.5e-4 * (exp (-77*v)))))"/>
                     </beta>                                    
                 </voltage_conc_gate>
             </transition>

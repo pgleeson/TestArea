@@ -2,7 +2,7 @@
 <channelml xmlns="http://morphml.org/channelml/schema" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
     xmlns:meta="http://morphml.org/metadata/schema" 
-    xsi:schemaLocation="http://morphml.org/channelml/schema   ../../../../templates/xmlTemplates/Schemata/v1.6/Level2/ChannelML_v1.6.xsd" 
+    xsi:schemaLocation="http://morphml.org/channelml/schema   ../../../../templates/xmlTemplates/Schemata/v1.7.2/Level2/ChannelML_v1.7.2.xsd" 
     units="SI Units">
 
     
@@ -73,14 +73,14 @@
             <transition>
                 <voltage_gate>
                     <alpha>
-                        <parameterised_hh type="exponential" expr="A*exp(k*(v-d))">
+                        <parameterised_hh type="exponential">
                             <parameter name="A" value="0.8"/>
                             <parameter name="k" value="-90.9"/>
                             <parameter name="d" value="-0.075"/>
                         </parameterised_hh>
                     </alpha>
                     <beta>
-                        <parameterised_hh type="exponential" expr="A*exp(k*(v-d))">
+                        <parameterised_hh type="exponential">
                             <parameter name="A" value="0.8"/>
                             <parameter name="k" value="90.9"/>
                             <parameter name="d" value="-0.075"/>
