@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.5.0_06" class="java.beans.XMLDecoder"> 
+<java version="1.6.0_03" class="java.beans.XMLDecoder"> 
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -18,7 +18,7 @@ Note: Sim configs with BothSims in title use only ChannelML based mechanisms and
 </string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.0.9</string> 
+   <string>neuroConstruct v1.1.2</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex12-PurkinjeCell</string> 
@@ -1761,7 +1761,7 @@ Note: Sim configs with BothSims in title use only ChannelML based mechanisms and
       <string>Var_42</string> 
      </void> 
      <void property="segmentId"> 
-      <string>*</string> 
+      <string>0</string> 
      </void> 
     </object> 
    </void> 
@@ -1788,6 +1788,12 @@ Note: Sim configs with BothSims in title use only ChannelML based mechanisms and
     <int>255</int> 
     <int>255</int> 
    </object> 
+  </void> 
+  <void property="displayOption"> 
+   <string>Soma solid, neurite lines</string> 
+  </void> 
+  <void property="resolution3DElements"> 
+   <int>12</int> 
   </void> 
   <void property="showRegions"> 
    <boolean>false</boolean> 
@@ -1838,20 +1844,17 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
 }</string> 
    </void> 
    <void method="put"> 
-    <int>1</int> 
+    <int>-1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
-    <int>-1</int> 
+    <int>1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
     <int>0</int> 
     <string></string> 
    </void> 
-  </void> 
-  <void property="varTimeStep"> 
-   <boolean>true</boolean> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.genesis.GenesisSettings"> 
@@ -1889,19 +1892,22 @@ end
 </string> 
    </void> 
   </void> 
+  <void property="showShapePlot"> 
+   <boolean>true</boolean> 
+  </void> 
   <void property="unitSystemToUse"> 
    <int>3</int> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters"> 
   <void property="dt"> 
-   <float>0.0020</float> 
+   <float>0.02</float> 
   </void> 
   <void property="duration"> 
    <float>300.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_588</string> 
+   <string>Sim_594</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -1920,20 +1926,17 @@ end
      <void property="cellGroup"> 
       <string>SampleCellGroup</string> 
      </void> 
-     <void property="delay"> 
-      <void property="end"> 
-       <float>100.0</float> 
-      </void> 
-      <void property="start"> 
+     <void property="del"> 
+      <void property="fixedNum"> 
        <float>100.0</float> 
       </void> 
      </void> 
-     <void property="duration"> 
-      <void property="end"> 
+     <void property="dur"> 
+      <void property="fixedNum"> 
        <float>100.0</float> 
       </void> 
-      <void property="start"> 
-       <float>100.0</float> 
+      <void property="numberType"> 
+       <int>11</int> 
       </void> 
      </void> 
      <void property="reference"> 
@@ -1946,20 +1949,17 @@ end
      <void property="cellGroup"> 
       <string>OrigChansCellGroup</string> 
      </void> 
-     <void property="delay"> 
-      <void property="end"> 
-       <float>100.0</float> 
-      </void> 
-      <void property="start"> 
+     <void property="del"> 
+      <void property="fixedNum"> 
        <float>100.0</float> 
       </void> 
      </void> 
-     <void property="duration"> 
-      <void property="end"> 
+     <void property="dur"> 
+      <void property="fixedNum"> 
        <float>100.0</float> 
       </void> 
-      <void property="start"> 
-       <float>100.0</float> 
+      <void property="numberType"> 
+       <int>11</int> 
       </void> 
      </void> 
      <void property="reference"> 
@@ -1972,20 +1972,17 @@ end
      <void property="cellGroup"> 
       <string>AllChansCML</string> 
      </void> 
-     <void property="delay"> 
-      <void property="end"> 
-       <float>100.0</float> 
-      </void> 
-      <void property="start"> 
+     <void property="del"> 
+      <void property="fixedNum"> 
        <float>100.0</float> 
       </void> 
      </void> 
-     <void property="duration"> 
-      <void property="end"> 
+     <void property="dur"> 
+      <void property="fixedNum"> 
        <float>100.0</float> 
       </void> 
-      <void property="start"> 
-       <float>100.0</float> 
+      <void property="numberType"> 
+       <int>11</int> 
       </void> 
      </void> 
      <void property="reference"> 
@@ -1998,20 +1995,17 @@ end
      <void property="cellGroup"> 
       <string>AllChansOrig</string> 
      </void> 
-     <void property="delay"> 
-      <void property="end"> 
-       <float>100.0</float> 
-      </void> 
-      <void property="start"> 
+     <void property="del"> 
+      <void property="fixedNum"> 
        <float>100.0</float> 
       </void> 
      </void> 
-     <void property="duration"> 
-      <void property="end"> 
+     <void property="dur"> 
+      <void property="fixedNum"> 
        <float>100.0</float> 
       </void> 
-      <void property="start"> 
-       <float>100.0</float> 
+      <void property="numberType"> 
+       <int>11</int> 
       </void> 
      </void> 
      <void property="reference"> 
@@ -2021,31 +2015,25 @@ end
    </void> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amplitude"> 
-      <void property="end"> 
-       <float>3.0</float> 
-      </void> 
-      <void property="start"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
        <float>3.0</float> 
       </void> 
      </void> 
      <void property="cellGroup"> 
       <string>BigCellCML</string> 
      </void> 
-     <void property="delay"> 
-      <void property="end"> 
-       <float>100.0</float> 
-      </void> 
-      <void property="start"> 
+     <void property="del"> 
+      <void property="fixedNum"> 
        <float>100.0</float> 
       </void> 
      </void> 
-     <void property="duration"> 
-      <void property="end"> 
+     <void property="dur"> 
+      <void property="fixedNum"> 
        <float>1000.0</float> 
       </void> 
-      <void property="start"> 
-       <float>1000.0</float> 
+      <void property="numberType"> 
+       <int>11</int> 
       </void> 
      </void> 
      <void property="reference"> 
