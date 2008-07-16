@@ -19,15 +19,16 @@ part of NeuroML or any standardised XML specification. -->
 
 4) Once the simulation finishes, come back to neuroConstruct, select the Previous Simulations button in Visualisation, click on the recorded simulation and press OK
 
-5) The simulation can now be replayed with the Replay Simulation button. Note, as the m, h, n state variables for one of the cells has been saved, the simulation can be replayed with colour coding for one of these values as opposed to membrane potential. Select the variable to plot in the drop down box on the replay dialog.
+5) The simulation can now be replayed with the Replay Simulation button. Note, as the m, h, n state variables for one of the cells has been saved (as well as the conductances of the Na &amp; K channels), the simulation can be replayed with colour coding for one of these values as opposed to membrane potential. Select the variable to plot in the drop down box on the replay dialog.
 
 6) Clicking on one of the cells in the 3D view will highlight it (or select the Cell Group and cell number in the drop down boxes) and pressing Plot Selected will displayed the recorded information. 
+
 
 
 </string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.0.9</string> 
+   <string>neuroConstruct v1.1.2</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex4-NEURONGENESIS</string> 
@@ -334,6 +335,68 @@ part of NeuroML or any standardised XML specification. -->
      </void> 
     </object> 
    </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG1</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_1</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>4.0E-7</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_0</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>NaConductance_CML:COND_DENS:na</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG1</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_1</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>4.0E-7</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_1</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>KConductance_CML:COND_DENS:k</string> 
+     </void> 
+    </object> 
+   </void> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.project.ProjectProperties"/> 
@@ -408,7 +471,7 @@ part of NeuroML or any standardised XML specification. -->
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_17</string> 
+   <string>Sim_34</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -421,23 +484,17 @@ part of NeuroML or any standardised XML specification. -->
   <void property="allStims"> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amplitude"> 
-      <void property="end"> 
-       <float>0.2</float> 
-      </void> 
-      <void property="start"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
        <float>0.2</float> 
       </void> 
      </void> 
      <void property="cellGroup"> 
       <string>CG1</string> 
      </void> 
-     <void property="duration"> 
-      <void property="end"> 
-       <float>60.0</float> 
-      </void> 
-      <void property="start"> 
-       <float>60.0</float> 
+     <void property="dur"> 
+      <void property="numberType"> 
+       <int>11</int> 
       </void> 
      </void> 
      <void property="reference"> 
@@ -490,6 +547,12 @@ part of NeuroML or any standardised XML specification. -->
       </void> 
       <void method="add"> 
        <string>Plot_3</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_0</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_1</string> 
       </void> 
      </void> 
      <void property="simDuration"> 
