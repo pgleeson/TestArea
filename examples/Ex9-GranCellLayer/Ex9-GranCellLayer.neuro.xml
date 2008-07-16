@@ -10,7 +10,7 @@ part of NeuroML or any standardised XML specification. -->
  <object class="ucl.physiol.neuroconstruct.project.BasicProjectInfo"> 
   <void property="projectDescription"> 
    <string>An extension in 3D of the Granule Cell Layer model from:
- 
+  
 Maex, R and De Schutter, E. Synchronization of Golgi and Granule Cell Firing in a Detailed Network Model of the Cerebellar Granule Cell Layer J Neurophysiol, Nov 1998; 80: 2521 - 2537.    
 
 The default Simulation Configuration replicates the 1D 75 granule cell example from: 
@@ -20,12 +20,12 @@ http://www.tnb.ua.ac.be/models/network.shtml
 Note that the latest version of the single granule cell model, using the latest ChannelML version is in Ex7-GranuleCell 
 *****
 
-The 3DNetworkModel Sim Config has 75 granule cells with 3D placement and random connections. A much more interesting example is the Large3DNetwork Simulation Configuration which has 600 granule cells, 96 mossy fiber terminals and 32 Golgi cells and exhibits synchrony of Golgi cell firing with greater synchrony of cells within the same parallel fiber beam.
+The 3DNetworkModel Sim Config has 75 granule cells with 3D placement and random connections. A much more interesting example is the Large3DNetwork Simulation Configuration which has 600 granule cells, 96 mossy fiber terminals and 32 Golgi cells and exhibits synchrony of Golgi cell firing with greater synchrony of cells within the same parallel fiber beam. This Sim Config is set with a duration of 4seconds, so a machine with a lot of RAM (&gt;2GB) is needed to reload the full simulation.
 
 Note that the plots associated with these simulations slow the simulation down and, especially with NEURON, it&apos;s better to run the simualtions in &apos;No GUI mode&apos; after checking that they run correctly.</string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.0.9</string> 
+   <string>neuroConstruct v1.1.2</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex9-GranCellLayer</string> 
@@ -1525,11 +1525,11 @@ forall {
 */</string> 
    </void> 
    <void method="put"> 
-    <int>1</int> 
+    <int>-1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
-    <int>-1</int> 
+    <int>1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
@@ -1588,7 +1588,7 @@ end</string>
    <float>700.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_442</string> 
+   <string>Sim_447</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -1656,31 +1656,25 @@ end</string>
    </void> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amplitude"> 
-      <void property="end"> 
-       <float>0.02</float> 
-      </void> 
-      <void property="start"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
        <float>0.02</float> 
       </void> 
      </void> 
      <void property="cellGroup"> 
       <string>Single3DGolgi</string> 
      </void> 
-     <void property="delay"> 
-      <void property="end"> 
-       <float>500.0</float> 
-      </void> 
-      <void property="start"> 
+     <void property="del"> 
+      <void property="fixedNum"> 
        <float>500.0</float> 
       </void> 
      </void> 
-     <void property="duration"> 
-      <void property="end"> 
+     <void property="dur"> 
+      <void property="fixedNum"> 
        <float>500.0</float> 
       </void> 
-      <void property="start"> 
-       <float>500.0</float> 
+      <void property="numberType"> 
+       <int>11</int> 
       </void> 
      </void> 
      <void property="reference"> 
@@ -1716,31 +1710,25 @@ end</string>
    </void> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amplitude"> 
-      <void property="end"> 
-       <float>0.01</float> 
-      </void> 
-      <void property="start"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
        <float>0.01</float> 
       </void> 
      </void> 
      <void property="cellGroup"> 
       <string>SingleGranule</string> 
      </void> 
-     <void property="delay"> 
-      <void property="end"> 
-       <float>100.0</float> 
-      </void> 
-      <void property="start"> 
+     <void property="del"> 
+      <void property="fixedNum"> 
        <float>100.0</float> 
       </void> 
      </void> 
-     <void property="duration"> 
-      <void property="end"> 
+     <void property="dur"> 
+      <void property="fixedNum"> 
        <float>500.0</float> 
       </void> 
-      <void property="start"> 
-       <float>500.0</float> 
+      <void property="numberType"> 
+       <int>11</int> 
       </void> 
      </void> 
      <void property="reference"> 
