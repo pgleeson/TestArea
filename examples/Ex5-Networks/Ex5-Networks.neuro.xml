@@ -18,7 +18,7 @@ Just click Generate -&gt; Generate Cell Positions and Connections, followed by V
 These allow a single neuroConstruct project to illustrate many different types of network configurations for the cells in a project. In tab Generate choose in the drop down box a Simulation Configuration which will generate a different network. Edit Simulation Configs shows what Cell Groups, Net Conns, Plots and Inputs are used in each. </string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.1.1</string> 
+   <string>neuroConstruct v1.1.2</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex5-Networks</string> 
@@ -787,7 +787,7 @@ These allow a single neuroConstruct project to illustrate many different types o
       <float>-90.0</float> 
      </void> 
      <void property="plotAndOrSave"> 
-      <string>Plot and save</string> 
+      <string>Save only</string> 
      </void> 
      <void property="plotReference"> 
       <string>RandomCellGroup_v</string> 
@@ -819,6 +819,31 @@ These allow a single neuroConstruct project to illustrate many different types o
      </void> 
      <void property="plotReference"> 
       <string>NonuniformConnCellGroup_v</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>RandomCellGroup</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>10%</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>RandomCellGroup_v</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotReference"> 
+      <string>RandomCellGroup_v_1</string> 
      </void> 
      <void property="segmentId"> 
       <string>0</string> 
@@ -858,11 +883,11 @@ These allow a single neuroConstruct project to illustrate many different types o
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.genesis.GenesisSettings"> 
-  <void property="symmetricCompartments"> 
+  <void property="showShapePlot"> 
    <boolean>true</boolean> 
   </void> 
-  <void property="unitSystemToUse"> 
-   <int>3</int> 
+  <void property="symmetricCompartments"> 
+   <boolean>true</boolean> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters"> 
@@ -873,7 +898,7 @@ These allow a single neuroConstruct project to illustrate many different types o
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_24</string> 
+   <string>Sim_42</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -1054,7 +1079,7 @@ These allow a single neuroConstruct project to illustrate many different types o
       </void> 
      </void> 
      <void property="description"> 
-      <string>This is the default configuration of the Cell Groups, stimulations, plots, etc for this project</string> 
+      <string>Two Cell Groups, with random synaptic connections from the lower to the upper.</string> 
      </void> 
      <void property="inputs"> 
       <void method="add"> 
@@ -1099,7 +1124,7 @@ These allow a single neuroConstruct project to illustrate many different types o
       </void> 
      </void> 
      <void property="description"> 
-      <string>Network connection whereby the 2 closest cells in the upper layer are linked to each source cell</string> 
+      <string>Same Cell Groups as default Sim Config, but with network connection whereby the 2 closest cells in the upper layer are linked to each source cell</string> 
      </void> 
      <void property="inputs"> 
       <void method="add"> 
@@ -1302,6 +1327,9 @@ These allow a single neuroConstruct project to illustrate many different types o
      </void> 
      <void property="plots"> 
       <void method="add"> 
+       <string>RandomCellGroup_v_1</string> 
+      </void> 
+      <void method="add"> 
        <string>RandomCellGroup_v</string> 
       </void> 
       <void method="add"> 
@@ -1479,7 +1507,7 @@ These allow a single neuroConstruct project to illustrate many different types o
            <int>1</int> 
           </void> 
           <void property="fixedNum"> 
-           <float>10.0</float> 
+           <float>5.0</float> 
           </void> 
           <void property="max"> 
            <float>30.0</float> 
@@ -1502,6 +1530,9 @@ These allow a single neuroConstruct project to illustrate many different types o
          <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
           <void property="distributionType"> 
            <int>1</int> 
+          </void> 
+          <void property="fixedNum"> 
+           <float>0.1</float> 
           </void> 
           <void property="min"> 
            <float>0.1</float> 
@@ -1683,7 +1714,7 @@ These allow a single neuroConstruct project to illustrate many different types o
      <float>20.0</float> 
     </void> 
     <void method="add"> 
-     <float>3.4028235E38</float> 
+     <float>1000.0</float> 
     </void> 
    </void> 
    <void method="get"> 
@@ -1772,6 +1803,9 @@ These allow a single neuroConstruct project to illustrate many different types o
         </void> 
         <void property="weightsGenerator"> 
          <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+          <void property="fixedNum"> 
+           <float>0.05</float> 
+          </void> 
           <void property="numberType"> 
            <int>11</int> 
           </void> 
