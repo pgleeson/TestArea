@@ -56,16 +56,31 @@
    </void> 
   </void> 
   <void property="cellDescription"> 
-   <string>A single segment/compartment cell incorporating the channels which are currently covered by ChannelML</string> 
+   <string>A single segment/compartment cell incorporating the channels which have been converted to ChannelML</string> 
   </void> 
   <void property="chanMechsVsGroups"> 
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>6.0E-8</float> 
+      <float>1.2E-7</float> 
      </void> 
      <void property="name"> 
-      <string>Ks_CML</string> 
+      <string>BGKA_CML</string> 
+     </void> 
+    </object> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>all</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="density"> 
+      <float>2.0E-8</float> 
+     </void> 
+     <void property="name"> 
+      <string>NCa_CML</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
@@ -92,25 +107,10 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>1.2E-7</float> 
+      <float>6.0E-8</float> 
      </void> 
      <void property="name"> 
-      <string>BGKA_CML</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>all</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
-      <float>2.0E-8</float> 
-     </void> 
-     <void property="name"> 
-      <string>NCa_CML</string> 
+      <string>Ks_CML</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 

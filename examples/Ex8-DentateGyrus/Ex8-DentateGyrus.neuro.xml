@@ -23,7 +23,7 @@ Some open issues:
 Is there a PP HIPP synapse? None in file from Modeldb
 Paper: 1:1 GC to BC divergence, 1:2 in RI10sp.hoc
 RI10sp.hoc: line 1108, 1 instead of 10?
-Max allowed electrotonic length of 0.2 is long...
+Max allowed electrotonic length of 0.21 is probably too long...
 
 
 
@@ -32,7 +32,7 @@ Max allowed electrotonic length of 0.2 is long...
 </string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.0.9</string> 
+   <string>neuroConstruct v1.1.2</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex8-DentateGyrus</string> 
@@ -877,11 +877,11 @@ Max allowed electrotonic length of 0.2 is long...
     <string></string> 
    </void> 
    <void method="put"> 
-    <int>-1</int> 
+    <int>1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
-    <int>1</int> 
+    <int>-1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
@@ -1015,10 +1015,10 @@ cao_ccanl=2
    <float>700.0</float> 
   </void> 
   <void property="maxElectroLen"> 
-   <float>0.2</float> 
+   <float>0.21</float> 
   </void> 
   <void property="reference"> 
-   <string>basicNetwork_182</string> 
+   <string>basicNetwork_188</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -1031,31 +1031,25 @@ cao_ccanl=2
   <void property="allStims"> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amplitude"> 
-      <void property="end"> 
-       <float>0.5</float> 
-      </void> 
-      <void property="start"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
        <float>0.5</float> 
       </void> 
      </void> 
      <void property="cellGroup"> 
       <string>PerfPath</string> 
      </void> 
-     <void property="delay"> 
-      <void property="end"> 
-       <float>5.0</float> 
-      </void> 
-      <void property="start"> 
+     <void property="del"> 
+      <void property="fixedNum"> 
        <float>5.0</float> 
       </void> 
      </void> 
-     <void property="duration"> 
-      <void property="end"> 
+     <void property="dur"> 
+      <void property="fixedNum"> 
        <float>1.0</float> 
       </void> 
-      <void property="start"> 
-       <float>1.0</float> 
+      <void property="numberType"> 
+       <int>11</int> 
       </void> 
      </void> 
      <void property="reference"> 
@@ -1065,23 +1059,17 @@ cao_ccanl=2
    </void> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amplitude"> 
-      <void property="end"> 
-       <float>0.02</float> 
-      </void> 
-      <void property="start"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
        <float>0.02</float> 
       </void> 
      </void> 
      <void property="cellGroup"> 
       <string>Orig</string> 
      </void> 
-     <void property="duration"> 
-      <void property="end"> 
-       <float>60.0</float> 
-      </void> 
-      <void property="start"> 
-       <float>60.0</float> 
+     <void property="dur"> 
+      <void property="numberType"> 
+       <int>11</int> 
       </void> 
      </void> 
      <void property="reference"> 
@@ -1091,23 +1079,17 @@ cao_ccanl=2
    </void> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amplitude"> 
-      <void property="end"> 
-       <float>0.02</float> 
-      </void> 
-      <void property="start"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
        <float>0.02</float> 
       </void> 
      </void> 
      <void property="cellGroup"> 
       <string>XML</string> 
      </void> 
-     <void property="duration"> 
-      <void property="end"> 
-       <float>60.0</float> 
-      </void> 
-      <void property="start"> 
-       <float>60.0</float> 
+     <void property="dur"> 
+      <void property="numberType"> 
+       <int>11</int> 
       </void> 
      </void> 
      <void property="reference"> 

@@ -56,16 +56,16 @@
    </void> 
   </void> 
   <void property="cellDescription"> 
-   <string>A single segment/compartment cell with the mod file based channels which are covered by the scope of ChannelML. This cell can be used for comparison with SimpleXML</string> 
+   <string>A single segment/compartment cell with the mod file based channels which are covered by the scope of ChannelML. This cell can be used for comparison with AllXML</string> 
   </void> 
   <void property="chanMechsVsGroups"> 
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>4.0E-10</float> 
+      <float>1.2E-6</float> 
      </void> 
      <void property="name"> 
-      <string>GranLeakCond</string> 
+      <string>Nat</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
@@ -92,10 +92,25 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>1.2E-6</float> 
+      <float>2.0E-8</float> 
      </void> 
      <void property="name"> 
-      <string>Nat</string> 
+      <string>nca</string> 
+     </void> 
+    </object> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>all</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="density"> 
+      <float>4.0E-10</float> 
+     </void> 
+     <void property="name"> 
+      <string>GranLeakCond</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
@@ -111,21 +126,6 @@
      </void> 
      <void property="name"> 
       <string>borgka</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>all</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
-      <float>2.0E-8</float> 
-     </void> 
-     <void property="name"> 
-      <string>nca</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
