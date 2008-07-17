@@ -1112,16 +1112,16 @@ part of NeuroML or any standardised XML specification. -->
     <string></string> 
    </void> 
    <void method="put"> 
+    <int>1</int> 
+    <string></string> 
+   </void> 
+   <void method="put"> 
     <int>-1</int> 
     <string>
 
 
 
 </string> 
-   </void> 
-   <void method="put"> 
-    <int>1</int> 
-    <string></string> 
    </void> 
    <void method="put"> 
     <int>0</int> 
@@ -1182,7 +1182,7 @@ part of NeuroML or any standardised XML specification. -->
    <float>-70.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_242</string> 
+   <string>Sim_266</string> 
   </void> 
   <void property="temperature"> 
    <float>35.0</float> 
@@ -1413,7 +1413,7 @@ part of NeuroML or any standardised XML specification. -->
      <void property="rate"> 
       <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
        <void property="fixedNum"> 
-        <float>0.05</float> 
+        <float>0.025</float> 
        </void> 
        <void property="numberType"> 
         <int>11</int> 
@@ -1439,7 +1439,7 @@ part of NeuroML or any standardised XML specification. -->
      <void property="rate"> 
       <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
        <void property="fixedNum"> 
-        <float>2.0E-4</float> 
+        <float>0.015</float> 
        </void> 
        <void property="numberType"> 
         <int>11</int> 
