@@ -68,7 +68,7 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
    <void method="get"> 
     <string>Cell Type</string> 
     <void method="add"> 
-     <string>Simple</string> 
+     <string>PyrCell</string> 
     </void> 
    </void> 
    <void method="get"> 
@@ -156,6 +156,9 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
     <int>255</int> 
    </object> 
   </void> 
+  <void property="displayOption"> 
+   <string>Soma solid, neurite lines</string> 
+  </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings"> 
   <void property="nativeBlocks"> 
@@ -188,7 +191,7 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_13</string> 
+   <string>Sim_18</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -206,7 +209,7 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
      <void property="amp"> 
       <void property="fixedNum"> 
-       <float>0.2</float> 
+       <float>1.0</float> 
       </void> 
      </void> 
      <void property="cellGroup"> 
