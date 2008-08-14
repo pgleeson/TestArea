@@ -163,6 +163,10 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
  <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings"> 
   <void property="nativeBlocks"> 
    <void method="put"> 
+    <int>10</int> 
+    <string></string> 
+   </void> 
+   <void method="put"> 
     <int>1</int> 
     <string>
 
@@ -191,7 +195,7 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_18</string> 
+   <string>Sim_21</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 

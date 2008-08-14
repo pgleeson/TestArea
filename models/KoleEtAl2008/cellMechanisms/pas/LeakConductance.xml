@@ -23,7 +23,7 @@
 
         <current_voltage_relation>
             <ohmic ion="non_specific">
-                <conductance default_gmax=""/>       <!-- phys units: mS/cm2-->
+                <conductance default_gmax="0.3"/>       <!-- phys units: mS/cm2-->
 
             </ohmic>
         </current_voltage_relation>
