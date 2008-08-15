@@ -1,11 +1,8 @@
-
 COMMENT
-
-kv.mod
-
+km.mod
 Potassium channel, Hodgkin-Huxley style kinetics
-Kinetic rates based roughly on Sah et al. and Hamill et al. (1991)
-
+Based on I-M (muscarinic K channel)
+Slow, noninactivating
 Author: Zach Mainen, Salk Institute, 1995, zach@salk.edu
 	
 ENDCOMMENT
@@ -29,20 +26,16 @@ UNITS {
 } 
 
 PARAMETER {
-	gmax = %Max Conductance Density%   	(pS/um2)	: 0.03 mho/cm2
 	v 		(mV)
-								
-	tha  = 25	(mV)		: v 1/2 for inf
-	qa   = 9	(mV)		: inf slope		
-	
-	Ra   = 0.02	(/ms)		: max act rate
-	Rb   = 0.002	(/ms)		: max deact rate	
-
 	dt		(ms)
+	gmax = %Max Conductance Density%   	(pS/um2)	: 0.03 mho/cm2
+	tha  = -30	(mV)		: v 1/2 for inf
+	qa   = 9	(mV)		: inf slope		
+	Ra   = 0.001	(/ms)		: max act rate  (slow)
+	Rb   = 0.001	(/ms)		: max deact rate  (slow)
 	celsius		(degC)
 	temp = 23	(degC)		: original temp 	
 	q10  = 2.3			: temperature sensitivity
-
 	vmin = -120	(mV)
 	vmax = 100	(mV)
 } 
@@ -68,34 +61,31 @@ INITIAL {
 }
 
 BREAKPOINT {
-        SOLVE states METHOD cnexp
+        SOLVE states
 	gk = tadj*gmax*n
 	ik = (1e-4) * gk * (v - ek)
 } 
 
 LOCAL nexp
 
-DERIVATIVE states {   :Computes state variable n 
-        trates(v)      :             at the current v and dt.
-        ::::::n = n + nexp*(ninf-n)
-        ::::::VERBATIM
-        ::::::return 0;
-        ::::::ENDVERBATIM
-        n' = tadj * (ninf-n)/(ntau)
+PROCEDURE states() {   : Computes state variable n 
+        trates(v)      : at the current v and dt.
+        n = n + nexp*(ninf-n)
+        VERBATIM
+        return 0;
+        ENDVERBATIM
 }
 
 PROCEDURE trates(v) {  :Computes rate and other constants at current v.
-                      :Call once from HOC to initialize inf at resting v.
+                       :Call once from HOC to initialize inf at resting v.
         LOCAL tinc
-        TABLE ninf, nexp, ntau
+        TABLE ninf, nexp
 	DEPEND dt, celsius, temp, Ra, Rb, tha, qa
 	
 	FROM vmin TO vmax WITH 199
 
 	rates(v): not consistently executed from here if usetable_hh == 1
-
-        tadj = q10^((celsius - temp)/10)
-
+        tadj = q10^((celsius - temp)/10)  :temperature adjastment
         tinc = -dt * tadj
         nexp = 1 - exp(tinc/ntau)
 }
@@ -109,4 +99,3 @@ PROCEDURE rates(v) {  :Computes rate and other constants at current v.
         ntau = 1/(a+b)
 	ninf = a*ntau
 }
-

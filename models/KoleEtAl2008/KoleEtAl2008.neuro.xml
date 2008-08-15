@@ -64,17 +64,35 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
     <void method="add"> 
      <object class="ucl.physiol.neuroconstruct.project.packing.SinglePositionedCellPackingAdapter"/> 
     </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/> 
+    </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Cell Type</string> 
     <void method="add"> 
      <string>PyrCell</string> 
     </void> 
+    <void method="add"> 
+     <string>KmCell</string> 
+    </void> 
+    <void method="add"> 
+     <string>KmCellOld</string> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Priority</string> 
     <void method="add"> 
      <int>10</int> 
+    </void> 
+    <void method="add"> 
+     <int>9</int> 
+    </void> 
+    <void method="add"> 
+     <int>8</int> 
     </void> 
    </void> 
    <void method="get"> 
@@ -87,9 +105,31 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
       <int>255</int> 
      </object> 
     </void> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>196</int> 
+      <int>187</int> 
+      <int>249</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>142</int> 
+      <int>211</int> 
+      <int>93</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Region Name</string> 
+    <void method="add"> 
+     <string>SampleRegion</string> 
+    </void> 
+    <void method="add"> 
+     <string>SampleRegion</string> 
+    </void> 
     <void method="add"> 
      <string>SampleRegion</string> 
     </void> 
@@ -98,6 +138,12 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
     <string>Cell Group Name</string> 
     <void method="add"> 
      <string>SampleCellGroup</string> 
+    </void> 
+    <void method="add"> 
+     <string>CellGroup_2</string> 
+    </void> 
+    <void method="add"> 
+     <string>CellGroup_3</string> 
     </void> 
    </void> 
   </void> 
@@ -132,6 +178,180 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
      </void> 
     </object> 
    </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>SampleCellGroup</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>SampleGraph</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>SamplePlot_1</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>70</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>SampleCellGroup</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>SampleGraph</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>SamplePlot_2</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>8</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CellGroup_2</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>CellGroup_2_v</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>CellGroup_2_v</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CellGroup_2</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_2</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>1.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>CellGroup_2_v_1</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>Km:n</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CellGroup_3</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>CellGroup_2_v</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>CellGroup_3_v</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CellGroup_3</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_2</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>1.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_0</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>KmOld:n</string> 
+     </void> 
+    </object> 
+   </void> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.project.ProjectProperties"> 
@@ -159,18 +379,63 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
   <void property="displayOption"> 
    <string>Soma solid, neurite lines</string> 
   </void> 
+  <void property="showRegions"> 
+   <boolean>false</boolean> 
+  </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings"> 
+  <void property="genAllModFiles"> 
+   <boolean>true</boolean> 
+  </void> 
   <void property="nativeBlocks"> 
    <void method="put"> 
     <int>10</int> 
     <string></string> 
    </void> 
    <void method="put"> 
+    <int>3</int> 
+    <string>
+print &quot;Changing axon channels in Extra hoc code block Type 3&quot;
+
+/*
+
+na_segment = 3000
+na_soma = 60
+
+Km_soma=5				// units in pS/um2
+Km_axon=50			
+
+Kv_soma=20			// (HVA Kv current, units in pS/um2)
+Kv_axon=2000				
+
+Kv1_soma=0.01			// 0.01 mOhm/cm2 = 100 pS/um2 (LVA-Kv current)
+Kv1_axon=0.20 
+
+PyrCell[0].axon  {insert nax  
+	gmax_nax(0:0.725)= na_segment:na_segment
+	gmax_nax(0.775:1)= na_segment:na_soma}
+		
+PyrCell[0].axon {insert Kv1  
+	gmax_Kv1(0:0.725) = Kv1_soma:Kv1_axon
+	gmax_Kv1(0.775:1) = Kv1_axon:Kv1_axon}
+		
+PyrCell[0].axon {insert Kv  
+	gmax_Kv(0:0.725) = Kv_soma:Kv_axon
+	gmax_Kv(0.775:1) = Kv_axon:Kv_axon}	
+
+PyrCell[0].axon {insert Km  
+	gmax_Km(0:0.725) = Km_soma:Km_axon
+	gmax_Km(0.775:1) = Km_axon:Km_axon}
+
+
+*/
+</string> 
+   </void> 
+   <void method="put"> 
     <int>1</int> 
     <string>
 
-print &quot;Changing ena in Extra hoc code block&quot;
+print &quot;Changing ena in Extra hoc code block Type 1&quot;
 
 forall if (ismembrane(&quot;na_ion&quot;)) {
 	ena = 55
@@ -184,18 +449,25 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
 	ek = -85
 }</string> 
    </void> 
+   <void method="put"> 
+    <int>0</int> 
+    <string></string> 
+   </void> 
+  </void> 
+  <void property="varTimeStep"> 
+   <boolean>true</boolean> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.genesis.GenesisSettings"/> 
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters"> 
   <void property="dt"> 
-   <float>0.02</float> 
+   <float>0.01</float> 
   </void> 
   <void property="duration"> 
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_21</string> 
+   <string>Sim_63</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -213,7 +485,7 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
      <void property="amp"> 
       <void property="fixedNum"> 
-       <float>1.0</float> 
+       <float>2.0</float> 
       </void> 
      </void> 
      <void property="cellGroup"> 
@@ -221,12 +493,12 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
      </void> 
      <void property="del"> 
       <void property="fixedNum"> 
-       <float>100.0</float> 
+       <float>302.0</float> 
       </void> 
      </void> 
      <void property="dur"> 
       <void property="fixedNum"> 
-       <float>100.0</float> 
+       <float>6.0</float> 
       </void> 
       <void property="numberType"> 
        <int>11</int> 
@@ -234,6 +506,46 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
      </void> 
      <void property="reference"> 
       <string>SampleIClamp</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
+       <float>0.2</float> 
+      </void> 
+     </void> 
+     <void property="cellGroup"> 
+      <string>CellGroup_2</string> 
+     </void> 
+     <void property="dur"> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_0</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
+       <float>0.2</float> 
+      </void> 
+     </void> 
+     <void property="cellGroup"> 
+      <string>CellGroup_3</string> 
+     </void> 
+     <void property="dur"> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_1</string> 
      </void> 
     </object> 
    </void> 
@@ -263,9 +575,27 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
       <void method="add"> 
        <string>SamplePlot</string> 
       </void> 
+      <void method="add"> 
+       <string>CellGroup_3_v</string> 
+      </void> 
+      <void method="add"> 
+       <string>CellGroup_2_v</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_0</string> 
+      </void> 
+      <void method="add"> 
+       <string>CellGroup_2_v_1</string> 
+      </void> 
+      <void method="add"> 
+       <string>SamplePlot_2</string> 
+      </void> 
+      <void method="add"> 
+       <string>SamplePlot_1</string> 
+      </void> 
      </void> 
      <void property="simDuration"> 
-      <float>300.0</float> 
+      <float>312.0</float> 
      </void> 
     </object> 
    </void> 

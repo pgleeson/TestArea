@@ -22,7 +22,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
 	dt 	   		(ms)
 	v 	   		(mV)
-        ehd=-47 		(mV) 				       
+        ehd=-45 		(mV) 		       ::::::::::::  Note PG changed this to -45, as this change was made in all sections in Kole exampel		       
 	gmax=%Max Conductance Density% (mho/cm2)	
 	gamma_ih	:not used
 	seed		:not used

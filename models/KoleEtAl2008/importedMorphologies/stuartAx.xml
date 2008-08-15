@@ -15739,7 +15739,7 @@ Yale University and UCL</meta:notes>
       <segment id="254" name = "Seg64_dend_2" parent="253" cable = "4">
         <distal x="87.1601" y="21.6798" z="-19.2" diameter="1.16"/>
       </segment>
-      <segment id="14485" name = "Seg0_node_0" parent="14215" cable = "177">  <!-- Connected at 0 on parent section: myelin[0]  -->
+      <segment id="14485" name = "Seg0_node_0" parent="14220" cable = "177">  <!-- Parent section: myelin[0] -->
         <proximal x="-2.19874" y="-111.548" z="-21.86" diameter="1.1"/>
         <distal x="-2.21506" y="-112.048" z="-21.86" diameter="1.1"/>
       </segment>
@@ -19008,7 +19008,7 @@ Yale University and UCL</meta:notes>
       <segment id="316" name = "Seg61_dend_3" parent="315" cable = "5">
         <distal x="129.72" y="20.7398" z="-37.75" diameter="0.58"/>
       </segment>
-      <segment id="14305" name = "Seg0_myelin_15" parent="14485" cable = "147">  <!-- Connected at 0 on parent section: node[0]  -->
+      <segment id="14305" name = "Seg0_myelin_15" parent="14486" cable = "147">  <!-- Parent section: node[0] -->
         <proximal x="-2.23139" y="-112.548" z="-21.86" diameter="1.6"/>
         <distal x="-4.74708" y="-117.995" z="-21.86" diameter="1.6"/>
       </segment>
@@ -19027,7 +19027,7 @@ Yale University and UCL</meta:notes>
       <segment id="14310" name = "Seg5_myelin_15" parent="14309" cable = "147">
         <distal x="-27.3883" y="-167.019" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14221" name = "Seg0_myelin_1" parent="14485" cable = "133">  <!-- Connected at 0 on parent section: node[0]  -->
+      <segment id="14221" name = "Seg0_myelin_1" parent="14486" cable = "133">  <!-- Parent section: node[0] -->
         <proximal x="-2.23139" y="-112.548" z="-21.86" diameter="1.6"/>
         <distal x="-0.0765465" y="-118.147" z="-21.86" diameter="1.6"/>
       </segment>
@@ -19360,14 +19360,14 @@ Yale University and UCL</meta:notes>
       <segment id="6352" name = "Seg49_apic_11" parent="6351" cable = "56">
         <distal x="-21.7999" y="122.86" z="-17.38" diameter="1.08"/>
       </segment>
-      <segment id="14515" name = "Seg0_node_15" parent="14305" cable = "192">  <!-- Connected at 0 on parent section: myelin[15]  -->
+      <segment id="14515" name = "Seg0_node_15" parent="14310" cable = "192">  <!-- Parent section: myelin[15] -->
         <proximal x="-27.3883" y="-167.019" z="-21.86" diameter="1.1"/>
         <distal x="-27.5979" y="-167.473" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14516" name = "Seg1_node_15" parent="14515" cable = "192">
         <distal x="-27.8076" y="-167.927" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14487" name = "Seg0_node_1" parent="14221" cable = "178">  <!-- Connected at 0 on parent section: myelin[1]  -->
+      <segment id="14487" name = "Seg0_node_1" parent="14226" cable = "178">  <!-- Parent section: myelin[1] -->
         <proximal x="19.317" y="-168.545" z="-21.86" diameter="1.1"/>
         <distal x="19.4966" y="-169.011" z="-21.86" diameter="1.1"/>
       </segment>
@@ -20299,7 +20299,7 @@ Yale University and UCL</meta:notes>
       <segment id="6501" name = "Seg148_apic_12" parent="6500" cable = "57">
         <distal x="-62.5799" y="180.93" z="-55.56" diameter="0.2"/>
       </segment>
-      <segment id="14479" name = "Seg0_myelin_44" parent="14515" cable = "176">  <!-- Connected at 0 on parent section: node[15]  -->
+      <segment id="14479" name = "Seg0_myelin_44" parent="14516" cable = "176">  <!-- Parent section: node[15] -->
         <proximal x="-27.8076" y="-167.927" z="-21.86" diameter="1.6"/>
         <distal x="-30.3233" y="-173.374" z="-21.86" diameter="1.6"/>
       </segment>
@@ -20318,7 +20318,7 @@ Yale University and UCL</meta:notes>
       <segment id="14484" name = "Seg5_myelin_44" parent="14483" cable = "176">
         <distal x="-52.9645" y="-222.398" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14275" name = "Seg0_myelin_10" parent="14487" cable = "142">  <!-- Connected at 0 on parent section: node[1]  -->
+      <segment id="14275" name = "Seg0_myelin_10" parent="14488" cable = "142">  <!-- Parent section: node[1] -->
         <proximal x="19.6762" y="-169.478" z="-21.86" diameter="1.6"/>
         <distal x="19.4803" y="-175.475" z="-21.86" diameter="1.6"/>
       </segment>
@@ -20337,7 +20337,7 @@ Yale University and UCL</meta:notes>
       <segment id="14280" name = "Seg5_myelin_10" parent="14279" cable = "142">
         <distal x="17.7172" y="-229.446" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14227" name = "Seg0_myelin_2" parent="14487" cable = "134">  <!-- Connected at 0 on parent section: node[1]  -->
+      <segment id="14227" name = "Seg0_myelin_2" parent="14488" cable = "134">  <!-- Parent section: node[1] -->
         <proximal x="19.6762" y="-169.478" z="-21.86" diameter="1.6"/>
         <distal x="23.8415" y="-173.797" z="-21.86" diameter="1.6"/>
       </segment>
@@ -21010,14 +21010,14 @@ Yale University and UCL</meta:notes>
       <segment id="6629" name = "Seg68_apic_14" parent="6628" cable = "59">
         <distal x="-65.1399" y="151.16" z="9.17" diameter="0.26"/>
       </segment>
-      <segment id="14505" name = "Seg0_node_10" parent="14275" cable = "187">  <!-- Connected at 0 on parent section: myelin[10]  -->
+      <segment id="14505" name = "Seg0_node_10" parent="14280" cable = "187">  <!-- Parent section: myelin[10] -->
         <proximal x="17.7172" y="-229.446" z="-21.86" diameter="1.1"/>
         <distal x="17.7009" y="-229.946" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14506" name = "Seg1_node_10" parent="14505" cable = "187">
         <distal x="17.6845" y="-230.445" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14489" name = "Seg0_node_2" parent="14227" cable = "179">  <!-- Connected at 0 on parent section: myelin[2]  -->
+      <segment id="14489" name = "Seg0_node_2" parent="14232" cable = "179">  <!-- Parent section: myelin[2] -->
         <proximal x="61.3297" y="-212.663" z="-21.86" diameter="1.1"/>
         <distal x="61.6769" y="-213.023" z="-21.86" diameter="1.1"/>
       </segment>
@@ -22745,7 +22745,7 @@ Yale University and UCL</meta:notes>
       <segment id="6715" name = "Seg47_apic_16" parent="6714" cable = "61">
         <distal x="-124.33" y="120" z="7.36" diameter="0.44"/>
       </segment>
-      <segment id="14281" name = "Seg0_myelin_11" parent="14505" cable = "143">  <!-- Connected at 0 on parent section: node[10]  -->
+      <segment id="14281" name = "Seg0_myelin_11" parent="14506" cable = "143">  <!-- Parent section: node[10] -->
         <proximal x="17.6845" y="-230.445" z="-21.86" diameter="1.6"/>
         <distal x="17.4886" y="-236.442" z="-21.86" diameter="1.6"/>
       </segment>
@@ -22764,7 +22764,7 @@ Yale University and UCL</meta:notes>
       <segment id="14286" name = "Seg5_myelin_11" parent="14285" cable = "143">
         <distal x="15.7255" y="-290.414" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14467" name = "Seg0_myelin_42" parent="14489" cable = "174">  <!-- Connected at 0 on parent section: node[2]  -->
+      <segment id="14467" name = "Seg0_myelin_42" parent="14490" cable = "174">  <!-- Parent section: node[2] -->
         <proximal x="62.024" y="-213.383" z="-21.86" diameter="1.6"/>
         <distal x="64.1788" y="-218.983" z="-21.86" diameter="1.6"/>
       </segment>
@@ -22783,7 +22783,7 @@ Yale University and UCL</meta:notes>
       <segment id="14472" name = "Seg5_myelin_42" parent="14471" cable = "174">
         <distal x="83.5722" y="-269.38" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14233" name = "Seg0_myelin_3" parent="14489" cable = "135">  <!-- Connected at 0 on parent section: node[2]  -->
+      <segment id="14233" name = "Seg0_myelin_3" parent="14490" cable = "135">  <!-- Parent section: node[2] -->
         <proximal x="62.024" y="-213.383" z="-21.86" diameter="1.6"/>
         <distal x="67.5422" y="-215.739" z="-21.86" diameter="1.6"/>
       </segment>
@@ -23820,14 +23820,14 @@ Yale University and UCL</meta:notes>
       <segment id="7324" name = "Seg86_apic_28" parent="7323" cable = "73">
         <distal x="112.27" y="232.22" z="-26.87" diameter="0.52"/>
       </segment>
-      <segment id="14507" name = "Seg0_node_11" parent="14281" cable = "188">  <!-- Connected at 0 on parent section: myelin[11]  -->
+      <segment id="14507" name = "Seg0_node_11" parent="14286" cable = "188">  <!-- Parent section: myelin[11] -->
         <proximal x="15.7255" y="-290.414" z="-21.86" diameter="1.1"/>
         <distal x="15.7092" y="-290.913" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14508" name = "Seg1_node_11" parent="14507" cable = "188">
         <distal x="15.6929" y="-291.413" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14473" name = "Seg0_myelin_43" parent="14467" cable = "175">  <!-- Connected at 0 on parent section: myelin[42]  -->
+      <segment id="14473" name = "Seg0_myelin_43" parent="14472" cable = "175">  <!-- Parent section: myelin[42] -->
         <proximal x="83.5722" y="-269.38" z="-21.86" diameter="1.6"/>
         <distal x="85.727" y="-274.98" z="-21.86" diameter="1.6"/>
       </segment>
@@ -23846,7 +23846,7 @@ Yale University and UCL</meta:notes>
       <segment id="14478" name = "Seg5_myelin_43" parent="14477" cable = "175">
         <distal x="105.12" y="-325.377" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14491" name = "Seg0_node_3" parent="14233" cable = "180">  <!-- Connected at 0 on parent section: myelin[3]  -->
+      <segment id="14491" name = "Seg0_node_3" parent="14238" cable = "180">  <!-- Parent section: myelin[3] -->
         <proximal x="117.207" y="-236.939" z="-21.86" diameter="1.1"/>
         <distal x="117.666" y="-237.135" z="-21.86" diameter="1.1"/>
       </segment>
@@ -24434,7 +24434,7 @@ Yale University and UCL</meta:notes>
       <segment id="8009" name = "Seg170_apic_35" parent="8008" cable = "80">
         <distal x="-81.5099" y="330.66" z="5.55" diameter="0.52"/>
       </segment>
-      <segment id="14287" name = "Seg0_myelin_12" parent="14507" cable = "144">  <!-- Connected at 0 on parent section: node[11]  -->
+      <segment id="14287" name = "Seg0_myelin_12" parent="14508" cable = "144">  <!-- Parent section: node[11] -->
         <proximal x="15.6929" y="-291.413" z="-21.86" diameter="1.6"/>
         <distal x="15.497" y="-297.41" z="-21.86" diameter="1.6"/>
       </segment>
@@ -24453,7 +24453,7 @@ Yale University and UCL</meta:notes>
       <segment id="14292" name = "Seg5_myelin_12" parent="14291" cable = "144">
         <distal x="13.7339" y="-351.381" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14239" name = "Seg0_myelin_4" parent="14491" cable = "136">  <!-- Connected at 0 on parent section: node[3]  -->
+      <segment id="14239" name = "Seg0_myelin_4" parent="14492" cable = "136">  <!-- Parent section: node[3] -->
         <proximal x="118.126" y="-237.332" z="-21.86" diameter="1.6"/>
         <distal x="123.645" y="-239.687" z="-21.86" diameter="1.6"/>
       </segment>
@@ -24738,14 +24738,14 @@ Yale University and UCL</meta:notes>
       <segment id="8102" name = "Seg70_apic_37" parent="8101" cable = "82">
         <distal x="-31.3099" y="289.17" z="-41.48" diameter="1.02"/>
       </segment>
-      <segment id="14509" name = "Seg0_node_12" parent="14287" cable = "189">  <!-- Connected at 0 on parent section: myelin[12]  -->
+      <segment id="14509" name = "Seg0_node_12" parent="14292" cable = "189">  <!-- Parent section: myelin[12] -->
         <proximal x="13.7339" y="-351.381" z="-21.86" diameter="1.1"/>
         <distal x="13.7176" y="-351.881" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14510" name = "Seg1_node_12" parent="14509" cable = "189">
         <distal x="13.7013" y="-352.38" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14493" name = "Seg0_node_4" parent="14239" cable = "181">  <!-- Connected at 0 on parent section: myelin[4]  -->
+      <segment id="14493" name = "Seg0_node_4" parent="14244" cable = "181">  <!-- Parent section: myelin[4] -->
         <proximal x="173.309" y="-260.887" z="-21.86" diameter="1.1"/>
         <distal x="173.769" y="-261.083" z="-21.86" diameter="1.1"/>
       </segment>
@@ -26133,7 +26133,7 @@ Yale University and UCL</meta:notes>
       <segment id="8303" name = "Seg200_apic_38" parent="8302" cable = "83">
         <distal x="-135.36" y="221.79" z="-92.24" diameter="0.32"/>
       </segment>
-      <segment id="14311" name = "Seg0_myelin_16" parent="14509" cable = "148">  <!-- Connected at 0 on parent section: node[12]  -->
+      <segment id="14311" name = "Seg0_myelin_16" parent="14510" cable = "148">  <!-- Parent section: node[12] -->
         <proximal x="13.7013" y="-352.38" z="-21.86" diameter="1.6"/>
         <distal x="11.1856" y="-357.828" z="-21.86" diameter="1.6"/>
       </segment>
@@ -26152,7 +26152,7 @@ Yale University and UCL</meta:notes>
       <segment id="14316" name = "Seg5_myelin_16" parent="14315" cable = "148">
         <distal x="-11.4557" y="-406.852" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14293" name = "Seg0_myelin_13" parent="14509" cable = "145">  <!-- Connected at 0 on parent section: node[12]  -->
+      <segment id="14293" name = "Seg0_myelin_13" parent="14510" cable = "145">  <!-- Parent section: node[12] -->
         <proximal x="13.7013" y="-352.38" z="-21.86" diameter="1.6"/>
         <distal x="15.8561" y="-357.98" z="-21.86" diameter="1.6"/>
       </segment>
@@ -26171,7 +26171,7 @@ Yale University and UCL</meta:notes>
       <segment id="14298" name = "Seg5_myelin_13" parent="14297" cable = "145">
         <distal x="35.2496" y="-408.378" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14245" name = "Seg0_myelin_5" parent="14493" cable = "137">  <!-- Connected at 0 on parent section: node[4]  -->
+      <segment id="14245" name = "Seg0_myelin_5" parent="14494" cable = "137">  <!-- Parent section: node[4] -->
         <proximal x="174.229" y="-261.28" z="-21.86" diameter="1.6"/>
         <distal x="179.747" y="-263.635" z="-21.86" diameter="1.6"/>
       </segment>
@@ -27095,21 +27095,21 @@ Yale University and UCL</meta:notes>
       <segment id="8700" name = "Seg121_apic_43" parent="8699" cable = "88">
         <distal x="76.9701" y="383.78" z="8" diameter="0.64"/>
       </segment>
-      <segment id="14517" name = "Seg0_node_16" parent="14311" cable = "193">  <!-- Connected at 0 on parent section: myelin[16]  -->
+      <segment id="14517" name = "Seg0_node_16" parent="14316" cable = "193">  <!-- Parent section: myelin[16] -->
         <proximal x="-11.4557" y="-406.852" z="-21.86" diameter="1.1"/>
         <distal x="-11.6653" y="-407.306" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14518" name = "Seg1_node_16" parent="14517" cable = "193">
         <distal x="-11.8749" y="-407.76" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14511" name = "Seg0_node_13" parent="14293" cable = "190">  <!-- Connected at 0 on parent section: myelin[13]  -->
+      <segment id="14511" name = "Seg0_node_13" parent="14298" cable = "190">  <!-- Parent section: myelin[13] -->
         <proximal x="35.2496" y="-408.378" z="-21.86" diameter="1.1"/>
         <distal x="35.4292" y="-408.844" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14512" name = "Seg1_node_13" parent="14511" cable = "190">
         <distal x="35.6088" y="-409.311" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14495" name = "Seg0_node_5" parent="14245" cable = "182">  <!-- Connected at 0 on parent section: myelin[5]  -->
+      <segment id="14495" name = "Seg0_node_5" parent="14250" cable = "182">  <!-- Parent section: myelin[5] -->
         <proximal x="229.411" y="-284.836" z="-21.86" diameter="1.1"/>
         <distal x="229.871" y="-285.033" z="-21.86" diameter="1.1"/>
       </segment>
@@ -27733,7 +27733,7 @@ Yale University and UCL</meta:notes>
       <segment id="8935" name = "Seg55_apic_45" parent="8934" cable = "90">
         <distal x="17.5201" y="603.39" z="-43.94" diameter="3.32"/>
       </segment>
-      <segment id="14461" name = "Seg0_myelin_41" parent="14517" cable = "173">  <!-- Connected at 0 on parent section: node[16]  -->
+      <segment id="14461" name = "Seg0_myelin_41" parent="14518" cable = "173">  <!-- Parent section: node[16] -->
         <proximal x="-11.8749" y="-407.76" z="-21.86" diameter="1.6"/>
         <distal x="-16.3132" y="-411.797" z="-21.86" diameter="1.6"/>
       </segment>
@@ -27752,7 +27752,7 @@ Yale University and UCL</meta:notes>
       <segment id="14466" name = "Seg5_myelin_41" parent="14465" cable = "173">
         <distal x="-56.2579" y="-448.135" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14317" name = "Seg0_myelin_17" parent="14517" cable = "149">  <!-- Connected at 0 on parent section: node[16]  -->
+      <segment id="14317" name = "Seg0_myelin_17" parent="14518" cable = "149">  <!-- Parent section: node[16] -->
         <proximal x="-11.8749" y="-407.76" z="-21.86" diameter="1.6"/>
         <distal x="-12.0708" y="-413.757" z="-21.86" diameter="1.6"/>
       </segment>
@@ -27771,7 +27771,7 @@ Yale University and UCL</meta:notes>
       <segment id="14322" name = "Seg5_myelin_17" parent="14321" cable = "149">
         <distal x="-13.8336" y="-467.728" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14299" name = "Seg0_myelin_14" parent="14511" cable = "146">  <!-- Connected at 0 on parent section: node[13]  -->
+      <segment id="14299" name = "Seg0_myelin_14" parent="14512" cable = "146">  <!-- Parent section: node[13] -->
         <proximal x="35.6088" y="-409.311" z="-21.86" diameter="1.6"/>
         <distal x="37.7636" y="-414.911" z="-21.86" diameter="1.6"/>
       </segment>
@@ -27790,7 +27790,7 @@ Yale University and UCL</meta:notes>
       <segment id="14304" name = "Seg5_myelin_14" parent="14303" cable = "146">
         <distal x="57.157" y="-465.308" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14251" name = "Seg0_myelin_6" parent="14495" cable = "138">  <!-- Connected at 0 on parent section: node[5]  -->
+      <segment id="14251" name = "Seg0_myelin_6" parent="14496" cable = "138">  <!-- Parent section: node[5] -->
         <proximal x="230.331" y="-285.229" z="-21.86" diameter="1.6"/>
         <distal x="235.849" y="-287.585" z="-21.86" diameter="1.6"/>
       </segment>
@@ -30909,28 +30909,28 @@ Yale University and UCL</meta:notes>
       <segment id="9130" name = "Seg194_apic_46" parent="9129" cable = "91">
         <distal x="-7.94987" y="780.3" z="-63.98" diameter="2.1"/>
       </segment>
-      <segment id="14567" name = "Seg0_node_41" parent="14461" cable = "218">  <!-- Connected at 0 on parent section: myelin[41]  -->
+      <segment id="14567" name = "Seg0_node_41" parent="14466" cable = "218">  <!-- Parent section: myelin[41] -->
         <proximal x="-56.2579" y="-448.135" z="-21.86" diameter="1.1"/>
         <distal x="-56.6278" y="-448.471" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14568" name = "Seg1_node_41" parent="14567" cable = "218">
         <distal x="-56.9977" y="-448.808" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14519" name = "Seg0_node_17" parent="14317" cable = "194">  <!-- Connected at 0 on parent section: myelin[17]  -->
+      <segment id="14519" name = "Seg0_node_17" parent="14322" cable = "194">  <!-- Parent section: myelin[17] -->
         <proximal x="-13.8336" y="-467.728" z="-21.86" diameter="1.1"/>
         <distal x="-13.8499" y="-468.227" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14520" name = "Seg1_node_17" parent="14519" cable = "194">
         <distal x="-13.8662" y="-468.727" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14513" name = "Seg0_node_14" parent="14299" cable = "191">  <!-- Connected at 0 on parent section: myelin[14]  -->
+      <segment id="14513" name = "Seg0_node_14" parent="14304" cable = "191">  <!-- Parent section: myelin[14] -->
         <proximal x="57.157" y="-465.308" z="-21.86" diameter="1.1"/>
         <distal x="57.3366" y="-465.775" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14514" name = "Seg1_node_14" parent="14513" cable = "191">
         <distal x="57.5161" y="-466.241" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14497" name = "Seg0_node_6" parent="14251" cable = "183">  <!-- Connected at 0 on parent section: myelin[6]  -->
+      <segment id="14497" name = "Seg0_node_6" parent="14256" cable = "183">  <!-- Parent section: myelin[6] -->
         <proximal x="285.513" y="-308.785" z="-21.86" diameter="1.1"/>
         <distal x="285.973" y="-308.982" z="-21.86" diameter="1.1"/>
       </segment>
@@ -36258,7 +36258,7 @@ Yale University and UCL</meta:notes>
       <segment id="9439" name = "Seg308_apic_47" parent="9438" cable = "92">
         <distal x="-44.9199" y="1037.19" z="-105.68" diameter="0.9"/>
       </segment>
-      <segment id="14323" name = "Seg0_myelin_18" parent="14519" cable = "150">  <!-- Connected at 0 on parent section: node[17]  -->
+      <segment id="14323" name = "Seg0_myelin_18" parent="14520" cable = "150">  <!-- Parent section: node[17] -->
         <proximal x="-13.8662" y="-468.727" z="-21.86" diameter="1.6"/>
         <distal x="-14.0621" y="-474.724" z="-21.86" diameter="1.6"/>
       </segment>
@@ -36277,7 +36277,7 @@ Yale University and UCL</meta:notes>
       <segment id="14328" name = "Seg5_myelin_18" parent="14327" cable = "150">
         <distal x="-15.8248" y="-528.695" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14257" name = "Seg0_myelin_7" parent="14497" cable = "139">  <!-- Connected at 0 on parent section: node[6]  -->
+      <segment id="14257" name = "Seg0_myelin_7" parent="14498" cable = "139">  <!-- Parent section: node[6] -->
         <proximal x="286.433" y="-309.178" z="-21.86" diameter="1.6"/>
         <distal x="291.951" y="-311.534" z="-21.86" diameter="1.6"/>
       </segment>
@@ -39731,14 +39731,14 @@ Yale University and UCL</meta:notes>
       <segment id="9476" name = "Seg36_apic_48" parent="9475" cable = "93">
         <distal x="-57.6999" y="1065.93" z="-108.45" diameter="0.76"/>
       </segment>
-      <segment id="14521" name = "Seg0_node_18" parent="14323" cable = "195">  <!-- Connected at 0 on parent section: myelin[18]  -->
+      <segment id="14521" name = "Seg0_node_18" parent="14328" cable = "195">  <!-- Parent section: myelin[18] -->
         <proximal x="-15.8248" y="-528.695" z="-21.86" diameter="1.1"/>
         <distal x="-15.8411" y="-529.195" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14522" name = "Seg1_node_18" parent="14521" cable = "195">
         <distal x="-15.8574" y="-529.695" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14499" name = "Seg0_node_7" parent="14257" cable = "184">  <!-- Connected at 0 on parent section: myelin[7]  -->
+      <segment id="14499" name = "Seg0_node_7" parent="14262" cable = "184">  <!-- Parent section: myelin[7] -->
         <proximal x="341.615" y="-332.734" z="-21.86" diameter="1.1"/>
         <distal x="342.075" y="-332.931" z="-21.86" diameter="1.1"/>
       </segment>
@@ -42619,7 +42619,7 @@ Yale University and UCL</meta:notes>
       <segment id="9665" name = "Seg188_apic_49" parent="9664" cable = "94">
         <distal x="-124.52" y="1198.38" z="-122.32" diameter="0.12"/>
       </segment>
-      <segment id="14329" name = "Seg0_myelin_19" parent="14521" cable = "151">  <!-- Connected at 0 on parent section: node[18]  -->
+      <segment id="14329" name = "Seg0_myelin_19" parent="14522" cable = "151">  <!-- Parent section: node[18] -->
         <proximal x="-15.8574" y="-529.695" z="-21.86" diameter="1.6"/>
         <distal x="-16.0533" y="-535.692" z="-21.86" diameter="1.6"/>
       </segment>
@@ -42638,7 +42638,7 @@ Yale University and UCL</meta:notes>
       <segment id="14334" name = "Seg5_myelin_19" parent="14333" cable = "151">
         <distal x="-17.816" y="-589.663" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14263" name = "Seg0_myelin_8" parent="14499" cable = "140">  <!-- Connected at 0 on parent section: node[7]  -->
+      <segment id="14263" name = "Seg0_myelin_8" parent="14500" cable = "140">  <!-- Parent section: node[7] -->
         <proximal x="342.535" y="-333.127" z="-21.86" diameter="1.6"/>
         <distal x="348.053" y="-335.483" z="-21.86" diameter="1.6"/>
       </segment>
@@ -43357,21 +43357,21 @@ Yale University and UCL</meta:notes>
       <segment id="9851" name = "Seg70_apic_51" parent="9850" cable = "96">
         <distal x="-103.99" y="1194" z="-76.46" diameter="0.12"/>
       </segment>
-      <segment id="14523" name = "Seg0_node_19" parent="14329" cable = "196">  <!-- Connected at 0 on parent section: myelin[19]  -->
+      <segment id="14523" name = "Seg0_node_19" parent="14334" cable = "196">  <!-- Parent section: myelin[19] -->
         <proximal x="-17.816" y="-589.663" z="-21.86" diameter="1.1"/>
         <distal x="-17.8323" y="-590.162" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14524" name = "Seg1_node_19" parent="14523" cable = "196">
         <distal x="-17.8486" y="-590.662" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14501" name = "Seg0_node_8" parent="14263" cable = "185">  <!-- Connected at 0 on parent section: myelin[8]  -->
+      <segment id="14501" name = "Seg0_node_8" parent="14268" cable = "185">  <!-- Parent section: myelin[8] -->
         <proximal x="397.717" y="-356.683" z="-21.86" diameter="1.1"/>
         <distal x="398.177" y="-356.88" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14502" name = "Seg1_node_8" parent="14501" cable = "185">
         <distal x="398.637" y="-357.076" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14335" name = "Seg0_myelin_20" parent="14523" cable = "152">  <!-- Connected at 0 on parent section: node[19]  -->
+      <segment id="14335" name = "Seg0_myelin_20" parent="14524" cable = "152">  <!-- Parent section: node[19] -->
         <proximal x="-17.8486" y="-590.662" z="-21.86" diameter="1.6"/>
         <distal x="-18.0445" y="-596.659" z="-21.86" diameter="1.6"/>
       </segment>
@@ -43390,7 +43390,7 @@ Yale University and UCL</meta:notes>
       <segment id="14340" name = "Seg5_myelin_20" parent="14339" cable = "152">
         <distal x="-19.8072" y="-650.63" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14269" name = "Seg0_myelin_9" parent="14501" cable = "141">  <!-- Connected at 0 on parent section: node[8]  -->
+      <segment id="14269" name = "Seg0_myelin_9" parent="14502" cable = "141">  <!-- Parent section: node[8] -->
         <proximal x="398.637" y="-357.076" z="-21.86" diameter="1.6"/>
         <distal x="404.155" y="-359.432" z="-21.86" diameter="1.6"/>
       </segment>
@@ -43409,21 +43409,21 @@ Yale University and UCL</meta:notes>
       <segment id="14274" name = "Seg5_myelin_9" parent="14273" cable = "141">
         <distal x="453.819" y="-380.633" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14525" name = "Seg0_node_20" parent="14335" cable = "197">  <!-- Connected at 0 on parent section: myelin[20]  -->
+      <segment id="14525" name = "Seg0_node_20" parent="14340" cable = "197">  <!-- Parent section: myelin[20] -->
         <proximal x="-19.8072" y="-650.63" z="-21.86" diameter="1.1"/>
         <distal x="-19.8235" y="-651.13" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14526" name = "Seg1_node_20" parent="14525" cable = "197">
         <distal x="-19.8398" y="-651.63" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14503" name = "Seg0_node_9" parent="14269" cable = "186">  <!-- Connected at 0 on parent section: myelin[9]  -->
+      <segment id="14503" name = "Seg0_node_9" parent="14274" cable = "186">  <!-- Parent section: myelin[9] -->
         <proximal x="453.819" y="-380.633" z="-21.86" diameter="1.1"/>
         <distal x="454.279" y="-380.829" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14504" name = "Seg1_node_9" parent="14503" cable = "186">
         <distal x="454.739" y="-381.025" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14401" name = "Seg0_myelin_31" parent="14525" cable = "163">  <!-- Connected at 0 on parent section: node[20]  -->
+      <segment id="14401" name = "Seg0_myelin_31" parent="14526" cable = "163">  <!-- Parent section: node[20] -->
         <proximal x="-19.8398" y="-651.63" z="-21.86" diameter="1.6"/>
         <distal x="-22.3555" y="-657.077" z="-21.86" diameter="1.6"/>
       </segment>
@@ -43442,7 +43442,7 @@ Yale University and UCL</meta:notes>
       <segment id="14406" name = "Seg5_myelin_31" parent="14405" cable = "163">
         <distal x="-44.9965" y="-706.101" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14341" name = "Seg0_myelin_21" parent="14525" cable = "153">  <!-- Connected at 0 on parent section: node[20]  -->
+      <segment id="14341" name = "Seg0_myelin_21" parent="14526" cable = "153">  <!-- Parent section: node[20] -->
         <proximal x="-19.8398" y="-651.63" z="-21.86" diameter="1.6"/>
         <distal x="-17.685" y="-657.229" z="-21.86" diameter="1.6"/>
       </segment>
@@ -43461,21 +43461,21 @@ Yale University and UCL</meta:notes>
       <segment id="14346" name = "Seg5_myelin_21" parent="14345" cable = "153">
         <distal x="1.70883" y="-707.627" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14547" name = "Seg0_node_31" parent="14401" cable = "208">  <!-- Connected at 0 on parent section: myelin[31]  -->
+      <segment id="14547" name = "Seg0_node_31" parent="14406" cable = "208">  <!-- Parent section: myelin[31] -->
         <proximal x="-44.9965" y="-706.101" z="-21.86" diameter="1.1"/>
         <distal x="-45.2061" y="-706.555" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14548" name = "Seg1_node_31" parent="14547" cable = "208">
         <distal x="-45.4157" y="-707.009" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14527" name = "Seg0_node_21" parent="14341" cable = "198">  <!-- Connected at 0 on parent section: myelin[21]  -->
+      <segment id="14527" name = "Seg0_node_21" parent="14346" cable = "198">  <!-- Parent section: myelin[21] -->
         <proximal x="1.70883" y="-707.627" z="-21.86" diameter="1.1"/>
         <distal x="1.8884" y="-708.093" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14528" name = "Seg1_node_21" parent="14527" cable = "198">
         <distal x="2.06798" y="-708.56" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14407" name = "Seg0_myelin_32" parent="14547" cable = "164">  <!-- Connected at 0 on parent section: node[31]  -->
+      <segment id="14407" name = "Seg0_myelin_32" parent="14548" cable = "164">  <!-- Parent section: node[31] -->
         <proximal x="-45.4157" y="-707.009" z="-21.86" diameter="1.6"/>
         <distal x="-47.9315" y="-712.456" z="-21.86" diameter="1.6"/>
       </segment>
@@ -43494,7 +43494,7 @@ Yale University and UCL</meta:notes>
       <segment id="14412" name = "Seg5_myelin_32" parent="14411" cable = "164">
         <distal x="-70.5729" y="-761.48" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14347" name = "Seg0_myelin_22" parent="14527" cable = "154">  <!-- Connected at 0 on parent section: node[21]  -->
+      <segment id="14347" name = "Seg0_myelin_22" parent="14528" cable = "154">  <!-- Parent section: node[21] -->
         <proximal x="2.06798" y="-708.56" z="-21.86" diameter="1.6"/>
         <distal x="4.22283" y="-714.159" z="-21.86" diameter="1.6"/>
       </segment>
@@ -43513,21 +43513,21 @@ Yale University and UCL</meta:notes>
       <segment id="14352" name = "Seg5_myelin_22" parent="14351" cable = "154">
         <distal x="23.6165" y="-764.557" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14549" name = "Seg0_node_32" parent="14407" cable = "209">  <!-- Connected at 0 on parent section: myelin[32]  -->
+      <segment id="14549" name = "Seg0_node_32" parent="14412" cable = "209">  <!-- Parent section: myelin[32] -->
         <proximal x="-70.5729" y="-761.48" z="-21.86" diameter="1.1"/>
         <distal x="-70.7825" y="-761.934" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14550" name = "Seg1_node_32" parent="14549" cable = "209">
         <distal x="-70.9921" y="-762.388" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14529" name = "Seg0_node_22" parent="14347" cable = "199">  <!-- Connected at 0 on parent section: myelin[22]  -->
+      <segment id="14529" name = "Seg0_node_22" parent="14352" cable = "199">  <!-- Parent section: myelin[22] -->
         <proximal x="23.6165" y="-764.557" z="-21.86" diameter="1.1"/>
         <distal x="23.7961" y="-765.023" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14530" name = "Seg1_node_22" parent="14529" cable = "199">
         <distal x="23.9757" y="-765.49" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14413" name = "Seg0_myelin_33" parent="14549" cable = "165">  <!-- Connected at 0 on parent section: node[32]  -->
+      <segment id="14413" name = "Seg0_myelin_33" parent="14550" cable = "165">  <!-- Parent section: node[32] -->
         <proximal x="-70.9921" y="-762.388" z="-21.86" diameter="1.6"/>
         <distal x="-73.5079" y="-767.835" z="-21.86" diameter="1.6"/>
       </segment>
@@ -43546,7 +43546,7 @@ Yale University and UCL</meta:notes>
       <segment id="14418" name = "Seg5_myelin_33" parent="14417" cable = "165">
         <distal x="-96.1498" y="-816.859" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14353" name = "Seg0_myelin_23" parent="14529" cable = "155">  <!-- Connected at 0 on parent section: node[22]  -->
+      <segment id="14353" name = "Seg0_myelin_23" parent="14530" cable = "155">  <!-- Parent section: node[22] -->
         <proximal x="23.9757" y="-765.49" z="-21.86" diameter="1.6"/>
         <distal x="26.1305" y="-771.09" z="-21.86" diameter="1.6"/>
       </segment>
@@ -43565,21 +43565,21 @@ Yale University and UCL</meta:notes>
       <segment id="14358" name = "Seg5_myelin_23" parent="14357" cable = "155">
         <distal x="45.5241" y="-821.487" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14551" name = "Seg0_node_33" parent="14413" cable = "210">  <!-- Connected at 0 on parent section: myelin[33]  -->
+      <segment id="14551" name = "Seg0_node_33" parent="14418" cable = "210">  <!-- Parent section: myelin[33] -->
         <proximal x="-96.1498" y="-816.859" z="-21.86" diameter="1.1"/>
         <distal x="-96.3595" y="-817.313" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14552" name = "Seg1_node_33" parent="14551" cable = "210">
         <distal x="-96.5691" y="-817.767" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14531" name = "Seg0_node_23" parent="14353" cable = "200">  <!-- Connected at 0 on parent section: myelin[23]  -->
+      <segment id="14531" name = "Seg0_node_23" parent="14358" cable = "200">  <!-- Parent section: myelin[23] -->
         <proximal x="45.5241" y="-821.487" z="-21.86" diameter="1.1"/>
         <distal x="45.7037" y="-821.954" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14532" name = "Seg1_node_23" parent="14531" cable = "200">
         <distal x="45.8832" y="-822.42" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14431" name = "Seg0_myelin_36" parent="14551" cable = "168">  <!-- Connected at 0 on parent section: node[33]  -->
+      <segment id="14431" name = "Seg0_myelin_36" parent="14552" cable = "168">  <!-- Parent section: node[33] -->
         <proximal x="-96.5691" y="-817.767" z="-21.86" diameter="1.6"/>
         <distal x="-101.008" y="-821.804" z="-21.86" diameter="1.6"/>
       </segment>
@@ -43598,7 +43598,7 @@ Yale University and UCL</meta:notes>
       <segment id="14436" name = "Seg5_myelin_36" parent="14435" cable = "168">
         <distal x="-140.953" y="-858.141" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14419" name = "Seg0_myelin_34" parent="14551" cable = "166">  <!-- Connected at 0 on parent section: node[33]  -->
+      <segment id="14419" name = "Seg0_myelin_34" parent="14552" cable = "166">  <!-- Parent section: node[33] -->
         <proximal x="-96.5691" y="-817.767" z="-21.86" diameter="1.6"/>
         <distal x="-96.7651" y="-823.764" z="-21.86" diameter="1.6"/>
       </segment>
@@ -43617,7 +43617,7 @@ Yale University and UCL</meta:notes>
       <segment id="14424" name = "Seg5_myelin_34" parent="14423" cable = "166">
         <distal x="-98.5293" y="-877.735" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14359" name = "Seg0_myelin_24" parent="14531" cable = "156">  <!-- Connected at 0 on parent section: node[23]  -->
+      <segment id="14359" name = "Seg0_myelin_24" parent="14532" cable = "156">  <!-- Parent section: node[23] -->
         <proximal x="45.8832" y="-822.42" z="-21.86" diameter="1.6"/>
         <distal x="48.038" y="-828.02" z="-21.86" diameter="1.6"/>
       </segment>
@@ -43636,28 +43636,28 @@ Yale University and UCL</meta:notes>
       <segment id="14364" name = "Seg5_myelin_24" parent="14363" cable = "156">
         <distal x="67.4314" y="-878.417" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14557" name = "Seg0_node_36" parent="14431" cable = "213">  <!-- Connected at 0 on parent section: myelin[36]  -->
+      <segment id="14557" name = "Seg0_node_36" parent="14436" cable = "213">  <!-- Parent section: myelin[36] -->
         <proximal x="-140.953" y="-858.141" z="-21.86" diameter="1.1"/>
         <distal x="-141.323" y="-858.477" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14558" name = "Seg1_node_36" parent="14557" cable = "213">
         <distal x="-141.693" y="-858.814" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14553" name = "Seg0_node_34" parent="14419" cable = "211">  <!-- Connected at 0 on parent section: myelin[34]  -->
+      <segment id="14553" name = "Seg0_node_34" parent="14424" cable = "211">  <!-- Parent section: myelin[34] -->
         <proximal x="-98.5293" y="-877.735" z="-21.86" diameter="1.1"/>
         <distal x="-98.5456" y="-878.235" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14554" name = "Seg1_node_34" parent="14553" cable = "211">
         <distal x="-98.562" y="-878.734" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14533" name = "Seg0_node_24" parent="14359" cable = "201">  <!-- Connected at 0 on parent section: myelin[24]  -->
+      <segment id="14533" name = "Seg0_node_24" parent="14364" cable = "201">  <!-- Parent section: myelin[24] -->
         <proximal x="67.4314" y="-878.417" z="-21.86" diameter="1.1"/>
         <distal x="67.611" y="-878.884" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14534" name = "Seg1_node_24" parent="14533" cable = "201">
         <distal x="67.7906" y="-879.351" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14425" name = "Seg0_myelin_35" parent="14553" cable = "167">  <!-- Connected at 0 on parent section: node[34]  -->
+      <segment id="14425" name = "Seg0_myelin_35" parent="14554" cable = "167">  <!-- Parent section: node[34] -->
         <proximal x="-98.562" y="-878.734" z="-21.86" diameter="1.6"/>
         <distal x="-98.758" y="-884.731" z="-21.86" diameter="1.6"/>
       </segment>
@@ -43676,7 +43676,7 @@ Yale University and UCL</meta:notes>
       <segment id="14430" name = "Seg5_myelin_35" parent="14429" cable = "167">
         <distal x="-100.522" y="-938.702" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14365" name = "Seg0_myelin_25" parent="14533" cable = "157">  <!-- Connected at 0 on parent section: node[24]  -->
+      <segment id="14365" name = "Seg0_myelin_25" parent="14534" cable = "157">  <!-- Parent section: node[24] -->
         <proximal x="67.7906" y="-879.351" z="-21.86" diameter="1.6"/>
         <distal x="69.9454" y="-884.95" z="-21.86" diameter="1.6"/>
       </segment>
@@ -43695,21 +43695,21 @@ Yale University and UCL</meta:notes>
       <segment id="14370" name = "Seg5_myelin_25" parent="14369" cable = "157">
         <distal x="89.3388" y="-935.348" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14555" name = "Seg0_node_35" parent="14425" cable = "212">  <!-- Connected at 0 on parent section: myelin[35]  -->
+      <segment id="14555" name = "Seg0_node_35" parent="14430" cable = "212">  <!-- Parent section: myelin[35] -->
         <proximal x="-100.522" y="-938.702" z="-21.86" diameter="1.1"/>
         <distal x="-100.538" y="-939.202" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14556" name = "Seg1_node_35" parent="14555" cable = "212">
         <distal x="-100.555" y="-939.702" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14535" name = "Seg0_node_25" parent="14365" cable = "202">  <!-- Connected at 0 on parent section: myelin[25]  -->
+      <segment id="14535" name = "Seg0_node_25" parent="14370" cable = "202">  <!-- Parent section: myelin[25] -->
         <proximal x="89.3388" y="-935.348" z="-21.86" diameter="1.1"/>
         <distal x="89.5184" y="-935.814" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14536" name = "Seg1_node_25" parent="14535" cable = "202">
         <distal x="89.698" y="-936.281" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14371" name = "Seg0_myelin_26" parent="14535" cable = "158">  <!-- Connected at 0 on parent section: node[25]  -->
+      <segment id="14371" name = "Seg0_myelin_26" parent="14536" cable = "158">  <!-- Parent section: node[25] -->
         <proximal x="89.698" y="-936.281" z="-21.86" diameter="1.6"/>
         <distal x="91.8528" y="-941.881" z="-21.86" diameter="1.6"/>
       </segment>
@@ -43728,14 +43728,14 @@ Yale University and UCL</meta:notes>
       <segment id="14376" name = "Seg5_myelin_26" parent="14375" cable = "158">
         <distal x="111.246" y="-992.278" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14537" name = "Seg0_node_26" parent="14371" cable = "203">  <!-- Connected at 0 on parent section: myelin[26]  -->
+      <segment id="14537" name = "Seg0_node_26" parent="14376" cable = "203">  <!-- Parent section: myelin[26] -->
         <proximal x="111.246" y="-992.278" z="-21.86" diameter="1.1"/>
         <distal x="111.426" y="-992.745" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14538" name = "Seg1_node_26" parent="14537" cable = "203">
         <distal x="111.605" y="-993.211" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14437" name = "Seg0_myelin_37" parent="14537" cable = "169">  <!-- Connected at 0 on parent section: node[26]  -->
+      <segment id="14437" name = "Seg0_myelin_37" parent="14538" cable = "169">  <!-- Parent section: node[26] -->
         <proximal x="111.605" y="-993.211" z="-21.86" diameter="1.6"/>
         <distal x="111.409" y="-999.208" z="-21.86" diameter="1.6"/>
       </segment>
@@ -43754,7 +43754,7 @@ Yale University and UCL</meta:notes>
       <segment id="14442" name = "Seg5_myelin_37" parent="14441" cable = "169">
         <distal x="109.646" y="-1053.18" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14377" name = "Seg0_myelin_27" parent="14537" cable = "159">  <!-- Connected at 0 on parent section: node[26]  -->
+      <segment id="14377" name = "Seg0_myelin_27" parent="14538" cable = "159">  <!-- Parent section: node[26] -->
         <proximal x="111.605" y="-993.211" z="-21.86" diameter="1.6"/>
         <distal x="115.771" y="-997.53" z="-21.86" diameter="1.6"/>
       </segment>
@@ -43773,21 +43773,21 @@ Yale University and UCL</meta:notes>
       <segment id="14382" name = "Seg5_myelin_27" parent="14381" cable = "159">
         <distal x="153.259" y="-1036.4" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14559" name = "Seg0_node_37" parent="14437" cable = "214">  <!-- Connected at 0 on parent section: myelin[37]  -->
+      <segment id="14559" name = "Seg0_node_37" parent="14442" cable = "214">  <!-- Parent section: myelin[37] -->
         <proximal x="109.646" y="-1053.18" z="-21.86" diameter="1.1"/>
         <distal x="109.63" y="-1053.68" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14560" name = "Seg1_node_37" parent="14559" cable = "214">
         <distal x="109.614" y="-1054.18" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14539" name = "Seg0_node_27" parent="14377" cable = "204">  <!-- Connected at 0 on parent section: myelin[27]  -->
+      <segment id="14539" name = "Seg0_node_27" parent="14382" cable = "204">  <!-- Parent section: myelin[27] -->
         <proximal x="153.259" y="-1036.4" z="-21.86" diameter="1.1"/>
         <distal x="153.606" y="-1036.76" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14540" name = "Seg1_node_27" parent="14539" cable = "204">
         <distal x="153.953" y="-1037.12" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14443" name = "Seg0_myelin_38" parent="14559" cable = "170">  <!-- Connected at 0 on parent section: node[37]  -->
+      <segment id="14443" name = "Seg0_myelin_38" parent="14560" cable = "170">  <!-- Parent section: node[37] -->
         <proximal x="109.614" y="-1054.18" z="-21.86" diameter="1.6"/>
         <distal x="109.418" y="-1060.18" z="-21.86" diameter="1.6"/>
       </segment>
@@ -43806,7 +43806,7 @@ Yale University and UCL</meta:notes>
       <segment id="14448" name = "Seg5_myelin_38" parent="14447" cable = "170">
         <distal x="107.654" y="-1114.15" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14383" name = "Seg0_myelin_28" parent="14539" cable = "160">  <!-- Connected at 0 on parent section: node[27]  -->
+      <segment id="14383" name = "Seg0_myelin_28" parent="14540" cable = "160">  <!-- Parent section: node[27] -->
         <proximal x="153.953" y="-1037.12" z="-21.86" diameter="1.6"/>
         <distal x="158.119" y="-1041.44" z="-21.86" diameter="1.6"/>
       </segment>
@@ -43825,21 +43825,21 @@ Yale University and UCL</meta:notes>
       <segment id="14388" name = "Seg5_myelin_28" parent="14387" cable = "160">
         <distal x="195.608" y="-1080.3" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14561" name = "Seg0_node_38" parent="14443" cable = "215">  <!-- Connected at 0 on parent section: myelin[38]  -->
+      <segment id="14561" name = "Seg0_node_38" parent="14448" cable = "215">  <!-- Parent section: myelin[38] -->
         <proximal x="107.654" y="-1114.15" z="-21.86" diameter="1.1"/>
         <distal x="107.638" y="-1114.65" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14562" name = "Seg1_node_38" parent="14561" cable = "215">
         <distal x="107.622" y="-1115.15" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14541" name = "Seg0_node_28" parent="14383" cable = "205">  <!-- Connected at 0 on parent section: myelin[28]  -->
+      <segment id="14541" name = "Seg0_node_28" parent="14388" cable = "205">  <!-- Parent section: myelin[28] -->
         <proximal x="195.608" y="-1080.3" z="-21.86" diameter="1.1"/>
         <distal x="195.955" y="-1080.66" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14542" name = "Seg1_node_28" parent="14541" cable = "205">
         <distal x="196.302" y="-1081.02" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14449" name = "Seg0_myelin_39" parent="14561" cable = "171">  <!-- Connected at 0 on parent section: node[38]  -->
+      <segment id="14449" name = "Seg0_myelin_39" parent="14562" cable = "171">  <!-- Parent section: node[38] -->
         <proximal x="107.622" y="-1115.15" z="-21.86" diameter="1.6"/>
         <distal x="107.426" y="-1121.14" z="-21.86" diameter="1.6"/>
       </segment>
@@ -43858,7 +43858,7 @@ Yale University and UCL</meta:notes>
       <segment id="14454" name = "Seg5_myelin_39" parent="14453" cable = "171">
         <distal x="105.663" y="-1175.11" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14389" name = "Seg0_myelin_29" parent="14541" cable = "161">  <!-- Connected at 0 on parent section: node[28]  -->
+      <segment id="14389" name = "Seg0_myelin_29" parent="14542" cable = "161">  <!-- Parent section: node[28] -->
         <proximal x="196.302" y="-1081.02" z="-21.86" diameter="1.6"/>
         <distal x="200.467" y="-1085.34" z="-21.86" diameter="1.6"/>
       </segment>
@@ -43877,21 +43877,21 @@ Yale University and UCL</meta:notes>
       <segment id="14394" name = "Seg5_myelin_29" parent="14393" cable = "161">
         <distal x="237.957" y="-1124.2" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14563" name = "Seg0_node_39" parent="14449" cable = "216">  <!-- Connected at 0 on parent section: myelin[39]  -->
+      <segment id="14563" name = "Seg0_node_39" parent="14454" cable = "216">  <!-- Parent section: myelin[39] -->
         <proximal x="105.663" y="-1175.11" z="-21.86" diameter="1.1"/>
         <distal x="105.646" y="-1175.61" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14564" name = "Seg1_node_39" parent="14563" cable = "216">
         <distal x="105.63" y="-1176.11" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14543" name = "Seg0_node_29" parent="14389" cable = "206">  <!-- Connected at 0 on parent section: myelin[29]  -->
+      <segment id="14543" name = "Seg0_node_29" parent="14394" cable = "206">  <!-- Parent section: myelin[29] -->
         <proximal x="237.957" y="-1124.2" z="-21.86" diameter="1.1"/>
         <distal x="238.304" y="-1124.56" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14544" name = "Seg1_node_29" parent="14543" cable = "206">
         <distal x="238.651" y="-1124.92" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14455" name = "Seg0_myelin_40" parent="14563" cable = "172">  <!-- Connected at 0 on parent section: node[39]  -->
+      <segment id="14455" name = "Seg0_myelin_40" parent="14564" cable = "172">  <!-- Parent section: node[39] -->
         <proximal x="105.63" y="-1176.11" z="-21.86" diameter="1.6"/>
         <distal x="105.434" y="-1182.11" z="-21.86" diameter="1.6"/>
       </segment>
@@ -43910,7 +43910,7 @@ Yale University and UCL</meta:notes>
       <segment id="14460" name = "Seg5_myelin_40" parent="14459" cable = "172">
         <distal x="103.671" y="-1236.08" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14395" name = "Seg0_myelin_30" parent="14543" cable = "162">  <!-- Connected at 0 on parent section: node[29]  -->
+      <segment id="14395" name = "Seg0_myelin_30" parent="14544" cable = "162">  <!-- Parent section: node[29] -->
         <proximal x="238.651" y="-1124.92" z="-21.86" diameter="1.6"/>
         <distal x="242.817" y="-1129.24" z="-21.86" diameter="1.6"/>
       </segment>
@@ -43929,14 +43929,14 @@ Yale University and UCL</meta:notes>
       <segment id="14400" name = "Seg5_myelin_30" parent="14399" cable = "162">
         <distal x="280.306" y="-1168.11" z="-21.86" diameter="1.6"/>
       </segment>
-      <segment id="14565" name = "Seg0_node_40" parent="14455" cable = "217">  <!-- Connected at 0 on parent section: myelin[40]  -->
+      <segment id="14565" name = "Seg0_node_40" parent="14460" cable = "217">  <!-- Parent section: myelin[40] -->
         <proximal x="103.671" y="-1236.08" z="-21.86" diameter="1.1"/>
         <distal x="103.655" y="-1236.58" z="-21.86" diameter="1.1"/>
       </segment>
       <segment id="14566" name = "Seg1_node_40" parent="14565" cable = "217">
         <distal x="103.638" y="-1237.08" z="-21.86" diameter="1.1"/>
       </segment>
-      <segment id="14545" name = "Seg0_node_30" parent="14395" cable = "207">  <!-- Connected at 0 on parent section: myelin[30]  -->
+      <segment id="14545" name = "Seg0_node_30" parent="14400" cable = "207">  <!-- Parent section: myelin[30] -->
         <proximal x="280.306" y="-1168.11" z="-21.86" diameter="1.1"/>
         <distal x="280.653" y="-1168.47" z="-21.86" diameter="1.1"/>
       </segment>
@@ -44265,7 +44265,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "177" name = "node_0" fractAlongParent = "1"/>
+      <cable id = "177" name = "node_0"/>
       <cable id = "55" name = "apic_10">
         <meta:properties>
           <meta:property>
@@ -44346,7 +44346,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "147" name = "myelin_15" fractAlongParent = "1">
+      <cable id = "147" name = "myelin_15">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -44354,7 +44354,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "133" name = "myelin_1" fractAlongParent = "1">
+      <cable id = "133" name = "myelin_1">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -44378,8 +44378,8 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "192" name = "node_15" fractAlongParent = "1"/>
-      <cable id = "178" name = "node_1" fractAlongParent = "1"/>
+      <cable id = "192" name = "node_15"/>
+      <cable id = "178" name = "node_1"/>
       <cable id = "69" name = "apic_24"/>
       <cable id = "64" name = "apic_19">
         <meta:properties>
@@ -44405,7 +44405,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "176" name = "myelin_44" fractAlongParent = "1">
+      <cable id = "176" name = "myelin_44">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -44413,7 +44413,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "142" name = "myelin_10" fractAlongParent = "1">
+      <cable id = "142" name = "myelin_10">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -44421,7 +44421,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "134" name = "myelin_2" fractAlongParent = "1">
+      <cable id = "134" name = "myelin_2">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -44470,8 +44470,8 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "187" name = "node_10" fractAlongParent = "1"/>
-      <cable id = "179" name = "node_2" fractAlongParent = "1"/>
+      <cable id = "187" name = "node_10"/>
+      <cable id = "179" name = "node_2"/>
       <cable id = "77" name = "apic_32"/>
       <cable id = "76" name = "apic_31">
         <meta:properties>
@@ -44522,7 +44522,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "143" name = "myelin_11" fractAlongParent = "1">
+      <cable id = "143" name = "myelin_11">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -44530,7 +44530,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "174" name = "myelin_42" fractAlongParent = "1">
+      <cable id = "174" name = "myelin_42">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -44538,7 +44538,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "135" name = "myelin_3" fractAlongParent = "1">
+      <cable id = "135" name = "myelin_3">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -44578,8 +44578,8 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "188" name = "node_11" fractAlongParent = "1"/>
-      <cable id = "175" name = "myelin_43" fractAlongParent = "1">
+      <cable id = "188" name = "node_11"/>
+      <cable id = "175" name = "myelin_43">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -44587,7 +44587,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "180" name = "node_3" fractAlongParent = "1"/>
+      <cable id = "180" name = "node_3"/>
       <cable id = "81" name = "apic_36">
         <meta:properties>
           <meta:property>
@@ -44604,7 +44604,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "144" name = "myelin_12" fractAlongParent = "1">
+      <cable id = "144" name = "myelin_12">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -44612,7 +44612,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "136" name = "myelin_4" fractAlongParent = "1">
+      <cable id = "136" name = "myelin_4">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -44636,8 +44636,8 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "189" name = "node_12" fractAlongParent = "1"/>
-      <cable id = "181" name = "node_4" fractAlongParent = "1"/>
+      <cable id = "189" name = "node_12"/>
+      <cable id = "181" name = "node_4"/>
       <cable id = "87" name = "apic_42"/>
       <cable id = "86" name = "apic_41">
         <meta:properties>
@@ -44663,7 +44663,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "148" name = "myelin_16" fractAlongParent = "1">
+      <cable id = "148" name = "myelin_16">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -44671,7 +44671,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "145" name = "myelin_13" fractAlongParent = "1">
+      <cable id = "145" name = "myelin_13">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -44679,7 +44679,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "137" name = "myelin_5" fractAlongParent = "1">
+      <cable id = "137" name = "myelin_5">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -44703,9 +44703,9 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "193" name = "node_16" fractAlongParent = "1"/>
-      <cable id = "190" name = "node_13" fractAlongParent = "1"/>
-      <cable id = "182" name = "node_5" fractAlongParent = "1"/>
+      <cable id = "193" name = "node_16"/>
+      <cable id = "190" name = "node_13"/>
+      <cable id = "182" name = "node_5"/>
       <cable id = "113" name = "apic_68">
         <meta:properties>
           <meta:property>
@@ -44722,7 +44722,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "173" name = "myelin_41" fractAlongParent = "1">
+      <cable id = "173" name = "myelin_41">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -44730,7 +44730,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "149" name = "myelin_17" fractAlongParent = "1">
+      <cable id = "149" name = "myelin_17">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -44738,7 +44738,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "146" name = "myelin_14" fractAlongParent = "1">
+      <cable id = "146" name = "myelin_14">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -44746,7 +44746,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "138" name = "myelin_6" fractAlongParent = "1">
+      <cable id = "138" name = "myelin_6">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -44786,10 +44786,10 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "218" name = "node_41" fractAlongParent = "1"/>
-      <cable id = "194" name = "node_17" fractAlongParent = "1"/>
-      <cable id = "191" name = "node_14" fractAlongParent = "1"/>
-      <cable id = "183" name = "node_6" fractAlongParent = "1"/>
+      <cable id = "218" name = "node_41"/>
+      <cable id = "194" name = "node_17"/>
+      <cable id = "191" name = "node_14"/>
+      <cable id = "183" name = "node_6"/>
       <cable id = "129" name = "apic_84">
         <meta:properties>
           <meta:property>
@@ -44854,7 +44854,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "150" name = "myelin_18" fractAlongParent = "1">
+      <cable id = "150" name = "myelin_18">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -44862,7 +44862,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "139" name = "myelin_7" fractAlongParent = "1">
+      <cable id = "139" name = "myelin_7">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -44966,8 +44966,8 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "195" name = "node_18" fractAlongParent = "1"/>
-      <cable id = "184" name = "node_7" fractAlongParent = "1"/>
+      <cable id = "195" name = "node_18"/>
+      <cable id = "184" name = "node_7"/>
       <cable id = "128" name = "apic_83">
         <meta:properties>
           <meta:property>
@@ -45064,7 +45064,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "151" name = "myelin_19" fractAlongParent = "1">
+      <cable id = "151" name = "myelin_19">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -45072,7 +45072,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "140" name = "myelin_8" fractAlongParent = "1">
+      <cable id = "140" name = "myelin_8">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -45112,9 +45112,9 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "196" name = "node_19" fractAlongParent = "1"/>
-      <cable id = "185" name = "node_8" fractAlongParent = "1"/>
-      <cable id = "152" name = "myelin_20" fractAlongParent = "1">
+      <cable id = "196" name = "node_19"/>
+      <cable id = "185" name = "node_8"/>
+      <cable id = "152" name = "myelin_20">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -45122,7 +45122,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "141" name = "myelin_9" fractAlongParent = "1">
+      <cable id = "141" name = "myelin_9">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -45130,9 +45130,9 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "197" name = "node_20" fractAlongParent = "1"/>
-      <cable id = "186" name = "node_9" fractAlongParent = "1"/>
-      <cable id = "163" name = "myelin_31" fractAlongParent = "1">
+      <cable id = "197" name = "node_20"/>
+      <cable id = "186" name = "node_9"/>
+      <cable id = "163" name = "myelin_31">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -45140,7 +45140,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "153" name = "myelin_21" fractAlongParent = "1">
+      <cable id = "153" name = "myelin_21">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -45148,9 +45148,9 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "208" name = "node_31" fractAlongParent = "1"/>
-      <cable id = "198" name = "node_21" fractAlongParent = "1"/>
-      <cable id = "164" name = "myelin_32" fractAlongParent = "1">
+      <cable id = "208" name = "node_31"/>
+      <cable id = "198" name = "node_21"/>
+      <cable id = "164" name = "myelin_32">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -45158,7 +45158,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "154" name = "myelin_22" fractAlongParent = "1">
+      <cable id = "154" name = "myelin_22">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -45166,9 +45166,9 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "209" name = "node_32" fractAlongParent = "1"/>
-      <cable id = "199" name = "node_22" fractAlongParent = "1"/>
-      <cable id = "165" name = "myelin_33" fractAlongParent = "1">
+      <cable id = "209" name = "node_32"/>
+      <cable id = "199" name = "node_22"/>
+      <cable id = "165" name = "myelin_33">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -45176,7 +45176,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "155" name = "myelin_23" fractAlongParent = "1">
+      <cable id = "155" name = "myelin_23">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -45184,9 +45184,9 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "210" name = "node_33" fractAlongParent = "1"/>
-      <cable id = "200" name = "node_23" fractAlongParent = "1"/>
-      <cable id = "168" name = "myelin_36" fractAlongParent = "1">
+      <cable id = "210" name = "node_33"/>
+      <cable id = "200" name = "node_23"/>
+      <cable id = "168" name = "myelin_36">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -45194,7 +45194,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "166" name = "myelin_34" fractAlongParent = "1">
+      <cable id = "166" name = "myelin_34">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -45202,7 +45202,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "156" name = "myelin_24" fractAlongParent = "1">
+      <cable id = "156" name = "myelin_24">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -45210,10 +45210,10 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "213" name = "node_36" fractAlongParent = "1"/>
-      <cable id = "211" name = "node_34" fractAlongParent = "1"/>
-      <cable id = "201" name = "node_24" fractAlongParent = "1"/>
-      <cable id = "167" name = "myelin_35" fractAlongParent = "1">
+      <cable id = "213" name = "node_36"/>
+      <cable id = "211" name = "node_34"/>
+      <cable id = "201" name = "node_24"/>
+      <cable id = "167" name = "myelin_35">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -45221,7 +45221,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "157" name = "myelin_25" fractAlongParent = "1">
+      <cable id = "157" name = "myelin_25">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -45229,9 +45229,9 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "212" name = "node_35" fractAlongParent = "1"/>
-      <cable id = "202" name = "node_25" fractAlongParent = "1"/>
-      <cable id = "158" name = "myelin_26" fractAlongParent = "1">
+      <cable id = "212" name = "node_35"/>
+      <cable id = "202" name = "node_25"/>
+      <cable id = "158" name = "myelin_26">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -45239,8 +45239,8 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "203" name = "node_26" fractAlongParent = "1"/>
-      <cable id = "169" name = "myelin_37" fractAlongParent = "1">
+      <cable id = "203" name = "node_26"/>
+      <cable id = "169" name = "myelin_37">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -45248,7 +45248,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "159" name = "myelin_27" fractAlongParent = "1">
+      <cable id = "159" name = "myelin_27">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -45256,9 +45256,9 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "214" name = "node_37" fractAlongParent = "1"/>
-      <cable id = "204" name = "node_27" fractAlongParent = "1"/>
-      <cable id = "170" name = "myelin_38" fractAlongParent = "1">
+      <cable id = "214" name = "node_37"/>
+      <cable id = "204" name = "node_27"/>
+      <cable id = "170" name = "myelin_38">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -45266,7 +45266,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "160" name = "myelin_28" fractAlongParent = "1">
+      <cable id = "160" name = "myelin_28">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -45274,9 +45274,9 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "215" name = "node_38" fractAlongParent = "1"/>
-      <cable id = "205" name = "node_28" fractAlongParent = "1"/>
-      <cable id = "171" name = "myelin_39" fractAlongParent = "1">
+      <cable id = "215" name = "node_38"/>
+      <cable id = "205" name = "node_28"/>
+      <cable id = "171" name = "myelin_39">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -45284,7 +45284,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "161" name = "myelin_29" fractAlongParent = "1">
+      <cable id = "161" name = "myelin_29">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -45292,9 +45292,9 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "216" name = "node_39" fractAlongParent = "1"/>
-      <cable id = "206" name = "node_29" fractAlongParent = "1"/>
-      <cable id = "172" name = "myelin_40" fractAlongParent = "1">
+      <cable id = "216" name = "node_39"/>
+      <cable id = "206" name = "node_29"/>
+      <cable id = "172" name = "myelin_40">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -45302,7 +45302,7 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "162" name = "myelin_30" fractAlongParent = "1">
+      <cable id = "162" name = "myelin_30">
         <meta:properties>
           <meta:property>
             <meta:tag>numberInternalDivisions</meta:tag>
@@ -45310,8 +45310,8 @@ Yale University and UCL</meta:notes>
           </meta:property>
         </meta:properties>
       </cable>
-      <cable id = "217" name = "node_40" fractAlongParent = "1"/>
-      <cable id = "207" name = "node_30" fractAlongParent = "1"/>
+      <cable id = "217" name = "node_40"/>
+      <cable id = "207" name = "node_30"/>
       <cablegroup name="all"> <!-- Replacing subset name ModelViewParmSubset_0 with all, as it contains all sections -->
         <cable id = "0"/>
         <cable id = "45"/>
@@ -47339,7 +47339,7 @@ Yale University and UCL</meta:notes>
         </bio:parameter>
       </bio:mechanism>
       <bio:mechanism name="Km" type="Channel Mechanism">
-    
+
         <bio:parameter name="gmax" value="5000">
           <bio:group>ModelViewParmSubset_10</bio:group>
         </bio:parameter>
@@ -47351,7 +47351,7 @@ Yale University and UCL</meta:notes>
         </bio:parameter>
       </bio:mechanism>
       <bio:mechanism name="Kv1" type="Channel Mechanism">
-       
+    
         <bio:parameter name="gmax" value="10">
           <bio:group>OneSecGrp_SectionRef_1</bio:group>
         </bio:parameter>
@@ -47363,7 +47363,7 @@ Yale University and UCL</meta:notes>
         </bio:parameter>
       </bio:mechanism>
       <bio:mechanism name="Kv" type="Channel Mechanism">
-        
+ 
         <bio:parameter name="gmax" value="20000">
           <bio:group>ModelViewParmSubset_10</bio:group>
         </bio:parameter>
@@ -47386,7 +47386,7 @@ Yale University and UCL</meta:notes>
         </bio:parameter>
       </bio:mechanism>
       <bio:mechanism name="nax" type="Channel Mechanism">
-       
+  
         <bio:parameter name="gmax" value="2.5e+06">
           <bio:group>ModelViewParmSubset_7</bio:group>
         </bio:parameter>

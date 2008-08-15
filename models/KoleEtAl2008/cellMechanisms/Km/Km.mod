@@ -61,30 +61,33 @@ INITIAL {
 }
 
 BREAKPOINT {
-        SOLVE states
+        SOLVE states METHOD cnexp
 	gk = tadj*gmax*n
 	ik = (1e-4) * gk * (v - ek)
 } 
 
 LOCAL nexp
 
-PROCEDURE states() {   : Computes state variable n 
+DERIVATIVE states {   : Computes state variable n 
         trates(v)      : at the current v and dt.
-        n = n + nexp*(ninf-n)
-        VERBATIM
-        return 0;
-        ENDVERBATIM
+        ::::::n = n + nexp*(ninf-n)
+        ::::::VERBATIM
+        ::::::return 0;
+        ::::::ENDVERBATIM
+        n' = tadj * (ninf-n)/(ntau)
 }
 
 PROCEDURE trates(v) {  :Computes rate and other constants at current v.
                        :Call once from HOC to initialize inf at resting v.
         LOCAL tinc
-        TABLE ninf, nexp
-	DEPEND dt, celsius, temp, Ra, Rb, tha, qa
-	
-	FROM vmin TO vmax WITH 199
+        TABLE ninf, nexp, ntau
 
-	rates(v): not consistently executed from here if usetable_hh == 1
+	    DEPEND dt, celsius, temp, Ra, Rb, tha, qa
+	    
+	    FROM vmin TO vmax WITH 199
+    
+	    rates(v): not consistently executed from here if usetable_hh == 1
+
         tadj = q10^((celsius - temp)/10)  :temperature adjastment
         tinc = -dt * tadj
         nexp = 1 - exp(tinc/ntau)
@@ -97,5 +100,5 @@ PROCEDURE rates(v) {  :Computes rate and other constants at current v.
         a = Ra * (v - tha) / (1 - exp(-(v - tha)/qa))
         b = -Rb * (v - tha) / (1 - exp((v - tha)/qa))
         ntau = 1/(a+b)
-	ninf = a*ntau
+	    ninf = a*ntau
 }
