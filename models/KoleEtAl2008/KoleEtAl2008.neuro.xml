@@ -397,7 +397,7 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
     <string>
 print &quot;Changing axon channels in Extra hoc code block Type 3&quot;
 
-/*
+
 
 na_segment = 3000
 na_soma = 60
@@ -428,8 +428,12 @@ PyrCell[0].axon {insert Km
 	gmax_Km(0.775:1) = Km_axon:Km_axon}
 
 
-*/
+
 </string> 
+   </void> 
+   <void method="put"> 
+    <int>2</int> 
+    <string></string> 
    </void> 
    <void method="put"> 
     <int>1</int> 
@@ -467,7 +471,7 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_63</string> 
+   <string>Sim_66</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -506,6 +510,9 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
      </void> 
      <void property="reference"> 
       <string>SampleIClamp</string> 
+     </void> 
+     <void property="segmentID"> 
+      <int>11</int> 
      </void> 
     </object> 
    </void> 
