@@ -20,7 +20,7 @@
             <meta:uri>http://senselab.med.yale.edu/senselab/NeuronDB/receptors2.asp</meta:uri>
         </meta:neuronDBref>
         
-        <doub_exp_syn max_conductance="0.7E-6" rise_time="0.3" decay_time="10" reversal_potential="-75"/>
+        <doub_exp_syn max_conductance="0" rise_time="0.3" decay_time="10" reversal_potential="-75"/>
     
     </synapse_type>
         
