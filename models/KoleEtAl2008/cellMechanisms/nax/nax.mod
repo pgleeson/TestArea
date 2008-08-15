@@ -37,7 +37,7 @@ NEURON {
 
 PARAMETER {
 	gmax = %Max Conductance Density%   	(pS/um2)	: 0.12 mho/cm2
-	vshift = 0	(mV)		: voltage shift (affects all)
+	vshift = 10	(mV)		: voltage shift (affects all)  ::::::::::::  Note PG changed this to 10, as this change was made in all sections in Kole example
 								
 	tha  = -35	(mV)		: v 1/2 for act		(-42)
 	qa   = 9	(mV)		: act slope		
