@@ -4,7 +4,7 @@
     <meta:notes>ChannelML file describing a single synaptic mechanism</meta:notes>
     
      
-    <synapse_type name="InhibSyn">
+    <synapse_type name="FastSynInput">
         
         <status value="stable">
             <meta:contributor>
@@ -20,7 +20,7 @@
             <meta:uri>http://senselab.med.yale.edu/senselab/NeuronDB/receptors2.asp</meta:uri>
         </meta:neuronDBref>
         
-        <doub_exp_syn max_conductance="0.7E-6" rise_time="0.3" decay_time="10" reversal_potential="-75"/>
+        <doub_exp_syn max_conductance="1.0E-4" rise_time=".24" decay_time=".26" reversal_potential="40"/>
     
     </synapse_type>
         

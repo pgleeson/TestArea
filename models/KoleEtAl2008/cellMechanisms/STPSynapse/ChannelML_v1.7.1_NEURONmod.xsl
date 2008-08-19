@@ -26,7 +26,7 @@
 <!-- Some parameters which can be changed to make more/less verbose output, etc.
      Some of these are changed in neuroConstruct before generating the script files-->
 
-<xsl:variable name="debug">1</xsl:variable>  <!-- Comments printed during run e.g. when syn mechanism receives event-->
+<xsl:variable name="debug">0</xsl:variable>  <!-- Comments printed during run e.g. when syn mechanism receives event-->
 
 <xsl:variable name="favourPublicParameters">0</xsl:variable>  <!-- make e.g. A, k, d of parameterised_hh accessible parameters in hoc-->
 
