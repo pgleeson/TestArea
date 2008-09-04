@@ -535,7 +535,7 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings"> 
-  <void property="genAllModFiles"> 
+  <void property="copySimFiles"> 
    <boolean>true</boolean> 
   </void> 
   <void property="nativeBlocks"> 
@@ -619,7 +619,7 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_134</string> 
+   <string>Sim_149</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -715,7 +715,7 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
      <void property="rate"> 
       <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
        <void property="fixedNum"> 
-        <float>0.05</float> 
+        <float>0.04</float> 
        </void> 
        <void property="numberType"> 
         <int>11</int> 
@@ -741,7 +741,7 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
      <void property="rate"> 
       <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
        <void property="fixedNum"> 
-        <float>0.04</float> 
+        <float>0.044</float> 
        </void> 
        <void property="numberType"> 
         <int>11</int> 
@@ -801,7 +801,7 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
       </void> 
      </void> 
      <void property="simDuration"> 
-      <float>3000.0</float> 
+      <float>7000.0</float> 
      </void> 
     </object> 
    </void> 
@@ -811,17 +811,28 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
       <void method="add"> 
        <string>SampleCellGroup</string> 
       </void> 
+      <void method="add"> 
+       <string>InhCells</string> 
+      </void> 
      </void> 
      <void property="description"> 
       <string></string> 
      </void> 
      <void property="inputs"> 
       <void method="add"> 
+       <string>InhInput</string> 
+      </void> 
+      <void method="add"> 
        <string>SampleIClamp</string> 
       </void> 
      </void> 
      <void property="name"> 
       <string>ReplicateModelDBVersion</string> 
+     </void> 
+     <void property="netConns"> 
+      <void method="add"> 
+       <string>NetConn_InhCells</string> 
+      </void> 
      </void> 
      <void property="plots"> 
       <void method="add"> 
@@ -835,7 +846,7 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
       </void> 
      </void> 
      <void property="simDuration"> 
-      <float>312.0</float> 
+      <float>7000.0</float> 
      </void> 
     </object> 
    </void> 
