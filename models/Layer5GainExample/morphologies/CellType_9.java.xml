@@ -64,17 +64,7 @@
    </void> 
   </void> 
   <void property="instanceName"> 
-   <string>PreSynCell</string> 
-  </void> 
-  <void property="synapsesVsGroups"> 
-   <void method="put"> 
-    <string>TestSyn</string> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>all</string> 
-     </void> 
-    </object> 
-   </void> 
+   <string>CellType_9</string> 
   </void> 
  </object> 
 </java> 
