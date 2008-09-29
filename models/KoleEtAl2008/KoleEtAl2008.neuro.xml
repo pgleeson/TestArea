@@ -222,7 +222,7 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
     <string>Colour</string> 
     <void method="add"> 
      <object class="java.awt.Color"> 
-      <int>255</int> 
+      <int>0</int> 
       <int>0</int> 
       <int>0</int> 
       <int>255</int> 
@@ -513,24 +513,30 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
  <object class="ucl.physiol.neuroconstruct.utils.Display3DProperties"> 
   <void property="backgroundColour3D"> 
    <object class="java.awt.Color"> 
-    <int>144</int> 
-    <int>166</int> 
-    <int>232</int> 
+    <int>255</int> 
+    <int>255</int> 
+    <int>255</int> 
     <int>255</int> 
    </object> 
   </void> 
   <void property="cellColour3D"> 
    <object class="java.awt.Color"> 
-    <int>255</int> 
-    <int>255</int> 
-    <int>255</int> 
+    <int>0</int> 
+    <int>0</int> 
+    <int>0</int> 
     <int>255</int> 
    </object> 
   </void> 
   <void property="displayOption"> 
    <string>Soma solid, neurite lines</string> 
   </void> 
+  <void property="showInputs"> 
+   <boolean>false</boolean> 
+  </void> 
   <void property="showRegions"> 
+   <boolean>false</boolean> 
+  </void> 
+  <void property="showSynapseConns"> 
    <boolean>false</boolean> 
   </void> 
  </object> 
@@ -619,7 +625,7 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_149</string> 
+   <string>Sim_155</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -715,7 +721,7 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
      <void property="rate"> 
       <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
        <void property="fixedNum"> 
-        <float>0.04</float> 
+        <float>0.033</float> 
        </void> 
        <void property="numberType"> 
         <int>11</int> 
@@ -741,7 +747,7 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
      <void property="rate"> 
       <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
        <void property="fixedNum"> 
-        <float>0.044</float> 
+        <float>0.15</float> 
        </void> 
        <void property="numberType"> 
         <int>11</int> 
@@ -801,7 +807,7 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
       </void> 
      </void> 
      <void property="simDuration"> 
-      <float>7000.0</float> 
+      <float>20000.0</float> 
      </void> 
     </object> 
    </void> 
