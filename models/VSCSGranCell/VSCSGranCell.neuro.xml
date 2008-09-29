@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.5.0_06" class="java.beans.XMLDecoder"> 
+<java version="1.6.0_03" class="java.beans.XMLDecoder"> 
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -14,7 +14,7 @@ part of NeuroML or any standardised XML specification. -->
 Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex &amp; De Schutter 2005</string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.0.9</string> 
+   <string>neuroConstruct v1.1.4</string> 
   </void> 
   <void property="projectName"> 
    <string>VSCSGranCell</string> 
@@ -1244,6 +1244,68 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
      </void> 
     </object> 
    </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>AllChansCG_mod</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_1</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>0.0025</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_28</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>cai</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>AllChansCG</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_1</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>2.5E-21</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_29</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>CaPool:CONC:ca</string> 
+     </void> 
+    </object> 
+   </void> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.project.ProjectProperties"/> 
@@ -1269,6 +1331,9 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings"> 
+  <void property="copySimFiles"> 
+   <boolean>true</boolean> 
+  </void> 
   <void property="generateComments"> 
    <boolean>false</boolean> 
   </void> 
@@ -1295,8 +1360,8 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
     if (ismembrane(&quot;ca_ion&quot;)) {
         print &quot;Changing rev pot of Ca in section &quot;, secname()
         ///eca = 80
-
-    cai = init_cai
+        cai = init_cai
+        cao=cao_pref	
     }
 
 
@@ -1304,22 +1369,24 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
 }</string> 
    </void> 
    <void method="put"> 
-    <int>-1</int> 
+    <int>1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
-    <int>1</int> 
+    <int>-1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
     <int>0</int> 
     <string>    
-init_cai = 3e-2
+init_cai = 7.5e-5
+cao_pref=1.2
 
 forall if (ismembrane(&quot;ca_ion&quot;)) {
 
 	print &quot;Changing cai in: &quot;, secname(), &quot; before INITIAL calls, so correct val of cai is used there...&quot;
 	cai = init_cai
+	cao=cao_pref
     }</string> 
    </void> 
   </void> 
@@ -1352,7 +1419,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_354</string> 
+   <string>Sim_385</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -1368,23 +1435,17 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
   <void property="allStims"> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amplitude"> 
-      <void property="end"> 
-       <float>0.01</float> 
-      </void> 
-      <void property="start"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
        <float>0.01</float> 
       </void> 
      </void> 
      <void property="cellGroup"> 
       <string>SampleCellGroup</string> 
      </void> 
-     <void property="duration"> 
-      <void property="end"> 
-       <float>60.0</float> 
-      </void> 
-      <void property="start"> 
-       <float>60.0</float> 
+     <void property="dur"> 
+      <void property="numberType"> 
+       <int>11</int> 
       </void> 
      </void> 
      <void property="reference"> 
@@ -1394,23 +1455,17 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    </void> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amplitude"> 
-      <void property="end"> 
-       <float>0.01</float> 
-      </void> 
-      <void property="start"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
        <float>0.01</float> 
       </void> 
      </void> 
      <void property="cellGroup"> 
       <string>OrigModCellGroup</string> 
      </void> 
-     <void property="duration"> 
-      <void property="end"> 
-       <float>60.0</float> 
-      </void> 
-      <void property="start"> 
-       <float>60.0</float> 
+     <void property="dur"> 
+      <void property="numberType"> 
+       <int>11</int> 
       </void> 
      </void> 
      <void property="reference"> 
@@ -1420,31 +1475,25 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    </void> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amplitude"> 
-      <void property="end"> 
-       <float>0.01</float> 
-      </void> 
-      <void property="start"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
        <float>0.01</float> 
       </void> 
      </void> 
      <void property="cellGroup"> 
       <string>AllChansCG</string> 
      </void> 
-     <void property="delay"> 
-      <void property="end"> 
-       <float>100.0</float> 
-      </void> 
-      <void property="start"> 
+     <void property="del"> 
+      <void property="fixedNum"> 
        <float>100.0</float> 
       </void> 
      </void> 
-     <void property="duration"> 
-      <void property="end"> 
+     <void property="dur"> 
+      <void property="fixedNum"> 
        <float>500.0</float> 
       </void> 
-      <void property="start"> 
-       <float>500.0</float> 
+      <void property="numberType"> 
+       <int>11</int> 
       </void> 
      </void> 
      <void property="reference"> 
@@ -1454,31 +1503,25 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    </void> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amplitude"> 
-      <void property="end"> 
-       <float>0.01</float> 
-      </void> 
-      <void property="start"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
        <float>0.01</float> 
       </void> 
      </void> 
      <void property="cellGroup"> 
       <string>AllChansCG_mod</string> 
      </void> 
-     <void property="delay"> 
-      <void property="end"> 
-       <float>100.0</float> 
-      </void> 
-      <void property="start"> 
+     <void property="del"> 
+      <void property="fixedNum"> 
        <float>100.0</float> 
       </void> 
      </void> 
-     <void property="duration"> 
-      <void property="end"> 
+     <void property="dur"> 
+      <void property="fixedNum"> 
        <float>500.0</float> 
       </void> 
-      <void property="start"> 
-       <float>500.0</float> 
+      <void property="numberType"> 
+       <int>11</int> 
       </void> 
      </void> 
      <void property="reference"> 
@@ -1488,31 +1531,25 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    </void> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amplitude"> 
-      <void property="end"> 
-       <float>0.01</float> 
-      </void> 
-      <void property="start"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
        <float>0.01</float> 
       </void> 
      </void> 
      <void property="cellGroup"> 
       <string>OneChanCML</string> 
      </void> 
-     <void property="delay"> 
-      <void property="end"> 
-       <float>100.0</float> 
-      </void> 
-      <void property="start"> 
+     <void property="del"> 
+      <void property="fixedNum"> 
        <float>100.0</float> 
       </void> 
      </void> 
-     <void property="duration"> 
-      <void property="end"> 
+     <void property="dur"> 
+      <void property="fixedNum"> 
        <float>500.0</float> 
       </void> 
-      <void property="start"> 
-       <float>500.0</float> 
+      <void property="numberType"> 
+       <int>11</int> 
       </void> 
      </void> 
      <void property="reference"> 
@@ -1522,31 +1559,25 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    </void> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amplitude"> 
-      <void property="end"> 
-       <float>0.01</float> 
-      </void> 
-      <void property="start"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
        <float>0.01</float> 
       </void> 
      </void> 
      <void property="cellGroup"> 
       <string>OneChanMod</string> 
      </void> 
-     <void property="delay"> 
-      <void property="end"> 
-       <float>100.0</float> 
-      </void> 
-      <void property="start"> 
+     <void property="del"> 
+      <void property="fixedNum"> 
        <float>100.0</float> 
       </void> 
      </void> 
-     <void property="duration"> 
-      <void property="end"> 
+     <void property="dur"> 
+      <void property="fixedNum"> 
        <float>500.0</float> 
       </void> 
-      <void property="start"> 
-       <float>500.0</float> 
+      <void property="numberType"> 
+       <int>11</int> 
       </void> 
      </void> 
      <void property="reference"> 
@@ -1584,22 +1615,28 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
      </void> 
      <void property="plots"> 
       <void method="add"> 
-       <string>Var_27</string> 
-      </void> 
-      <void method="add"> 
-       <string>Var_26</string> 
-      </void> 
-      <void method="add"> 
-       <string>Var_5</string> 
+       <string>SamplePlot</string> 
       </void> 
       <void method="add"> 
        <string>OrigModCellGroup_v</string> 
       </void> 
       <void method="add"> 
+       <string>Var_5</string> 
+      </void> 
+      <void method="add"> 
        <string>Var_4</string> 
       </void> 
       <void method="add"> 
-       <string>SamplePlot</string> 
+       <string>Var_3</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_2</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_1</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_0</string> 
       </void> 
      </void> 
      <void property="simDuration"> 
@@ -1697,10 +1734,13 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
        <string>Var_10</string> 
       </void> 
       <void method="add"> 
-       <string>Var_25</string> 
+       <string>Var_29</string> 
       </void> 
       <void method="add"> 
-       <string>AllChansCG_v</string> 
+       <string>Var_28</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_25</string> 
       </void> 
       <void method="add"> 
        <string>Var_24</string> 
@@ -1716,6 +1756,9 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
       </void> 
       <void method="add"> 
        <string>AllChansCG_mod_v</string> 
+      </void> 
+      <void method="add"> 
+       <string>AllChansCG_v</string> 
       </void> 
      </void> 
      <void property="simDuration"> 
@@ -1840,6 +1883,37 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
       </void> 
       <void method="add"> 
        <string>Var_24</string> 
+      </void> 
+     </void> 
+     <void property="simDuration"> 
+      <float>700.0</float> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
+     <void property="cellGroups"> 
+      <void method="add"> 
+       <string>AllChansCG_mod</string> 
+      </void> 
+     </void> 
+     <void property="description"> 
+      <string></string> 
+     </void> 
+     <void property="inputs"> 
+      <void method="add"> 
+       <string>Input_2</string> 
+      </void> 
+     </void> 
+     <void property="name"> 
+      <string>CellsPulse500ms</string> 
+     </void> 
+     <void property="plots"> 
+      <void method="add"> 
+       <string>Var_28</string> 
+      </void> 
+      <void method="add"> 
+       <string>AllChansCG_mod_v</string> 
       </void> 
      </void> 
      <void property="simDuration"> 
