@@ -21,7 +21,7 @@ NEURON {
         
 	NONSPECIFIC_CURRENT ih
         
-	RANGE o_fast_inf, o_slow_inf, tau_f, tau_s, gbar, ehcn2, g
+	RANGE o_fast_inf, o_slow_inf, tau_f, tau_s, gmax, ehcn2, g
         
 	:GLOBAL o_fast_inf, o_slow_inf
 }       
