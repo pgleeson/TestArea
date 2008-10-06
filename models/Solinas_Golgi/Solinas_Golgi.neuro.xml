@@ -10,11 +10,11 @@ part of NeuroML or any standardised XML specification. -->
  <object class="ucl.physiol.neuroconstruct.project.BasicProjectInfo"> 
   <void property="projectDescription"> 
    <string>Figure_2: pacemaking activity
-Figure_3: rebound excitation
-Figure_5A: Ih block
-Figure_5B: Kslow shift X
-Figure_9A: subthreshold oscillations X
-Noise X
+Figure_3: rebound excitation (increased firing rate after hyperpolarization)
+Figure_5A: Ih block (pacemaking activity reduced)
+Figure_9A: subthreshold oscillations (without the spike generating channels the pacemaking activity is slower)
+phase_reset: a random spike (200ms) reset the phase of the pacemaking activity
+Noise: the Golgi cell with random inhibitory and excitatory input added
 </string> 
   </void> 
   <void property="projectFileVersion"> 
@@ -179,9 +179,6 @@ Noise X
     <void method="add"> 
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/> 
     </void> 
-    <void method="add"> 
-     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/> 
-    </void> 
    </void> 
    <void method="get"> 
     <string>Cell Type</string> 
@@ -204,10 +201,7 @@ Noise X
      <string>Golgi_half_Ih</string> 
     </void> 
     <void method="add"> 
-     <string>ExcCell</string> 
-    </void> 
-    <void method="add"> 
-     <string>ExcCell</string> 
+     <string>Golgi_noAP</string> 
     </void> 
    </void> 
    <void method="get"> 
@@ -229,9 +223,6 @@ Noise X
     </void> 
     <void method="add"> 
      <int>5</int> 
-    </void> 
-    <void method="add"> 
-     <int>4</int> 
     </void> 
     <void method="add"> 
      <int>3</int> 
@@ -289,14 +280,6 @@ Noise X
     </void> 
     <void method="add"> 
      <object class="java.awt.Color"> 
-      <int>6</int> 
-      <int>126</int> 
-      <int>149</int> 
-      <int>255</int> 
-     </object> 
-    </void> 
-    <void method="add"> 
-     <object class="java.awt.Color"> 
       <int>39</int> 
       <int>119</int> 
       <int>99</int> 
@@ -327,9 +310,6 @@ Noise X
     <void method="add"> 
      <string>Regions_1</string> 
     </void> 
-    <void method="add"> 
-     <string>Regions_1</string> 
-    </void> 
    </void> 
    <void method="get"> 
     <string>Cell Group Name</string> 
@@ -350,9 +330,6 @@ Noise X
     </void> 
     <void method="add"> 
      <string>Golgi_half_Ih</string> 
-    </void> 
-    <void method="add"> 
-     <string>Golgi_Kslow</string> 
     </void> 
     <void method="add"> 
      <string>Glogi_noAP</string> 
@@ -766,7 +743,7 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_130</string> 
+   <string>Sim_159</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -834,13 +811,8 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
    </void> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amp"> 
-      <void property="fixedNum"> 
-       <float>0.2</float> 
-      </void> 
-     </void> 
      <void property="cellGroup"> 
-      <string>GolgySyn</string> 
+      <string>Golgi</string> 
      </void> 
      <void property="del"> 
       <void property="fixedNum"> 
@@ -848,6 +820,9 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
       </void> 
      </void> 
      <void property="dur"> 
+      <void property="fixedNum"> 
+       <float>10.0</float> 
+      </void> 
       <void property="numberType"> 
        <int>11</int> 
       </void> 
@@ -885,29 +860,6 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
      </void> 
     </object> 
    </void> 
-   <void method="add"> 
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="cellGroup"> 
-      <string>Golgi</string> 
-     </void> 
-     <void property="del"> 
-      <void property="fixedNum"> 
-       <float>0.0</float> 
-      </void> 
-     </void> 
-     <void property="dur"> 
-      <void property="fixedNum"> 
-       <float>1000.0</float> 
-      </void> 
-      <void property="numberType"> 
-       <int>11</int> 
-      </void> 
-     </void> 
-     <void property="reference"> 
-      <string>Kslow_shift</string> 
-     </void> 
-    </object> 
-   </void> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.project.SimConfigInfo"> 
@@ -916,7 +868,7 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
     <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
      <void property="cellGroups"> 
       <void method="add"> 
-       <string>Golgi_Kslow</string> 
+       <string>Golgi</string> 
       </void> 
      </void> 
      <void property="description"> 
@@ -924,7 +876,7 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
      </void> 
      <void property="inputs"> 
       <void method="add"> 
-       <string>Kslow_shift</string> 
+       <string>reset</string> 
       </void> 
      </void> 
      <void property="name"> 
@@ -933,6 +885,9 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
      <void property="plots"> 
       <void method="add"> 
        <string>Kslow_shift_v</string> 
+      </void> 
+      <void method="add"> 
+       <string>Golgi_v</string> 
       </void> 
      </void> 
      <void property="simDuration"> 
@@ -967,16 +922,36 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
     <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
      <void property="cellGroups"> 
       <void method="add"> 
-       <string>Golgi</string> 
+       <string>GolgySyn</string> 
+      </void> 
+      <void method="add"> 
+       <string>Exc</string> 
+      </void> 
+      <void method="add"> 
+       <string>Inh</string> 
       </void> 
      </void> 
      <void property="description"> 
-      <string>Golgi Cell recives excitatory and inhibitory inputs from samples cell populations.
-
-Under these conditions the phase reset should be induced by a triplet of spikes instead of a single spike.</string> 
+      <string></string> 
+     </void> 
+     <void property="inputs"> 
+      <void method="add"> 
+       <string>Excitation_noise</string> 
+      </void> 
+      <void method="add"> 
+       <string>Inhibition_noise</string> 
+      </void> 
      </void> 
      <void property="name"> 
       <string>Noise</string> 
+     </void> 
+     <void property="netConns"> 
+      <void method="add"> 
+       <string>NetConn_Exc_GolgySyn</string> 
+      </void> 
+      <void method="add"> 
+       <string>NetConn_Inh_GolgySyn</string> 
+      </void> 
      </void> 
      <void property="plots"> 
       <void method="add"> 
@@ -1031,17 +1006,11 @@ Under these conditions the phase reset should be induced by a triplet of spikes 
      </void> 
      <void property="plots"> 
       <void method="add"> 
-       <string>Var_1</string> 
-      </void> 
-      <void method="add"> 
-       <string>Var_0</string> 
-      </void> 
-      <void method="add"> 
        <string>Golgi_v</string> 
       </void> 
      </void> 
      <void property="simDuration"> 
-      <float>4000.0</float> 
+      <float>1000.0</float> 
      </void> 
     </object> 
    </void> 
@@ -1072,34 +1041,6 @@ Under these conditions the phase reset should be induced by a triplet of spikes 
     <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
      <void property="cellGroups"> 
       <void method="add"> 
-       <string>Golgi_Kslow</string> 
-      </void> 
-     </void> 
-     <void property="description"> 
-      <string></string> 
-     </void> 
-     <void property="inputs"> 
-      <void method="add"> 
-       <string>Kslow_shift</string> 
-      </void> 
-     </void> 
-     <void property="name"> 
-      <string>Figure_5B</string> 
-     </void> 
-     <void property="plots"> 
-      <void method="add"> 
-       <string>Golgi_Kslow_v</string> 
-      </void> 
-     </void> 
-     <void property="simDuration"> 
-      <float>1000.0</float> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="add"> 
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
-     <void property="cellGroups"> 
-      <void method="add"> 
        <string>Glogi_noAP</string> 
       </void> 
      </void> 
@@ -1112,6 +1053,34 @@ Under these conditions the phase reset should be induced by a triplet of spikes 
      <void property="plots"> 
       <void method="add"> 
        <string>Glogi_noAP_v</string> 
+      </void> 
+     </void> 
+     <void property="simDuration"> 
+      <float>100.0</float> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
+     <void property="cellGroups"> 
+      <void method="add"> 
+       <string>Golgi</string> 
+      </void> 
+     </void> 
+     <void property="description"> 
+      <string></string> 
+     </void> 
+     <void property="inputs"> 
+      <void method="add"> 
+       <string>reset</string> 
+      </void> 
+     </void> 
+     <void property="name"> 
+      <string>phase_reset</string> 
+     </void> 
+     <void property="plots"> 
+      <void method="add"> 
+       <string>Golgi_v</string> 
       </void> 
      </void> 
      <void property="simDuration"> 
