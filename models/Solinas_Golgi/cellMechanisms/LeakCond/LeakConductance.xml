@@ -8,11 +8,13 @@
     
     <meta:notes>ChannelML file containing a single Channel description</meta:notes>
 
-             <!-- A suggestion for how to deal with a non specific current, in a similar way to dealing with other ions-->
+                 <!-- A suggestion for how to deal with a non specific current, in a similar way to dealing with other ions-->
 
 
 
-    <ion name="non_specific" charge="1" default_erev="-55"/>              <!-- phys units: mV -->
+
+    <ion name="non_specific" charge="1" default_erev="-55"/>                  <!-- phys units: mV -->
+
 
  
  
@@ -29,7 +31,8 @@
         
         <current_voltage_relation>
             <ohmic ion="non_specific">
-                <conductance default_gmax="0.025"/>               <!-- phys units: mS/cm2-->
+                <conductance default_gmax="0.025"/>                   <!-- phys units: mS/cm2-->
+
 
             </ohmic>
         </current_voltage_relation>
