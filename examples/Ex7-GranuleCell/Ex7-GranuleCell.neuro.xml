@@ -19,7 +19,7 @@ This project shows how a cell model with multiple active conductances can produc
 </string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.1.2</string> 
+   <string>neuroConstruct v1.1.4</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex7-GranuleCell</string> 
@@ -783,7 +783,7 @@ end</string>
    <float>700.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_541</string> 
+   <string>Sim_555</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
