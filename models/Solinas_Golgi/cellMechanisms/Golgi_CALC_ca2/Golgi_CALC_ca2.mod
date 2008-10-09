@@ -23,7 +23,7 @@ UNITS {
 }
 
 PARAMETER {
-        ica2             (mA/cm2)
+        ica2        (mA/cm2)
         celsius    (degC)
         d = .2          (um)
         ca2o        (mM)   

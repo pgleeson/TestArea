@@ -48,7 +48,7 @@ PARAMETER {
 }
 
 ASSIGNED {
-	ih		(mA/cm2)
+	ih	(mA/cm2)
         v               (mV)
 	g		(S/cm2)
 	o_fast_inf

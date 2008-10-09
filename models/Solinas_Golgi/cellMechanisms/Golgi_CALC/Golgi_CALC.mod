@@ -23,7 +23,7 @@ UNITS {
 }
 
 PARAMETER {
-        ica             (mA/cm2)
+        ica       (mA/cm2)
         celsius    (degC)
         d = .2          (um)
         cao = 2.        (mM)      

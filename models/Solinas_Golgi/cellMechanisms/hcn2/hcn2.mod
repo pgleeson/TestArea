@@ -61,7 +61,7 @@ PARAMETER {
 
 ASSIGNED {
 
-	ih		(mA/cm2)
+	ih	(mA/cm2)
 
         v               (mV)
 

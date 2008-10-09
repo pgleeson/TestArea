@@ -715,10 +715,20 @@ Noise: the Golgi cell with random inhibitory and excitatory input added
   </void> 
   <void property="nativeBlocks"> 
    <void method="put"> 
+    <int>10</int> 
+    <string></string> 
+   </void> 
+   <void method="put"> 
+    <int>3</int> 
+    <string></string> 
+   </void> 
+   <void method="put"> 
+    <int>2</int> 
+    <string></string> 
+   </void> 
+   <void method="put"> 
     <int>1</int> 
-    <string>print &quot;Changing values of ena, ek&quot;
-
-forall if (ismembrane(&quot;na_ion&quot;)) {
+    <string>forall if (ismembrane(&quot;na_ion&quot;)) {
 	print &quot;Changing ena in: &quot;, secname()
 	ena = 87.39
 }
@@ -728,9 +738,19 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
 	ek = -84.69
 }
 
-
-
+forall if (ismembrane(&quot;ca_ion&quot;)) {
+	print &quot;Changing eca in: &quot;, secname()
+	eca = 136.3
+}
 </string> 
+   </void> 
+   <void method="put"> 
+    <int>-1</int> 
+    <string></string> 
+   </void> 
+   <void method="put"> 
+    <int>0</int> 
+    <string></string> 
    </void> 
   </void> 
  </object> 
@@ -743,7 +763,7 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_163</string> 
+   <string>Sim_178</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
