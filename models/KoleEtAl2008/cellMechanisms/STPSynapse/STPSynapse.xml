@@ -15,9 +15,9 @@
         <meta:notes>Example of a synaptic mechanism incorporating short term plasticity</meta:notes>
         
         
-        <fac_dep_syn max_conductance="1.666667E-7" rise_time=".3" decay_time="3" reversal_potential="0">
+        <fac_dep_syn max_conductance="2.0e-06" rise_time=".3" decay_time="3" reversal_potential="0">
             
-             <plasticity init_release_prob="1.0" tau_fac="0" tau_rec="1e-08"/>
+             <plasticity init_release_prob="0.5" tau_fac="3" tau_rec="500"/>
             
         </fac_dep_syn>
     

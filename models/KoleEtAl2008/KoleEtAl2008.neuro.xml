@@ -625,7 +625,7 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_155</string> 
+   <string>Sim_209</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -721,7 +721,7 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
      <void property="rate"> 
       <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
        <void property="fixedNum"> 
-        <float>0.033</float> 
+        <float>0.06</float> 
        </void> 
        <void property="numberType"> 
         <int>11</int> 
@@ -747,7 +747,7 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
      <void property="rate"> 
       <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
        <void property="fixedNum"> 
-        <float>0.15</float> 
+        <float>0.05</float> 
        </void> 
        <void property="numberType"> 
         <int>11</int> 
@@ -773,9 +773,6 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
        <string>SampleCellGroup</string> 
       </void> 
       <void method="add"> 
-       <string>InhCells</string> 
-      </void> 
-      <void method="add"> 
        <string>ExcCells</string> 
       </void> 
      </void> 
@@ -783,9 +780,6 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
       <string>This is the default configuration of the Cell Groups, stimulations, plots, etc for this project</string> 
      </void> 
      <void property="inputs"> 
-      <void method="add"> 
-       <string>InhInput</string> 
-      </void> 
       <void method="add"> 
        <string>ExcInput</string> 
       </void> 
@@ -797,9 +791,6 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
       <void method="add"> 
        <string>NetConn_ExcCells</string> 
       </void> 
-      <void method="add"> 
-       <string>NetConn_InhCells</string> 
-      </void> 
      </void> 
      <void property="plots"> 
       <void method="add"> 
@@ -807,7 +798,7 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
       </void> 
      </void> 
      <void property="simDuration"> 
-      <float>20000.0</float> 
+      <float>3000.0</float> 
      </void> 
     </object> 
    </void> 
@@ -852,7 +843,7 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
       </void> 
      </void> 
      <void property="simDuration"> 
-      <float>7000.0</float> 
+      <float>8000.0</float> 
      </void> 
     </object> 
    </void> 
