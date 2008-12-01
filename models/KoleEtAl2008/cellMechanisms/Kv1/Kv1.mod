@@ -55,7 +55,7 @@ CONSTANT {
 	cka = -33.90877 (mV)
 
 	cb = 0.12889 (1/ms)
-     cvb = 50 (mV)
+        cvb = 50 (mV)
 	ckb = 7.42101 (mV)         
 }
 
@@ -88,7 +88,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-      gk = gmax * n^4 
+        gk = gmax * n^4
 	ik = gk * (v - ek)
 }
 

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema  ../../Schemata/v1.7.3/Level2/ChannelML_v1.7.3.xsd" units="SI Units">
+
+    <meta:notes>A channel from Maex and De Schutter 1998. Note, the values used here are based on the GENESIS scripts accompanying the paper</meta:notes>
+    
+    <ion name="k" default_erev="-0.09" charge="1" role="PermeatedSubstance">
+        <meta:notes>The ion which actually flows through the channel</meta:notes>
+    </ion>
+    <ion name="ca" charge="2" role="ModulatingSubstance">
+        <meta:notes>The channel's conductance of K is dependent on this ion's concentration</meta:notes>
+    </ion>
+    
+    <channel_type name="KC_CML" density="yes">
+    
+    <status value="in_progress">
+               
+            </status>
+            
+        <meta:notes>Calcium dependent K channel</meta:notes>
+        
+            <meta:authorList>
+                <meta:modelTranslator>
+                    <meta:name>Padraig Gleeson</meta:name>
+                    <meta:institution>UCL</meta:institution>    
+                    <meta:email>p.gleeson - at - ucl.ac.uk</meta:email>
+                </meta:modelTranslator>
+            </meta:authorList>
+            
+                <!--
+            
+            <meta:publication>
+               <meta:fullTitle>Maex, R and De Schutter, E. 
+               Synchronization of Golgi and Granule Cell Firing in a Detailed Network Model of the 
+               cerebellar Granule Cell Layer. J Neurophysiol, Nov 1998; 80: 2521 - 2537</meta:fullTitle>
+               <meta:pubmedRef>http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=9819260&amp;dopt=Abstract</meta:pubmedRef>
+            </meta:publication>     
+       
+            <meta:neuronDBref>
+                <meta:modelName>K channels</meta:modelName>
+                <meta:uri>http://senselab.med.yale.edu/senselab/NeuronDB/channelGene2.htm#table3</meta:uri>
+            </meta:neuronDBref>
+            
+        -->
+    
+
+
+        <current_voltage_relation cond_law="ohmic" ion="k" default_gmax="9" default_erev="-0.09">
+            
+            <conc_dependence name="Calcium" ion="ca" variable_name="ca_conc" min_conc="7.55e-7" max_conc="0.050"/>
+                
+            <q10_settings q10_factor="3" experimental_temp="30"/>
+            
+            <offset value="0.010"/>            
+            
+            <gate name="m" instances="1">
+                <closed_state id="mc"/>
+                <open_state id="mo" fraction="1"/>
+                                
+		<!--
+			Aalpha_c = 7 (/ms)
+			Balpha_c = 1.5e-3 (mM)
+
+			Kalpha_c =  -11.765 (mV)
+
+			Abeta_c = 1 (/ms)
+			Bbeta_c = 0.15e-3 (mM)
+
+			Kbeta_c = -11.765 (mV)
+			
+			alp_c = tcorr*Aalpha_c/(1+(Balpha_c*exp(v/Kalpha_c)/cai))
+				7/(1 + (1.5e-3 * exp(v/-11.765)/ca_conc))
+				
+			bet_c = tcorr*Abeta_c/(1+cai/(Bbeta_c*exp(v/Kbeta_c)))
+				1/(1 + cai/(0.15e-3*exp(v/-11.765)))
+
+                -->
+                     
+                <transition name="alpha" from="mc" to="mo" expr_form="generic" expr="7/(1 + (1.5e-3 * exp(v/-11.765)/ca_conc))"/>
+                <transition name="beta" from="mo" to="mc" expr_form="generic" expr="1/(1 + ca_conc/(0.15e-3*exp(v/-11.765)))"/>
+                    
+            </gate>
+        </current_voltage_relation> 
+        
+        
+    </channel_type>
+</channelml>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema  ../../Schemata/v1.7.3/Level2/ChannelML_v1.7.3.xsd" units="Physiological Units">
+
+    <meta:notes>ChannelML file containing a single Channel description</meta:notes>
+
+    <channel_type name="na_CML" density="yes">
+    
+            <status value="in_progress">
+	               
+	            </status>
+	            
+	            <meta:notes>v Voltage-gated low threshold potassium current from Kv1 subunits</meta:notes>
+	        
+	            <meta:authorList>
+	                <meta:modelTranslator>
+	                    <meta:name>Padraig Gleeson</meta:name>
+	                    <meta:institution>UCL</meta:institution>    
+	                    <meta:email>p.gleeson - at - ucl.ac.uk</meta:email>
+	                </meta:modelTranslator>
+	            </meta:authorList>
+	            
+	            <!--
+	            
+	            <meta:publication>
+	               <meta:fullTitle>Maex, R and De Schutter, E. 
+	               Synchronization of Golgi and Granule Cell Firing in a Detailed Network Model of the 
+	               cerebellar Granule Cell Layer. J Neurophysiol, Nov 1998; 80: 2521 - 2537</meta:fullTitle>
+	               <meta:pubmedRef>http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=9819260&amp;dopt=Abstract</meta:pubmedRef>
+	            </meta:publication>     
+	       
+	            <meta:neuronDBref>
+	                <meta:modelName>K channels</meta:modelName>
+	                <meta:uri>http://senselab.med.yale.edu/senselab/NeuronDB/channelGene2.htm#table3</meta:uri>
+	            </meta:neuronDBref>
+	            
+                    -->
+
+        <current_voltage_relation cond_law="ohmic" ion="na" default_erev="50" default_gmax="120"> 
+            
+            <gate name="m" instances="3">
+                <closed_state id="m0"/>
+                <open_state id="m"/>
+                
+                <!--
+		
+		tha  = -28	(mV)		: v 1/2 for act		(-42)
+		qa   = 9	(mV)			: act slope		
+		Ra   = 0.182	(/ms)	: open (v)		
+		Rb   = 0.124	(/ms)	: close (v)		
+
+		thi1  = -50	(mV)		: v 1/2 for inact 	
+		thi2  = -75	(mV)		: v 1/2 for inact 	
+		qi   = 5	(mV)	        	: inact tau slope
+		thinf  = -55	(mV)		: inact inf slope	
+		qinf  = 6.2	(mV)		: inact inf slope
+		Rg   = 0.0091	(/ms)	: inact (v)	
+		Rd   = 0.024	(/ms)	: inact recov (v) 
+
+		temp = 23	(degC)		: original temp 
+
+		a = trap0(vm,tha,Ra,qa)
+		b = trap0(-vm,-tha,Rb,qa)
+	
+		trap0(v,th,a,q)
+		
+		trap0 = a * (v - th) / (1 - exp(-(v - th)/q))
+		
+		
+		A= a*q (-A if v=-vm)
+		V1 = th*2
+		B = q or -q
+		
+		alpha =  A * ((v-V1/2)/B)  / (1 - exp(-(v-V1/2)/B))  (exp_linear)
+                
+                -->
+
+                <transition name="alpha" from="m0" to="m" expr_form="exp_linear" rate="9" scale="1.638" midpoint="-56"/>  
+                <transition name="beta" from="m" to="m0" expr_form="exponential" rate="9" scale="-1.116" midpoint="56"/>  
+
+            </gate>
+            <gate name="h" instances="1">
+                <closed_state id="h0"/>
+                <open_state id="h"/>
+                
+                <!--
+                
+                a = trap0(vm,thi1,Rd,qi)
+		b = trap0(-vm,-thi2,Rg,qi)
+
+                -->
+
+                <transition name="alpha" from="h0" to="h" expr_form="exponential" rate="5" scale="0.12" midpoint="-100"/>  
+                <transition name="beta" from="h" to="h0" expr_form="sigmoid" rate="5" scale="-0.0455" midpoint="150"/>    
+
+            </gate>
+        </current_voltage_relation>
+        
+        
+    </channel_type>
+</channelml>

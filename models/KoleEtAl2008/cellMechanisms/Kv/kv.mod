@@ -109,4 +109,3 @@ PROCEDURE rates(v) {  :Computes rate and other constants at current v.
         ntau = 1/(a+b)
 	ninf = a*ntau
 }
-

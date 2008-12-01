@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema  ../../Schemata/v1.7.3/Level2/ChannelML_v1.7.3.xsd" units="Physiological Units">
+
+    <meta:notes>ChannelML file containing a single Channel description</meta:notes>
+
+    <channel_type name="KA_CML" density="yes">
+    
+        <status value="in_progress">
+	           
+	        </status>
+	        
+	        <meta:notes>A type K channel</meta:notes>
+	    
+	        <meta:authorList>
+	            <meta:modelTranslator>
+	                <meta:name>Padraig Gleeson</meta:name>
+	                <meta:institution>UCL</meta:institution>    
+	                <meta:email>p.gleeson - at - ucl.ac.uk</meta:email>
+	            </meta:modelTranslator>
+	        </meta:authorList>
+	        
+	            <!--
+	        
+	        <meta:publication>
+	           <meta:fullTitle>Maex, R and De Schutter, E. 
+	           Synchronization of Golgi and Granule Cell Firing in a Detailed Network Model of the 
+	           cerebellar Granule Cell Layer. J Neurophysiol, Nov 1998; 80: 2521 - 2537</meta:fullTitle>
+	           <meta:pubmedRef>http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=9819260&amp;dopt=Abstract</meta:pubmedRef>
+	        </meta:publication>     
+	   
+	        <meta:neuronDBref>
+	            <meta:modelName>K channels</meta:modelName>
+	            <meta:uri>http://senselab.med.yale.edu/senselab/NeuronDB/channelGene2.htm#table3</meta:uri>
+	        </meta:neuronDBref>
+	        
+	        -->
+	
+	
+	        
+	        <current_voltage_relation cond_law="ohmic" ion="k" default_gmax="48" default_erev="-85">
+	            
+	            <q10_settings q10_factor="3" experimental_temp="20"/>	            	            
+	          
+	                <!--
+	                Aalpha_a = 0.8147 (/ms)
+			Kalpha_a = -23.32708 (mV)
+			V0alpha_a = -9.17203 (mV)
+			
+			alp_a = tcorr*Aalpha_a*sigm(v-V0alpha_a,Kalpha_a)
+						FUNCTION sigm(x (mV),y (mV)) {
+						              sigm = 1/(exp(x/y) + 1)
+						}
+						
+			alp_a = tcorr*Aalpha_a*1/(exp((v-V0alpha_a)/Kalpha_a)) + 1)
+
+						
+			Abeta_a = 0.1655 (/ms)
+			Kbeta_a = 19.47175 (mV)
+			V0beta_a = -18.27914 (mV)
+			
+			bet_a = tcorr*Abeta_a/(exp((v-V0beta_a)/Kbeta_a))
+
+
+			Aalpha_b = 0.0368 (/ms)
+			Kalpha_b = 12.8433 (mV)
+			V0alpha_b = -111.33209 (mV) 
+			
+			alp_b = tcorr*Aalpha_b*sigm(v-V0alpha_b,Kalpha_b)
+
+			
+			Abeta_b = 0.0345(/ms)
+			Kbeta_b = -8.90123 (mV)
+			V0beta_b = -49.9537 (mV)
+			
+			bet_b = tcorr*Abeta_b*sigm(v-V0beta_b,Kbeta_b)
+
+
+			V0_ainf = -38(mV)
+			K_ainf = -17(mV)
+
+			a_inf = 1/(1+exp((v-V0_ainf)/K_ainf)) 
+
+			V0_binf = -78.8 (mV)
+			K_binf = 8.4 (mV)	
+			
+			b_inf = 1/(1+exp((v-V0_binf)/K_binf))
+
+			
+			A / (1 + exp(k * (v-d))) (sigmoid)
+			
+			alpha =  A * ((v-V1/2)/B)  / (1 - exp(-(v-V1/2)/B))  (exp_linear)
+			
+			beta = A * exp((v-V1/2)/B)   (exponential)
+			
+			
+			 
+	                -->
+            
+            <gate name="a" instances="3">
+                <closed_state id="a0"/>
+                <open_state id="a"/>
+
+                <transition name="alpha" from="a0" to="a" expr_form="sigmoid" rate="0.8147" scale="-0.0428 " midpoint="-9.17203"/>  
+                <transition name="beta" from="a" to="a0" expr_form="generic" expr="0.1655 /(exp((v+18.27914)/19.47175)"/>  
+                <!--<steady_state name="inf" from="a0" to="a" expr_form="sigmoid" rate="1" scale="-0.1428 " midpoint="-38"/>-->
+
+            </gate>
+            
+	    <gate name="b" instances="1">
+		<closed_state id="b0"/>
+		<open_state   id="b"/>
+
+		<transition name="alpha" from="b0" to="b" expr_form="sigmoid" rate="0.0368" scale="-0.0778 " midpoint="-111.33209"/>   
+		<transition name="beta"  from="b" to="b0" expr_form="sigmoid" rate="0.8147" scale="-0.1123 " midpoint="-9.17203"/> 
+		<steady_state name="inf" from="b0" to="b" expr_form="sigmoid" rate="1" scale="-0.119 " midpoint="-78.8"/>
+
+            </gate>
+            
+        </current_voltage_relation>
+        
+	<impl_prefs>
+		    <table_settings max_v="30" min_v="-100" table_divisions="13000"/>
+	</impl_prefs>
+
+        
+    </channel_type>
+</channelml>
