@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.6.0_03" class="java.beans.XMLDecoder"> 
+<java version="1.6.0_07" class="java.beans.XMLDecoder"> 
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -32,7 +32,7 @@ Max allowed electrotonic length of 0.21 is probably too long...
 </string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.1.2</string> 
+   <string>neuroConstruct v1.2.0</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex8-DentateGyrus</string> 
@@ -840,9 +840,6 @@ Max allowed electrotonic length of 0.21 is probably too long...
     <int>255</int> 
    </object> 
   </void> 
-  <void property="displayOption"> 
-   <string>Soma solid, neurite lines</string> 
-  </void> 
   <void property="resolution3DElements"> 
    <int>22</int> 
   </void> 
@@ -877,11 +874,11 @@ Max allowed electrotonic length of 0.21 is probably too long...
     <string></string> 
    </void> 
    <void method="put"> 
-    <int>1</int> 
+    <int>-1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
-    <int>-1</int> 
+    <int>1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
