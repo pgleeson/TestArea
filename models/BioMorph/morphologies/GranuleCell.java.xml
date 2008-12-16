@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.5.0_06" class="java.beans.XMLDecoder"> 
+<java version="1.6.0_03" class="java.beans.XMLDecoder"> 
 
-<!-- Note that this XML is specific to the neuroConstruct Java cell object model and not part of the NeuroML framework -->
+<!-- Note that this XML is specific to the neuroConstruct Java cell object model and not any part of the NeuroML framework -->
 
  <object class="ucl.physiol.neuroconstruct.cell.examples.GranuleCell"> 
   <void property="allSegments"> 
@@ -572,6 +572,21 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
+      <float>1.2E-6</float> 
+     </void> 
+     <void property="name"> 
+      <string>NaConductance</string> 
+     </void> 
+    </object> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>soma_group</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="density"> 
       <float>3.0E-9</float> 
      </void> 
      <void property="name"> 
@@ -591,21 +606,6 @@
      </void> 
      <void property="name"> 
       <string>KConductance</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>soma_group</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
-      <float>1.2E-6</float> 
-     </void> 
-     <void property="name"> 
-      <string>NaConductance</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 

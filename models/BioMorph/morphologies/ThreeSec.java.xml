@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.5.0_06" class="java.beans.XMLDecoder"> 
+<java version="1.6.0_03" class="java.beans.XMLDecoder"> 
 
-<!-- Note that this XML is specific to the neuroConstruct Java cell object model and not part of the NeuroML framework -->
+<!-- Note that this XML is specific to the neuroConstruct Java cell object model and not any part of the NeuroML framework -->
 
  <object class="ucl.physiol.neuroconstruct.cell.Cell"> 
   <void property="allSegments"> 
@@ -174,11 +174,6 @@
       <string>all</string> 
      </void> 
     </object> 
-   </void> 
-  </void> 
-  <void property="initialPotential"> 
-   <void property="numberType"> 
-    <int>11</int> 
    </void> 
   </void> 
   <void property="instanceName"> 
