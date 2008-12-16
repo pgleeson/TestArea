@@ -23,7 +23,7 @@ To change the number and layout of cells in the example, go to tab Cell Groups, 
 </string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.1.2</string> 
+   <string>neuroConstruct v1.2.1</string> 
   </void> 
   <void property="projectName"> 
    <string>Ex1-Simple</string> 
@@ -221,7 +221,7 @@ To change the number and layout of cells in the example, go to tab Cell Groups, 
    <float>-65.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_42</string> 
+   <string>Sim_44</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 

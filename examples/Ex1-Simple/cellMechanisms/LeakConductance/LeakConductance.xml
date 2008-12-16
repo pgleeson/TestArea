@@ -8,9 +8,6 @@
     
     <meta:notes>ChannelML file containing a single Channel description</meta:notes>
 
-
-    <ion name="non_specific" charge="1" default_erev="-60"/>      <!-- phys units: mV -->
-
  
     <channel_type name="LeakConductance" density="yes">
     
@@ -18,12 +15,8 @@
         
         <meta:notes>Simple example of a leak/passive conductance. </meta:notes>
         
-        <current_voltage_relation>
-            <ohmic ion="non_specific">
-                <conductance default_gmax="0.3"/>       <!-- phys units: mS/cm2-->
-            </ohmic>
-        </current_voltage_relation>
-   
+        <current_voltage_relation  cond_law="ohmic" ion="non_specific" default_erev="-60" default_gmax="0.3"/>
+
     </channel_type>
  
 </channelml>
