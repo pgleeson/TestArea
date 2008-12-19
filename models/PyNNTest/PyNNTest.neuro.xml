@@ -101,7 +101,7 @@ part of NeuroML or any standardised XML specification. -->
       <void property="parameterList"> 
        <void index="2"> 
         <void property="value"> 
-         <float>3.0</float> 
+         <float>6.0</float> 
         </void> 
        </void> 
       </void> 
@@ -112,7 +112,7 @@ part of NeuroML or any standardised XML specification. -->
       <void property="parameterList"> 
        <void index="2"> 
         <void property="value"> 
-         <float>4.0</float> 
+         <float>7.0</float> 
         </void> 
        </void> 
       </void> 
@@ -190,10 +190,10 @@ part of NeuroML or any standardised XML specification. -->
       <string>CellsA_v</string> 
      </void> 
      <void property="maxValue"> 
-      <float>50.0</float> 
+      <float>-45.0</float> 
      </void> 
      <void property="minValue"> 
-      <float>-90.0</float> 
+      <float>-65.0</float> 
      </void> 
      <void property="plotAndOrSave"> 
       <string>Plot and save</string> 
@@ -218,10 +218,10 @@ part of NeuroML or any standardised XML specification. -->
       <string>CellsB_v</string> 
      </void> 
      <void property="maxValue"> 
-      <float>50.0</float> 
+      <float>-45.0</float> 
      </void> 
      <void property="minValue"> 
-      <float>-90.0</float> 
+      <float>-65.0</float> 
      </void> 
      <void property="plotAndOrSave"> 
       <string>Plot and save</string> 
@@ -269,7 +269,7 @@ part of NeuroML or any standardised XML specification. -->
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_9</string> 
+   <string>Sim_53</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
