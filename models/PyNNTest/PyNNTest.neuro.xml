@@ -8,6 +8,9 @@ Note that this file is neuroConstruct specific and isn't any
 part of NeuroML or any standardised XML specification. -->
 
  <object class="ucl.physiol.neuroconstruct.project.BasicProjectInfo"> 
+  <void property="projectDescription"> 
+   <string> </string> 
+  </void> 
   <void property="projectFileVersion"> 
    <string>neuroConstruct v1.2.1</string> 
   </void> 
@@ -101,7 +104,7 @@ part of NeuroML or any standardised XML specification. -->
       <void property="parameterList"> 
        <void index="2"> 
         <void property="value"> 
-         <float>5.0</float> 
+         <float>3.0</float> 
         </void> 
        </void> 
       </void> 
@@ -112,7 +115,7 @@ part of NeuroML or any standardised XML specification. -->
       <void property="parameterList"> 
        <void index="2"> 
         <void property="value"> 
-         <float>7.0</float> 
+         <float>4.0</float> 
         </void> 
        </void> 
       </void> 
@@ -144,16 +147,16 @@ part of NeuroML or any standardised XML specification. -->
    <void method="get"> 
     <string>Cell Type</string> 
     <void method="add"> 
-     <string>IF_cond_alpha</string> 
+     <string>IF_cond_alpha_A</string> 
     </void> 
     <void method="add"> 
-     <string>IF_cond_alpha</string> 
+     <string>IF_cond_alpha_A</string> 
     </void> 
     <void method="add"> 
-     <string>IF_cond_alpha</string> 
+     <string>IF_cond_alpha_A</string> 
     </void> 
     <void method="add"> 
-     <string>IF_cond_alpha</string> 
+     <string>IF_cond_alpha_A</string> 
     </void> 
    </void> 
    <void method="get"> 
@@ -354,11 +357,7 @@ part of NeuroML or any standardised XML specification. -->
    </void> 
   </void> 
  </object> 
- <object class="ucl.physiol.neuroconstruct.project.ProjectProperties"> 
-  <void property="preferredSaveFormat"> 
-   <string>Java Serialized Object Format</string> 
-  </void> 
- </object> 
+ <object class="ucl.physiol.neuroconstruct.project.ProjectProperties"/> 
  <object class="ucl.physiol.neuroconstruct.utils.Display3DProperties"> 
   <void property="backgroundColour3D"> 
    <object class="java.awt.Color"> 
@@ -379,6 +378,9 @@ part of NeuroML or any standardised XML specification. -->
   <void property="showRegions"> 
    <boolean>false</boolean> 
   </void> 
+  <void property="showSynapseEndpoints"> 
+   <boolean>false</boolean> 
+  </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings"/> 
  <object class="ucl.physiol.neuroconstruct.genesis.GenesisSettings"/> 
@@ -390,12 +392,9 @@ part of NeuroML or any standardised XML specification. -->
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_80</string> 
+   <string>Sim_181</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
-   <boolean>true</boolean> 
-  </void> 
-  <void property="specifySimName"> 
    <boolean>true</boolean> 
   </void> 
   <void property="whatToRecord"> 
@@ -415,7 +414,7 @@ part of NeuroML or any standardised XML specification. -->
      <void property="rate"> 
       <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
        <void property="fixedNum"> 
-        <float>0.05</float> 
+        <float>0.3</float> 
        </void> 
        <void property="numberType"> 
         <int>11</int> 
@@ -464,9 +463,6 @@ part of NeuroML or any standardised XML specification. -->
     <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
      <void property="cellGroups"> 
       <void method="add"> 
-       <string>CellsB</string> 
-      </void> 
-      <void method="add"> 
        <string>CellsA</string> 
       </void> 
      </void> 
@@ -495,7 +491,7 @@ part of NeuroML or any standardised XML specification. -->
       </void> 
      </void> 
      <void property="simDuration"> 
-      <float>1000.0</float> 
+      <float>500.0</float> 
      </void> 
     </object> 
    </void> 
@@ -679,6 +675,9 @@ part of NeuroML or any standardised XML specification. -->
        <void property="fixedNum"> 
         <float>3.0</float> 
        </void> 
+      </void> 
+      <void property="onlyConnectToUniqueCells"> 
+       <boolean>true</boolean> 
       </void> 
      </object> 
     </void> 
