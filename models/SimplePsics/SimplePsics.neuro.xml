@@ -23,7 +23,7 @@ To change the number and layout of cells in the example, go to tab Cell Groups, 
 </string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.2.0</string> 
+   <string>neuroConstruct v1.2.1</string> 
   </void> 
   <void property="projectName"> 
    <string>SimplePsics</string> 
@@ -89,17 +89,26 @@ To change the number and layout of cells in the example, go to tab Cell Groups, 
       </void> 
      </object> 
     </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Cell Type</string> 
     <void method="add"> 
      <string>OneCompCell</string> 
     </void> 
+    <void method="add"> 
+     <string>MultiCell</string> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Priority</string> 
     <void method="add"> 
      <int>10</int> 
+    </void> 
+    <void method="add"> 
+     <int>9</int> 
     </void> 
    </void> 
    <void method="get"> 
@@ -112,9 +121,20 @@ To change the number and layout of cells in the example, go to tab Cell Groups, 
       <int>255</int> 
      </object> 
     </void> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>121</int> 
+      <int>96</int> 
+      <int>127</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Region Name</string> 
+    <void method="add"> 
+     <string>Regions_1</string> 
+    </void> 
     <void method="add"> 
      <string>Regions_1</string> 
     </void> 
@@ -123,6 +143,9 @@ To change the number and layout of cells in the example, go to tab Cell Groups, 
     <string>Cell Group Name</string> 
     <void method="add"> 
      <string>SampleCellGroup</string> 
+    </void> 
+    <void method="add"> 
+     <string>BigCG</string> 
     </void> 
    </void> 
   </void> 
@@ -160,13 +183,13 @@ To change the number and layout of cells in the example, go to tab Cell Groups, 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
      <void property="cellGroup"> 
-      <string>CellGroup_2</string> 
+      <string>BigCG</string> 
      </void> 
      <void property="cellNumber"> 
       <string>*</string> 
      </void> 
      <void property="graphWindow"> 
-      <string>CellGroup_2_v</string> 
+      <string>BigCG_v</string> 
      </void> 
      <void property="maxValue"> 
       <float>50.0</float> 
@@ -178,10 +201,38 @@ To change the number and layout of cells in the example, go to tab Cell Groups, 
       <string>Plot and save</string> 
      </void> 
      <void property="plotReference"> 
-      <string>CellGroup_2_v</string> 
+      <string>BigCG_v</string> 
      </void> 
      <void property="segmentId"> 
       <string>0</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>BigCG</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>BigCG_v</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>BigCG_v_1</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>5</string> 
      </void> 
     </object> 
    </void> 
@@ -249,7 +300,7 @@ To change the number and layout of cells in the example, go to tab Cell Groups, 
    <float>-65.0</float> 
   </void> 
   <void property="reference"> 
-   <string>SimXX_21</string> 
+   <string>SimXX_32</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -272,6 +323,21 @@ To change the number and layout of cells in the example, go to tab Cell Groups, 
      </void> 
      <void property="reference"> 
       <string>Input_0</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
+     <void property="cellGroup"> 
+      <string>BigCG</string> 
+     </void> 
+     <void property="dur"> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_1</string> 
      </void> 
     </object> 
    </void> 
@@ -301,8 +367,36 @@ To change the number and layout of cells in the example, go to tab Cell Groups, 
       <void method="add"> 
        <string>Plot_0</string> 
       </void> 
+     </void> 
+     <void property="simDuration"> 
+      <float>100.0</float> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
+     <void property="cellGroups"> 
       <void method="add"> 
-       <string>CellGroup_2_v</string> 
+       <string>BigCG</string> 
+      </void> 
+     </void> 
+     <void property="description"> 
+      <string>A larger multi comp cell</string> 
+     </void> 
+     <void property="inputs"> 
+      <void method="add"> 
+       <string>Input_1</string> 
+      </void> 
+     </void> 
+     <void property="name"> 
+      <string>BiggerCell</string> 
+     </void> 
+     <void property="plots"> 
+      <void method="add"> 
+       <string>BigCG_v</string> 
+      </void> 
+      <void method="add"> 
+       <string>BigCG_v_1</string> 
       </void> 
      </void> 
      <void property="simDuration"> 
