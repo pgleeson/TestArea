@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.6.0_07" class="java.beans.XMLDecoder"> 
+<java version="1.6.0_11" class="java.beans.XMLDecoder"> 
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -126,7 +126,7 @@ part of NeuroML or any standardised XML specification. -->
       <void property="parameterList"> 
        <void index="2"> 
         <void property="value"> 
-         <float>100.0</float> 
+         <float>40.0</float> 
         </void> 
        </void> 
       </void> 
@@ -137,7 +137,7 @@ part of NeuroML or any standardised XML specification. -->
       <void property="parameterList"> 
        <void index="2"> 
         <void property="value"> 
-         <float>200.0</float> 
+         <float>40.0</float> 
         </void> 
        </void> 
       </void> 
@@ -255,10 +255,10 @@ part of NeuroML or any standardised XML specification. -->
       <string>CellsA_v</string> 
      </void> 
      <void property="maxValue"> 
-      <float>-45.0</float> 
+      <float>-55.0</float> 
      </void> 
      <void property="minValue"> 
-      <float>-65.0</float> 
+      <float>-60.5</float> 
      </void> 
      <void property="plotAndOrSave"> 
       <string>Plot and save</string> 
@@ -392,7 +392,7 @@ part of NeuroML or any standardised XML specification. -->
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_181</string> 
+   <string>Sim_204</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -414,7 +414,7 @@ part of NeuroML or any standardised XML specification. -->
      <void property="rate"> 
       <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
        <void property="fixedNum"> 
-        <float>0.3</float> 
+        <float>0.01</float> 
        </void> 
        <void property="numberType"> 
         <int>11</int> 
@@ -440,7 +440,7 @@ part of NeuroML or any standardised XML specification. -->
      <void property="rate"> 
       <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
        <void property="fixedNum"> 
-        <float>0.05</float> 
+        <float>0.3</float> 
        </void> 
        <void property="numberType"> 
         <int>11</int> 
@@ -530,6 +530,42 @@ part of NeuroML or any standardised XML specification. -->
       </void> 
      </void> 
      <void property="simDuration"> 
+      <float>300.0</float> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
+     <void property="cellGroups"> 
+      <void method="add"> 
+       <string>CellsB</string> 
+      </void> 
+      <void method="add"> 
+       <string>CellsA</string> 
+      </void> 
+     </void> 
+     <void property="inputs"> 
+      <void method="add"> 
+       <string>Input_0</string> 
+      </void> 
+     </void> 
+     <void property="name"> 
+      <string>SmallNetwork</string> 
+     </void> 
+     <void property="netConns"> 
+      <void method="add"> 
+       <string>NetConn_CellsA_CellsA</string> 
+      </void> 
+     </void> 
+     <void property="plots"> 
+      <void method="add"> 
+       <string>CellsB_v</string> 
+      </void> 
+      <void method="add"> 
+       <string>CellsA_v</string> 
+      </void> 
+     </void> 
+     <void property="simDuration"> 
       <float>100.0</float> 
      </void> 
     </object> 
@@ -611,7 +647,7 @@ part of NeuroML or any standardised XML specification. -->
          <string>AlphaSyn1</string> 
         </void> 
         <void property="threshold"> 
-         <double>-20.0</double> 
+         <double>-50.0</double> 
         </void> 
         <void property="weightsGenerator"> 
          <object class="ucl.physiol.neuroconstruct.utils.WeightGenerator"> 
@@ -688,7 +724,7 @@ part of NeuroML or any standardised XML specification. -->
       </void> 
       <void property="numConnsInitiatingCellGroup"> 
        <void property="fixedNum"> 
-        <float>3.0</float> 
+        <float>22.0</float> 
        </void> 
       </void> 
       <void property="onlyConnectToUniqueCells"> 
