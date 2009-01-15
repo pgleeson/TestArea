@@ -393,124 +393,6 @@ There is another Simulation Configuration for testing the conversion of the chan
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
      <void property="cellGroup"> 
-      <string>CellGroup_2</string> 
-     </void> 
-     <void property="cellNumber"> 
-      <string>*</string> 
-     </void> 
-     <void property="graphWindow"> 
-      <string>CellGroup_2_v</string> 
-     </void> 
-     <void property="maxValue"> 
-      <float>50.0</float> 
-     </void> 
-     <void property="minValue"> 
-      <float>-90.0</float> 
-     </void> 
-     <void property="plotAndOrSave"> 
-      <string>Plot and save</string> 
-     </void> 
-     <void property="plotReference"> 
-      <string>CellGroup_2_v</string> 
-     </void> 
-     <void property="segmentId"> 
-      <string>0</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="add"> 
-    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
-     <void property="cellGroup"> 
-      <string>CellGroup_2</string> 
-     </void> 
-     <void property="cellNumber"> 
-      <string>*</string> 
-     </void> 
-     <void property="graphWindow"> 
-      <string>GraphWin_2</string> 
-     </void> 
-     <void property="maxValue"> 
-      <float>1.0</float> 
-     </void> 
-     <void property="minValue"> 
-      <float>0.0</float> 
-     </void> 
-     <void property="plotAndOrSave"> 
-      <string>Plot and save</string> 
-     </void> 
-     <void property="plotReference"> 
-      <string>CellGroup_2_v_1</string> 
-     </void> 
-     <void property="segmentId"> 
-      <string>0</string> 
-     </void> 
-     <void property="valuePlotted"> 
-      <string>Km:n</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="add"> 
-    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
-     <void property="cellGroup"> 
-      <string>CellGroup_3</string> 
-     </void> 
-     <void property="cellNumber"> 
-      <string>*</string> 
-     </void> 
-     <void property="graphWindow"> 
-      <string>CellGroup_2_v</string> 
-     </void> 
-     <void property="maxValue"> 
-      <float>50.0</float> 
-     </void> 
-     <void property="minValue"> 
-      <float>-90.0</float> 
-     </void> 
-     <void property="plotAndOrSave"> 
-      <string>Plot and save</string> 
-     </void> 
-     <void property="plotReference"> 
-      <string>CellGroup_3_v</string> 
-     </void> 
-     <void property="segmentId"> 
-      <string>0</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="add"> 
-    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
-     <void property="cellGroup"> 
-      <string>CellGroup_3</string> 
-     </void> 
-     <void property="cellNumber"> 
-      <string>0</string> 
-     </void> 
-     <void property="graphWindow"> 
-      <string>GraphWin_2</string> 
-     </void> 
-     <void property="maxValue"> 
-      <float>1.0</float> 
-     </void> 
-     <void property="minValue"> 
-      <float>0.0</float> 
-     </void> 
-     <void property="plotAndOrSave"> 
-      <string>Plot and save</string> 
-     </void> 
-     <void property="plotReference"> 
-      <string>Var_0</string> 
-     </void> 
-     <void property="segmentId"> 
-      <string>0</string> 
-     </void> 
-     <void property="valuePlotted"> 
-      <string>KmOld:n</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="add"> 
-    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
-     <void property="cellGroup"> 
       <string>CG_CML</string> 
      </void> 
      <void property="cellNumber"> 
@@ -907,6 +789,10 @@ forsec &quot;PyrCell&quot; {
     <string></string> 
    </void> 
    <void method="put"> 
+    <int>-1</int> 
+    <string></string> 
+   </void> 
+   <void method="put"> 
     <int>1</int> 
     <string>
 
@@ -923,10 +809,6 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
 
 	ek = -85
 }</string> 
-   </void> 
-   <void method="put"> 
-    <int>-1</int> 
-    <string></string> 
    </void> 
    <void method="put"> 
     <int>0</int> 
@@ -989,46 +871,6 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
         <int>11</int> 
        </void> 
       </void> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="add"> 
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amp"> 
-      <void property="fixedNum"> 
-       <float>0.2</float> 
-      </void> 
-     </void> 
-     <void property="cellGroup"> 
-      <string>CellGroup_2</string> 
-     </void> 
-     <void property="dur"> 
-      <void property="numberType"> 
-       <int>11</int> 
-      </void> 
-     </void> 
-     <void property="reference"> 
-      <string>Input_0</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="add"> 
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amp"> 
-      <void property="fixedNum"> 
-       <float>0.2</float> 
-      </void> 
-     </void> 
-     <void property="cellGroup"> 
-      <string>CellGroup_3</string> 
-     </void> 
-     <void property="dur"> 
-      <void property="numberType"> 
-       <int>11</int> 
-      </void> 
-     </void> 
-     <void property="reference"> 
-      <string>Input_1</string> 
      </void> 
     </object> 
    </void> 
