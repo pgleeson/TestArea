@@ -5,8 +5,12 @@
      
     <synapse_type name="STPSynapse">
         
-        <status value="in_progress">
-            <meta:comment>In development, structure subject to change!</meta:comment>
+        <status value="stable">
+            <meta:comment>Note that the max cond here is 2nS, as the U=0.5 leads to a max cond on the first pulse of 1nS. 
+            To switch off STP, set init_release_prob=1, tau_fac=0, tau_rec=1e-8, max_conductance = 1.0e-06 </meta:comment>
+            <meta:contributor>
+                <meta:name>Jason Rothman</meta:name>
+            </meta:contributor>
             <meta:contributor>
                 <meta:name>Padraig Gleeson</meta:name>
             </meta:contributor>
