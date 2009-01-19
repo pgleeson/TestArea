@@ -392,7 +392,7 @@ part of NeuroML or any standardised XML specification. -->
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_204</string> 
+   <string>Sim_299</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -414,7 +414,7 @@ part of NeuroML or any standardised XML specification. -->
      <void property="rate"> 
       <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
        <void property="fixedNum"> 
-        <float>0.01</float> 
+        <float>0.25</float> 
        </void> 
        <void property="numberType"> 
         <int>11</int> 
@@ -463,6 +463,9 @@ part of NeuroML or any standardised XML specification. -->
     <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
      <void property="cellGroups"> 
       <void method="add"> 
+       <string>CellsB</string> 
+      </void> 
+      <void method="add"> 
        <string>CellsA</string> 
       </void> 
      </void> 
@@ -491,7 +494,7 @@ part of NeuroML or any standardised XML specification. -->
       </void> 
      </void> 
      <void property="simDuration"> 
-      <float>500.0</float> 
+      <float>2000.0</float> 
      </void> 
     </object> 
    </void> 
