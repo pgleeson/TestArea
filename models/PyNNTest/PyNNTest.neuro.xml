@@ -12,7 +12,7 @@ part of NeuroML or any standardised XML specification. -->
    <string> </string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.2.1</string> 
+   <string>neuroConstruct v1.2.3</string> 
   </void> 
   <void property="projectName"> 
    <string>PyNNTest</string> 
@@ -101,45 +101,29 @@ part of NeuroML or any standardised XML specification. -->
     <string>Cell Packing Adapter</string> 
     <void method="add"> 
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"> 
-      <void property="parameterList"> 
-       <void index="2"> 
-        <void property="value"> 
-         <float>3.0</float> 
-        </void> 
-       </void> 
+      <void property="maxNumberCells"> 
+       <int>3</int> 
       </void> 
      </object> 
     </void> 
     <void method="add"> 
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"> 
-      <void property="parameterList"> 
-       <void index="2"> 
-        <void property="value"> 
-         <float>4.0</float> 
-        </void> 
-       </void> 
+      <void property="maxNumberCells"> 
+       <int>4</int> 
       </void> 
      </object> 
     </void> 
     <void method="add"> 
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"> 
-      <void property="parameterList"> 
-       <void index="2"> 
-        <void property="value"> 
-         <float>40.0</float> 
-        </void> 
-       </void> 
+      <void property="maxNumberCells"> 
+       <int>40</int> 
       </void> 
      </object> 
     </void> 
     <void method="add"> 
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"> 
-      <void property="parameterList"> 
-       <void index="2"> 
-        <void property="value"> 
-         <float>40.0</float> 
-        </void> 
-       </void> 
+      <void property="maxNumberCells"> 
+       <int>40</int> 
       </void> 
      </object> 
     </void> 
@@ -392,7 +376,7 @@ part of NeuroML or any standardised XML specification. -->
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_299</string> 
+   <string>Sim_305</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -463,9 +447,6 @@ part of NeuroML or any standardised XML specification. -->
     <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
      <void property="cellGroups"> 
       <void method="add"> 
-       <string>CellsB</string> 
-      </void> 
-      <void method="add"> 
        <string>CellsA</string> 
       </void> 
      </void> 
@@ -480,11 +461,6 @@ part of NeuroML or any standardised XML specification. -->
      <void property="name"> 
       <string>Default Simulation Configuration</string> 
      </void> 
-     <void property="netConns"> 
-      <void method="add"> 
-       <string>NetConn_CellsA_CellsA</string> 
-      </void> 
-     </void> 
      <void property="plots"> 
       <void method="add"> 
        <string>CellsB_v</string> 
@@ -494,7 +470,7 @@ part of NeuroML or any standardised XML specification. -->
       </void> 
      </void> 
      <void property="simDuration"> 
-      <float>2000.0</float> 
+      <float>300.0</float> 
      </void> 
     </object> 
    </void> 
