@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.6.0_11" class="java.beans.XMLDecoder"> 
+<java version="1.6.0_13" class="java.beans.XMLDecoder"> 
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -11,9 +11,9 @@ part of NeuroML or any standardised XML specification. -->
   <void property="projectDescription"> 
    <string>*****************Network of electrically coupled Cerebellar Golgi cells.**********************
 
--Golgi cell model from Solinas et al., Frontiers in Neuroscience. Cell Mechanisms (except synapses and gapjs) are transferred unchanged onto a reconstructed GoC from our lab.
+-Golgi cell model from Solinas et al., Frontiers in Neuroscience. Cell Mechanisms (except synapses and gapjs) are transferred unchanged onto a reconstructed GoC from our lab. Note: soma diameter as in Solinas et al.
 
--Golgi cell density data from Zoltan Nusser (4600 GoCs/ mm3, rat). Thus in a region of 300x300x80 -&gt;33 cells
+-Golgi cell density data from Zoltan Nusser (4600 GoCs/ mm3, rat). Thus in a region of 350x350x80 -&gt;45 cells
 -Coupling probability and coupling strength from our experimental data.
 
 -Basolateral dendrites have &quot;MultiDecaySyn&quot; synapses (= mossy fiber synapses)
@@ -21,11 +21,13 @@ part of NeuroML or any standardised XML specification. -->
 
 -The gap junctions are: for serial computing: &quot;GapJunc&quot;, for parallel computing: &quot;GapJuncCML&quot;
 
--Background synaptic noise: pf synapse: 0.5 Hz (100 segments), mf synapses: 2 Hz (20 segments)
+-Background synaptic noise: pf synapses: 0.5 Hz (100 segments), mf synapses: 2 Hz (20 segments)
+
+-Initial Vm from -55 to -65 mV (random distribution).
 
 Note:
 -Extra hoc code to adjust ENa and EK
--Extra hoc code to introduce a variable extra leak conductance at the soma of very cell (to introduce an additional heterogeneity among cells).</string> 
+-Extra hoc code to introduce a variable extra leak conductance at the soma of every cell (to introduce an additional heterogeneity among cells).</string> 
   </void> 
   <void property="projectFileVersion"> 
    <string>neuroConstruct v1.2.3</string> 
@@ -42,7 +44,10 @@ Note:
      <string>Regions_1</string> 
     </void> 
     <void method="add"> 
-     <string>AnalysisRegion</string> 
+     <string>Molecular</string> 
+    </void> 
+    <void method="add"> 
+     <string>WMT</string> 
     </void> 
    </void> 
    <void method="get"> 
@@ -63,6 +68,14 @@ Note:
       <int>255</int> 
      </object> 
     </void> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>153</int> 
+      <int>153</int> 
+      <int>153</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Description</string> 
@@ -71,7 +84,7 @@ Note:
       <void property="parameterList"> 
        <void index="3"> 
         <void property="value"> 
-         <float>300.0</float> 
+         <float>350.0</float> 
         </void> 
        </void> 
        <void index="4"> 
@@ -81,7 +94,7 @@ Note:
        </void> 
        <void index="5"> 
         <void property="value"> 
-         <float>300.0</float> 
+         <float>350.0</float> 
         </void> 
        </void> 
       </void> 
@@ -90,29 +103,45 @@ Note:
     <void method="add"> 
      <object class="ucl.physiol.neuroconstruct.project.RectangularBox"> 
       <void property="parameterList"> 
-       <void index="0"> 
-        <void property="value"> 
-         <float>50.0</float> 
-        </void> 
-       </void> 
-       <void index="2"> 
-        <void property="value"> 
-         <float>50.0</float> 
-        </void> 
-       </void> 
-       <void index="3"> 
-        <void property="value"> 
-         <float>200.0</float> 
-        </void> 
-       </void> 
-       <void index="4"> 
+       <void index="1"> 
         <void property="value"> 
          <float>80.0</float> 
         </void> 
        </void> 
+       <void index="3"> 
+        <void property="value"> 
+         <float>350.0</float> 
+        </void> 
+       </void> 
+       <void index="4"> 
+        <void property="value"> 
+         <float>230.0</float> 
+        </void> 
+       </void> 
        <void index="5"> 
         <void property="value"> 
-         <float>200.0</float> 
+         <float>350.0</float> 
+        </void> 
+       </void> 
+      </void> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.RectangularBox"> 
+      <void property="parameterList"> 
+       <void index="1"> 
+        <void property="value"> 
+         <float>-30.0</float> 
+        </void> 
+       </void> 
+       <void index="3"> 
+        <void property="value"> 
+         <float>350.0</float> 
+        </void> 
+       </void> 
+       <void index="5"> 
+        <void property="value"> 
+         <float>350.0</float> 
         </void> 
        </void> 
       </void> 
@@ -128,7 +157,7 @@ Note:
     <void method="add"> 
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"> 
       <void property="maxNumberCells"> 
-       <int>33</int> 
+       <int>45</int> 
       </void> 
       <void property="parameterList"> 
        <void index="3"> 
@@ -285,10 +314,13 @@ Note:
   <void property="displayOption"> 
    <string>Soma solid, no neurites</string> 
   </void> 
-  <void property="show3DAxes"> 
-   <boolean>true</boolean> 
+  <void property="showInputs"> 
+   <boolean>false</boolean> 
   </void> 
   <void property="showSynapseConns"> 
+   <boolean>false</boolean> 
+  </void> 
+  <void property="showSynapseEndpoints"> 
    <boolean>false</boolean> 
   </void> 
   <void property="transparency"> 
@@ -312,6 +344,14 @@ Note:
     <string></string> 
    </void> 
    <void method="put"> 
+    <int>-1</int> 
+    <string>objref random_conductance_generator
+
+random_conductance_generator = new Random()
+
+random_conductance_generator.MCellRan4()</string> 
+   </void> 
+   <void method="put"> 
     <int>1</int> 
     <string>print &quot;Changing values of ena, ek&quot;
 
@@ -327,15 +367,9 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
 
 
 forall if (ismembrane(&quot;VariableLeak&quot;)) {
-	gmax_VariableLeak = random_conductance_generator.normal(0,0.8E-8) 
-}
-</string> 
-   </void> 
-   <void method="put"> 
-    <int>-1</int> 
-    <string>objref random_conductance_generator
-
-random_conductance_generator = new Random()</string> 
+	gmax_VariableLeak = random_conductance_generator.uniform(0,23E-5) //23E-5
+	print gmax_VariableLeak
+}</string> 
    </void> 
    <void method="put"> 
     <int>0</int> 
@@ -358,10 +392,10 @@ random_conductance_generator = new Random()</string>
    <float>0.05</float> 
   </void> 
   <void property="duration"> 
-   <float>2000.0</float> 
+   <float>3500.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_1272</string> 
+   <string>Sim_2339</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -454,7 +488,7 @@ random_conductance_generator = new Random()</string>
        <void property="parameterList"> 
         <void index="0"> 
          <void property="stringValue"> 
-          <string>0,1,2,3,4,5,6,7,8,9,10</string> 
+          <string>1,2,3,4,5,6,7,8,9,10</string> 
          </void> 
         </void> 
        </void> 
@@ -468,10 +502,10 @@ random_conductance_generator = new Random()</string>
        <int>1</int> 
       </void> 
       <void property="max"> 
-       <float>1095.0</float> 
+       <float>1655.0</float> 
       </void> 
       <void property="min"> 
-       <float>1090.0</float> 
+       <float>1650.0</float> 
       </void> 
       <void property="numberType"> 
        <int>11</int> 
@@ -520,7 +554,7 @@ random_conductance_generator = new Random()</string>
        <void property="parameterList"> 
         <void index="0"> 
          <void property="stringValue"> 
-          <string>0,1,2,3,4,5,6,7,8,9,10</string> 
+          <string>1,2,3,4,5,6,7,8,9,10</string> 
          </void> 
         </void> 
        </void> 
@@ -534,10 +568,10 @@ random_conductance_generator = new Random()</string>
        <int>1</int> 
       </void> 
       <void property="max"> 
-       <float>1097.0</float> 
+       <float>1657.0</float> 
       </void> 
       <void property="min"> 
-       <float>1092.0</float> 
+       <float>1652.0</float> 
       </void> 
       <void property="numberType"> 
        <int>11</int> 
@@ -576,34 +610,6 @@ random_conductance_generator = new Random()</string>
      </void> 
      <void property="synapseType"> 
       <string>ApicalSyn</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="add"> 
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amp"> 
-      <void property="fixedNum"> 
-       <float>-0.1</float> 
-      </void> 
-     </void> 
-     <void property="cellGroup"> 
-      <string>CellGroup_1</string> 
-     </void> 
-     <void property="del"> 
-      <void property="fixedNum"> 
-       <float>0.0</float> 
-      </void> 
-     </void> 
-     <void property="dur"> 
-      <void property="fixedNum"> 
-       <float>3500.0</float> 
-      </void> 
-      <void property="numberType"> 
-       <int>11</int> 
-      </void> 
-     </void> 
-     <void property="reference"> 
-      <string>Input_1</string> 
      </void> 
     </object> 
    </void> 
@@ -692,7 +698,7 @@ random_conductance_generator = new Random()</string>
         <string>basolateral</string> 
        </void> 
        <void property="numberOfSegments"> 
-        <int>4</int> 
+        <int>5</int> 
        </void> 
       </object> 
      </void> 
@@ -747,7 +753,7 @@ random_conductance_generator = new Random()</string>
         <string>basolateral</string> 
        </void> 
        <void property="numberOfSegments"> 
-        <int>4</int> 
+        <int>5</int> 
        </void> 
       </object> 
      </void> 
@@ -802,7 +808,7 @@ random_conductance_generator = new Random()</string>
         <string>basolateral</string> 
        </void> 
        <void property="numberOfSegments"> 
-        <int>4</int> 
+        <int>5</int> 
        </void> 
       </object> 
      </void> 
@@ -857,7 +863,7 @@ random_conductance_generator = new Random()</string>
         <string>basolateral</string> 
        </void> 
        <void property="numberOfSegments"> 
-        <int>4</int> 
+        <int>5</int> 
        </void> 
       </object> 
      </void> 
@@ -912,7 +918,7 @@ random_conductance_generator = new Random()</string>
         <string>basolateral</string> 
        </void> 
        <void property="numberOfSegments"> 
-        <int>4</int> 
+        <int>5</int> 
        </void> 
       </object> 
      </void> 
@@ -967,7 +973,7 @@ random_conductance_generator = new Random()</string>
         <string>basolateral</string> 
        </void> 
        <void property="numberOfSegments"> 
-        <int>4</int> 
+        <int>5</int> 
        </void> 
       </object> 
      </void> 
@@ -1022,7 +1028,7 @@ random_conductance_generator = new Random()</string>
         <string>basolateral</string> 
        </void> 
        <void property="numberOfSegments"> 
-        <int>4</int> 
+        <int>5</int> 
        </void> 
       </object> 
      </void> 
@@ -1077,7 +1083,7 @@ random_conductance_generator = new Random()</string>
         <string>basolateral</string> 
        </void> 
        <void property="numberOfSegments"> 
-        <int>4</int> 
+        <int>5</int> 
        </void> 
       </object> 
      </void> 
@@ -1132,7 +1138,7 @@ random_conductance_generator = new Random()</string>
         <string>basolateral</string> 
        </void> 
        <void property="numberOfSegments"> 
-        <int>4</int> 
+        <int>5</int> 
        </void> 
       </object> 
      </void> 
@@ -1187,7 +1193,7 @@ random_conductance_generator = new Random()</string>
         <string>basolateral</string> 
        </void> 
        <void property="numberOfSegments"> 
-        <int>4</int> 
+        <int>5</int> 
        </void> 
       </object> 
      </void> 
@@ -1242,7 +1248,7 @@ random_conductance_generator = new Random()</string>
         <string>basolateral</string> 
        </void> 
        <void property="numberOfSegments"> 
-        <int>4</int> 
+        <int>5</int> 
        </void> 
       </object> 
      </void> 
@@ -1297,7 +1303,7 @@ random_conductance_generator = new Random()</string>
         <string>basolateral</string> 
        </void> 
        <void property="numberOfSegments"> 
-        <int>4</int> 
+        <int>5</int> 
        </void> 
       </object> 
      </void> 
@@ -1352,7 +1358,7 @@ random_conductance_generator = new Random()</string>
         <string>basolateral</string> 
        </void> 
        <void property="numberOfSegments"> 
-        <int>4</int> 
+        <int>5</int> 
        </void> 
       </object> 
      </void> 
@@ -1407,7 +1413,7 @@ random_conductance_generator = new Random()</string>
         <string>basolateral</string> 
        </void> 
        <void property="numberOfSegments"> 
-        <int>4</int> 
+        <int>5</int> 
        </void> 
       </object> 
      </void> 
@@ -1462,7 +1468,7 @@ random_conductance_generator = new Random()</string>
         <string>basolateral</string> 
        </void> 
        <void property="numberOfSegments"> 
-        <int>4</int> 
+        <int>5</int> 
        </void> 
       </object> 
      </void> 
@@ -1517,12 +1523,1195 @@ random_conductance_generator = new Random()</string>
         <string>basolateral</string> 
        </void> 
        <void property="numberOfSegments"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="synapseType"> 
+      <string>MultiDecaySyn</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings"> 
+     <void property="cellGroup"> 
+      <string>CellGroup_1</string> 
+     </void> 
+     <void property="delay"> 
+      <void property="distributionType"> 
+       <int>1</int> 
+      </void> 
+      <void property="max"> 
+       <float>2135.0</float> 
+      </void> 
+      <void property="min"> 
+       <float>2125.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="duration"> 
+      <void property="fixedNum"> 
+       <float>20.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="rate"> 
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+       <void property="fixedNum"> 
+        <float>0.04</float> 
+       </void> 
+       <void property="numberType"> 
+        <int>11</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_19</string> 
+     </void> 
+     <void property="segChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments"> 
+       <void property="group"> 
+        <string>basolateral</string> 
+       </void> 
+       <void property="numberOfSegments"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="synapseType"> 
+      <string>MultiDecaySyn</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings"> 
+     <void property="cellGroup"> 
+      <string>CellGroup_1</string> 
+     </void> 
+     <void property="delay"> 
+      <void property="distributionType"> 
+       <int>1</int> 
+      </void> 
+      <void property="max"> 
+       <float>2260.0</float> 
+      </void> 
+      <void property="min"> 
+       <float>2250.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="duration"> 
+      <void property="fixedNum"> 
+       <float>20.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="rate"> 
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+       <void property="fixedNum"> 
+        <float>0.04</float> 
+       </void> 
+       <void property="numberType"> 
+        <int>11</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_22</string> 
+     </void> 
+     <void property="segChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments"> 
+       <void property="group"> 
+        <string>basolateral</string> 
+       </void> 
+       <void property="numberOfSegments"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="synapseType"> 
+      <string>MultiDecaySyn</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings"> 
+     <void property="cellGroup"> 
+      <string>CellGroup_1</string> 
+     </void> 
+     <void property="delay"> 
+      <void property="distributionType"> 
+       <int>1</int> 
+      </void> 
+      <void property="max"> 
+       <float>2385.0</float> 
+      </void> 
+      <void property="min"> 
+       <float>2375.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="duration"> 
+      <void property="fixedNum"> 
+       <float>20.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="rate"> 
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+       <void property="fixedNum"> 
+        <float>0.04</float> 
+       </void> 
+       <void property="numberType"> 
+        <int>11</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_23</string> 
+     </void> 
+     <void property="segChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments"> 
+       <void property="group"> 
+        <string>basolateral</string> 
+       </void> 
+       <void property="numberOfSegments"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="synapseType"> 
+      <string>MultiDecaySyn</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings"> 
+     <void property="cellGroup"> 
+      <string>CellGroup_1</string> 
+     </void> 
+     <void property="delay"> 
+      <void property="distributionType"> 
+       <int>1</int> 
+      </void> 
+      <void property="max"> 
+       <float>2510.0</float> 
+      </void> 
+      <void property="min"> 
+       <float>2500.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="duration"> 
+      <void property="fixedNum"> 
+       <float>20.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="rate"> 
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+       <void property="fixedNum"> 
+        <float>0.04</float> 
+       </void> 
+       <void property="numberType"> 
+        <int>11</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_24</string> 
+     </void> 
+     <void property="segChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments"> 
+       <void property="group"> 
+        <string>basolateral</string> 
+       </void> 
+       <void property="numberOfSegments"> 
+        <int>6</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="synapseType"> 
+      <string>MultiDecaySyn</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings"> 
+     <void property="cellGroup"> 
+      <string>CellGroup_1</string> 
+     </void> 
+     <void property="delay"> 
+      <void property="distributionType"> 
+       <int>1</int> 
+      </void> 
+      <void property="max"> 
+       <float>2635.0</float> 
+      </void> 
+      <void property="min"> 
+       <float>2625.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="duration"> 
+      <void property="fixedNum"> 
+       <float>20.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="rate"> 
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+       <void property="fixedNum"> 
+        <float>0.03</float> 
+       </void> 
+       <void property="numberType"> 
+        <int>11</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_25</string> 
+     </void> 
+     <void property="segChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments"> 
+       <void property="group"> 
+        <string>basolateral</string> 
+       </void> 
+       <void property="numberOfSegments"> 
+        <int>6</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="synapseType"> 
+      <string>MultiDecaySyn</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings"> 
+     <void property="cellGroup"> 
+      <string>CellGroup_1</string> 
+     </void> 
+     <void property="delay"> 
+      <void property="distributionType"> 
+       <int>1</int> 
+      </void> 
+      <void property="max"> 
+       <float>2760.0</float> 
+      </void> 
+      <void property="min"> 
+       <float>2750.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="duration"> 
+      <void property="fixedNum"> 
+       <float>20.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="rate"> 
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+       <void property="fixedNum"> 
+        <float>0.03</float> 
+       </void> 
+       <void property="numberType"> 
+        <int>11</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_26</string> 
+     </void> 
+     <void property="segChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments"> 
+       <void property="group"> 
+        <string>basolateral</string> 
+       </void> 
+       <void property="numberOfSegments"> 
         <int>4</int> 
        </void> 
       </object> 
      </void> 
      <void property="synapseType"> 
       <string>MultiDecaySyn</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings"> 
+     <void property="cellGroup"> 
+      <string>CellGroup_1</string> 
+     </void> 
+     <void property="delay"> 
+      <void property="distributionType"> 
+       <int>1</int> 
+      </void> 
+      <void property="max"> 
+       <float>2885.0</float> 
+      </void> 
+      <void property="min"> 
+       <float>2875.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="duration"> 
+      <void property="fixedNum"> 
+       <float>20.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="rate"> 
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+       <void property="fixedNum"> 
+        <float>0.03</float> 
+       </void> 
+       <void property="numberType"> 
+        <int>11</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_27</string> 
+     </void> 
+     <void property="segChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments"> 
+       <void property="group"> 
+        <string>basolateral</string> 
+       </void> 
+       <void property="numberOfSegments"> 
+        <int>4</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="synapseType"> 
+      <string>MultiDecaySyn</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings"> 
+     <void property="cellGroup"> 
+      <string>CellGroup_1</string> 
+     </void> 
+     <void property="delay"> 
+      <void property="distributionType"> 
+       <int>1</int> 
+      </void> 
+      <void property="max"> 
+       <float>3010.0</float> 
+      </void> 
+      <void property="min"> 
+       <float>3000.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="duration"> 
+      <void property="fixedNum"> 
+       <float>20.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="rate"> 
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+       <void property="fixedNum"> 
+        <float>0.03</float> 
+       </void> 
+       <void property="numberType"> 
+        <int>11</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_28</string> 
+     </void> 
+     <void property="segChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments"> 
+       <void property="group"> 
+        <string>basolateral</string> 
+       </void> 
+       <void property="numberOfSegments"> 
+        <int>4</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="synapseType"> 
+      <string>MultiDecaySyn</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings"> 
+     <void property="cellGroup"> 
+      <string>CellGroup_1</string> 
+     </void> 
+     <void property="delay"> 
+      <void property="distributionType"> 
+       <int>1</int> 
+      </void> 
+      <void property="max"> 
+       <float>3135.0</float> 
+      </void> 
+      <void property="min"> 
+       <float>3125.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="duration"> 
+      <void property="fixedNum"> 
+       <float>20.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="rate"> 
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+       <void property="fixedNum"> 
+        <float>0.03</float> 
+       </void> 
+       <void property="numberType"> 
+        <int>11</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_29</string> 
+     </void> 
+     <void property="segChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments"> 
+       <void property="group"> 
+        <string>basolateral</string> 
+       </void> 
+       <void property="numberOfSegments"> 
+        <int>4</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="synapseType"> 
+      <string>MultiDecaySyn</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings"> 
+     <void property="cellGroup"> 
+      <string>CellGroup_1</string> 
+     </void> 
+     <void property="delay"> 
+      <void property="distributionType"> 
+       <int>1</int> 
+      </void> 
+      <void property="max"> 
+       <float>3260.0</float> 
+      </void> 
+      <void property="min"> 
+       <float>3250.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="duration"> 
+      <void property="fixedNum"> 
+       <float>20.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="rate"> 
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+       <void property="fixedNum"> 
+        <float>0.03</float> 
+       </void> 
+       <void property="numberType"> 
+        <int>11</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_30</string> 
+     </void> 
+     <void property="segChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments"> 
+       <void property="group"> 
+        <string>basolateral</string> 
+       </void> 
+       <void property="numberOfSegments"> 
+        <int>4</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="synapseType"> 
+      <string>MultiDecaySyn</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings"> 
+     <void property="cellGroup"> 
+      <string>CellGroup_1</string> 
+     </void> 
+     <void property="delay"> 
+      <void property="distributionType"> 
+       <int>1</int> 
+      </void> 
+      <void property="max"> 
+       <float>3385.0</float> 
+      </void> 
+      <void property="min"> 
+       <float>3375.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="duration"> 
+      <void property="fixedNum"> 
+       <float>20.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="rate"> 
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+       <void property="fixedNum"> 
+        <float>0.03</float> 
+       </void> 
+       <void property="numberType"> 
+        <int>11</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_31</string> 
+     </void> 
+     <void property="segChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments"> 
+       <void property="group"> 
+        <string>basolateral</string> 
+       </void> 
+       <void property="numberOfSegments"> 
+        <int>4</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="synapseType"> 
+      <string>MultiDecaySyn</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings"> 
+     <void property="cellGroup"> 
+      <string>CellGroup_1</string> 
+     </void> 
+     <void property="delay"> 
+      <void property="distributionType"> 
+       <int>1</int> 
+      </void> 
+      <void property="max"> 
+       <float>3510.0</float> 
+      </void> 
+      <void property="min"> 
+       <float>3500.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="duration"> 
+      <void property="fixedNum"> 
+       <float>20.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="rate"> 
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+       <void property="fixedNum"> 
+        <float>0.03</float> 
+       </void> 
+       <void property="numberType"> 
+        <int>11</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_32</string> 
+     </void> 
+     <void property="segChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments"> 
+       <void property="group"> 
+        <string>basolateral</string> 
+       </void> 
+       <void property="numberOfSegments"> 
+        <int>4</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="synapseType"> 
+      <string>MultiDecaySyn</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings"> 
+     <void property="cellGroup"> 
+      <string>CellGroup_1</string> 
+     </void> 
+     <void property="delay"> 
+      <void property="distributionType"> 
+       <int>1</int> 
+      </void> 
+      <void property="max"> 
+       <float>3635.0</float> 
+      </void> 
+      <void property="min"> 
+       <float>3625.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="duration"> 
+      <void property="fixedNum"> 
+       <float>20.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="rate"> 
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+       <void property="fixedNum"> 
+        <float>0.03</float> 
+       </void> 
+       <void property="numberType"> 
+        <int>11</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_33</string> 
+     </void> 
+     <void property="segChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments"> 
+       <void property="group"> 
+        <string>basolateral</string> 
+       </void> 
+       <void property="numberOfSegments"> 
+        <int>4</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="synapseType"> 
+      <string>MultiDecaySyn</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings"> 
+     <void property="cellGroup"> 
+      <string>CellGroup_1</string> 
+     </void> 
+     <void property="delay"> 
+      <void property="distributionType"> 
+       <int>1</int> 
+      </void> 
+      <void property="max"> 
+       <float>3760.0</float> 
+      </void> 
+      <void property="min"> 
+       <float>3750.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="duration"> 
+      <void property="fixedNum"> 
+       <float>20.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="rate"> 
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+       <void property="fixedNum"> 
+        <float>0.03</float> 
+       </void> 
+       <void property="numberType"> 
+        <int>11</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_34</string> 
+     </void> 
+     <void property="segChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments"> 
+       <void property="group"> 
+        <string>basolateral</string> 
+       </void> 
+       <void property="numberOfSegments"> 
+        <int>4</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="synapseType"> 
+      <string>MultiDecaySyn</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings"> 
+     <void property="cellGroup"> 
+      <string>CellGroup_1</string> 
+     </void> 
+     <void property="delay"> 
+      <void property="distributionType"> 
+       <int>1</int> 
+      </void> 
+      <void property="max"> 
+       <float>3885.0</float> 
+      </void> 
+      <void property="min"> 
+       <float>3875.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="duration"> 
+      <void property="fixedNum"> 
+       <float>20.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="rate"> 
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+       <void property="fixedNum"> 
+        <float>0.03</float> 
+       </void> 
+       <void property="numberType"> 
+        <int>11</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_35</string> 
+     </void> 
+     <void property="segChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments"> 
+       <void property="group"> 
+        <string>basolateral</string> 
+       </void> 
+       <void property="numberOfSegments"> 
+        <int>4</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="synapseType"> 
+      <string>MultiDecaySyn</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings"> 
+     <void property="cellGroup"> 
+      <string>CellGroup_1</string> 
+     </void> 
+     <void property="delay"> 
+      <void property="distributionType"> 
+       <int>1</int> 
+      </void> 
+      <void property="max"> 
+       <float>4010.0</float> 
+      </void> 
+      <void property="min"> 
+       <float>4000.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="duration"> 
+      <void property="fixedNum"> 
+       <float>20.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="rate"> 
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+       <void property="fixedNum"> 
+        <float>0.03</float> 
+       </void> 
+       <void property="numberType"> 
+        <int>11</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_36</string> 
+     </void> 
+     <void property="segChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments"> 
+       <void property="group"> 
+        <string>basolateral</string> 
+       </void> 
+       <void property="numberOfSegments"> 
+        <int>4</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="synapseType"> 
+      <string>MultiDecaySyn</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
+       <float>2.0</float> 
+      </void> 
+     </void> 
+     <void property="cellChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.cellchoice.PercentageOfCells"> 
+       <void property="parameterList"> 
+        <void index="0"> 
+         <void property="value"> 
+          <float>100.0</float> 
+         </void> 
+        </void> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="cellGroup"> 
+      <string>CellGroup_1</string> 
+     </void> 
+     <void property="del"> 
+      <void property="fixedNum"> 
+       <float>814.0</float> 
+      </void> 
+     </void> 
+     <void property="dur"> 
+      <void property="fixedNum"> 
+       <float>20.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_1</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings"> 
+     <void property="cellChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.cellchoice.IndividualCells"> 
+       <void property="parameterList"> 
+        <void index="0"> 
+         <void property="stringValue"> 
+          <string>1,2,3</string> 
+         </void> 
+        </void> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="cellGroup"> 
+      <string>CellGroup_1</string> 
+     </void> 
+     <void property="delay"> 
+      <void property="distributionType"> 
+       <int>1</int> 
+      </void> 
+      <void property="max"> 
+       <float>1785.0</float> 
+      </void> 
+      <void property="min"> 
+       <float>1780.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="duration"> 
+      <void property="fixedNum"> 
+       <float>10.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="rate"> 
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+       <void property="fixedNum"> 
+        <float>0.2</float> 
+       </void> 
+       <void property="numberType"> 
+        <int>11</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_37</string> 
+     </void> 
+     <void property="segChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments"> 
+       <void property="group"> 
+        <string>basolateral</string> 
+       </void> 
+       <void property="numberOfSegments"> 
+        <int>8</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="synapseType"> 
+      <string>MultiDecaySyn</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings"> 
+     <void property="cellChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.cellchoice.IndividualCells"> 
+       <void property="parameterList"> 
+        <void index="0"> 
+         <void property="stringValue"> 
+          <string>1,2,3</string> 
+         </void> 
+        </void> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="cellGroup"> 
+      <string>CellGroup_1</string> 
+     </void> 
+     <void property="delay"> 
+      <void property="distributionType"> 
+       <int>1</int> 
+      </void> 
+      <void property="max"> 
+       <float>1787.0</float> 
+      </void> 
+      <void property="min"> 
+       <float>1782.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="duration"> 
+      <void property="fixedNum"> 
+       <float>15.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="rate"> 
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+       <void property="fixedNum"> 
+        <float>0.35</float> 
+       </void> 
+       <void property="numberType"> 
+        <int>11</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_38</string> 
+     </void> 
+     <void property="segChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments"> 
+       <void property="group"> 
+        <string>apical</string> 
+       </void> 
+       <void property="numberOfSegments"> 
+        <int>50</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="synapseType"> 
+      <string>ApicalSyn</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings"> 
+     <void property="cellChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.cellchoice.IndividualCells"> 
+       <void property="parameterList"> 
+        <void index="0"> 
+         <void property="stringValue"> 
+          <string>1,2,3</string> 
+         </void> 
+        </void> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="cellGroup"> 
+      <string>CellGroup_1</string> 
+     </void> 
+     <void property="delay"> 
+      <void property="distributionType"> 
+       <int>1</int> 
+      </void> 
+      <void property="max"> 
+       <float>1925.0</float> 
+      </void> 
+      <void property="min"> 
+       <float>1920.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="duration"> 
+      <void property="fixedNum"> 
+       <float>10.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="rate"> 
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+       <void property="fixedNum"> 
+        <float>0.2</float> 
+       </void> 
+       <void property="numberType"> 
+        <int>11</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_39</string> 
+     </void> 
+     <void property="segChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments"> 
+       <void property="group"> 
+        <string>basolateral</string> 
+       </void> 
+       <void property="numberOfSegments"> 
+        <int>8</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="synapseType"> 
+      <string>MultiDecaySyn</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings"> 
+     <void property="cellChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.cellchoice.IndividualCells"> 
+       <void property="parameterList"> 
+        <void index="0"> 
+         <void property="stringValue"> 
+          <string>1,2,3</string> 
+         </void> 
+        </void> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="cellGroup"> 
+      <string>CellGroup_1</string> 
+     </void> 
+     <void property="delay"> 
+      <void property="distributionType"> 
+       <int>1</int> 
+      </void> 
+      <void property="max"> 
+       <float>1927.0</float> 
+      </void> 
+      <void property="min"> 
+       <float>1922.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="duration"> 
+      <void property="fixedNum"> 
+       <float>15.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="rate"> 
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+       <void property="fixedNum"> 
+        <float>0.35</float> 
+       </void> 
+       <void property="numberType"> 
+        <int>11</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_41</string> 
+     </void> 
+     <void property="segChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments"> 
+       <void property="group"> 
+        <string>apical</string> 
+       </void> 
+       <void property="numberOfSegments"> 
+        <int>50</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="synapseType"> 
+      <string>ApicalSyn</string> 
      </void> 
     </object> 
    </void> 
@@ -1542,76 +2731,44 @@ random_conductance_generator = new Random()</string>
      </void> 
      <void property="inputs"> 
       <void method="add"> 
+       <string>Input_0</string> 
+      </void> 
+      <void method="add"> 
        <string>Input_21</string> 
       </void> 
       <void method="add"> 
        <string>Input_20</string> 
       </void> 
       <void method="add"> 
-       <string>Input_18</string> 
-      </void> 
-      <void method="add"> 
-       <string>Input_17</string> 
-      </void> 
-      <void method="add"> 
-       <string>Input_9</string> 
-      </void> 
-      <void method="add"> 
-       <string>Input_16</string> 
-      </void> 
-      <void method="add"> 
-       <string>Input_8</string> 
-      </void> 
-      <void method="add"> 
-       <string>Input_15</string> 
-      </void> 
-      <void method="add"> 
-       <string>Input_7</string> 
-      </void> 
-      <void method="add"> 
-       <string>Input_14</string> 
-      </void> 
-      <void method="add"> 
-       <string>Input_6</string> 
-      </void> 
-      <void method="add"> 
-       <string>Input_13</string> 
-      </void> 
-      <void method="add"> 
-       <string>Input_5</string> 
-      </void> 
-      <void method="add"> 
-       <string>Input_12</string> 
-      </void> 
-      <void method="add"> 
-       <string>Input_4</string> 
-      </void> 
-      <void method="add"> 
-       <string>Input_3</string> 
-      </void> 
-      <void method="add"> 
-       <string>Input_11</string> 
-      </void> 
-      <void method="add"> 
-       <string>Input_10</string> 
-      </void> 
-      <void method="add"> 
        <string>Input_40</string> 
-      </void> 
-      <void method="add"> 
-       <string>Input_0</string> 
       </void> 
      </void> 
      <void id="MpiConfiguration0" property="mpiConf"> 
       <void property="hostList"> 
        <void index="0"> 
         <void property="numProcessors"> 
-         <int>4</int> 
+         <int>16</int> 
         </void> 
        </void> 
       </void> 
       <void property="name"> 
-       <string>Local machine (4p)</string> 
+       <string>Cluster (1 x 16p)</string> 
+      </void> 
+      <void property="remoteLogin"> 
+       <object class="ucl.physiol.neuroconstruct.hpc.mpi.RemoteLogin"> 
+        <void property="hostname"> 
+         <string>smp-test.rc.ucl.ac.uk</string> 
+        </void> 
+        <void property="nrnivLocation"> 
+         <string>/home/ucgbpgl/nrn62/x86_64/bin/nrniv</string> 
+        </void> 
+        <void property="userName"> 
+         <string>ucgbpgl</string> 
+        </void> 
+        <void property="workDir"> 
+         <string>/home/ucgbpgl/nCsims</string> 
+        </void> 
+       </object> 
       </void> 
      </void> 
      <void property="mpiConf"> 
@@ -1631,7 +2788,7 @@ random_conductance_generator = new Random()</string>
       </void> 
      </void> 
      <void property="simDuration"> 
-      <float>2010.0</float> 
+      <float>5000.0</float> 
      </void> 
     </object> 
    </void> 
@@ -2319,14 +3476,14 @@ random_conductance_generator = new Random()</string>
        <boolean>false</boolean> 
       </void> 
       <void property="maxNumInitPerFinishCell"> 
-       <int>32</int> 
+       <int>44</int> 
       </void> 
       <void property="noRecurrent"> 
        <boolean>true</boolean> 
       </void> 
       <void property="numConnsInitiatingCellGroup"> 
        <void property="fixedNum"> 
-        <float>32.0</float> 
+        <float>44.0</float> 
        </void> 
       </void> 
       <void property="onlyConnectToUniqueCells"> 
