@@ -3,7 +3,7 @@
 
 <!-- Note that this XML is specific to the neuroConstruct Java cell object model and not any part of the NeuroML framework -->
 
- <object class="ucl.physiol.neuroconstruct.cell.examples.OneSegment"> 
+ <object class="ucl.physiol.neuroconstruct.cell.Cell"> 
   <void property="allSegments"> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.cell.Segment"> 
@@ -56,13 +56,16 @@
    </void> 
   </void> 
   <void property="cellDescription"> 
-   <string>A single segment/compartment cell with a passive conductance and an integrate and fire mechanism which resets the membrane potential on reaching a threshold</string> 
+   <string>A spontaneously firing I and F neuron</string> 
   </void> 
   <void property="chanMechsVsGroups"> 
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="density"> 
+      <float>9.0E-10</float> 
+     </void> 
      <void property="name"> 
-      <string>SimpleIntFire</string> 
+      <string>HighRevPotLeak</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
@@ -73,11 +76,8 @@
    </void> 
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
-      <float>5.0E-9</float> 
-     </void> 
      <void property="name"> 
-      <string>LeakConduc</string> 
+      <string>SimpleIntFire</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
@@ -93,7 +93,7 @@
    </void> 
   </void> 
   <void property="instanceName"> 
-   <string>IF_cond_alpha_A</string> 
+   <string>IF_spontaneousFaster</string> 
   </void> 
   <void property="synapsesVsGroups"> 
    <void method="put"> 
