@@ -83,6 +83,8 @@ BREAKPOINT {
 	beta_m = bet_m(v) 
 	alpha_h = alp_h(v)
 	beta_h = bet_h(v) 
+
+    :printf("-- mod, t: %g, v: %g, alpha_h: %g, beta: %g, tau: %g \n", t, v, alpha_h, beta_h, 1/(alpha_h + beta_h))
 } 
  
 DERIVATIVE states { 

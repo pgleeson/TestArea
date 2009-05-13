@@ -14,12 +14,12 @@
     <channel_type name="CaHVA" density="yes">
         
         
-        <status value="stable">            
+        <status value="in_progress">            
             <meta:comment>Verified equivalence of NEURON and GENESIS mapping to orig NEURON mod impl at 0.02ms dt with current pulse</meta:comment>
             <meta:issue>Comment from orig mod file:  
-    if (alp_h > 0.005){
-        alp_h = 0.005
-    } : Consult RM on &lt; or &gt;</meta:issue>
+                if (alp_h > 0.005){
+                    alp_h = 0.005
+                } : Consult RM on &lt; or &gt;</meta:issue>
             <meta:contributor>
                 <meta:name>Padraig Gleeson</meta:name>
             </meta:contributor>
@@ -45,7 +45,7 @@
             <ohmic ion="ca">
                 <conductance default_gmax=".9"> 
                     <rate_adjustments>
-                        <q10_settings fixed_q10="5" experimental_temp="37"/> <!-- Note channel should only be used at 37 deg C!-->
+                        <!-- <q10_settings fixed_q10="5" experimental_temp="37"/> Note Q10 incorporated into expressions for m & h!-->
                         <offset value="10"/>
                     </rate_adjustments>
                     <gate power="2">
@@ -64,14 +64,14 @@
                 <voltage_gate>
                     <alpha>
                         <parameterised_hh type="sigmoid" expr="A/(1 + exp(-k*(d-v)))">
-                            <parameter name="A" value="1.6"/>
+                            <parameter name="A" value="8"/>
                             <parameter name="k" value="-0.071942446"/>
                             <parameter name="d" value="5"/>
                         </parameterised_hh>
                     </alpha>
                     <beta>
                         <parameterised_hh type="linoid" expr="A*(k*(v-d))/(1 - exp(-(k*(v-d))))">
-                            <parameter name="A" value="0.1"/>
+                            <parameter name="A" value="0.5"/>
                             <parameter name="k" value="-0.2"/>
                             <parameter name="d" value="-8.9"/>
                         </parameterised_hh>
@@ -80,15 +80,55 @@
             </transition>
         </hh_gate>
         
+        <!--
+            Aalpha_m = 1.6(/ms)
+            Kalpha_m = 13.9(mV) 
+            V0alpha_m = 5(mV)
+            Abeta_m = -0.02(/ms-mV)
+            Kbeta_m = -5(mV)
+            V0beta_m = -8.9(mV)
+            Aalpha_h = 0.005(/ms)
+            Kalpha_h = -20(mV)
+            V0alpha_h = -60 (mV)
+            Abeta_h = -0.005(/ms)
+            Kbeta_h = -20(mV)
+            V0beta_h = -60(mV) 
+            Q10 = 3 
+            TC=5
+            
+            FUNCTION alp_m(v(mV))(/ms) {    
+                alp_m = TC*Aalpha_m*sig(v+shift,V0alpha_m,Kalpha_m) 
+            } 
+            
+            FUNCTION bet_m(v(mV))(/ms) {          
+                bet_m = TC*Abeta_m*linoid(v+shift,V0beta_m,Kbeta_m) 
+            }
+            
+            FUNCTION alp_h(v(mV))(/ms) {   
+                alp_h = TC*Aalpha_h*expn(v+shift,V0alpha_h,Kalpha_h) 
+            
+                if (alp_h > 0.005){
+                    alp_h = 0.005
+                } : Consult RM on < or >
+            } 
+            
+            FUNCTION bet_h(v(mV))(/ms) {    
+                bet_h = TC*(0.005 (/ms)+Abeta_h*expn(v+shift,V0beta_h,Kbeta_h))
+                if (bet_h < 0) {
+                    bet_h = 0
+                }
+            } 
+            -->
         
         <hh_gate state="h">
             <transition>
                 <voltage_gate>
                     <alpha>
-                        <generic_equation_hh expr="v &lt; -60 ? 0.005 : 0.005 * (exp (-0.05 * (v - (-60))))"/>
+                        <!-- Worked out v where alpha=0.005: (log(0.005 /0.025)/-0.05)-60 -->
+                        <generic_equation_hh expr="v &lt; -27.8112417 ? 0.005 : 0.025 * (exp (-0.05 * (v - (-60))))"/>
                     </alpha>
                     <beta>
-                        <generic_equation_hh expr="v &lt; -60 ? 0 : 0.005 - (0.005 * (exp (-0.05 * (v - (-60)))))"/>
+                        <generic_equation_hh expr="v &lt; -60 ? 0 : 0.025 - (0.025 * (exp (-0.05 * (v - (-60)))))"/>
                     </beta>
                 </voltage_gate>
             </transition>

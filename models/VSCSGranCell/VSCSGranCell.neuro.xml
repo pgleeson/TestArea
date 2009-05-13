@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.6.0_03" class="java.beans.XMLDecoder"> 
+<java version="1.6.0_13" class="java.beans.XMLDecoder"> 
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -14,7 +14,7 @@ part of NeuroML or any standardised XML specification. -->
 Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex &amp; De Schutter 2005</string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.1.4</string> 
+   <string>neuroConstruct v1.2.3</string> 
   </void> 
   <void property="projectName"> 
    <string>VSCSGranCell</string> 
@@ -1306,6 +1306,68 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
      </void> 
     </object> 
    </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>SampleCellGroup</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_11</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-2.0E-5</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_30</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>CaHVA:CURR_DENS:ca</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>OrigModCellGroup</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_11</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-2.0E-5</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_31</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>ica</string> 
+     </void> 
+    </object> 
+   </void> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.project.ProjectProperties"/> 
@@ -1338,6 +1400,16 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
    <boolean>false</boolean> 
   </void> 
   <void property="nativeBlocks"> 
+   <void method="put"> 
+    <int>10</int> 
+    <string>if (celsius!=37) {
+    print &quot;***********************************************&quot;
+    print &quot;* &quot;
+    print &quot;* NOTE: these channels should only be used at 37 degrees celsius! Current temperature: &quot;, celsius
+    print &quot;* &quot;
+    print &quot;***********************************************&quot;
+}</string> 
+   </void> 
    <void method="put"> 
     <int>3</int> 
     <string></string> 
@@ -1411,15 +1483,16 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    </void> 
   </void> 
  </object> 
+ <object class="ucl.physiol.neuroconstruct.psics.PsicsSettings"/> 
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters"> 
   <void property="dt"> 
-   <float>0.02</float> 
+   <float>0.01</float> 
   </void> 
   <void property="duration"> 
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_385</string> 
+   <string>Sim_415</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -1621,6 +1694,12 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
        <string>OrigModCellGroup_v</string> 
       </void> 
       <void method="add"> 
+       <string>Var_31</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_30</string> 
+      </void> 
+      <void method="add"> 
        <string>Var_5</string> 
       </void> 
       <void method="add"> 
@@ -1640,7 +1719,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
       </void> 
      </void> 
      <void property="simDuration"> 
-      <float>100.0</float> 
+      <float>150.0</float> 
      </void> 
     </object> 
    </void> 
@@ -1650,9 +1729,6 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
       <void method="add"> 
        <string>SampleCellGroup</string> 
       </void> 
-     </void> 
-     <void property="description"> 
-      <string></string> 
      </void> 
      <void property="inputs"> 
       <void method="add"> 
@@ -1690,9 +1766,6 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
       <void method="add"> 
        <string>AllChansCG_mod</string> 
       </void> 
-     </void> 
-     <void property="description"> 
-      <string></string> 
      </void> 
      <void property="inputs"> 
       <void method="add"> 
@@ -1772,9 +1845,6 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
       <void method="add"> 
        <string>AllChansCG</string> 
       </void> 
-     </void> 
-     <void property="description"> 
-      <string></string> 
      </void> 
      <void property="inputs"> 
       <void method="add"> 
@@ -1868,9 +1938,6 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
        <string>OneChanCML</string> 
       </void> 
      </void> 
-     <void property="description"> 
-      <string></string> 
-     </void> 
      <void property="name"> 
       <string>OneChanBothSims</string> 
      </void> 
@@ -1896,9 +1963,6 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
       <void method="add"> 
        <string>AllChansCG_mod</string> 
       </void> 
-     </void> 
-     <void property="description"> 
-      <string></string> 
      </void> 
      <void property="inputs"> 
       <void method="add"> 
