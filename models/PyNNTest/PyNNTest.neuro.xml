@@ -9,7 +9,11 @@ part of NeuroML or any standardised XML specification. -->
 
  <object class="ucl.physiol.neuroconstruct.project.BasicProjectInfo"> 
   <void property="projectDescription"> 
-   <string> </string> 
+   <string>Project for testing generation of PyNN compatible code. 
+
+Note: most of the cell and network models in this project can only be mapped onto pure NEURON (hoc/mod files) or to one of the PyNN supporting simulators (only NEURON &amp; NEST tested so far).
+
+</string> 
   </void> 
   <void property="projectFileVersion"> 
    <string>neuroConstruct v1.2.3</string> 
@@ -171,10 +175,10 @@ part of NeuroML or any standardised XML specification. -->
      <string>IF_spontaneous</string> 
     </void> 
     <void method="add"> 
-     <string>IF_cond_alpha_A</string> 
+     <string>IF_spontaneousFaster</string> 
     </void> 
     <void method="add"> 
-     <string>IF_cond_alpha_A</string> 
+     <string>IF_spontaneous</string> 
     </void> 
     <void method="add"> 
      <string>IF_cond_alpha_A</string> 
@@ -350,7 +354,7 @@ part of NeuroML or any standardised XML specification. -->
      <string>CG5</string> 
     </void> 
     <void method="add"> 
-     <string>CG_spont</string> 
+     <string>CGspont</string> 
     </void> 
     <void method="add"> 
      <string>CG7</string> 
@@ -521,7 +525,7 @@ part of NeuroML or any standardised XML specification. -->
       <string>GraphWin_4</string> 
      </void> 
      <void property="maxValue"> 
-      <float>4.0E-8</float> 
+      <float>4.0E-7</float> 
      </void> 
      <void property="minValue"> 
       <float>0.0</float> 
@@ -536,20 +540,20 @@ part of NeuroML or any standardised XML specification. -->
       <string>0</string> 
      </void> 
      <void property="valuePlotted"> 
-      <string>SYN:NetConn_CG_spont_CG10:STDPSynapse:COND</string> 
+      <string>SYN:NetConn_CGspont_CG10:STDPSynapse:COND</string> 
      </void> 
     </object> 
    </void> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
      <void property="cellGroup"> 
-      <string>CG_spont</string> 
+      <string>CGspont</string> 
      </void> 
      <void property="cellNumber"> 
       <string>*</string> 
      </void> 
      <void property="graphWindow"> 
-      <string>CG_spont_v</string> 
+      <string>CGspont_v</string> 
      </void> 
      <void property="maxValue"> 
       <float>-50.0</float> 
@@ -561,7 +565,7 @@ part of NeuroML or any standardised XML specification. -->
       <string>Plot and save</string> 
      </void> 
      <void property="plotReference"> 
-      <string>CG_spont_v</string> 
+      <string>CGspont_v</string> 
      </void> 
      <void property="segmentId"> 
       <string>0</string> 
@@ -605,7 +609,7 @@ part of NeuroML or any standardised XML specification. -->
       <string>*</string> 
      </void> 
      <void property="graphWindow"> 
-      <string>CG8_v</string> 
+      <string>GraphWin_8</string> 
      </void> 
      <void property="maxValue"> 
       <float>-50.0</float> 
@@ -661,7 +665,7 @@ part of NeuroML or any standardised XML specification. -->
       <string>*</string> 
      </void> 
      <void property="graphWindow"> 
-      <string>CG_spont_v</string> 
+      <string>CGspont_v</string> 
      </void> 
      <void property="maxValue"> 
       <float>-50.0</float> 
@@ -677,6 +681,37 @@ part of NeuroML or any standardised XML specification. -->
      </void> 
      <void property="segmentId"> 
       <string>0</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CellsB</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_4</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>5.0E-7</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>CellsB_v_2</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>SYN:NetConn_CellsA_CellsA:AlphaSyn1:COND</string> 
      </void> 
     </object> 
    </void> 
@@ -712,13 +747,13 @@ part of NeuroML or any standardised XML specification. -->
  <object class="ucl.physiol.neuroconstruct.psics.PsicsSettings"/> 
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters"> 
   <void property="dt"> 
-   <float>0.0010</float> 
+   <float>0.01</float> 
   </void> 
   <void property="duration"> 
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_633</string> 
+   <string>Sim_746</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -766,7 +801,7 @@ part of NeuroML or any standardised XML specification. -->
      <void property="rate"> 
       <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
        <void property="fixedNum"> 
-        <float>0.0030</float> 
+        <float>0.1</float> 
        </void> 
        <void property="numberType"> 
         <int>11</int> 
@@ -927,14 +962,17 @@ part of NeuroML or any standardised XML specification. -->
      </void> 
      <void property="plots"> 
       <void method="add"> 
-       <string>CellsB_v</string> 
+       <string>CellsA_v</string> 
       </void> 
       <void method="add"> 
-       <string>CellsA_v</string> 
+       <string>CellsB_v_2</string> 
+      </void> 
+      <void method="add"> 
+       <string>CellsB_v</string> 
       </void> 
      </void> 
      <void property="simDuration"> 
-      <float>500.0</float> 
+      <float>100.0</float> 
      </void> 
     </object> 
    </void> 
@@ -1011,7 +1049,7 @@ part of NeuroML or any standardised XML specification. -->
     <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
      <void property="cellGroups"> 
       <void method="add"> 
-       <string>CG_spont</string> 
+       <string>CGspont</string> 
       </void> 
       <void method="add"> 
        <string>CG9</string> 
@@ -1028,13 +1066,13 @@ part of NeuroML or any standardised XML specification. -->
      </void> 
      <void property="netConns"> 
       <void method="add"> 
-       <string>NetConn_CG_spont_CG9</string> 
+       <string>NetConn_CGspont_CG9</string> 
       </void> 
       <void method="add"> 
-       <string>NetConn_CG_spont_CG8</string> 
+       <string>NetConn_CGspont_CG8</string> 
       </void> 
       <void method="add"> 
-       <string>NetConn_CG_spont_CG7</string> 
+       <string>NetConn_CGspont_CG7</string> 
       </void> 
      </void> 
      <void property="plots"> 
@@ -1045,7 +1083,7 @@ part of NeuroML or any standardised XML specification. -->
        <string>CG8_v</string> 
       </void> 
       <void method="add"> 
-       <string>CG_spont_v</string> 
+       <string>CGspont_v</string> 
       </void> 
       <void method="add"> 
        <string>CG9_v</string> 
@@ -1066,20 +1104,12 @@ part of NeuroML or any standardised XML specification. -->
        <string>CG7</string> 
       </void> 
      </void> 
-     <void property="inputs"> 
-      <void method="add"> 
-       <string>Input_4</string> 
-      </void> 
-      <void method="add"> 
-       <string>Input_3</string> 
-      </void> 
-     </void> 
      <void property="name"> 
       <string>STDPDemo</string> 
      </void> 
      <void property="netConns"> 
       <void method="add"> 
-       <string>NetConn_CG_spont_CG10</string> 
+       <string>NetConn_CGspont_CG10</string> 
       </void> 
      </void> 
      <void property="plots"> 
@@ -1096,11 +1126,11 @@ part of NeuroML or any standardised XML specification. -->
        <string>CG10_v</string> 
       </void> 
       <void method="add"> 
-       <string>CG_spont_v</string> 
+       <string>CGspont_v</string> 
       </void> 
      </void> 
      <void property="simDuration"> 
-      <float>1000.0</float> 
+      <float>300.0</float> 
      </void> 
     </object> 
    </void> 
@@ -1148,16 +1178,16 @@ part of NeuroML or any standardised XML specification. -->
      <string>NetConn_CG5_CG5</string> 
     </void> 
     <void method="add"> 
-     <string>NetConn_CG_spont_CG7</string> 
+     <string>NetConn_CGspont_CG7</string> 
     </void> 
     <void method="add"> 
-     <string>NetConn_CG_spont_CG8</string> 
+     <string>NetConn_CGspont_CG8</string> 
     </void> 
     <void method="add"> 
-     <string>NetConn_CG_spont_CG9</string> 
+     <string>NetConn_CGspont_CG9</string> 
     </void> 
     <void method="add"> 
-     <string>NetConn_CG_spont_CG10</string> 
+     <string>NetConn_CGspont_CG10</string> 
     </void> 
    </void> 
    <void method="get"> 
@@ -1403,7 +1433,7 @@ part of NeuroML or any standardised XML specification. -->
         <void property="weightsGenerator"> 
          <object class="ucl.physiol.neuroconstruct.utils.WeightGenerator"> 
           <void property="fixedNum"> 
-           <float>10.0</float> 
+           <float>100.0</float> 
           </void> 
           <void property="numberType"> 
            <int>11</int> 
@@ -1503,13 +1533,13 @@ part of NeuroML or any standardised XML specification. -->
      <string>CG5</string> 
     </void> 
     <void method="add"> 
-     <string>CG_spont</string> 
+     <string>CGspont</string> 
     </void> 
     <void method="add"> 
-     <string>CG_spont</string> 
+     <string>CGspont</string> 
     </void> 
     <void method="add"> 
-     <string>CG_spont</string> 
+     <string>CGspont</string> 
     </void> 
     <void method="add"> 
      <string>CG7</string> 

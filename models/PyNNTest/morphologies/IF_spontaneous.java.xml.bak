@@ -97,6 +97,14 @@
   </void> 
   <void property="synapsesVsGroups"> 
    <void method="put"> 
+    <string>SingleExpSyn</string> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>all</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
     <string>STDPSynapse</string> 
     <object class="java.util.Vector"> 
      <void method="add"> 
