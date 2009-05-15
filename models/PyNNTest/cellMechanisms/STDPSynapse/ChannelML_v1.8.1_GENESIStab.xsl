@@ -1148,9 +1148,10 @@ function makechannel_<xsl:value-of select="@name"/>(compartment, name)
               <xsl:with-param name="value"><xsl:value-of select="cml:doub_exp_syn/@max_conductance"/></xsl:with-param>
               <xsl:with-param name="quantity">Conductance</xsl:with-param></xsl:call-template>
 
-            float tau1 = {getfield {compartment}/{name} tau1}
-            if (tau1 == 0)
-                setfield {compartment}/{name} tau1 1e-9  
+            float tau2 = {getfield {compartment}/{name} tau2}
+            
+            if (tau2 == 0)  //  Single exponential synapse
+                setfield {compartment}/{name} tau2 1e-9  
             end
             
             addmsg   {compartment}/{name}   {compartment} CHANNEL Gk Ek

@@ -89,7 +89,7 @@
   </void> 
   <void property="initialPotential"> 
    <void property="fixedNum"> 
-    <float>-60.0</float> 
+    <float>-55.0</float> 
    </void> 
   </void> 
   <void property="instanceName"> 

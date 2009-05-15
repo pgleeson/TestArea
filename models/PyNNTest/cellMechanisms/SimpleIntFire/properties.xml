@@ -17,7 +17,7 @@ Note the following:
 <entry key="NEURON file requires compilation">true</entry>
 <entry key="Implementation method">ChannelML based Cell Mechanism</entry>
 <entry key="ChannelML file">IntFireMechanism.xml</entry>
-<entry key="NEURON mapping">ChannelML_v1.8.0_NEURONmod.xsl</entry>
+<entry key="NEURON mapping">ChannelML_v1.8.1_NEURONmod.xsl</entry>
 <entry key="Description">A simple integrate and fire mechanism, which is based on the implementation in NEURON of the COBA IandF cell 
         as described in Brette et al (2007)</entry>
 </properties>

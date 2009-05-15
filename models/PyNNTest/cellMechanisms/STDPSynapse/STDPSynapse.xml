@@ -15,9 +15,9 @@
         <meta:notes>Example of a synaptic mechanism incorporating spike timing dependent plasticity</meta:notes>
         
         
-        <stdp_syn max_conductance="2E-9" rise_time="0" decay_time="1" reversal_potential="0">
+        <stdp_syn max_conductance="2E-9" rise_time="1" decay_time="1" reversal_potential="0">
             
-             <spike_time_dep tau_ltp="20" del_weight_ltp="0.1" tau_ltd="20" del_weight_ltd="0.106" max_syn_weight="1" post_spike_thresh="-50"/>
+             <spike_time_dep tau_ltp="20" del_weight_ltp="0.1" tau_ltd="20" del_weight_ltd="0.01" max_syn_weight="2" post_spike_thresh="-50"/>
             
         </stdp_syn>
     

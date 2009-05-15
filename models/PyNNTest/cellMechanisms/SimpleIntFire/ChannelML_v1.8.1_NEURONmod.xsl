@@ -1634,7 +1634,7 @@ BREAKPOINT {
     i = g*(v - e)
     
     <xsl:if test="count(cml:stdp_syn)>0 ">
-    if (in_post_spike == 0 &amp;&amp; v >= post_spike_thresh) {
+    if (in_post_spike == 0 &amp;&amp; v > post_spike_thresh) {
     
         <xsl:if test="$debug = 1">printf("\n-------------------------------------------------------------\n")
         printf("-- POST SPIKE, t: %g, P: %g, M: %g, v: %g, in_post_spike: %g\n", t, P, M, v, in_post_spike)
@@ -1660,14 +1660,10 @@ BREAKPOINT {
         t_post_spike = t
         in_post_spike = 1
     }
-
-    if (in_post_spike == 1 &amp;&amp; v &lt; post_spike_thresh &amp;&amp; t > (t_post_spike+0.1)) { : TODO: check need for this 0.1
-        <xsl:if test="$debug = 1">
-        printf("-- in_post_spike no longer at :%g, v: %g\n", t, v)
-        </xsl:if>
+    
+    if (v &lt; post_spike_thresh) {
         in_post_spike = 0
     }
-    
     </xsl:if>
 }
 
