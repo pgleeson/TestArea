@@ -942,12 +942,12 @@
   <void property="instanceName"> 
    <string>CA1</string> 
   </void> 
-  <void property="specAxRes"> 
+  <void property="oldGlobalSpecAxRes"> 
    <void property="fixedNum"> 
     <float>100.0</float> 
    </void> 
   </void> 
-  <void property="specCapacitance"> 
+  <void property="oldGlobalSpecCapacitance"> 
    <void property="fixedNum"> 
     <float>3.0E-8</float> 
    </void> 

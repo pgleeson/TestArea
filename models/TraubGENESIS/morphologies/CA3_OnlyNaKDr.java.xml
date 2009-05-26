@@ -1205,7 +1205,7 @@
   <void property="instanceName"> 
    <string>CA3_OnlyNaKDr</string> 
   </void> 
-  <void property="specAxRes"> 
+  <void property="oldGlobalSpecAxRes"> 
    <void property="fixedNum"> 
     <float>0.1</float> 
    </void> 
