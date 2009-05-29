@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.6.0_13" class="java.beans.XMLDecoder"> 
+<java version="1.6.0_03" class="java.beans.XMLDecoder"> 
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -900,13 +900,13 @@ Note: most of the cell and network models in this project can only be mapped ont
  <object class="ucl.physiol.neuroconstruct.psics.PsicsSettings"/> 
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters"> 
   <void property="dt"> 
-   <float>0.0010</float> 
+   <float>0.01</float> 
   </void> 
   <void property="duration"> 
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_813</string> 
+   <string>Sim_815</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -1116,9 +1116,6 @@ Note: most of the cell and network models in this project can only be mapped ont
      <void property="plots"> 
       <void method="add"> 
        <string>CellsA_v</string> 
-      </void> 
-      <void method="add"> 
-       <string>CellsB_v_2</string> 
       </void> 
       <void method="add"> 
        <string>CellsB_v</string> 
