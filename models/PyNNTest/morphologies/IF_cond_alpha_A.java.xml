@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.6.0_03" class="java.beans.XMLDecoder"> 
+<java version="1.6.0_13" class="java.beans.XMLDecoder"> 
 
 <!-- Note that this XML is specific to the neuroConstruct Java cell object model and not any part of the NeuroML framework -->
 
@@ -98,6 +98,14 @@
   <void property="synapsesVsGroups"> 
    <void method="put"> 
     <string>SingleExpSyn</string> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>all</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
+    <string>FixedSyn</string> 
     <object class="java.util.Vector"> 
      <void method="add"> 
       <string>all</string> 
