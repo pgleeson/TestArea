@@ -41,7 +41,7 @@
 
 <reaction id="re3" reversible="false" fast="false">
 <listOfReactants>
-<speciesReference species="s2"  stoichiometry="0.5"/>
+<speciesReference species="s2"  stoichiometry="1"/>
 </listOfReactants>
 <listOfProducts>
 <speciesReference species="s3"/>

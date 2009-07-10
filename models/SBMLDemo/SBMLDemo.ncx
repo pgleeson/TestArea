@@ -64,17 +64,26 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
     <void method="add"> 
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/> 
     </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Cell Type</string> 
     <void method="add"> 
      <string>SampleCell</string> 
     </void> 
+    <void method="add"> 
+     <string>SampleCellBioModels</string> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Priority</string> 
     <void method="add"> 
      <int>10</int> 
+    </void> 
+    <void method="add"> 
+     <int>9</int> 
     </void> 
    </void> 
    <void method="get"> 
@@ -87,9 +96,20 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
       <int>255</int> 
      </object> 
     </void> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>149</int> 
+      <int>116</int> 
+      <int>3</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Region Name</string> 
+    <void method="add"> 
+     <string>SampleRegion</string> 
+    </void> 
     <void method="add"> 
      <string>SampleRegion</string> 
     </void> 
@@ -98,6 +118,9 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
     <string>Cell Group Name</string> 
     <void method="add"> 
      <string>SampleCellGroup</string> 
+    </void> 
+    <void method="add"> 
+     <string>CellGroupbioM</string> 
     </void> 
    </void> 
   </void> 
@@ -144,7 +167,7 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
       <string>GraphWin_1</string> 
      </void> 
      <void property="maxValue"> 
-      <float>30.0</float> 
+      <float>15.0</float> 
      </void> 
      <void property="minValue"> 
       <float>0.0</float> 
@@ -172,7 +195,7 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
       <string>GraphWin_1</string> 
      </void> 
      <void property="maxValue"> 
-      <float>30.0</float> 
+      <float>15.0</float> 
      </void> 
      <void property="minValue"> 
       <float>0.0</float> 
@@ -200,7 +223,7 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
       <string>GraphWin_1</string> 
      </void> 
      <void property="maxValue"> 
-      <float>30.0</float> 
+      <float>15.0</float> 
      </void> 
      <void property="minValue"> 
       <float>0.0</float> 
@@ -213,6 +236,127 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
      </void> 
      <void property="valuePlotted"> 
       <string>Simple3Species:s3</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CellGroupbioM</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_2</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>1.1</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>SamplePlot_4</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>Marhl_Calcium_Oscillations:CaM</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CellGroupbioM</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_2</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>1.1</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>SamplePlot_5</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>Marhl_Calcium_Oscillations:Ca_cyt</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CellGroupbioM</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_2</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>1.1</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>SamplePlot_6</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>Marhl_Calcium_Oscillations:CaER</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CellGroupbioM</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>CellGroupbioM_v</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>CellGroupbioM_v</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
      </void> 
     </object> 
    </void> 
@@ -250,13 +394,13 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
  <object class="ucl.physiol.neuroconstruct.psics.PsicsSettings"/> 
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters"> 
   <void property="dt"> 
-   <float>0.02</float> 
+   <float>0.0050</float> 
   </void> 
   <void property="duration"> 
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_4</string> 
+   <string>Sim_13</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -265,30 +409,7 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
    <int>2</int> 
   </void> 
  </object> 
- <object class="ucl.physiol.neuroconstruct.project.ElecInputInfo"> 
-  <void property="allStims"> 
-   <void method="add"> 
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amp"> 
-      <void property="fixedNum"> 
-       <float>0.2</float> 
-      </void> 
-     </void> 
-     <void property="cellGroup"> 
-      <string>SampleCellGroup</string> 
-     </void> 
-     <void property="dur"> 
-      <void property="numberType"> 
-       <int>11</int> 
-      </void> 
-     </void> 
-     <void property="reference"> 
-      <string>SampleIClamp</string> 
-     </void> 
-    </object> 
-   </void> 
-  </void> 
- </object> 
+ <object class="ucl.physiol.neuroconstruct.project.ElecInputInfo"/> 
  <object class="ucl.physiol.neuroconstruct.project.SimConfigInfo"> 
   <void property="allSimConfigs"> 
    <void method="add"> 
@@ -301,11 +422,6 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
      <void property="description"> 
       <string>This is the default configuration of the Cell Groups, stimulations, plots, etc for this project</string> 
      </void> 
-     <void property="inputs"> 
-      <void method="add"> 
-       <string>SampleIClamp</string> 
-      </void> 
-     </void> 
      <void property="name"> 
       <string>Default Simulation Configuration</string> 
      </void> 
@@ -314,17 +430,46 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export Net
        <string>SamplePlot</string> 
       </void> 
       <void method="add"> 
-       <string>SamplePlot_1</string> 
+       <string>SamplePlot_3</string> 
       </void> 
       <void method="add"> 
        <string>SamplePlot_2</string> 
       </void> 
       <void method="add"> 
-       <string>SamplePlot_3</string> 
+       <string>SamplePlot_1</string> 
       </void> 
      </void> 
      <void property="simDuration"> 
-      <float>20.0</float> 
+      <float>10.0</float> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
+     <void property="cellGroups"> 
+      <void method="add"> 
+       <string>CellGroupbioM</string> 
+      </void> 
+     </void> 
+     <void property="name"> 
+      <string>BioModelsExample</string> 
+     </void> 
+     <void property="plots"> 
+      <void method="add"> 
+       <string>SamplePlot_6</string> 
+      </void> 
+      <void method="add"> 
+       <string>SamplePlot_5</string> 
+      </void> 
+      <void method="add"> 
+       <string>SamplePlot_4</string> 
+      </void> 
+      <void method="add"> 
+       <string>CellGroupbioM_v</string> 
+      </void> 
+     </void> 
+     <void property="simDuration"> 
+      <float>50.0</float> 
      </void> 
     </object> 
    </void> 
