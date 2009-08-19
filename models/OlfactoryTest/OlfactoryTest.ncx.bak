@@ -14,7 +14,7 @@ part of NeuroML or any standardised XML specification. -->
 Work carried out in collaboration with Simon O&apos;Connor</string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.3.3</string> 
+   <string>neuroConstruct v1.3.4</string> 
   </void> 
   <void property="projectName"> 
    <string>OlfactoryTest</string> 
@@ -73,6 +73,20 @@ Work carried out in collaboration with Simon O&apos;Connor</string>
       </void> 
      </object> 
     </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.packing.SinglePositionedCellPackingAdapter"/> 
+    </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.packing.SinglePositionedCellPackingAdapter"> 
+      <void property="parameterList"> 
+       <void index="0"> 
+        <void property="value"> 
+         <float>100.0</float> 
+        </void> 
+       </void> 
+      </void> 
+     </object> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Cell Type</string> 
@@ -82,6 +96,12 @@ Work carried out in collaboration with Simon O&apos;Connor</string>
     <void method="add"> 
      <string>Simple_nax</string> 
     </void> 
+    <void method="add"> 
+     <string>Simple_kdrmt_mod</string> 
+    </void> 
+    <void method="add"> 
+     <string>Simple_kdrmt</string> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Priority</string> 
@@ -90,6 +110,12 @@ Work carried out in collaboration with Simon O&apos;Connor</string>
     </void> 
     <void method="add"> 
      <int>9</int> 
+    </void> 
+    <void method="add"> 
+     <int>8</int> 
+    </void> 
+    <void method="add"> 
+     <int>7</int> 
     </void> 
    </void> 
    <void method="get"> 
@@ -110,9 +136,31 @@ Work carried out in collaboration with Simon O&apos;Connor</string>
       <int>255</int> 
      </object> 
     </void> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>70</int> 
+      <int>144</int> 
+      <int>68</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>21</int> 
+      <int>234</int> 
+      <int>228</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Region Name</string> 
+    <void method="add"> 
+     <string>SampleRegion</string> 
+    </void> 
+    <void method="add"> 
+     <string>SampleRegion</string> 
+    </void> 
     <void method="add"> 
      <string>SampleRegion</string> 
     </void> 
@@ -127,6 +175,12 @@ Work carried out in collaboration with Simon O&apos;Connor</string>
     </void> 
     <void method="add"> 
      <string>CG_CML</string> 
+    </void> 
+    <void method="add"> 
+     <string>CG_kdrmt_mod</string> 
+    </void> 
+    <void method="add"> 
+     <string>CG_kdrmt</string> 
     </void> 
    </void> 
   </void> 
@@ -313,6 +367,124 @@ Work carried out in collaboration with Simon O&apos;Connor</string>
      </void> 
     </object> 
    </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_kdrmt_mod</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>CG_kdrmt_mod_v</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>CG_kdrmt_mod_v</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_kdrmt_mod</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_2</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>0.02</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>CG_mod_v_5</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>kdrmt_mod:m</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_kdrmt</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>CG_kdrmt_v</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>CG_kdrmt_v</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_kdrmt</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_2</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>0.02</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>CG_mod_v_6</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>kdrmt:m</string> 
+     </void> 
+    </object> 
+   </void> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.project.ProjectProperties"> 
@@ -349,7 +521,7 @@ Work carried out in collaboration with Simon O&apos;Connor</string>
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_14</string> 
+   <string>Sim_25</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -450,6 +622,52 @@ Work carried out in collaboration with Simon O&apos;Connor</string>
      </void> 
     </object> 
    </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
+       <float>0.06</float> 
+      </void> 
+     </void> 
+     <void property="cellGroup"> 
+      <string>CG_kdrmt_mod</string> 
+     </void> 
+     <void property="dur"> 
+      <void property="fixedNum"> 
+       <float>860.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_3</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
+       <float>0.06</float> 
+      </void> 
+     </void> 
+     <void property="cellGroup"> 
+      <string>CG_kdrmt</string> 
+     </void> 
+     <void property="dur"> 
+      <void property="fixedNum"> 
+       <float>860.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_4</string> 
+     </void> 
+    </object> 
+   </void> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.project.SimConfigInfo"> 
@@ -506,6 +724,80 @@ Work carried out in collaboration with Simon O&apos;Connor</string>
      </void> 
      <void property="simDuration"> 
       <float>200.0</float> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
+     <void property="cellGroups"> 
+      <void method="add"> 
+       <string>CG_CML</string> 
+      </void> 
+     </void> 
+     <void property="inputs"> 
+      <void method="add"> 
+       <string>Input_2</string> 
+      </void> 
+      <void method="add"> 
+       <string>Input_1</string> 
+      </void> 
+     </void> 
+     <void property="name"> 
+      <string>AllSimulators</string> 
+     </void> 
+     <void property="plots"> 
+      <void method="add"> 
+       <string>CG_mod_v_4</string> 
+      </void> 
+      <void method="add"> 
+       <string>CG_mod_v_3</string> 
+      </void> 
+      <void method="add"> 
+       <string>CG_CML_v</string> 
+      </void> 
+     </void> 
+     <void property="simDuration"> 
+      <float>200.0</float> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
+     <void property="cellGroups"> 
+      <void method="add"> 
+       <string>CG_kdrmt</string> 
+      </void> 
+      <void method="add"> 
+       <string>CG_kdrmt_mod</string> 
+      </void> 
+     </void> 
+     <void property="inputs"> 
+      <void method="add"> 
+       <string>Input_4</string> 
+      </void> 
+      <void method="add"> 
+       <string>Input_3</string> 
+      </void> 
+     </void> 
+     <void property="name"> 
+      <string>SC_kdrmt</string> 
+     </void> 
+     <void property="plots"> 
+      <void method="add"> 
+       <string>CG_mod_v_6</string> 
+      </void> 
+      <void method="add"> 
+       <string>CG_mod_v_5</string> 
+      </void> 
+      <void method="add"> 
+       <string>CG_kdrmt_v</string> 
+      </void> 
+      <void method="add"> 
+       <string>CG_kdrmt_mod_v</string> 
+      </void> 
+     </void> 
+     <void property="simDuration"> 
+      <float>1000.0</float> 
      </void> 
     </object> 
    </void> 
