@@ -1,12 +1,12 @@
-TITLE K-DR
-: K-DR current for Mitral Cells from Wang et al (1996)
+TITLE K-A
+: K-A current for Mitral Cells from Wang et al (1996)
 : M.Migliore Jan. 2002
 
 NEURON {
 	SUFFIX %Name%
 	USEION k READ ek WRITE ik
 	RANGE  gmax
-	GLOBAL minf, mtau
+	GLOBAL minf, mtau, hinf, htau
 }
 
 PARAMETER {
@@ -15,10 +15,18 @@ PARAMETER {
 	celsius
 	ek		(mV)            : must be explicitly def. in hoc
 	v 		(mV)
-	a0m=0.0035
-	vhalfm=-50
-	zetam=0.055
-	gmm=0.5
+	a0m=0.04
+	vhalfm=-45
+	zetam=0.1
+	gmm=0.75
+
+	a0h=0.018
+	vhalfh=-70
+	zetah=0.2
+	gmh=0.99
+
+	sha=9.9
+	shi=5.7
 
 	q10=3
 }
@@ -34,31 +42,37 @@ UNITS {
 ASSIGNED {
 	ik 		(mA/cm2)
 	minf 		mtau (ms)
+	hinf 		htau (ms)
 }
 
 
-STATE { m}
+STATE { m h}
 
 BREAKPOINT {
         SOLVE states METHOD cnexp
-	ik = gmax*m*(v - ek)
+	ik = gmax*m*h*(v - ek)
 }
 
 INITIAL {
 	trates(v)
 	m=minf
+	h=hinf
 }
 
 DERIVATIVE states {
         trates(v)
         m' = (minf-m)/mtau
+        h' = (hinf-h)/htau
 }
 
 PROCEDURE trates(v) {
 	LOCAL qt
         qt=q10^((celsius-24)/10)
-        minf = 1/(1 + exp(-(v-21)/10))
+        minf = 1/(1 + exp(-(v-sha-7.6)/14))
 	mtau = betm(v)/(qt*a0m*(1+alpm(v)))
+
+        hinf = 1/(1 + exp((v-shi+47.4)/6))
+	htau = beth(v)/(qt*a0h*(1+alph(v)))
 }
 
 FUNCTION alpm(v(mV)) {
@@ -67,4 +81,12 @@ FUNCTION alpm(v(mV)) {
 
 FUNCTION betm(v(mV)) {
   betm = exp(zetam*gmm*(v-vhalfm))
+}
+
+FUNCTION alph(v(mV)) {
+  alph = exp(zetah*(v-vhalfh))
+}
+
+FUNCTION beth(v(mV)) {
+  beth = exp(zetah*gmh*(v-vhalfh))
 }

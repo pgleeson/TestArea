@@ -9,7 +9,7 @@
 
     <channel_type name="nax" density="yes">
         
-        <status value="in_progress">
+        <status value="stable">
             <meta:comment>...</meta:comment>
             <meta:contributor>
                 <meta:name>Padraig Gleeson</meta:name>
@@ -29,19 +29,29 @@
                 <meta:institution>UCL</meta:institution>
                 <meta:email>p.gleeson - at - ucl.ac.uk</meta:email>
             </meta:modelTranslator>
+            <meta:modelTranslator>
+                <meta:name>Simon O'Connor</meta:name>
+                <meta:institution>University of Cardiff</meta:institution>
+                <meta:email>simon.oconnor@btinternet.com</meta:email>
+            </meta:modelTranslator>
         </meta:authorList>
 
         <meta:publication>
             <meta:fullTitle>Migliore M, Shepherd GM (2008) Dendritic action potentials connect distributed dendrodendritic microcircuits J Comp Neurosci 24(2):207-221</meta:fullTitle>
             <meta:pubmedRef>http://www.ncbi.nlm.nih.gov/pubmed/17674173</meta:pubmedRef>
-            <meta:comment>Note: this channel has bene used in a number of olfactory bulb cell models by Michele Migliore</meta:comment>
+            <meta:comment>Note: this channel has been used in a number of olfactory bulb cell models by Michele Migliore and colleagues</meta:comment>
+        </meta:publication>
+        
+        <meta:publication>
+            <meta:fullTitle>Migliore, M., Hines, M.L., Shepherd, G.M. The Role of Distal Dendritic Gap Junctions in Synchronization of Mitral Cell Axonal Output J.Comput. Neurosci. 18, 151-161, 2005</meta:fullTitle>
+	    <meta:pubmedRef>http://www.ncbi.nlm.nih.gov/pubmed/15714267</meta:pubmedRef>
         </meta:publication>
 
 
         <meta:publication>
             <meta:fullTitle>Migliore M, Ferrante M, Ascoli GA (2005) Signal propagation in oblique dendrites of CA1 pyramidal cells. J Neurophysiol 94:4145-4155</meta:fullTitle>
             <meta:pubmedRef>http://www.ncbi.nlm.nih.gov/pubmed/16293591</meta:pubmedRef>
-            <meta:comment>A very similar channel is used in this paper</meta:comment>
+            <meta:comment>A very similar Na channel is used in this paper, with a different voltage dependence shift</meta:comment>
         </meta:publication>
 
         <meta:neuronDBref>
@@ -66,8 +76,8 @@
                 <closed_state id="m0"/>
                 <open_state id="m" fraction="1"/>
 
-                <transition name="alpha" from="m0" to="m" expr_form="exp_linear" rate="2.88" scale="7.2" midpoint="-30" />
-                <transition name="beta" from="m" to="m0" expr_form="exp_linear" rate="0.8928" scale="-7.2" midpoint="-30" />
+                <transition name="alpha" from="m0" to="m" expr_form="exp_linear" rate="2.88" scale="7.2" midpoint="-30+sh" />
+                <transition name="beta" from="m" to="m0" expr_form="exp_linear" rate="0.8928" scale="-7.2" midpoint="-30+sh" />
 
                 <time_course name="tau" from="m0" to="m" expr_form="generic" expr="1/( (alpha + beta) * temp_adj_m ) &lt; 0.02 ? (0.02 * temp_adj_m) : 1/(alpha + beta) " />
 
@@ -77,11 +87,11 @@
                 <closed_state id="h0"/>
                 <open_state id="h" fraction="1"/>
 
-                <transition name="alpha" from="h0" to="h" expr_form="exp_linear" rate="0.045" scale="1.5" midpoint="-45" />
-                <transition name="beta" from="h" to="h0" expr_form="exp_linear" rate="0.015" scale="-1.5" midpoint="-45" />
+                <transition name="alpha" from="h0" to="h" expr_form="exp_linear" rate="0.045" scale="1.5" midpoint="-45+sh" />
+                <transition name="beta" from="h" to="h0" expr_form="exp_linear" rate="0.015" scale="-1.5" midpoint="-45+sh" />
 
                 <time_course name="tau" from="h0" to="h" expr_form="generic" expr="1/( (alpha + beta) * temp_adj_h ) &lt; 0.5 ? (0.5 * temp_adj_h) : 1/(alpha + beta) " />
-                <steady_state name="inf" from="h0" to="h" expr_form="generic" expr="1/(1 + (exp ((v-(-50))/4 )) )" />
+                <steady_state name="inf" from="h0" to="h" expr_form="generic" expr="1/(1 + (exp (((v-(-50))-sh)/4 )) )" />
 
             </gate>
         </current_voltage_relation>

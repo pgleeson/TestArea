@@ -16,7 +16,7 @@ Go to tab Generate, press Generate Cell Positions and Connections, and then to v
 If NEURON or GENESIS are installed, the cell can be simulated via tab Export.</string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.3.3</string> 
+   <string>neuroConstruct v1.3.4</string> 
   </void> 
   <void property="projectName"> 
    <string>MooseDemo</string> 
@@ -68,7 +68,7 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export.</s
    <void method="get"> 
     <string>Cell Type</string> 
     <void method="add"> 
-     <string>OneComp</string> 
+     <string>SampleCell</string> 
     </void> 
    </void> 
    <void method="get"> 
@@ -174,7 +174,7 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export.</s
   <void property="nativeBlocks"> 
    <void method="put"> 
     <int>15</int> 
-    <string>le </string> 
+    <string></string> 
    </void> 
   </void> 
  </object> 
@@ -187,7 +187,7 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export.</s
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_29</string> 
+   <string>Sim_40</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
