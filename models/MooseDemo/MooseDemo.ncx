@@ -269,18 +269,9 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export.</s
    <boolean>false</boolean> 
   </void> 
  </object> 
- <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings"> 
-  <void property="graphicsMode"> 
-   <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings$GraphicsMode" method="valueOf"> 
-    <string>NO_PLOTS</string> 
-   </object> 
-  </void> 
- </object> 
+ <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings"/> 
  <object class="ucl.physiol.neuroconstruct.genesis.GenesisSettings"> 
   <void property="copySimFiles"> 
-   <boolean>false</boolean> 
-  </void> 
-  <void property="graphicsMode"> 
    <boolean>false</boolean> 
   </void> 
   <void property="mooseCompatMode"> 
@@ -296,13 +287,13 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export.</s
  <object class="ucl.physiol.neuroconstruct.psics.PsicsSettings"/> 
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters"> 
   <void property="dt"> 
-   <float>0.01</float> 
+   <float>0.0050</float> 
   </void> 
   <void property="duration"> 
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_95</string> 
+   <string>Sim_113</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -462,7 +453,7 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export.</s
       </void> 
      </void> 
      <void property="simDuration"> 
-      <float>1000.0</float> 
+      <float>500.0</float> 
      </void> 
     </object> 
    </void> 
