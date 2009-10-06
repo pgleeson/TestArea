@@ -81,7 +81,7 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export.</s
    <void method="get"> 
     <string>Cell Type</string> 
     <void method="add"> 
-     <string>SampleCell_k</string> 
+     <string>SampleCell</string> 
     </void> 
     <void method="add"> 
      <string>SampleCell</string> 
@@ -320,6 +320,68 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export.</s
      </void> 
     </object> 
    </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>Gran</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_0</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>2.0E-21</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_0</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>Gran_CaPool_98:CONC:ca</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>Gran</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_1</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>1.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_1</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>Gran_NaF_98:m</string> 
+     </void> 
+    </object> 
+   </void> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.project.ProjectProperties"> 
@@ -343,9 +405,6 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export.</s
     <int>255</int> 
     <int>255</int> 
    </object> 
-  </void> 
-  <void property="show3DAxes"> 
-   <boolean>true</boolean> 
   </void> 
   <void property="showRegions"> 
    <boolean>false</boolean> 
@@ -375,7 +434,7 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export.</s
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_156</string> 
+   <string>Sim_210</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -612,7 +671,13 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export.</s
      </void> 
      <void property="plots"> 
       <void method="add"> 
+       <string>Var_1</string> 
+      </void> 
+      <void method="add"> 
        <string>Gran_v</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_0</string> 
       </void> 
      </void> 
      <void property="simDuration"> 
