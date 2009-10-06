@@ -20,6 +20,8 @@ NEURON {
 
     SUFFIX %Name%
               
+    
+    USEION IP3 WRITE IP3i VALENCE 0    
         
     RANGE a, b, scale
     RANGE val
@@ -44,6 +46,8 @@ ASSIGNED {
 
     val (1)
     
+    IP3i (1)
+    
     
     
 }
@@ -51,8 +55,13 @@ ASSIGNED {
 BREAKPOINT { 
                         
  
-
-    val = a+b*(t/scale)
+    if(t>5 && t<10) {
+    
+        IP3i = a*2+b*(t/scale)
+    }
+    else {
+        IP3i = a+b*(t/scale)
+    }
             
 
 }
@@ -61,7 +70,7 @@ BREAKPOINT {
 
 INITIAL {
     
-    val = 0
+    IP3i = a
     
 }
     

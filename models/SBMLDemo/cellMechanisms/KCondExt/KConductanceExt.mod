@@ -25,6 +25,7 @@ NEURON {
     SUFFIX %Name%
     
     USEION k READ ek WRITE ik VALENCE 1  ? reversal potential of ion is read, outgoing current is written
+    USEION IP3 READ IP3i VALENCE 0  
            
         
     RANGE gmax, gion
@@ -55,6 +56,7 @@ ASSIGNED {
     ? The outward flow of ion: k calculated by rate equations...
     ik (mA/cm2)
     
+    IP3i (1)
     
     gion (S/cm2)
     ninf
@@ -67,7 +69,7 @@ BREAKPOINT {
     SOLVE states METHOD cnexp
          
 
-    gion = gmax*((n)^4)      
+    gion = gmax*IP3i*((n)^4)      
 
     ik = gion*(v - ek)
             
