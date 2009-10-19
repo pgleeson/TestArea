@@ -1,6 +1,6 @@
 #
 #
-#   File to load and visualise a single simulation
+#   File to analyse across multiple simulations
 #
 #   Author: Padraig Gleeson
 #
@@ -16,13 +16,14 @@ from time import *
 from java.io import File
 
 from ucl.physiol.neuroconstruct.simulation import SimulationData
+from ucl.physiol.neuroconstruct.simulation import SpikeAnalyser
 from ucl.physiol.neuroconstruct.gui.plotter import PlotManager
 from ucl.physiol.neuroconstruct.project import SimPlot
 
 #################################################
 
 projFile = File("../SolinasComplexSTAGE7cylinder.ncx")
-simRef = "Sim_2296"
+simRefs = ["Sim_2296"]
 
 #################################################
 
@@ -35,26 +36,33 @@ project = pm.loadProject(projFile)
 
 print 'Successfully loaded project: ', project.getProjectName()
 
-simDir = File(projFile.getParentFile(), "/simulations/"+simRef)
-print
-print "--- Reloading data from simulation in directory: %s"%simDir.getCanonicalPath()
+inputCells = []
 
-plotFrame = PlotManager.getPlotterFrame("All voltage traces from simulation: "+simRef, False)
+for simRef in simRefs:
 
-try:
-    simData = SimulationData(simDir)
-    simData.initialise()
+    simDir = File(projFile.getParentFile(), "/simulations/"+simRef)
+    print
+    print "--- Reloading data from simulation in directory: %s"%simDir.getCanonicalPath()
 
-    volt_traces = simData.getCellSegRefs(True)
-    for trace in volt_traces:
-        ds = simData.getDataSet(trace, SimPlot.VOLTAGE, False)
-        plotFrame.addDataSet(ds)
+    plotFrame = PlotManager.getPlotterFrame("All voltage traces from simulation: "+simRef, False)
 
-except:
-    print "Error analysing simulation data from: %s"%simDir.getCanonicalPath()
-    print exc_info()
+    try:
+        simData = SimulationData(simDir)
+        simData.initialise()
 
-plotFrame.setVisible(True) 
+        volt_traces = simData.getCellSegRefs(True)
+        for trace in volt_traces:
+            #print "Plotting data from: ", trace
+            ds = simData.getDataSet(trace, SimPlot.VOLTAGE, False)
+            plotFrame.addDataSet(ds)
+
+
+
+    except:
+        print "Error analysing simulation data from: %s"%simDir.getCanonicalPath()
+        print exc_info()
+
+    plotFrame.setVisible(True)
 
 
 
