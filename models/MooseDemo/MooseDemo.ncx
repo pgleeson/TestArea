@@ -9,11 +9,11 @@ part of NeuroML or any standardised XML specification. -->
 
  <object class="ucl.physiol.neuroconstruct.project.BasicProjectInfo"> 
   <void property="projectDescription"> 
-   <string>This is a simple project with a single cell placed randomly in a 3D rectangular box.
+   <string>Test project for MOOSE compatibility.
 
-Go to tab Generate, press Generate Cell Positions and Connections, and then to visualise the results, go to tab Visualisation and press View, with Latest Generated Positions selected in the drop down box.
+   NOTE: RandomSpike sim config not yet working!!
 
-If NEURON or GENESIS are installed, the cell can be simulated via tab Export.</string> 
+</string> 
   </void> 
   <void property="projectFileVersion"> 
    <string>neuroConstruct v1.3.4</string> 
@@ -412,7 +412,7 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export.</s
  </object> 
  <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings"/> 
  <object class="ucl.physiol.neuroconstruct.genesis.GenesisSettings"> 
-  <void property="copySimFiles"> 
+  <void property="graphicsMode"> 
    <boolean>false</boolean> 
   </void> 
   <void property="mooseCompatMode"> 
@@ -420,9 +420,36 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export.</s
   </void> 
   <void property="nativeBlocks"> 
    <void method="put"> 
+    <int>5</int> 
+    <string>
+
+// This code is needed to handle GENESIS&apos;s curious use of the maximum conductance value in a readcell file for calculating the B value of a Ca_Concen
+// see http://www.genesis-sim.org/GENESIS/gum-tutorials/beeman/Hyperdoc/Manual-26.html#ss26.1
+//
+// Hopefully this issue will be sorted out in GENESIS 3...
+
+if (units == &quot;GENESIS Physiological Units&quot;)
+
+    echo &quot;Altering the B values of Ca_Concen for Physiological units&quot;
+
+    str concenElement
+
+    foreach concenElement ({el {cellsRoot}/##[][TYPE=Ca_concen]})	
+
+       setfield  {concenElement}  B {{getfield  {concenElement}  B} * 1e-8}
+       echo &quot;B = &quot; {getfield {concenElement} B }
+
+    end
+
+end</string> 
+   </void> 
+   <void method="put"> 
     <int>15</int> 
     <string></string> 
    </void> 
+  </void> 
+  <void property="reloadSimAfterSecs"> 
+   <float>15.0</float> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.psics.PsicsSettings"/> 
@@ -434,7 +461,7 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export.</s
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_210</string> 
+   <string>Sim_266</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -644,9 +671,17 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export.</s
      <void property="name"> 
       <string>RandomSpike</string> 
      </void> 
+     <void property="netConns"> 
+      <void method="add"> 
+       <string>NetConn_SampleCellGroup_CellGroup_2</string> 
+      </void> 
+     </void> 
      <void property="plots"> 
       <void method="add"> 
        <string>SamplePlot</string> 
+      </void> 
+      <void method="add"> 
+       <string>CellGroup_2_v</string> 
       </void> 
      </void> 
      <void property="simDuration"> 
@@ -671,13 +706,7 @@ If NEURON or GENESIS are installed, the cell can be simulated via tab Export.</s
      </void> 
      <void property="plots"> 
       <void method="add"> 
-       <string>Var_1</string> 
-      </void> 
-      <void method="add"> 
        <string>Gran_v</string> 
-      </void> 
-      <void method="add"> 
-       <string>Var_0</string> 
       </void> 
      </void> 
      <void property="simDuration"> 
