@@ -29,7 +29,7 @@ from ucl.physiol.neuroconstruct.dataset import DataSet
 
 projFile = File("../SolinasComplexSTAGE7cylinder.ncx")
 
-simRefs = ["Sim_2296", "Sim_2299", "Sim_2302", "Sim_2308", "Sim_2315"]
+simRefs = ["Sim_2331", "Sim_2333", "Sim_2334", "Sim_2335", "Sim_2337", "Sim_2338", "Sim_2344", "Sim_2348", "Sim_2349"]
 #simRefs = ["Sim_2296"]
 
 threshold = -20  # above which constitutes a spike
@@ -39,7 +39,7 @@ peakThreshold = 3   # In synchrony, what constitutes a peak
 
 maxRadius = 300
 
-radiusRing = 50
+radiusRing = 40
 
 cellGroupName = "CellGroup_1"
 inputStimRef = "Input_0"
@@ -58,7 +58,7 @@ print 'Successfully loaded project: ', project.getProjectName()
 
 
 innerRadius = 0
-outerRadius = radiusRing*2
+outerRadius = radiusRing*2.5 #most inner compartment
 
 while innerRadius < maxRadius:
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.6.0_13" class="java.beans.XMLDecoder"> 
+<java version="1.6.0_15" class="java.beans.XMLDecoder"> 
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -30,7 +30,7 @@ Note:
 -Extra hoc code to introduce a variable extra leak conductance at the soma of every cell (to introduce an additional heterogeneity among cells).</string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.2.3</string> 
+   <string>neuroConstruct v1.3.4</string> 
   </void> 
   <void property="projectName"> 
    <string>SolinasComplexSTAGE7cylinder</string> 
@@ -51,17 +51,17 @@ Note:
     <string>Colour</string> 
     <void method="add"> 
      <object class="java.awt.Color"> 
-      <int>255</int> 
-      <int>0</int> 
-      <int>51</int> 
+      <int>102</int> 
+      <int>102</int> 
+      <int>102</int> 
       <int>255</int> 
      </object> 
     </void> 
     <void method="add"> 
      <object class="java.awt.Color"> 
       <int>0</int> 
-      <int>0</int> 
-      <int>204</int> 
+      <int>51</int> 
+      <int>255</int> 
       <int>255</int> 
      </object> 
     </void> 
@@ -73,12 +73,17 @@ Note:
       <void property="parameterList"> 
        <void index="4"> 
         <void property="value"> 
+         <float>0.0</float> 
+        </void> 
+       </void> 
+       <void index="5"> 
+        <void property="value"> 
          <float>80.0</float> 
         </void> 
        </void> 
        <void index="6"> 
         <void property="value"> 
-         <float>246.0</float> 
+         <float>300.0</float> 
         </void> 
        </void> 
       </void> 
@@ -89,12 +94,17 @@ Note:
       <void property="parameterList"> 
        <void index="4"> 
         <void property="value"> 
+         <float>0.0</float> 
+        </void> 
+       </void> 
+       <void index="5"> 
+        <void property="value"> 
          <float>80.0</float> 
         </void> 
        </void> 
        <void index="6"> 
         <void property="value"> 
-         <float>186.0</float> 
+         <float>100.0</float> 
         </void> 
        </void> 
       </void> 
@@ -110,14 +120,9 @@ Note:
     <void method="add"> 
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"> 
       <void property="maxNumberCells"> 
-       <int>70</int> 
+       <int>104</int> 
       </void> 
       <void property="parameterList"> 
-       <void index="1"> 
-        <void property="value"> 
-         <float>0.0</float> 
-        </void> 
-       </void> 
        <void index="3"> 
         <void property="value"> 
          <float>0.0</float> 
@@ -305,14 +310,6 @@ Note:
     <string></string> 
    </void> 
    <void method="put"> 
-    <int>-1</int> 
-    <string>objref random_conductance_generator
-
-random_conductance_generator = new Random()
-
-random_conductance_generator.MCellRan4()</string> 
-   </void> 
-   <void method="put"> 
     <int>1</int> 
     <string>print &quot;Changing values of ena, ek&quot;
 
@@ -328,9 +325,17 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
 
 
 forall if (ismembrane(&quot;VariableLeak&quot;)) {
-	gmax_VariableLeak = random_conductance_generator.uniform(0,23E-5) //25E-5
+	gmax_VariableLeak = random_conductance_generator.uniform(0,18E-5) //25E-5
 	print gmax_VariableLeak
 }</string> 
+   </void> 
+   <void method="put"> 
+    <int>-1</int> 
+    <string>objref random_conductance_generator
+
+random_conductance_generator = new Random()
+
+random_conductance_generator.MCellRan4()</string> 
    </void> 
    <void method="put"> 
     <int>0</int> 
@@ -356,7 +361,7 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
    <float>3500.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_2317</string> 
+   <string>Sim_2362</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -449,7 +454,7 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
        <void property="parameterList"> 
         <void index="0"> 
          <void property="stringValue"> 
-          <string>4,10,15,26,32,33,41,52,53,55,56,3,13,55</string> 
+          <string>2,9,10,43,47,53,74,88</string> 
          </void> 
         </void> 
        </void> 
@@ -474,7 +479,7 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
      </void> 
      <void property="duration"> 
       <void property="fixedNum"> 
-       <float>10.0</float> 
+       <float>400.0</float> 
       </void> 
       <void property="numberType"> 
        <int>11</int> 
@@ -515,7 +520,7 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
        <void property="parameterList"> 
         <void index="0"> 
          <void property="stringValue"> 
-          <string>4,10,15,26,32,33,41,52,53,55,56,3,13,55</string> 
+          <string>2,9,43,10,47,53,74,88</string> 
          </void> 
         </void> 
        </void> 
@@ -540,7 +545,7 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
      </void> 
      <void property="duration"> 
       <void property="fixedNum"> 
-       <float>15.0</float> 
+       <float>400.0</float> 
       </void> 
       <void property="numberType"> 
        <int>11</int> 
@@ -615,6 +620,17 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
    </void> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings"> 
+     <void property="cellChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.cellchoice.IndividualCells"> 
+       <void property="parameterList"> 
+        <void index="0"> 
+         <void property="stringValue"> 
+          <string>2,9,10,43,47,53,74,88</string> 
+         </void> 
+        </void> 
+       </void> 
+      </object> 
+     </void> 
      <void property="cellGroup"> 
       <string>CellGroup_1</string> 
      </void> 
@@ -623,10 +639,10 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
        <int>1</int> 
       </void> 
       <void property="max"> 
-       <float>135.0</float> 
+       <float>1755.0</float> 
       </void> 
       <void property="min"> 
-       <float>125.0</float> 
+       <float>1750.0</float> 
       </void> 
       <void property="numberType"> 
        <int>11</int> 
@@ -634,7 +650,7 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
      </void> 
      <void property="duration"> 
       <void property="fixedNum"> 
-       <float>20.0</float> 
+       <float>10.0</float> 
       </void> 
       <void property="numberType"> 
        <int>11</int> 
@@ -643,7 +659,7 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
      <void property="rate"> 
       <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
        <void property="fixedNum"> 
-        <float>0.04</float> 
+        <float>0.2</float> 
        </void> 
        <void property="numberType"> 
         <int>11</int> 
@@ -659,7 +675,7 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
         <string>basolateral</string> 
        </void> 
        <void property="numberOfSegments"> 
-        <int>5</int> 
+        <int>8</int> 
        </void> 
       </object> 
      </void> 
@@ -670,6 +686,17 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
    </void> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings"> 
+     <void property="cellChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.cellchoice.IndividualCells"> 
+       <void property="parameterList"> 
+        <void index="0"> 
+         <void property="stringValue"> 
+          <string>2,9,10,43,47,53,74,88</string> 
+         </void> 
+        </void> 
+       </void> 
+      </object> 
+     </void> 
      <void property="cellGroup"> 
       <string>CellGroup_1</string> 
      </void> 
@@ -678,10 +705,10 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
        <int>1</int> 
       </void> 
       <void property="max"> 
-       <float>260.0</float> 
+       <float>1757.0</float> 
       </void> 
       <void property="min"> 
-       <float>250.0</float> 
+       <float>1752.0</float> 
       </void> 
       <void property="numberType"> 
        <int>11</int> 
@@ -689,7 +716,7 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
      </void> 
      <void property="duration"> 
       <void property="fixedNum"> 
-       <float>20.0</float> 
+       <float>15.0</float> 
       </void> 
       <void property="numberType"> 
        <int>11</int> 
@@ -698,7 +725,7 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
      <void property="rate"> 
       <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
        <void property="fixedNum"> 
-        <float>0.04</float> 
+        <float>0.35</float> 
        </void> 
        <void property="numberType"> 
         <int>11</int> 
@@ -711,20 +738,31 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
      <void property="segChooser"> 
       <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments"> 
        <void property="group"> 
-        <string>basolateral</string> 
+        <string>apical</string> 
        </void> 
        <void property="numberOfSegments"> 
-        <int>5</int> 
+        <int>50</int> 
        </void> 
       </object> 
      </void> 
      <void property="synapseType"> 
-      <string>MultiDecaySyn</string> 
+      <string>ApicalSyn</string> 
      </void> 
     </object> 
    </void> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings"> 
+     <void property="cellChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.cellchoice.IndividualCells"> 
+       <void property="parameterList"> 
+        <void index="0"> 
+         <void property="stringValue"> 
+          <string>2,9,10,43,47,53,74,88</string> 
+         </void> 
+        </void> 
+       </void> 
+      </object> 
+     </void> 
      <void property="cellGroup"> 
       <string>CellGroup_1</string> 
      </void> 
@@ -733,10 +771,10 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
        <int>1</int> 
       </void> 
       <void property="max"> 
-       <float>385.0</float> 
+       <float>1855.0</float> 
       </void> 
       <void property="min"> 
-       <float>375.0</float> 
+       <float>1850.0</float> 
       </void> 
       <void property="numberType"> 
        <int>11</int> 
@@ -744,7 +782,7 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
      </void> 
      <void property="duration"> 
       <void property="fixedNum"> 
-       <float>20.0</float> 
+       <float>10.0</float> 
       </void> 
       <void property="numberType"> 
        <int>11</int> 
@@ -753,7 +791,7 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
      <void property="rate"> 
       <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
        <void property="fixedNum"> 
-        <float>0.04</float> 
+        <float>0.2</float> 
        </void> 
        <void property="numberType"> 
         <int>11</int> 
@@ -769,7 +807,7 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
         <string>basolateral</string> 
        </void> 
        <void property="numberOfSegments"> 
-        <int>5</int> 
+        <int>8</int> 
        </void> 
       </object> 
      </void> 
@@ -780,6 +818,17 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
    </void> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings"> 
+     <void property="cellChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.cellchoice.IndividualCells"> 
+       <void property="parameterList"> 
+        <void index="0"> 
+         <void property="stringValue"> 
+          <string>2,9,10,43,47,53,74,88</string> 
+         </void> 
+        </void> 
+       </void> 
+      </object> 
+     </void> 
      <void property="cellGroup"> 
       <string>CellGroup_1</string> 
      </void> 
@@ -788,10 +837,10 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
        <int>1</int> 
       </void> 
       <void property="max"> 
-       <float>510.0</float> 
+       <float>1857.0</float> 
       </void> 
       <void property="min"> 
-       <float>500.0</float> 
+       <float>1852.0</float> 
       </void> 
       <void property="numberType"> 
        <int>11</int> 
@@ -799,7 +848,7 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
      </void> 
      <void property="duration"> 
       <void property="fixedNum"> 
-       <float>20.0</float> 
+       <float>15.0</float> 
       </void> 
       <void property="numberType"> 
        <int>11</int> 
@@ -808,7 +857,7 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
      <void property="rate"> 
       <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
        <void property="fixedNum"> 
-        <float>0.04</float> 
+        <float>0.35</float> 
        </void> 
        <void property="numberType"> 
         <int>11</int> 
@@ -821,20 +870,31 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
      <void property="segChooser"> 
       <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments"> 
        <void property="group"> 
-        <string>basolateral</string> 
+        <string>apical</string> 
        </void> 
        <void property="numberOfSegments"> 
-        <int>5</int> 
+        <int>50</int> 
        </void> 
       </object> 
      </void> 
      <void property="synapseType"> 
-      <string>MultiDecaySyn</string> 
+      <string>ApicalSyn</string> 
      </void> 
     </object> 
    </void> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings"> 
+     <void property="cellChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.cellchoice.IndividualCells"> 
+       <void property="parameterList"> 
+        <void index="0"> 
+         <void property="stringValue"> 
+          <string>2,9,10,43,47,53,74,88</string> 
+         </void> 
+        </void> 
+       </void> 
+      </object> 
+     </void> 
      <void property="cellGroup"> 
       <string>CellGroup_1</string> 
      </void> 
@@ -843,10 +903,10 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
        <int>1</int> 
       </void> 
       <void property="max"> 
-       <float>635.0</float> 
+       <float>1955.0</float> 
       </void> 
       <void property="min"> 
-       <float>625.0</float> 
+       <float>1950.0</float> 
       </void> 
       <void property="numberType"> 
        <int>11</int> 
@@ -854,7 +914,7 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
      </void> 
      <void property="duration"> 
       <void property="fixedNum"> 
-       <float>20.0</float> 
+       <float>10.0</float> 
       </void> 
       <void property="numberType"> 
        <int>11</int> 
@@ -863,7 +923,7 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
      <void property="rate"> 
       <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
        <void property="fixedNum"> 
-        <float>0.04</float> 
+        <float>0.2</float> 
        </void> 
        <void property="numberType"> 
         <int>11</int> 
@@ -879,7 +939,7 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
         <string>basolateral</string> 
        </void> 
        <void property="numberOfSegments"> 
-        <int>5</int> 
+        <int>8</int> 
        </void> 
       </object> 
      </void> 
@@ -890,6 +950,17 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
    </void> 
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings"> 
+     <void property="cellChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.cellchoice.IndividualCells"> 
+       <void property="parameterList"> 
+        <void index="0"> 
+         <void property="stringValue"> 
+          <string>2,9,10,43,47,53,74,88</string> 
+         </void> 
+        </void> 
+       </void> 
+      </object> 
+     </void> 
      <void property="cellGroup"> 
       <string>CellGroup_1</string> 
      </void> 
@@ -898,10 +969,10 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
        <int>1</int> 
       </void> 
       <void property="max"> 
-       <float>760.0</float> 
+       <float>1957.0</float> 
       </void> 
       <void property="min"> 
-       <float>750.0</float> 
+       <float>1952.0</float> 
       </void> 
       <void property="numberType"> 
        <int>11</int> 
@@ -909,7 +980,7 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
      </void> 
      <void property="duration"> 
       <void property="fixedNum"> 
-       <float>20.0</float> 
+       <float>15.0</float> 
       </void> 
       <void property="numberType"> 
        <int>11</int> 
@@ -918,7 +989,7 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
      <void property="rate"> 
       <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
        <void property="fixedNum"> 
-        <float>0.04</float> 
+        <float>0.35</float> 
        </void> 
        <void property="numberType"> 
         <int>11</int> 
@@ -931,15 +1002,15 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
      <void property="segChooser"> 
       <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments"> 
        <void property="group"> 
-        <string>basolateral</string> 
+        <string>apical</string> 
        </void> 
        <void property="numberOfSegments"> 
-        <int>5</int> 
+        <int>50</int> 
        </void> 
       </object> 
      </void> 
      <void property="synapseType"> 
-      <string>MultiDecaySyn</string> 
+      <string>ApicalSyn</string> 
      </void> 
     </object> 
    </void> 
@@ -2443,27 +2514,73 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
      <void id="MpiConfiguration0" property="mpiConf"> 
       <void property="hostList"> 
        <void index="0"> 
-        <void property="numProcessors"> 
-         <int>16</int> 
+        <void property="hostname"> 
+         <string>node0</string> 
         </void> 
+        <void property="numProcessors"> 
+         <int>4</int> 
+        </void> 
+       </void> 
+       <void method="add"> 
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost"> 
+         <void property="hostname"> 
+          <string>node1</string> 
+         </void> 
+         <void property="numProcessors"> 
+          <int>4</int> 
+         </void> 
+        </object> 
+       </void> 
+       <void method="add"> 
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost"> 
+         <void property="hostname"> 
+          <string>node2</string> 
+         </void> 
+         <void property="numProcessors"> 
+          <int>4</int> 
+         </void> 
+        </object> 
+       </void> 
+       <void method="add"> 
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost"> 
+         <void property="hostname"> 
+          <string>node3</string> 
+         </void> 
+         <void property="numProcessors"> 
+          <int>4</int> 
+         </void> 
+        </object> 
        </void> 
       </void> 
       <void property="name"> 
-       <string>Cluster (1 x 16p)</string> 
+       <string>Legion (4 x 4p)</string> 
+      </void> 
+      <void property="queueInfo"> 
+       <object class="ucl.physiol.neuroconstruct.hpc.mpi.QueueInfo"> 
+        <void property="account"> 
+         <string>ucl/NeuroSci/neuroconst</string> 
+        </void> 
+        <void property="launcherScript"> 
+         <string>cvos-launcher</string> 
+        </void> 
+        <void property="wallTimeMins"> 
+         <int>6</int> 
+        </void> 
+       </object> 
       </void> 
       <void property="remoteLogin"> 
        <object class="ucl.physiol.neuroconstruct.hpc.mpi.RemoteLogin"> 
         <void property="hostname"> 
-         <string>smp-test.rc.ucl.ac.uk</string> 
+         <string>legion.rc.ucl.ac.uk</string> 
         </void> 
         <void property="nrnivLocation"> 
-         <string>/home/ucgbpgl/nrn62/x86_64/bin/nrniv</string> 
+         <string>/home/ucgbpgl/nrnmpi/x86_64/bin/nrniv</string> 
         </void> 
         <void property="userName"> 
          <string>ucgbpgl</string> 
         </void> 
         <void property="workDir"> 
-         <string>/home/ucgbpgl/nCsims</string> 
+         <string>/shared/scratch/ucgbpgl/nCsims</string> 
         </void> 
        </object> 
       </void> 
@@ -2993,40 +3110,16 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
                   <void property="first"> 
                    <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation"> 
                     <void property="first"> 
-                     <object class="ucl.physiol.neuroconstruct.utils.equation.Constant"> 
-                      <void property="value"> 
-                       <double>-1.0</double> 
-                      </void> 
-                     </object> 
-                    </void> 
-                    <void property="operation"> 
-                     <char>*</char> 
-                    </void> 
-                    <void property="second"> 
-                     <object class="ucl.physiol.neuroconstruct.utils.equation.Constant"> 
-                      <void property="value"> 
-                       <double>1745.0</double> 
-                      </void> 
-                     </object> 
-                    </void> 
-                   </object> 
-                  </void> 
-                  <void property="operation"> 
-                   <char>+</char> 
-                  </void> 
-                  <void property="second"> 
-                   <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation"> 
-                    <void property="first"> 
                      <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation"> 
                       <void property="first"> 
                        <object class="ucl.physiol.neuroconstruct.utils.equation.Constant"> 
                         <void property="value"> 
-                         <double>86.5</double> 
+                         <double>-1.0</double> 
                         </void> 
                        </object> 
                       </void> 
                       <void property="operation"> 
-                       <char>+</char> 
+                       <char>*</char> 
                       </void> 
                       <void property="second"> 
                        <object class="ucl.physiol.neuroconstruct.utils.equation.Constant"> 
@@ -3038,63 +3131,101 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
                      </object> 
                     </void> 
                     <void property="operation"> 
-                     <char>/</char> 
+                     <char>+</char> 
                     </void> 
                     <void property="second"> 
                      <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation"> 
                       <void property="first"> 
-                       <object class="ucl.physiol.neuroconstruct.utils.equation.Constant"> 
-                        <void property="value"> 
-                         <double>1.0</double> 
+                       <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation"> 
+                        <void property="first"> 
+                         <object class="ucl.physiol.neuroconstruct.utils.equation.Constant"> 
+                          <void property="value"> 
+                           <double>90.5</double> 
+                          </void> 
+                         </object> 
+                        </void> 
+                        <void property="operation"> 
+                         <char>+</char> 
+                        </void> 
+                        <void property="second"> 
+                         <object class="ucl.physiol.neuroconstruct.utils.equation.Constant"> 
+                          <void property="value"> 
+                           <double>1745.0</double> 
+                          </void> 
+                         </object> 
                         </void> 
                        </object> 
                       </void> 
                       <void property="operation"> 
-                       <char>+</char> 
+                       <char>/</char> 
                       </void> 
                       <void property="second"> 
-                       <object class="ucl.physiol.neuroconstruct.utils.equation.functions.ExpFunctionUnit"> 
-                        <void property="internalEqn"> 
-                         <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation"> 
-                          <void property="first"> 
+                       <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation"> 
+                        <void property="first"> 
+                         <object class="ucl.physiol.neuroconstruct.utils.equation.Constant"> 
+                          <void property="value"> 
+                           <double>1.0</double> 
+                          </void> 
+                         </object> 
+                        </void> 
+                        <void property="operation"> 
+                         <char>+</char> 
+                        </void> 
+                        <void property="second"> 
+                         <object class="ucl.physiol.neuroconstruct.utils.equation.functions.ExpFunctionUnit"> 
+                          <void property="internalEqn"> 
                            <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation"> 
                             <void property="first"> 
-                             <object class="ucl.physiol.neuroconstruct.utils.equation.Variable"> 
-                              <void property="name"> 
-                               <string>r</string> 
+                             <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation"> 
+                              <void property="first"> 
+                               <object class="ucl.physiol.neuroconstruct.utils.equation.Variable"> 
+                                <void property="name"> 
+                                 <string>r</string> 
+                                </void> 
+                               </object> 
+                              </void> 
+                              <void property="operation"> 
+                               <char>-</char> 
+                              </void> 
+                              <void property="second"> 
+                               <object class="ucl.physiol.neuroconstruct.utils.equation.Constant"> 
+                                <void property="value"> 
+                                 <double>267.0</double> 
+                                </void> 
+                               </object> 
                               </void> 
                              </object> 
                             </void> 
                             <void property="operation"> 
-                             <char>-</char> 
+                             <char>/</char> 
                             </void> 
                             <void property="second"> 
                              <object class="ucl.physiol.neuroconstruct.utils.equation.Constant"> 
                               <void property="value"> 
-                               <double>267.0</double> 
+                               <double>39.0</double> 
                               </void> 
                              </object> 
                             </void> 
                            </object> 
                           </void> 
-                          <void property="operation"> 
-                           <char>/</char> 
-                          </void> 
-                          <void property="second"> 
-                           <object class="ucl.physiol.neuroconstruct.utils.equation.Constant"> 
-                            <void property="value"> 
-                             <double>39.0</double> 
-                            </void> 
-                           </object> 
+                          <void property="name"> 
+                           <string>exp</string> 
                           </void> 
                          </object> 
-                        </void> 
-                        <void property="name"> 
-                         <string>exp</string> 
                         </void> 
                        </object> 
                       </void> 
                      </object> 
+                    </void> 
+                   </object> 
+                  </void> 
+                  <void property="operation"> 
+                   <char>/</char> 
+                  </void> 
+                  <void property="second"> 
+                   <object class="ucl.physiol.neuroconstruct.utils.equation.Constant"> 
+                    <void property="value"> 
+                     <double>100.0</double> 
                     </void> 
                    </object> 
                   </void> 
@@ -3173,14 +3304,14 @@ forall if (ismembrane(&quot;VariableLeak&quot;)) {
        <boolean>false</boolean> 
       </void> 
       <void property="maxNumInitPerFinishCell"> 
-       <int>44</int> 
+       <int>103</int> 
       </void> 
       <void property="noRecurrent"> 
        <boolean>true</boolean> 
       </void> 
       <void property="numConnsInitiatingCellGroup"> 
        <void property="fixedNum"> 
-        <float>44.0</float> 
+        <float>103.0</float> 
        </void> 
       </void> 
       <void property="onlyConnectToUniqueCells"> 
