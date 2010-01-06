@@ -1,6 +1,6 @@
 
 
-TITLE Channel: KConductance
+TITLE Channel: KConductanceExt
 
 COMMENT
     Simple example of K conductance in squid giant axon. Based on channel from Hodgkin and Huxley 1952
@@ -25,20 +25,20 @@ NEURON {
     SUFFIX %Name%
     
     USEION k READ ek WRITE ik VALENCE 1  ? reversal potential of ion is read, outgoing current is written
-    USEION IP3 READ IP3i VALENCE 0  
+    USEION IP3 READ IP3i VALENCE 0
            
         
     RANGE gmax, gion
     
     RANGE ninf, ntau
-    
+
 }
 
 PARAMETER { 
       
 
     gmax = 0.036 (S/cm2)  ? default value, should be overwritten when conductance placed on cell
-    
+
 }
 
 
@@ -69,7 +69,7 @@ BREAKPOINT {
     SOLVE states METHOD cnexp
          
 
-    gion = gmax*IP3i*((n)^4)      
+    gion = gmax*IP3i*((n)^4)
 
     ik = gion*(v - ek)
             

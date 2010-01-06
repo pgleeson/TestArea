@@ -10,7 +10,7 @@
 <listOfSpecies>
 	<species id="s1" name="s1" compartment="default" initialAmount="10" charge="0"/>
 	<species id="s2" name="s2" compartment="default" initialAmount="0"/>
-	<species id="s3" name="s3" compartment="default" initialAmount="5" charge="0"/>
+	<species id="s3" name="s3" compartment="default" initialAmount="0" charge="0"/>
 </listOfSpecies>
 
 <listOfReactions>
@@ -33,7 +33,7 @@
 				</apply>
 		  </math>
 			<listOfParameters>
-				<parameter id="k1" name="k1" value="2"/>
+				<parameter id="k1" name="k1" value="0.5"/>
 			</listOfParameters>
 		</kineticLaw>
 		
@@ -64,7 +64,7 @@
 </math>
 <listOfParameters>
 <parameter id="v1" name="v1" value="3"/>
-<parameter id="k1" name="k1" value="1"/>
+<parameter id="k1" name="k1" value="2"/>
 </listOfParameters>
 </kineticLaw>
 </reaction>
