@@ -99,7 +99,7 @@
 
         <impl_prefs>
             <comment>Suggesting using a large table of precomputed rate equation values since original mod didn't use any table, i.e. used continuous values</comment>
-            <table_settings max_v="100" min_v="-100" table_divisions="2000"/>
+            <table_settings max_v="100" min_v="-120" table_divisions="2000"/>
         </impl_prefs>
         
         

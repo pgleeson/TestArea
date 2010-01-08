@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.6.0_15" class="java.beans.XMLDecoder"> 
+<java version="1.6.0_03" class="java.beans.XMLDecoder"> 
 
 <!-- Note that this XML is specific to the neuroConstruct Java cell object model and not any part of the NeuroML framework -->
 
@@ -62,25 +62,10 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>8.33333E-10</float> 
+      <float>4.0E-8</float> 
      </void> 
      <void property="name"> 
-      <string>pas</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>all</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
-      <float>1.0E-9</float> 
-     </void> 
-     <void property="name"> 
-      <string>kdrmt</string> 
+      <string>kamt</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
@@ -107,10 +92,25 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>4.0E-8</float> 
+      <float>1.0E-9</float> 
      </void> 
      <void property="name"> 
-      <string>kamt</string> 
+      <string>kdrmt</string> 
+     </void> 
+    </object> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>all</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="density"> 
+      <float>8.33333E-10</float> 
+     </void> 
+     <void property="name"> 
+      <string>pas</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 

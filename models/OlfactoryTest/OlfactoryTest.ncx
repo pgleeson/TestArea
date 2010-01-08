@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.6.0_15" class="java.beans.XMLDecoder"> 
+<java version="1.6.0_03" class="java.beans.XMLDecoder"> 
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -24,7 +24,7 @@ Use different ena for GC and MT
 </string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.3.4</string> 
+   <string>neuroConstruct v1.3.5</string> 
   </void> 
   <void property="projectName"> 
    <string>OlfactoryTest</string> 
@@ -163,7 +163,7 @@ Use different ena for GC and MT
      <string>Simple_kamt_mod</string> 
     </void> 
     <void method="add"> 
-     <string>Simple_nax</string> 
+     <string>Simple_nax_no_sh</string> 
     </void> 
     <void method="add"> 
      <string>Simple_nax_mod</string> 
@@ -896,7 +896,7 @@ Use different ena for GC and MT
    </object> 
   </void> 
   <void property="minRadius"> 
-   <float>4.0</float> 
+   <float>2.0</float> 
   </void> 
   <void property="show3DAxes"> 
    <boolean>true</boolean> 
@@ -906,6 +906,9 @@ Use different ena for GC and MT
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings"> 
+  <void property="copySimFiles"> 
+   <boolean>true</boolean> 
+  </void> 
   <void property="nativeBlocks"> 
    <void method="put"> 
     <int>2</int> 
@@ -937,17 +940,21 @@ forall {
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.genesis.GenesisSettings"> 
-  <void property="mooseCompatMode"> 
-   <boolean>true</boolean> 
-  </void> 
   <void property="unitSystemToUse"> 
    <int>3</int> 
   </void> 
  </object> 
- <object class="ucl.physiol.neuroconstruct.psics.PsicsSettings"/> 
+ <object class="ucl.physiol.neuroconstruct.psics.PsicsSettings"> 
+  <void property="singleChannelCond"> 
+   <float>1.0E-8</float> 
+  </void> 
+  <void property="spatialDiscretisation"> 
+   <float>5.0</float> 
+  </void> 
+ </object> 
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters"> 
   <void property="dt"> 
-   <float>0.0010</float> 
+   <float>0.01</float> 
   </void> 
   <void property="duration"> 
    <float>100.0</float> 
@@ -956,7 +963,7 @@ forall {
    <float>0.11</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_114</string> 
+   <string>Sim_157</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -1072,7 +1079,7 @@ forall {
      </void> 
      <void property="dur"> 
       <void property="fixedNum"> 
-       <float>860.0</float> 
+       <float>160.0</float> 
       </void> 
       <void property="numberType"> 
        <int>11</int> 
@@ -1095,7 +1102,7 @@ forall {
      </void> 
      <void property="dur"> 
       <void property="fixedNum"> 
-       <float>860.0</float> 
+       <float>160.0</float> 
       </void> 
       <void property="numberType"> 
        <int>11</int> 
@@ -1258,17 +1265,11 @@ forall {
       <void method="add"> 
        <string>CG_kdrmt</string> 
       </void> 
-      <void method="add"> 
-       <string>CG_kdrmt_mod</string> 
-      </void> 
      </void> 
      <void property="description"> 
       <string>Sim Config to compare behaviour of kdrmt channel in original mod and with ChannelML</string> 
      </void> 
      <void property="inputs"> 
-      <void method="add"> 
-       <string>Input_4</string> 
-      </void> 
       <void method="add"> 
        <string>Input_3</string> 
       </void> 
@@ -1278,20 +1279,20 @@ forall {
      </void> 
      <void property="plots"> 
       <void method="add"> 
-       <string>CG_mod_v_6</string> 
-      </void> 
-      <void method="add"> 
-       <string>CG_mod_v_5</string> 
-      </void> 
-      <void method="add"> 
        <string>CG_kdrmt_v</string> 
       </void> 
       <void method="add"> 
        <string>CG_kdrmt_mod_v</string> 
       </void> 
+      <void method="add"> 
+       <string>CG_mod_v_6</string> 
+      </void> 
+      <void method="add"> 
+       <string>CG_mod_v_5</string> 
+      </void> 
      </void> 
      <void property="simDuration"> 
-      <float>1000.0</float> 
+      <float>250.0</float> 
      </void> 
     </object> 
    </void> 
@@ -1318,13 +1319,10 @@ forall {
      </void> 
      <void property="plots"> 
       <void method="add"> 
-       <string>CG_mod_v_7</string> 
+       <string>CG_mod_v_10</string> 
       </void> 
       <void method="add"> 
        <string>CG_kamt_mod_v</string> 
-      </void> 
-      <void method="add"> 
-       <string>CG_mod_v_10</string> 
       </void> 
       <void method="add"> 
        <string>CG_kamt_v</string> 
@@ -1334,6 +1332,9 @@ forall {
       </void> 
       <void method="add"> 
        <string>CG_mod_v_8</string> 
+      </void> 
+      <void method="add"> 
+       <string>CG_mod_v_7</string> 
       </void> 
      </void> 
      <void property="simDuration"> 

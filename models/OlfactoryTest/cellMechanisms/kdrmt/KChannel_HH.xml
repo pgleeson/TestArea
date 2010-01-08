@@ -79,7 +79,7 @@
 
                 <time_course name="tau" from="m0" to="m" expr_form="generic" expr="beta / ( a0m * (1 + alpha))" />
 
-                <steady_state name="inf" from="m0" to="m" expr_form="generic" expr="1/(1 + (exp (- (v-21) /10)))" />
+                <steady_state name="inf" from="m0" to="m" expr_form="generic" expr="1/(1 + (exp ( (v - 21) /(-10) )))" />
                     
             </gate>
         </current_voltage_relation>
