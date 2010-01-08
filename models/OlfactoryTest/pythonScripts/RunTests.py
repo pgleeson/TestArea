@@ -40,19 +40,23 @@ projFile = File("../OlfactoryTest.ncx")
 
 simConfigs = []
 
-#simConfigs.append("Default Simulation Configuration")
+simConfigs.append("Default Simulation Configuration")
 #simConfigs.append("SC_nax")
-simConfigs.append("SC_kamt")
+#simConfigs.append("SC_kamt")
+#simConfigs.append("SC_kdrmt")
 
 
-simDt =                 0.002
+simDt =                 0.025
 
 neuroConstructSeed =    12345
 simulatorSeed =         11111
+
 #simulators =            ["NEURON", "GENESIS", "MOOSE", "PSICS"]
 #simulators =            ["NEURON"]
-simulators =            ["NEURON", "GENESIS"]
-temperatures =          [35, 22]
+simulators =            ["NEURON", "GENESIS", "MOOSE"]
+#simulators =            ["PSICS"]
+
+temperatures =          [35]
 
 mpiConf =               MpiSettings.LOCAL_SERIAL
 

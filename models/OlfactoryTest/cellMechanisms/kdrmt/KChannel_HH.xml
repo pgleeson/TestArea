@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<channelml xmlns="http://morphml.org/channelml/schema" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:meta="http://morphml.org/metadata/schema"
-    xsi:schemaLocation="http://morphml.org/channelml/schema http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd"
-    units="Physiological Units">
+<channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd" units="Physiological Units">
 
     <meta:notes>ChannelML file containing a single Channel description</meta:notes>
 
@@ -60,13 +56,13 @@
 
 
         <parameters>
-            <parameter name="zetam" value ="0.055"/>
-            <parameter name="vhalfm" value ="-50"/>
-            <parameter name="gmm" value ="0.5"/>
-            <parameter name="a0m" value ="0.0035"/>
+            <parameter name="zetam" value="0.055"/>
+            <parameter name="vhalfm" value="-50"/>
+            <parameter name="gmm" value="0.5"/>
+            <parameter name="a0m" value="0.0035"/>
         </parameters>
         
-        <current_voltage_relation cond_law="ohmic" ion="k" default_gmax="36" default_erev="-77.0">
+        <current_voltage_relation cond_law="ohmic" ion="k" default_gmax="36" default_erev="-90">
 
             <q10_settings q10_factor="3" experimental_temp="24"/>
 
@@ -75,11 +71,11 @@
                 <open_state id="m"/>
                      
                 <transition name="alpha" from="m0" to="m" expr_form="generic" expr="(exp ( zetam * (v - vhalfm)) )"/>
-                <transition name="beta" from="m" to="m0"  expr_form="generic" expr="(exp ( zetam * gmm * (v - vhalfm)) )"/>
+                <transition name="beta" from="m" to="m0" expr_form="generic" expr="(exp ( zetam * gmm * (v - vhalfm)) )"/>
 
-                <time_course name="tau" from="m0" to="m" expr_form="generic" expr="beta / ( a0m * (1 + alpha))" />
+                <time_course name="tau" from="m0" to="m" expr_form="generic" expr="beta / ( a0m * (1 + alpha))"/>
 
-                <steady_state name="inf" from="m0" to="m" expr_form="generic" expr="1/(1 + (exp ( (v - 21) /(-10) )))" />
+                <steady_state name="inf" from="m0" to="m" expr_form="generic" expr="1/(1 + (exp ( (v - 21) /(-10) )))"/>
                     
             </gate>
         </current_voltage_relation>
