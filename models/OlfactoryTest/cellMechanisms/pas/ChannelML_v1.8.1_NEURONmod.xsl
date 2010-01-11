@@ -1744,7 +1744,7 @@ NET_RECEIVE(weight (uS)<xsl:if test="count(cml:fac_dep_syn)>0 ">, U, R, tsyn (ms
     
         M = M*exp((t_post_spike-t)/tau_ltd) - del_weight_ltd
         
-        deltaw = deltaw + wmax * P * exp(-(t - t_pre_spike)/tau_ltp)
+        deltaw = wmax * P * exp(-(t - t_pre_spike)/tau_ltp)
         
         t_post_spike = t
         

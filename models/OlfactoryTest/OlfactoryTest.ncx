@@ -139,6 +139,20 @@ Use different ena for GC and MT
       </void>
      </object>
     </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.packing.SinglePositionedCellPackingAdapter"/>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.packing.SinglePositionedCellPackingAdapter">
+      <void property="parameterList">
+       <void index="1">
+        <void property="value">
+         <float>100.0</float>
+        </void>
+       </void>
+      </void>
+     </object>
+    </void>
    </void>
    <void method="get">
     <string>Cell Type</string>
@@ -166,6 +180,12 @@ Use different ena for GC and MT
     <void method="add">
      <string>GC_hi_nseg</string>
     </void>
+    <void method="add">
+     <string>Simple_ca_kca_g</string>
+    </void>
+    <void method="add">
+     <string>Simple_ca_kca</string>
+    </void>
    </void>
    <void method="get">
     <string>Priority</string>
@@ -192,6 +212,12 @@ Use different ena for GC and MT
     </void>
     <void method="add">
      <int>2</int>
+    </void>
+    <void method="add">
+     <int>2</int>
+    </void>
+    <void method="add">
+     <int>1</int>
     </void>
    </void>
    <void method="get">
@@ -260,9 +286,31 @@ Use different ena for GC and MT
       <int>255</int>
      </object>
     </void>
+    <void method="add">
+     <object class="java.awt.Color">
+      <int>76</int>
+      <int>142</int>
+      <int>112</int>
+      <int>255</int>
+     </object>
+    </void>
+    <void method="add">
+     <object class="java.awt.Color">
+      <int>111</int>
+      <int>32</int>
+      <int>116</int>
+      <int>255</int>
+     </object>
+    </void>
    </void>
    <void method="get">
     <string>Region Name</string>
+    <void method="add">
+     <string>SampleRegion</string>
+    </void>
+    <void method="add">
+     <string>SampleRegion</string>
+    </void>
     <void method="add">
      <string>SampleRegion</string>
     </void>
@@ -313,6 +361,12 @@ Use different ena for GC and MT
     </void>
     <void method="add">
      <string>CG_GC</string>
+    </void>
+    <void method="add">
+     <string>CG_ca_g</string>
+    </void>
+    <void method="add">
+     <string>CG_ca</string>
     </void>
    </void>
   </void>
@@ -937,6 +991,310 @@ Use different ena for GC and MT
      </void>
     </object>
    </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CG_ca_g</string>
+     </void>
+     <void property="cellNumber">
+      <string>*</string>
+     </void>
+     <void property="graphWindow">
+      <string>CG_ca_g_v</string>
+     </void>
+     <void property="maxValue">
+      <float>50.0</float>
+     </void>
+     <void property="minValue">
+      <float>-90.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>CG_ca_g_v</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CG_ca_g</string>
+     </void>
+     <void property="cellNumber">
+      <string>*</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_7</string>
+     </void>
+     <void property="maxValue">
+      <float>1.2E-23</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>CG_ca_g_v_1</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>Ca_mit_conc:CONC:ca</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CG_ca</string>
+     </void>
+     <void property="cellNumber">
+      <string>*</string>
+     </void>
+     <void property="graphWindow">
+      <string>CG_ca_g_v</string>
+     </void>
+     <void property="maxValue">
+      <float>50.0</float>
+     </void>
+     <void property="minValue">
+      <float>-90.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>CG_ca_v</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CG_ca</string>
+     </void>
+     <void property="cellNumber">
+      <string>*</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_7</string>
+     </void>
+     <void property="maxValue">
+      <float>1.2E-23</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>CG_ca_g_v_2</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>Ca_mit_conc_ChannelML:CONC:ca</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CG_ca</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_1</string>
+     </void>
+     <void property="maxValue">
+      <float>1.0</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>Var_3</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>LCa3_mit_usb_ChannelML:m</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CG_ca_g</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_1</string>
+     </void>
+     <void property="maxValue">
+      <float>1.0</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>Var_4</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>LCa3_mit_usb:X</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CG_ca_g</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_1</string>
+     </void>
+     <void property="maxValue">
+      <float>1.0</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>Var_5</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>LCa3_mit_usb:Y</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CG_ca</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_1</string>
+     </void>
+     <void property="maxValue">
+      <float>1.0</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>Var_6</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>LCa3_mit_usb_ChannelML:h</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CG_ca_g</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_9</string>
+     </void>
+     <void property="maxValue">
+      <float>1.0</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>Var_7</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>Kca_mit_usb_vdep:X</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CG_ca</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_9</string>
+     </void>
+     <void property="maxValue">
+      <float>1.0</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>Var_8</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>KCa3_ChannelML_new:m</string>
+     </void>
+    </object>
+   </void>
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.project.ProjectProperties"/>
@@ -959,9 +1317,6 @@ Use different ena for GC and MT
   </void>
   <void property="minRadius">
    <float>2.0</float>
-  </void>
-  <void property="show3DAxes">
-   <boolean>true</boolean>
   </void>
   <void property="showRegions">
    <boolean>false</boolean>
@@ -1002,11 +1357,77 @@ forall {
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.genesis.GenesisSettings">
-  <void property="mooseCompatMode">
-   <boolean>true</boolean>
-  </void>
-  <void property="unitSystemToUse">
-   <int>3</int>
+  <void property="nativeBlocks">
+   <void method="put">
+    <int>10</int>
+    <string>/*  
+
+str someTempCompName
+
+float restCa = 0.8e-5
+float initCa = 1200e-5
+
+echo &quot;***************************&quot;
+echo &quot;&quot;
+
+echo &quot;Setting initial ca conc to &quot;{initCa}&quot; and resting Ca conc to &quot;{restCa}
+
+echo &quot;&quot;
+echo &quot;***************************&quot;
+
+
+
+    foreach someTempCompName ({el /cells/#/#/#})
+
+         if ({exists  {someTempCompName}/Ca_mit_conc})
+	
+            echo &quot;Resetting Ca resting conc of: &quot; {someTempCompName}/Ca_mit_conc
+
+            if (units == &quot;GENESIS Physiological Units&quot;)
+                setfield {someTempCompName}/Ca_mit_conc Ca_base   {restCa / 1000000}
+                setfield {someTempCompName}/Ca_mit_conc Ca {initCa / 1000000}
+                setfield {someTempCompName}/Ca_mit_conc C   {{initCa - restCa} / 1000000}
+            else
+                setfield {someTempCompName}/Ca_mit_conc Ca_base   {restCa}
+                setfield {someTempCompName}/Ca_mit_conc C {initCa - restCa}
+                setfield {someTempCompName}/Ca_mit_conc Ca {initCa}
+            end
+
+           echo &quot;Now value of  C rest: &quot; {getfield {someTempCompName}/Ca_mit_conc Ca_base}
+           echo &quot;Now value of  Ca: &quot; {getfield {someTempCompName}/Ca_mit_conc Ca}
+           echo &quot;Now value of  C: &quot; {getfield {someTempCompName}/Ca_mit_conc C}
+
+        end
+
+         if ({exists  {someTempCompName}/Ca_mit_conc_ChannelML})
+	
+            echo &quot;Resetting Ca resting conc of: &quot; {someTempCompName}/Ca_mit_conc_ChannelML
+
+            if (units == &quot;GENESIS Physiological Units&quot;)
+                setfield {someTempCompName}/Ca_mit_conc_ChannelML Ca_base   {restCa / 1000000}
+                setfield {someTempCompName}/Ca_mit_conc_ChannelML Ca {initCa / 1000000}
+                setfield {someTempCompName}/Ca_mit_conc_ChannelML C   {{initCa - restCa} / 1000000}
+            else
+                setfield {someTempCompName}/Ca_mit_conc_ChannelML Ca_base   {restCa} 
+                setfield {someTempCompName}/Ca_mit_conc_ChannelML Ca {initCa}
+                setfield {someTempCompName}/Ca_mit_conc_ChannelML C {initCa - restCa}
+            end
+
+        end
+
+    end
+
+*/
+</string>
+   </void>
+   <void method="put">
+    <int>5</int>
+    <string></string>
+   </void>
+   <void method="put">
+    <int>15</int>
+    <string></string>
+   </void>
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.psics.PsicsSettings">
@@ -1019,16 +1440,16 @@ forall {
  </object>
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters">
   <void property="dt">
-   <float>0.0025</float>
+   <float>0.01</float>
   </void>
   <void property="duration">
    <float>100.0</float>
   </void>
   <void property="maxElectroLen">
-   <float>0.01</float>
+   <float>0.11</float>
   </void>
   <void property="reference">
-   <string>Sim_187</string>
+   <string>Sim_260</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -1258,6 +1679,62 @@ forall {
      </void>
     </object>
    </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+     <void property="amp">
+      <void property="fixedNum">
+       <float>0.015</float>
+      </void>
+     </void>
+     <void property="cellGroup">
+      <string>CG_ca_g</string>
+     </void>
+     <void property="del">
+      <void property="fixedNum">
+       <float>100.0</float>
+      </void>
+     </void>
+     <void property="dur">
+      <void property="fixedNum">
+       <float>100.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="reference">
+      <string>Input_9</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+     <void property="amp">
+      <void property="fixedNum">
+       <float>0.015</float>
+      </void>
+     </void>
+     <void property="cellGroup">
+      <string>CG_ca</string>
+     </void>
+     <void property="del">
+      <void property="fixedNum">
+       <float>100.0</float>
+      </void>
+     </void>
+     <void property="dur">
+      <void property="fixedNum">
+       <float>100.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="reference">
+      <string>Input_10</string>
+     </void>
+    </object>
+   </void>
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.project.SimConfigInfo">
@@ -1465,6 +1942,46 @@ forall {
      </void>
      <void property="simDuration">
       <float>200.0</float>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+     <void property="cellGroups">
+      <void method="add">
+       <string>CG_ca</string>
+      </void>
+     </void>
+     <void property="inputs">
+      <void method="add">
+       <string>Input_10</string>
+      </void>
+      <void method="add">
+       <string>Input_9</string>
+      </void>
+     </void>
+     <void property="name">
+      <string>SC_Ca</string>
+     </void>
+     <void property="plots">
+      <void method="add">
+       <string>CG_ca_g_v</string>
+      </void>
+      <void method="add">
+       <string>CG_ca_g_v_2</string>
+      </void>
+      <void method="add">
+       <string>CG_ca_g_v_1</string>
+      </void>
+      <void method="add">
+       <string>CG_ca_v</string>
+      </void>
+      <void method="add">
+       <string>Var_8</string>
+      </void>
+     </void>
+     <void property="simDuration">
+      <float>300.0</float>
      </void>
     </object>
    </void>

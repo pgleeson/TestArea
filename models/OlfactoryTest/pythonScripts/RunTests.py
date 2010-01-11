@@ -46,7 +46,7 @@ simConfigs.append("Default Simulation Configuration")
 #simConfigs.append("SC_kdrmt")
 
 
-simDt =                 0.025
+simDt =                 0.002
 
 neuroConstructSeed =    12345
 simulatorSeed =         11111
