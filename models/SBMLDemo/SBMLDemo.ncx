@@ -14,7 +14,7 @@ part of NeuroML or any standardised XML specification. -->
 Requires libSBML to be installed...</string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.3.5</string> 
+   <string>neuroConstruct v1.3.6</string> 
   </void> 
   <void property="projectName"> 
    <string>SBMLDemo</string> 
@@ -71,6 +71,12 @@ Requires libSBML to be installed...</string>
     <void method="add"> 
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/> 
     </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/> 
+    </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Cell Type</string> 
@@ -86,6 +92,12 @@ Requires libSBML to be installed...</string>
     <void method="add"> 
      <string>SampleCellBioModels</string> 
     </void> 
+    <void method="add"> 
+     <string>IzhikevichCell_mixedMode</string> 
+    </void> 
+    <void method="add"> 
+     <string>IzhikevichCell_burst</string> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Priority</string> 
@@ -100,6 +112,12 @@ Requires libSBML to be installed...</string>
     </void> 
     <void method="add"> 
      <int>7</int> 
+    </void> 
+    <void method="add"> 
+     <int>6</int> 
+    </void> 
+    <void method="add"> 
+     <int>5</int> 
     </void> 
    </void> 
    <void method="get"> 
@@ -136,9 +154,31 @@ Requires libSBML to be installed...</string>
       <int>255</int> 
      </object> 
     </void> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>115</int> 
+      <int>51</int> 
+      <int>210</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>215</int> 
+      <int>168</int> 
+      <int>181</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Region Name</string> 
+    <void method="add"> 
+     <string>SampleRegion</string> 
+    </void> 
+    <void method="add"> 
+     <string>SampleRegion</string> 
+    </void> 
     <void method="add"> 
      <string>SampleRegion</string> 
     </void> 
@@ -165,6 +205,12 @@ Requires libSBML to be installed...</string>
     </void> 
     <void method="add"> 
      <string>CGB</string> 
+    </void> 
+    <void method="add"> 
+     <string>CG_Iz</string> 
+    </void> 
+    <void method="add"> 
+     <string>CG_Iz2</string> 
     </void> 
    </void> 
   </void> 
@@ -708,6 +754,158 @@ Requires libSBML to be installed...</string>
      </void> 
     </object> 
    </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_Iz</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>CG_Iz_v</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>CG_Iz_v</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_Iz</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>CG_Iz_v</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>CG_Iz_v_1</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>Izhikevich:vv</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_Iz</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>CG_Iz_v</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>CG_Iz_v_2</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>Izhikevich:U</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_Iz2</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_10</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>CG_Iz_v_3</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>Izhikevich:vv</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_Iz2</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_10</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>CG_Iz_v_4</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>Izhikevich:U</string> 
+     </void> 
+    </object> 
+   </void> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.project.ProjectProperties"> 
@@ -765,7 +963,7 @@ setpointer  VarSyn[0].g_scaling, a_CGB[0].Soma.CaM_Marhl_Calcium_Oscillations(0.
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_67</string> 
+   <string>Sim_79</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -980,6 +1178,38 @@ setpointer  VarSyn[0].g_scaling, a_CGB[0].Soma.CaM_Marhl_Calcium_Oscillations(0.
      </void> 
      <void property="simDuration"> 
       <float>200.0</float> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
+     <void property="cellGroups"> 
+      <void method="add"> 
+       <string>CG_Iz2</string> 
+      </void> 
+      <void method="add"> 
+       <string>CG_Iz</string> 
+      </void> 
+     </void> 
+     <void property="name"> 
+      <string>IzhikevichTest</string> 
+     </void> 
+     <void property="plots"> 
+      <void method="add"> 
+       <string>CG_Iz_v_4</string> 
+      </void> 
+      <void method="add"> 
+       <string>CG_Iz_v_3</string> 
+      </void> 
+      <void method="add"> 
+       <string>CG_Iz_v_2</string> 
+      </void> 
+      <void method="add"> 
+       <string>CG_Iz_v_1</string> 
+      </void> 
+     </void> 
+     <void property="simDuration"> 
+      <float>300.0</float> 
      </void> 
     </object> 
    </void> 
