@@ -44,7 +44,7 @@ function make_%Name%
 		for (i = 0 ; i <= {XDIVS} ; i = i + 1)
 			y = {exp {(x - {EREST_ACT})/0.027}}
 			setfield {chanpath} X_A->table[{i}] {y}
-            setfield {chanpath} X_B->table[{i}] 1.0
+            setfield {chanpath} X_B->table[{i}] {y + 1.0}
 			x = x + dx
 		end
 	

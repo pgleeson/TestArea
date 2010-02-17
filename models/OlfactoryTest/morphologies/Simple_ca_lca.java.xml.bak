@@ -61,9 +61,6 @@
   <void property="chanMechsVsGroups">
    <void method="put">
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
-     <void property="density">
-      <float>5.2E-15</float>
-     </void>
      <void property="name">
       <string>Ca_mit_conc_ChannelML</string>
      </void>

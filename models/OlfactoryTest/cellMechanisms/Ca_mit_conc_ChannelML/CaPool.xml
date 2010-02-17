@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema   ../../Schemata/v1.6/Level2/ChannelML_v1.6.xsd" units="SI Units">
+<channelml xmlns="http://morphml.org/channelml/schema" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:meta="http://morphml.org/metadata/schema"
+    xsi:schemaLocation="http://morphml.org/channelml/schema   ../../Schemata/v1.6/Level2/ChannelML_v1.6.xsd"
+    units="SI Units">
 
 	<meta:notes>A channel from Bhalla, U.S.and Bower, J.M. Exploring parameter space in detailed single neuron models:
     simulations of the mitral and granule cells of the olfactory bulb</meta:notes>
@@ -31,7 +35,7 @@
             <decay_constant>0.01</decay_constant>
             
             <pool_volume_info>
-                <shell_thickness>0.01</shell_thickness>
+                <shell_thickness>1e-6</shell_thickness>
             </pool_volume_info>
             
         </decaying_pool_model>

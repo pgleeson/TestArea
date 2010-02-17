@@ -2,7 +2,7 @@
 <channelml xmlns="http://morphml.org/channelml/schema" 
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
            xmlns:meta="http://morphml.org/metadata/schema" 
-           xsi:schemaLocation="http://morphml.org/channelml/schema  http://www.morphml.org:8080/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.0/Level2/ChannelML_v1.8.0.xsd" 
+           xsi:schemaLocation="http://morphml.org/channelml/schema  http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd"
            units="Physiological Units">
 
     <meta:notes>A channel from Bhalla, U.S.and Bower, J.M. Exploring parameter space in detailed single neuron models:
@@ -57,17 +57,28 @@
         
         <current_voltage_relation cond_law="ohmic" ion="k" default_gmax="3.6" default_erev="-80">
           
-          <conc_dependence name="Calcium" ion="ca" charge="2" variable_name="ca_conc" min_conc="0" max_conc="1e-9"/>
+          <conc_dependence name="Calcium" ion="ca" charge="2" variable_name="ca_conc" min_conc="0" max_conc="1e-8"/>
+          <!--<conc_factor  ion="ca" charge="2" variable_name="ca_conc" expr="(500.0*(0.015 - (ca_conc*1e6)))/( (exp ((0.015 - (ca_conc*1e6))/0.0013)) -1)" min_conc="0" max_conc="1e-8"/>-->
        
           
-          <gate name="m" instances="1">
+          <gate name="m" instances="1"> 
             <closed_state id="m0"/>
             <open_state id="m" fraction="1"/>
             
-            <transition name="alpha" from="m0" to="m" expr_form="generic" expr="(exp ((v-65)/27)) * (500.0*(0.015 - (ca_conc*1e6)))/( (exp ((0.015 - (ca_conc*1e6))/0.0013)) -1)" />
+            <transition name="alpha" from="m0" to="m" expr_form="generic" expr="(exp ((v-65)/27))" />
             <transition name="beta" from="m" to="m0" expr_form="generic" expr="0.05" />
             
           </gate>
+          <gate name="z" instances="1"> 
+            <closed_state id="z0"/>
+            <open_state id="z" fraction="1"/>
+            
+            <transition name="alpha" from="z0" to="z" expr_form="generic" expr="(500.0*(0.015 - (ca_conc*1e6)))/( (exp ((0.015 - (ca_conc*1e6))/0.0013)) -1)" />
+            <transition name="beta" from="z" to="z0" expr_form="generic" expr="0.01" />
+            
+          </gate>
+
+
         </current_voltage_relation>  
 	
 

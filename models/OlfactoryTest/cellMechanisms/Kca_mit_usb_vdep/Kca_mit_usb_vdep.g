@@ -55,10 +55,13 @@ function make_%Name%
     addmsg {chanpath}/qv {chanpath}/qca PRD_ALPHA output
     addmsg {chanpath}/qca {chanpath} MULTGATE m 1
     
-    setfield  {chanpath}  \
-        sendmsg1 "../Ca_mit_conc        qca     VOLTAGE     Ca" \
-          \
-        sendmsg2 "..                    qv      INPUT       Vm"
+    // NOTE from PG: changing sendmsg1 to addmsg1
+    
+    addfield {chanpath} addmsg1
+    addfield {chanpath} addmsg2
+    
+    setfield  {chanpath}  addmsg1 "../Ca_mit_conc        qca     VOLTAGE     Ca" 
+    setfield  {chanpath}  addmsg2 "..                    qv      INPUT       Vm"
         
 
 end
