@@ -14,7 +14,7 @@ part of NeuroML or any standardised XML specification. -->
 Requires libSBML to be installed...</string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.3.6</string> 
+   <string>neuroConstruct v1.3.8</string> 
   </void> 
   <void property="projectName"> 
    <string>SBMLDemo</string> 
@@ -987,7 +987,7 @@ setpointer  VarSyn[0].g_scaling, a_CGB[0].Soma.CaM_Marhl_Calcium_Oscillations(0.
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_92</string> 
+   <string>Sim_97</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -1238,9 +1238,6 @@ setpointer  VarSyn[0].g_scaling, a_CGB[0].Soma.CaM_Marhl_Calcium_Oscillations(0.
      <void property="cellGroups"> 
       <void method="add"> 
        <string>CG_Iz2</string> 
-      </void> 
-      <void method="add"> 
-       <string>CG_Iz</string> 
       </void> 
      </void> 
      <void property="inputs"> 

@@ -3,7 +3,7 @@
     
     <meta:notes>ChannelML file containing a single Channel description</meta:notes>        
 
-    <channel_type name="LeakConductance" density="yes">
+    <channel_type name="LeakConductance">
         
         <status value="stable"/>
 
