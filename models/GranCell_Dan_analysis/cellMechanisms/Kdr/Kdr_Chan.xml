@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channelml xmlns="http://morphml.org/channelml/schema" 
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+           xmlns:meta="http://morphml.org/metadata/schema" 
+           xsi:schemaLocation="http://morphml.org/channelml/schema   ../../../../templates/xmlTemplates/Schemata/v1.6/Level2/ChannelML_v1.6.xsd"
+           units="Physiological Units">
+
+    <meta:notes>A channel originally from Maex, R and De Schutter, E. 1998, used in Berends et al 2005</meta:notes>
+    
+    <ion name="k" charge="1" default_erev="-84.7">
+        <meta:notes>Using rev pot from D'Angelo et al 2001</meta:notes>
+    </ion>
+    
+    <channel_type name="Kdr" density="yes">
+            
+        <status value="stable">            
+          <meta:comment>Verified equivalence of NEURON and GENESIS mapping to orig NEURON mod impl at 0.02ms dt with current pulse</meta:comment>
+            <meta:issue>From orig mod file:  V0beta_h = -44(mV) : or should it be +44? Left that as it was...</meta:issue>
+            <meta:issue>Orig mod file had: "if (alp_h &lt; 7.6e-4){" in proc for alp_h, PG changed it to: "if (alp_h &lt; TC*7.6e-4){"</meta:issue>
+            <meta:contributor>
+                <meta:name>Padraig Gleeson</meta:name>
+            </meta:contributor>
+        </status>
+    
+        <meta:notes>Delayed rectifier K+ current</meta:notes>
+        
+        <meta:authorList>
+            <meta:modelTranslator>
+                <meta:name>Padraig Gleeson</meta:name>
+                <meta:institution>UCL</meta:institution>
+                <meta:email>p.gleeson - at - ucl.ac.uk</meta:email>
+            </meta:modelTranslator>
+        </meta:authorList>
+        
+        <meta:publication>
+           <meta:fullTitle>Maex, R and De Schutter, E. 
+           Synchronization of Golgi and Granule Cell Firing in a Detailed Network Model of the 
+           cerebellar Granule Cell Layer. J Neurophysiol, Nov 1998; 80: 2521 - 2537</meta:fullTitle>
+           <meta:pubmedRef>http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=9819260&amp;dopt=Abstract</meta:pubmedRef>
+        </meta:publication>     
+        
+        <meta:publication>
+            <meta:fullTitle>Berends, Michiel, Maex, Reinoud, De Schutter, Erik.
+            The Effect of NMDA Receptors on Gain Modulation.
+            Neural Comp. 2005 17: 2531-2547</meta:fullTitle>
+          <meta:pubmedRef>http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=16212761&amp;dopt=Abstract</meta:pubmedRef>
+        </meta:publication>  
+        
+        <meta:publication>
+          <meta:fullTitle>D'Angelo E, Nieus T, Maffei A, Armano S, Rossi P, Taglietti V, Fontana A, Naldi G. 
+            Theta-frequency bursting and resonance in cerebellar granule cells: experimental evidence and modeling of a slow k+-dependent mechanism.
+            J Neurosci. 2001 Feb 1;21(3):759-70.</meta:fullTitle>
+          <meta:pubmedRef>http://www.ncbi.nlm.nih.gov/sites/entrez?cmd=retrieve&amp;db=pubmed&amp;list_uids=11157062&amp;dopt=Abstract</meta:pubmedRef>
+        </meta:publication>     
+        
+    
+   
+        <meta:neuronDBref>
+            <meta:modelName>K channels</meta:modelName>
+            <meta:uri>http://senselab.med.yale.edu/senselab/NeuronDB/channelGene2.htm#table3</meta:uri>
+        </meta:neuronDBref>
+
+        
+        <current_voltage_relation>
+            <ohmic ion="k">
+                <conductance default_gmax="3">  
+                    
+                    <rate_adjustments>
+                        <q10_settings fixed_q10="5" experimental_temp="37"/> <!-- Note channel should only be used at 37 deg C!-->
+                        <offset value="10"/>
+                    </rate_adjustments>
+                    
+                    <gate power="4">
+                        <state name="m" fraction="1"/>
+                    </gate>
+                    <gate power="1">
+                        <state name="h" fraction="1"/>
+                    </gate>
+                </conductance>
+            </ohmic>
+        </current_voltage_relation>
+
+ 
+        <hh_gate state="m">
+            <transition>
+                <voltage_gate>
+                    <alpha>
+                        <parameterised_hh type="exponential" expr="A*exp(k*(v-d))">
+                            <parameter name="A" value="0.17"/>
+                            <parameter name="k" value="0.0729927"/>
+                            <parameter name="d" value="-38"/>
+                        </parameterised_hh>
+                    </alpha>
+                    <beta>
+                        <parameterised_hh type="exponential" expr="A*exp(k*(v-d))">
+                            <parameter name="A" value="0.17"/>
+                            <parameter name="k" value="-0.0180018"/>
+                            <parameter name="d" value="-38"/>
+                        </parameterised_hh>
+                    </beta>                                    
+                </voltage_gate>
+            </transition>
+        </hh_gate>
+        
+        
+        <hh_gate state="h">
+            <transition>
+                <voltage_gate>
+                    <alpha>
+                        <generic_equation_hh expr="v &gt; -46 ? 0.00076 : 0.0007 + 6.0e-5*(exp (-0.080*(v - (-46))))"/>
+                    </alpha>
+                    <beta>
+                        <parameterised_hh type="sigmoid">
+                            <parameter name="A" value="1.1e-3"/>
+                            <parameter name="k" value="-0.080645161"/>
+                            <parameter name="d" value="-44"/>
+                        </parameterised_hh>
+                    </beta>                                    
+                </voltage_gate>
+            </transition>
+        </hh_gate>
+        
+        
+        <impl_prefs>
+            <comment>Note, Using same table_divisions to get a closer match</comment>
+            <table_settings max_v="100" min_v="-100" table_divisions="200"/>
+        </impl_prefs>
+
+
+        
+    </channel_type>
+</channelml>
