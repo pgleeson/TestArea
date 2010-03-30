@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-
-   $Revision: 151 $
-   $LastChangedBy: pgleeson $ 
-   $Date: 2008-10-07 14:13:37 +0100 (Tue, 07 Oct 2008) $ 
-   $HeadURL: https://neuroml.svn.sourceforge.net/svnroot/neuroml/tempModels/neuroConstruct/Ex7_GranuleCell/cellMechanisms/Gran_KA_98/KA_Chan.xml $
-            
--->
 
 <channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema  ../../../../../trunk/web/NeuroMLFiles/Schemata/v1.7.3/Level2/ChannelML_v1.7.3.xsd" units="Physiological Units">
 
-    <meta:notes/>
+    <meta:notes>Channel model from Larkum et al. 2009</meta:notes>
     
     <channel_type name="hh3K_CML">
         
-                <status value="stable">
+        <status value="stable">
            
         </status>
         
@@ -55,24 +47,26 @@
             
             <gate name="n" instances="3">
             
+                <!-- An *incorrect* initialisation value for this, in order to compare to original mod file. Normally should be ignored!! -->
+                <initialisation value="0"/> 
+				
                 <closed_state id="n0"/>
                 <open_state id="n"/>
                 
-                    <!--
-                
-                       n = n + (1 - exp(-dt/taun))*(1 / (1 + exp((v + 40+vshift)/(-3)))  - n)
+                <!--
+                    n = n + (1 - exp(-dt/taun))*(1 / (1 + exp((v + 40+vshift)/(-3)))  - n)
 		       
-		       should be n = n + nexp*(ninf-n) with nexp = 1 - exp(-dt * tadj/ntau); ninf = a*ntau; ntau = 1/(a+b)
+					should be n = n + nexp*(ninf-n) with nexp = 1 - exp(-dt * tadj/ntau); ninf = a*ntau; ntau = 1/(a+b)
 		            
-		       therefore...
+					therefore...
 		       
-		       tadj = 0
+					tadj = 0
 		       
-		       ntau = 1.5
+					ntau = 1.5
 		       
-		       ninf = 1 / (1 + exp((v + 40+vshift)/(-3))) 
+					ninf = 1 / (1 + exp((v + 40+vshift)/(-3))) 
 		       
-		       that in case vshift = constant is A / (1 + exp((v-V1/2)/B)) (sigmoid) with A = 1; V1 = -80; B = -3
+					that in case vshift = constant is A / (1 + exp((v-V1/2)/B)) (sigmoid) with A = 1; V1 = -80; B = -3
                 -->
 
                      
@@ -82,10 +76,9 @@
 				 	                           
 	            <!--
 	        
-	        <steady_state name="inf" from="n0" to="n" expr_form="sigmoid"
-		              rate="1" scale="-80" midpoint="-3" />
+				<steady_state name="inf" from="n0" to="n" expr_form="sigmoid" rate="1" scale="-80" midpoint="-3" />
 		              
-		-->
+				-->
 
                     
             </gate>

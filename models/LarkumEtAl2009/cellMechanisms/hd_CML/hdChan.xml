@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-
-   $Revision: 151 $
-   $LastChangedBy: pgleeson $ 
-   $Date: 2008-10-07 14:13:37 +0100 (Tue, 07 Oct 2008) $ 
-   $HeadURL: https://neuroml.svn.sourceforge.net/svnroot/neuroml/tempModels/neuroConstruct/Ex7_GranuleCell/cellMechanisms/Gran_KA_98/KA_Chan.xml $
-            
--->
 
 <channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema  ../../../../../trunk/web/NeuroMLFiles/Schemata/v1.7.3/Level2/ChannelML_v1.7.3.xsd" units="Physiological Units">
 
-    <meta:notes></meta:notes>
+    <meta:notes>Channel model from Larkum et al. 2009</meta:notes>
     
     <channel_type name="hd_CML">
         
@@ -55,18 +47,18 @@
                     <!--
                 
                         a = exp(0.0378*2.2*(v-(-75))) = exp(0.08316*(v+75))
-			b = exp(0.0378*2.2*0.4*(v-(-75))) = exp(0.033264*(v+75))
+						b = exp(0.0378*2.2*0.4*(v-(-75))) = exp(0.033264*(v+75))
 
-			taul = b/(0.011*(1+a))
+						taul = b/(0.011*(1+a))
 
-		        linf = 1/(1 + exp(-(v-(-81))/-8))
+						linf = 1/(1 + exp(-(v-(-81))/-8))
                 
                 -->
 
                      
                 <time_course name="tau" from="l0" to="l" expr_form="generic" expr="exp(0.033264*(v+75))/((4.5^((celsius-33)/10))*0.011*(1+exp(0.08316*(v+75))))"/>
 				 	                           
-	        <steady_state name="inf" from="l0" to="l" expr_form="generic" expr="1/(1 + exp((v+81)/8))"/>
+				<steady_state name="inf" from="l0" to="l" expr_form="generic" expr="1/(1 + exp((v+81)/8))"/>
                     
             </gate>
             
