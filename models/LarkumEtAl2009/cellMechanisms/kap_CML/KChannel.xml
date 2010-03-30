@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema  ../../Schemata/v1.6/Level2/ChannelML_v1.6.xsd" units="Physiological Units">
 
-    <meta:notes>ChannelML file containing a single Channel description</meta:notes>
+    <meta:notes>Channel model from Larkum et al. 2009</meta:notes>
 
     <ion name="k" default_erev="-77" charge="1"/>          <!-- phys units: mV -->
 
@@ -10,8 +10,7 @@
     <channel_type name="kap_CML" density="yes">
 
         <status value="stable">
-            <meta:comment>Agreement of generated NEURON and GENESIS to original NEURON mod. Compared voltage and n traces on single comp with current pulse</meta:comment>
-            <meta:contributor>
+			<meta:contributor>
                 <meta:name>Padraig Gleeson</meta:name>
             </meta:contributor>
         </status>

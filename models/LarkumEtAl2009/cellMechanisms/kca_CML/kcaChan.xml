@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-
-   $Revision: 151 $
-   $LastChangedBy: pgleeson $ 
-   $Date: 2008-10-07 14:13:37 +0100 (Tue, 07 Oct 2008) $ 
-   $HeadURL: https://neuroml.svn.sourceforge.net/svnroot/neuroml/tempModels/neuroConstruct/Ex7_GranuleCell/cellMechanisms/Gran_KA_98/KA_Chan.xml $
-            
--->
 
 <channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema  ../../../../../trunk/web/NeuroMLFiles/Schemata/v1.7.3/Level2/ChannelML_v1.7.3.xsd" units="Physiological Units">
 

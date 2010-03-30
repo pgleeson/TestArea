@@ -57,31 +57,34 @@
                 <closed_state id="n0"/>
                 <open_state id="n"/>
                 
-                           <!--
-			Original parameters and equations:
+                <!--
+					Original parameters and equations:
 
-			tha  = -30	(mV)		: v 1/2 for inf
-			qa   = 9	(mV)		: inf slope
-			Ra   = 0.001	(/ms)		: max act rate  (slow)
-			Rb   = 0.001
+					tha  = -30	(mV)		: v 1/2 for inf
+					qa   = 9	(mV)		: inf slope
+					Ra   = 0.001	(/ms)		: max act rate  (slow)
+					Rb   = 0.001
 
-			a =  Ra * (v - tha) / (1 - exp(-(v - tha)/qa))
+					a =  Ra * (v - tha) / (1 - exp(-(v - tha)/qa))
+					
+					a =        (Ra*qa) * ((v-tha)/qa)  /  (1 - exp( - (v-tha) /qa))
 		
-            Alpha(v) = A  * ((v-V1/2)/B) /(1 - exp(-(v-V1/2)/B)) (exp_linear) 
+					Alpha(v) =    A    * ((v-V1/2)/B)  /  (1 - exp( - (v-V1/2) /B))   (exp_linear) 
 
-	        b = -Rb * (v - tha) / (1 - exp((v - tha)/qa))
+					b = -Rb * (v - tha) / (1 - exp((v - tha)/qa))
+					
+					b =       (Rb*(qa)) * ((v-tha)/(-qa)) /  (1 - exp(-(v-tha)/(-qa)))
            
-            Beta(v) = A  * ((v-V1/2)/B) /(1 - exp(-(v-V1/2)/B)) (exp_linear) 
+					Beta(v) =     A     *  ((v-V1/2)/B)   /  (1 - exp(-(v-V1/2)/B)) (exp_linear) 
 
-                        -->
-
+                -->
 
                      
                 <transition name="alpha" from="n0" to="n" expr_form="exp_linear" rate="0.009" scale="9" midpoint="-30"/>
                             
                 <transition name="beta" from="n" to="n0" expr_form="exp_linear" rate="0.009" scale="-9" midpoint="-30"/>
                 
-               <steady_state name = "inf" from = "n0" to = "n" expr_form = "generic" expr = " temp_adj_n*alpha/(alpha+beta)"/>
+               <steady_state name = "inf" from = "n0" to = "n" expr_form = "generic" expr = "temp_adj_n*alpha/(alpha+beta)"/>
                     
             </gate>
         
