@@ -21,6 +21,7 @@ Test on PSICS
 Update comments in ChannelML files
 Implement &quot;rallbranch&quot; as used in original MT model
 Use different ena for GC and MT
+-- 1.5654478E-14
 
 </string>
   </void>
@@ -184,10 +185,10 @@ Use different ena for GC and MT
      <string>GC_hi_nseg</string>
     </void>
     <void method="add">
-     <string>Simple_ca_lca_g</string>
+     <string>Simple_ca_g</string>
     </void>
     <void method="add">
-     <string>Simple_ca_lca</string>
+     <string>Simple_ca</string>
     </void>
     <void method="add">
      <string>Simple_ca_kca_gvdep</string>
@@ -1054,7 +1055,7 @@ Use different ena for GC and MT
       <string>GraphWin_7</string>
      </void>
      <void property="maxValue">
-      <float>1.2E-20</float>
+      <float>1.7E-20</float>
      </void>
      <void property="minValue">
       <float>0.0</float>
@@ -1113,7 +1114,7 @@ Use different ena for GC and MT
       <string>GraphWin_7</string>
      </void>
      <void property="maxValue">
-      <float>1.2E-20</float>
+      <float>1.7E-20</float>
      </void>
      <void property="minValue">
       <float>0.0</float>
@@ -1470,6 +1471,37 @@ Use different ena for GC and MT
      </void>
     </object>
    </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CG_ca</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_9</string>
+     </void>
+     <void property="maxValue">
+      <float>2.0</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>Var_13</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>KCa3_ChannelML_paper:m</string>
+     </void>
+    </object>
+   </void>
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.project.ProjectProperties"/>
@@ -1503,38 +1535,72 @@ Use different ena for GC and MT
   </void>
   <void property="nativeBlocks">
    <void method="put">
-    <int>2</int>
-    <string>forall { 
+    <float>-0.5</float>
+    <string></string>
+   </void>
+   <void method="put">
+    <float>3.0</float>
+    <string></string>
+   </void>
+   <void method="put">
+    <float>1.0</float>
+    <string></string>
+   </void>
+   <void method="put">
+    <float>-1.0</float>
+    <string></string>
+   </void>
+   <void method="put">
+    <float>2.0</float>
+    <string>/*
+forall { 
     if (ismembrane(&quot;k_ion&quot;)) {
         print &quot;Changing ek on: &quot;, secname()
         ek = -90 
     }
 }
+*/
 
 forall {
     if (ismembrane(&quot;na_ion&quot;)) { 
         print &quot;Changing ena on: &quot;, secname()
         ena = 50
     }
+}
+
+
+forall if (ismembrane(&quot;Ca_mit_conc_ChannelML&quot;)) {
+
+    rest_conc_Ca_mit_conc_ChannelML = rest_cai
+
+    print &quot;Changed rest conc to: &quot;, rest_conc_Ca_mit_conc_ChannelML
+    
+}
+</string>
+   </void>
+   <void method="put">
+    <float>0.0</float>
+    <string>
+// Just left in for testing purposes. [Ca2+] is initialised to rest_conc of cell mechanism cad (=0) anyway...
+
+init_cai = 0.00
+//rest_cai = 0.0
+rest_cai = 0.00
+
+forall if (ismembrane(&quot;Ca_mit_conc_ChannelML&quot;)) {
+    if (init_cai &gt; 0) {
+        print &quot;1 Changing initial cai in: &quot;, secname(), &quot; to &quot;, init_cai,&quot; before INITIAL calls, so correct val of cai is used there...&quot;
+        cai = init_cai
+    }
+    rest_conc_Ca_mit_conc_ChannelML = rest_cai
+
+    print &quot;Changed rest conc to: &quot;, rest_conc_Ca_mit_conc_ChannelML
+    
 }</string>
    </void>
-   <void method="put">
-    <int>1</int>
-    <string></string>
-   </void>
-   <void method="put">
-    <int>0</int>
-    <string></string>
-   </void>
-  </void>
-  <void property="varTimeStep">
-   <boolean>true</boolean>
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.genesis.GenesisSettings">
-  <void property="copySimFiles">
-   <boolean>false</boolean>
-  </void>
   <void property="nativeBlocks">
    <void method="put">
     <int>10</int>
@@ -1598,8 +1664,12 @@ forall {
     <int>1</int>
     <string>str someTempCompName
 
-float restCa = 0.8e-5
-float initCa = 120e-5
+// These values are in SI units, mol/m3 or millimoles per liter!
+
+float restCa = 0.0
+//float restCa = 0.02
+float initCa   = 0.0
+//float initCa   = 0.02
 //float initCa = 0.8e-5
 
 echo &quot;***************************&quot;
@@ -1621,6 +1691,7 @@ echo &quot;This first step before the final reset is to initialise the value of 
             echo &quot;Resetting Ca resting conc of: &quot; {someTempCompName}/Ca_mit_conc
 
             if (units == &quot;GENESIS Physiological Units&quot;)
+                echo &quot;Setting Physiological...&quot;
                 setfield {someTempCompName}/Ca_mit_conc Ca_base   {initCa / 1000000}
                 setfield {someTempCompName}/Ca_mit_conc Ca {initCa / 1000000}
                 setfield {someTempCompName}/Ca_mit_conc C   {{initCa - initCa} / 1000000}
@@ -1651,10 +1722,16 @@ echo &quot;This first step before the final reset is to initialise the value of 
                 setfield {someTempCompName}/Ca_mit_conc_ChannelML C {initCa - initCa}
             end
 
+           echo &quot;Now mit value of  C rest: &quot; {getfield {someTempCompName}/Ca_mit_conc_ChannelML Ca_base}
+
         end
 
     end
 </string>
+   </void>
+   <void method="put">
+    <int>-1</int>
+    <string></string>
    </void>
   </void>
  </object>
@@ -1677,7 +1754,7 @@ echo &quot;This first step before the final reset is to initialise the value of 
    <float>0.11</float>
   </void>
   <void property="reference">
-   <string>Sim_357</string>
+   <string>Sim_467</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
