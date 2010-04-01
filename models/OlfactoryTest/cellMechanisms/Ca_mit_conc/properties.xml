@@ -16,6 +16,7 @@ Note the following:
 <entry key="Mechanism Type">Ion concentration</entry>
 <entry key="Implementation method">File based Cell Mechanism</entry>
 <entry key="GENESIS implementation">Ca_mit_conc.g</entry>
+<entry key="NEURON implementation">cadecay.mod</entry>
 <entry key="Default Instance Name">NewMembraneMechanism</entry>
 <entry key="Description">A conductance on the cell membrane, full implementation of which is present in a specified file</entry>
 </properties>
