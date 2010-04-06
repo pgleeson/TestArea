@@ -1518,7 +1518,7 @@ Use different ena for GC and MT
       <string>GraphWin_7</string>
      </void>
      <void property="maxValue">
-      <float>1.7E-20</float>
+      <float>0.01</float>
      </void>
      <void property="minValue">
       <float>0.0</float>
@@ -1720,9 +1720,6 @@ Use different ena for GC and MT
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings">
-  <void property="copySimFiles">
-   <boolean>true</boolean>
-  </void>
   <void property="nativeBlocks">
    <void method="put">
     <float>-0.5</float>
@@ -1733,11 +1730,11 @@ Use different ena for GC and MT
     <string></string>
    </void>
    <void method="put">
-    <float>1.0</float>
+    <float>-1.0</float>
     <string></string>
    </void>
    <void method="put">
-    <float>-1.0</float>
+    <float>1.0</float>
     <string></string>
    </void>
    <void method="put">
@@ -1964,7 +1961,7 @@ echo &quot;This first step before the final reset is to initialise the value of 
    <float>0.11</float>
   </void>
   <void property="reference">
-   <string>Sim_533</string>
+   <string>Sim_586</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -2503,9 +2500,6 @@ echo &quot;This first step before the final reset is to initialise the value of 
      </void>
      <void property="inputs">
       <void method="add">
-       <string>Input_11</string>
-      </void>
-      <void method="add">
        <string>Input_10</string>
       </void>
       <void method="add">
@@ -2514,6 +2508,64 @@ echo &quot;This first step before the final reset is to initialise the value of 
      </void>
      <void property="name">
       <string>SC_Ca</string>
+     </void>
+     <void property="plots">
+      <void method="add">
+       <string>Var_17</string>
+      </void>
+      <void method="add">
+       <string>CG_ca_g_v_2</string>
+      </void>
+      <void method="add">
+       <string>CG_ca_g_v_1</string>
+      </void>
+      <void method="add">
+       <string>Var_6</string>
+      </void>
+      <void method="add">
+       <string>Var_5</string>
+      </void>
+      <void method="add">
+       <string>Var_4</string>
+      </void>
+      <void method="add">
+       <string>Var_3</string>
+      </void>
+      <void method="add">
+       <string>CG_ca_g_v</string>
+      </void>
+      <void method="add">
+       <string>CG_ca_v</string>
+      </void>
+     </void>
+     <void property="simDuration">
+      <float>300.0</float>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+     <void property="cellGroups">
+      <void method="add">
+       <string>CG_ca_g</string>
+      </void>
+      <void method="add">
+       <string>CG_ca</string>
+      </void>
+     </void>
+     <void property="description">
+      <string>Testing the KCa &amp; LCa channels against original NEURON impls</string>
+     </void>
+     <void property="inputs">
+      <void method="add">
+       <string>Input_10</string>
+      </void>
+      <void method="add">
+       <string>Input_9</string>
+      </void>
+     </void>
+     <void property="name">
+      <string>SC_Ca_TESTNEURON</string>
      </void>
      <void property="plots">
       <void method="add">

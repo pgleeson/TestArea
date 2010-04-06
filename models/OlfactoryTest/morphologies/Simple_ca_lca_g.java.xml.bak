@@ -94,6 +94,18 @@
      <void property="density">
       <float>1.5654478E-14</float>
      </void>
+     <void property="extraParameters">
+      <void method="add">
+       <object class="ucl.physiol.neuroconstruct.cell.MechParameter">
+        <void property="name">
+         <string>depth</string>
+        </void>
+        <void property="value">
+         <float>0.883</float>
+        </void>
+       </object>
+      </void>
+     </void>
      <void property="name">
       <string>Ca_mit_conc</string>
      </void>

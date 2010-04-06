@@ -1518,7 +1518,7 @@ Use different ena for GC and MT
       <string>GraphWin_7</string>
      </void>
      <void property="maxValue">
-      <float>1.7E-20</float>
+      <float>0.01</float>
      </void>
      <void property="minValue">
       <float>0.0</float>
@@ -1720,9 +1720,6 @@ Use different ena for GC and MT
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings">
-  <void property="copySimFiles">
-   <boolean>true</boolean>
-  </void>
   <void property="nativeBlocks">
    <void method="put">
     <float>-0.5</float>
@@ -1871,10 +1868,6 @@ forall if (ismembrane(&quot;Ca_mit_conc&quot;)) {
     <string></string>
    </void>
    <void method="put">
-    <int>-1</int>
-    <string></string>
-   </void>
-   <void method="put">
     <int>1</int>
     <string>str someTempCompName
 
@@ -1943,6 +1936,10 @@ echo &quot;This first step before the final reset is to initialise the value of 
     end
 </string>
    </void>
+   <void method="put">
+    <int>-1</int>
+    <string></string>
+   </void>
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.psics.PsicsSettings">
@@ -1964,7 +1961,7 @@ echo &quot;This first step before the final reset is to initialise the value of 
    <float>0.11</float>
   </void>
   <void property="reference">
-   <string>Sim_533</string>
+   <string>Sim_587</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -2514,37 +2511,22 @@ echo &quot;This first step before the final reset is to initialise the value of 
      </void>
      <void property="plots">
       <void method="add">
-       <string>Var_18</string>
-      </void>
-      <void method="add">
        <string>Var_17</string>
-      </void>
-      <void method="add">
-       <string>Var_16</string>
-      </void>
-      <void method="add">
-       <string>Var_15</string>
-      </void>
-      <void method="add">
-       <string>Var_14</string>
-      </void>
-      <void method="add">
-       <string>CG_ca_g_v_3</string>
-      </void>
-      <void method="add">
-       <string>Var_13</string>
-      </void>
-      <void method="add">
-       <string>Var_12</string>
       </void>
       <void method="add">
        <string>CG_ca_g_v_2</string>
       </void>
       <void method="add">
-       <string>Var_11</string>
+       <string>CG_ca_g_v_1</string>
       </void>
       <void method="add">
        <string>Var_6</string>
+      </void>
+      <void method="add">
+       <string>Var_5</string>
+      </void>
+      <void method="add">
+       <string>Var_4</string>
       </void>
       <void method="add">
        <string>Var_3</string>
@@ -2630,7 +2612,7 @@ echo &quot;This first step before the final reset is to initialise the value of 
       </void>
      </void>
      <void property="simDuration">
-      <float>200.0</float>
+      <float>300.0</float>
      </void>
     </object>
    </void>
