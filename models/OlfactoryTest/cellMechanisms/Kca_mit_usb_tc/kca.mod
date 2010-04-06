@@ -3,6 +3,9 @@ TITLE Calcium dependent potassium channel
 : J. Neurophysiol. 69:1948-1983 (1993)
 : Andrew Davison, The Babraham Institute, 1998.
 
+: See notes below on rate expressions for voltage dependent and conc dep parts of Y
+: Padraig Gleeson 2010
+
 NEURON {
 	SUFFIX %Name%
 	USEION k READ ek WRITE ik
@@ -64,14 +67,16 @@ PROCEDURE rate(v(mV),cai(mM)) {
 
 PROCEDURE vdep(v(mV)) {
 	TABLE Yvdep FROM -100 TO 100 WITH 100
-	Yvdep = exp((v*1(/mV)+70)/27)
+    ? Yvdep = exp((v*1(/mV)+70)/27)  ? this is at odds with eqns 11 in Appendix C of Bhalla & Bower 1993
+    Yvdep = exp((v*1(/mV)-65)/27)
 }
 
 PROCEDURE concdep(cai(mM)) {
-	TABLE Yconcdep FROM 0 TO 0.01 WITH 10000  ?  PG changed to 10000
-	if (cai < 0.01) {
+	TABLE Yconcdep FROM 0 TO 0.1 WITH 10000  ?  PG changed this to 10000 steps and 0.1 for testing at larger concs
+    ? if statement below removed so that chennel could be tested with concs beyond 0.01
+	?if (cai < 0.01) {
 		Yconcdep = 500(/ms)*( 0.015-cai*1(/mM) )/( exp((0.015-cai*1(/mM))/0.0013) -1 )
-	} else {
-		Yconcdep = 500(/ms)*0.005/( exp(0.005/0.0013) -1 )
-	}
+	?} else {
+	?	Yconcdep = 500(/ms)*0.005/( exp(0.005/0.0013) -1 )
+	?}
 }

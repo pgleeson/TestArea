@@ -18,5 +18,5 @@ Note the following:
 <entry key="GENESIS implementation">Kca_mit_usb_tc.g</entry>
 <entry key="NEURON implementation">kca.mod</entry>
 <entry key="Default Instance Name">NewMembraneMechanism</entry>
-<entry key="Description">A conductance on the cell membrane, full implementation of which is present in a specified file</entry>
+<entry key="Description">Original GENESIS and NEURON impls of KCa channel from Bhalla (G) and Andrew Davison (N)</entry>
 </properties>
