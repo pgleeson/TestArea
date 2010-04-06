@@ -17,5 +17,6 @@ Note the following:
 <entry key="Implementation method">File based Cell Mechanism</entry>
 <entry key="GENESIS implementation">LCa3_mit_usb.g</entry>
 <entry key="Default Instance Name">NewMembraneMechanism</entry>
-<entry key="Description">A conductance on the cell membrane, full implementation of which is present in a specified file</entry>
+<entry key="Description">Original GENESIS and NEURON impls of LCa channel from Bhalla (G) and Andrew Davison (N)</entry>
+<entry key="NEURON implementation">lcafixed.mod</entry>
 </properties>

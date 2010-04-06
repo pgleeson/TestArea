@@ -89,10 +89,10 @@
    <void method="put">
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
      <void property="density">
-      <float>4.0E-8</float>
+      <float>1.42E-7</float>
      </void>
      <void property="name">
-      <string>LCa3_mit_usb_ChannelML</string>
+      <string>KCa3_ChannelML_paper</string>
      </void>
     </object>
     <object class="java.util.Vector">
@@ -104,10 +104,10 @@
    <void method="put">
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
      <void property="density">
-      <float>1.42E-7</float>
+      <float>4.0E-8</float>
      </void>
      <void property="name">
-      <string>KCa3_ChannelML_paper</string>
+      <string>LCa3_mit_usb_ChannelML</string>
      </void>
     </object>
     <object class="java.util.Vector">

@@ -16,7 +16,7 @@ Note the following:
 <entry key="Mechanism Type">Channel mechanism</entry>
 <entry key="Implementation method">File based Cell Mechanism</entry>
 <entry key="GENESIS implementation">Kca_mit_usb_tc.g</entry>
-<entry key="NEURON implementation">kca.mod</entry>
 <entry key="Default Instance Name">NewMembraneMechanism</entry>
-<entry key="Description">Original GENESIS and NEURON impls of KCa channel from Bhalla (G) and Andrew Davison (N)</entry>
+<entry key="Description">Original GENESIS and NEURON impls of KCa channel from Bhalla (G) and Andrew Davison (N, see notes in that file!)</entry>
+<entry key="NEURON implementation">kca.mod</entry>
 </properties>
