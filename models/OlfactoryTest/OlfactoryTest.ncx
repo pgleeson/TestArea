@@ -13,9 +13,15 @@ part of NeuroML or any standardised XML specification. -->
 
 Work carried out in collaboration with Simon O&apos;Connor  
 
+Simulation configuration: SC_Ca will generate cell with ChannelML version of Ca pool, KCa &amp; LCa to tets calcium channels.
+
+SC_Ca_TESTNEURON will run cell as above, but with another cell containing original mod files from Andrew Davison impl of olfactory bulb cells
+
 POINTS TO NOTE:
 
-Use this with NEURON 7.1!!
+* Use this with NEURON 7.1!!
+* Differences found in Andrew Davison KCa mod impl from 93 paper. See mod file for details.
+
 
 
 TODO:
@@ -1163,7 +1169,7 @@ Use different ena for GC and MT
       <string>0</string>
      </void>
      <void property="valuePlotted">
-      <string>LCa3_mit_usb_ChannelML:m</string>
+      <string>LCa3_mit_usb_ChannelML:s</string>
      </void>
     </object>
    </void>
@@ -1256,7 +1262,7 @@ Use different ena for GC and MT
       <string>0</string>
      </void>
      <void property="valuePlotted">
-      <string>LCa3_mit_usb_ChannelML:h</string>
+      <string>LCa3_mit_usb_ChannelML:r</string>
      </void>
     </object>
    </void>
@@ -1439,7 +1445,7 @@ Use different ena for GC and MT
       <string>0</string>
      </void>
      <void property="valuePlotted">
-      <string>KCa3_ChannelML_paper:CURR_DENS:k</string>
+      <string>KCa_mit_ChannelML:CURR_DENS:k</string>
      </void>
     </object>
    </void>
@@ -1501,7 +1507,7 @@ Use different ena for GC and MT
       <string>0</string>
      </void>
      <void property="valuePlotted">
-      <string>KCa3_ChannelML_paper:m</string>
+      <string>KCa_mit_ChannelML:m</string>
      </void>
     </object>
    </void>
@@ -1738,21 +1744,7 @@ Use different ena for GC and MT
    </void>
    <void method="put">
     <float>2.0</float>
-    <string>/*
-forall { 
-    if (ismembrane(&quot;k_ion&quot;)) {
-        print &quot;Changing ek on: &quot;, secname()
-        ek = -90 
-    }
-}
-*/
-
-forall {
-    if (ismembrane(&quot;na_ion&quot;)) { 
-        print &quot;Changing ena on: &quot;, secname()
-        ena = 50
-    }
-}
+    <string>
 
 
 forall if (ismembrane(&quot;Ca_mit_conc_ChannelML&quot;)) {
@@ -1776,7 +1768,7 @@ forall if (ismembrane(&quot;Ca_mit_conc&quot;)) {
    <void method="put">
     <float>0.0</float>
     <string>
-// Just left in for testing purposes. [Ca2+] is initialised to rest_conc of cell mechanism cad (=0) anyway...
+// Just left in for testing purposes, to try out different resting conc vals, etc. [Ca2+] is initialised to resting_conc of cell mechanism cad (=1e-5) anyway...
 
 init_cai = 0.00001
 //rest_cai = 0.0
@@ -1875,6 +1867,8 @@ forall if (ismembrane(&quot;Ca_mit_conc&quot;)) {
     <string>str someTempCompName
 
 // These values are in SI units, mol/m3 or millimoles per liter!
+// Just left in for testing purposes, to try out different resting conc vals, etc. [Ca2+] is initialised to resting_conc of cell mechanism cad (=1e-5) anyway...
+
 
 float restCa = 0.00001
 float initCa   = 0.00001
@@ -1957,7 +1951,7 @@ echo &quot;This first step before the final reset is to initialise the value of 
    <float>0.11</float>
   </void>
   <void property="reference">
-   <string>Sim_598</string>
+   <string>Sim_633</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -2390,6 +2384,9 @@ echo &quot;This first step before the final reset is to initialise the value of 
     <object class="ucl.physiol.neuroconstruct.project.SimConfig">
      <void property="cellGroups">
       <void method="add">
+       <string>CG_kamt_mod</string>
+      </void>
+      <void method="add">
        <string>CG_kamt</string>
       </void>
      </void>
@@ -2409,12 +2406,6 @@ echo &quot;This first step before the final reset is to initialise the value of 
      </void>
      <void property="plots">
       <void method="add">
-       <string>CG_mod_v_10</string>
-      </void>
-      <void method="add">
-       <string>CG_kamt_mod_v</string>
-      </void>
-      <void method="add">
        <string>CG_kamt_v</string>
       </void>
       <void method="add">
@@ -2426,6 +2417,12 @@ echo &quot;This first step before the final reset is to initialise the value of 
       <void method="add">
        <string>CG_mod_v_7</string>
       </void>
+      <void method="add">
+       <string>CG_mod_v_10</string>
+      </void>
+      <void method="add">
+       <string>CG_kamt_mod_v</string>
+      </void>
      </void>
      <void property="simDuration">
       <float>100.0</float>
@@ -2435,6 +2432,9 @@ echo &quot;This first step before the final reset is to initialise the value of 
    <void method="add">
     <object class="ucl.physiol.neuroconstruct.project.SimConfig">
      <void property="cellGroups">
+      <void method="add">
+       <string>CG_nax_mod</string>
+      </void>
       <void method="add">
        <string>CG_nax</string>
       </void>
@@ -2461,13 +2461,10 @@ echo &quot;This first step before the final reset is to initialise the value of 
      </void>
      <void property="plots">
       <void method="add">
-       <string>CG_mod_v_1</string>
+       <string>CG_mod_v</string>
       </void>
       <void method="add">
        <string>CG_MT_v</string>
-      </void>
-      <void method="add">
-       <string>CG_mod_v</string>
       </void>
       <void method="add">
        <string>CG_mod_v_4</string>
@@ -2477,6 +2474,9 @@ echo &quot;This first step before the final reset is to initialise the value of 
       </void>
       <void method="add">
        <string>CG_mod_v_2</string>
+      </void>
+      <void method="add">
+       <string>CG_mod_v_1</string>
       </void>
      </void>
      <void property="simDuration">

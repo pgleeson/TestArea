@@ -5,13 +5,13 @@
            xsi:schemaLocation="http://morphml.org/channelml/schema  http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd"
            units="SI Units">
 
-    <meta:notes>ChannelML file containing a single Channel description</meta:notes>                                             <!-- phys units: mV -->
+    <meta:notes>ChannelML file containing a single Channel description</meta:notes>        
 
 
     <channel_type name="LCa3_mit_usb_ChannelML" density="yes">
         
         <status value="stable">
-            <meta:comment>L channel data from: T. Hirano and S. Hagiwara Pflugers A 413(5) pp463-469, 1989</meta:comment>
+            <meta:comment>L type Ca2+ channel data from: T. Hirano and S. Hagiwara Pflugers A 413(5) pp463-469, 1989</meta:comment>
             <meta:contributor>
                 <meta:name>Simon O'Connor</meta:name>
             </meta:contributor>
@@ -56,26 +56,27 @@
                                   default_gmax="120" 
                                   default_erev="0.070"
                                   charge="2"
-                                  fixed_erev="yes">  <!-- [Ca] alterations didn't alter erev for channel from 70mV -->
+                                  fixed_erev="yes">  <!-- [Ca2+] alterations don't alter erev for channel from 70mV -->
 
-            <gate name="m" instances="1">
-                <closed_state id="m0"/>
-                <open_state id="m" fraction="1"/>
+            <gate name="s" instances="1">
+
+                <closed_state id="s0"/>
+                <open_state id="s" fraction="1"/>
                 
-                <transition name="alpha" from="m0" to="m" expr_form="sigmoid" rate="7500" scale="-0.0070" midpoint="0.013" />
+                <transition name="alpha" from="s0" to="s" expr_form="sigmoid" rate="7500" scale="-0.007" midpoint="0.013" />
                 
-                <transition name="beta" from="m" to="m0" expr_form="sigmoid" rate="1650" scale="0.0040" midpoint="0.014" />
+                <transition name="beta" from="s" to="s0" expr_form="sigmoid" rate="1650" scale="0.004" midpoint="0.014" />
                 
             </gate>
             
-            <gate name="h" instances="1">
-                <closed_state id="h0"/>
-                <open_state id="h" fraction="1"/>
+            <gate name="r" instances="1">
+
+                <closed_state id="r0"/>
+                <open_state id="r" fraction="1"/>
                 
-                <transition name="alpha" from="h0" to="h" expr_form="sigmoid" rate="6.8" scale="0.012" midpoint="-0.030" />
+                <transition name="alpha" from="r0" to="r" expr_form="sigmoid" rate="6.8" scale="0.012" midpoint="-0.030" />
                 
-                
-                <transition name="beta" from="h" to="h0" expr_form="sigmoid" rate="60" scale="-0.011" midpoint="0.0" />
+                <transition name="beta" from="r" to="r0" expr_form="sigmoid" rate="60" scale="-0.011" midpoint="0.0" />
                 
             </gate>
 

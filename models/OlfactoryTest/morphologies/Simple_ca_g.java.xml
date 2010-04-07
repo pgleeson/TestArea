@@ -56,7 +56,7 @@
    </void>
   </void>
   <void property="cellDescription">
-   <string>A single segment/compartment cell</string>
+   <string>A single segment/compartment cell. NOTE: depth parameter is added on Ca_mit_conc since that mechanism uses a simpler way to calculate the volume of a shell 1um below the compartment surface (1um * surf area) whereas the CML version uses the exact volume. </string>
   </void>
   <void property="chanMechsVsGroups">
    <void method="put">

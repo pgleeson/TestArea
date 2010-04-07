@@ -11,7 +11,7 @@ Note the following:
    Mechanism Type should only have values: Channel mechanism, Synaptic mechanism, Ion concentration, Point process, Gap junction
 
 </comment>
-<entry key="Description">Tries to reproduce channel in 1993 paper!!!</entry>
+<entry key="Description">This channel encodes the KCa channel as described in Appendix C of Bhalla and Bower 1993</entry>
 <entry key="NEURON mapping">ChannelML_v1.8.1_NEURONmod.xsl</entry>
 <entry key="GENESIS mapping">ChannelML_v1.8.1_GENESIStab.xsl</entry>
 <entry key="Implementation method">ChannelML based Cell Mechanism</entry>
@@ -19,6 +19,6 @@ Note the following:
 <entry key="Mechanism Type">Channel mechanism</entry>
 <entry key="ChannelML file">KCa_Chan.xml</entry>
 <entry key="GENESIS file requires compilation">true</entry>
-<entry key="Mechanism Name">KCa3_ChannelML_paper</entry>
+<entry key="Mechanism Name">KCa_mit_ChannelML</entry>
 <entry key="Mechanism Model">ChannelML based process</entry>
 </properties>

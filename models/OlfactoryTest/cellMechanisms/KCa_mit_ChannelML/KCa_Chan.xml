@@ -8,16 +8,17 @@
     <meta:notes>A channel from Bhalla, U.S.and Bower, J.M. Exploring parameter space in detailed single neuron models:
     simulations of the mitral and granule cells of the olfactory bulb</meta:notes>
     
-    <channel_type name="KCa3_ChannelML_paper" density="yes">
+    <channel_type name="KCa_mit_ChannelML" density="yes">
         
-        <status value="in_progress">
-            <meta:issue>This ChannelML file is intended to replicate the GENESIS functionality of a tabchannel version of Kca_mit_usb </meta:issue>
+        <status value="stable">
+            <meta:issue>This channel encodes the KCa channel as described in Bhalla and Bower 1993. 
+             Note: right bracket missing in original equation in that paper</meta:issue>
             <meta:contributor>
-                <meta:name>Simon O'Connor</meta:name>
+                <meta:name>Padraig Gleeson</meta:name>
             </meta:contributor>
         </status>
     
-        <meta:notes>Tries to reproduce channel in 1993 paper!!!</meta:notes>
+        <meta:notes>This channel encodes the KCa channel as described in Appendix C of Bhalla and Bower 1993</meta:notes>
 
         <meta:authorList>
             <meta:modelAuthor>
@@ -57,15 +58,14 @@
         
         <current_voltage_relation cond_law="ohmic" ion="k" default_gmax="3.6" default_erev="-80">
           
-          <conc_dependence name="Calcium" ion="ca" charge="2" variable_name="ca_conc" min_conc="0" max_conc="1e-7"/>
-          <!--<conc_factor  ion="ca" charge="2" variable_name="ca_conc" expr="(500.0*(0.015 - (ca_conc*1e6)))/( (exp ((0.015 - (ca_conc*1e6))/0.0013)) -1)" min_conc="0" max_conc="1e-8"/>-->
-       
+          <conc_dependence name="Calcium" ion="ca" charge="2" variable_name="ca_conc" min_conc="0" max_conc="1e-7"/>       
           
           <gate name="m" instances="1"> 
             <closed_state id="m0"/>
             <open_state id="m" fraction="1"/>
             
             <transition name="alpha" from="m0" to="m" expr_form="generic" expr="( abs ( 0.015 - (ca_conc*1e6) ) ) &lt; 1e-6 ? (exp ((v-65)/27)) * (0.65 - 250 * (0.015 - ca_conc*1e6))  : (exp ((v-65)/27)) * (500.0*(0.015 - (ca_conc*1e6)))/( (exp ((0.015 - (ca_conc*1e6))/0.0013)) -1)" />
+            
             <transition name="beta" from="m" to="m0" expr_form="generic" expr="0.05" />
             
           </gate>
