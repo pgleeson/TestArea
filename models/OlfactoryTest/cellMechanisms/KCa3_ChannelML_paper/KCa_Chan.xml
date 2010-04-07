@@ -65,7 +65,7 @@
             <closed_state id="m0"/>
             <open_state id="m" fraction="1"/>
             
-            <transition name="alpha" from="m0" to="m" expr_form="generic" expr="( abs ( 0.015 - (ca_conc*1e6) ) ) &lt; 0 ? (exp ((v-65)/27)) * (0.65 - 250 * (0.015 - ca_conc*1e6))  : (exp ((v-65)/27)) * (500.0*(0.015 - (ca_conc*1e6)))/( (exp ((0.015 - (ca_conc*1e6))/0.0013)) -1)" />
+            <transition name="alpha" from="m0" to="m" expr_form="generic" expr="( abs ( 0.015 - (ca_conc*1e6) ) ) &lt; 1e-6 ? (exp ((v-65)/27)) * (0.65 - 250 * (0.015 - ca_conc*1e6))  : (exp ((v-65)/27)) * (500.0*(0.015 - (ca_conc*1e6)))/( (exp ((0.015 - (ca_conc*1e6))/0.0013)) -1)" />
             <transition name="beta" from="m" to="m0" expr_form="generic" expr="0.05" />
             
           </gate>

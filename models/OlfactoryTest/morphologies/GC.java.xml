@@ -300,30 +300,30 @@
    <void method="put">
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
      <void property="density">
-      <float>4.0E-8</float>
+      <float>1.33333E-9</float>
      </void>
      <void property="name">
-      <string>kamt</string>
+      <string>pas</string>
      </void>
     </object>
     <object class="java.util.Vector">
      <void method="add">
-      <string>OneSecGrp_SectionRef_1</string>
+      <string>ModelViewParmSubset_3</string>
      </void>
     </object>
    </void>
    <void method="put">
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
      <void property="density">
-      <float>2.0E-7</float>
+      <float>6.0E-8</float>
      </void>
      <void property="name">
-      <string>nax</string>
+      <string>kdrmt</string>
      </void>
     </object>
     <object class="java.util.Vector">
      <void method="add">
-      <string>ModelViewParmSubset_4</string>
+      <string>OneSecGrp_SectionRef_1</string>
      </void>
     </object>
    </void>
@@ -372,6 +372,51 @@
    <void method="put">
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
      <void property="density">
+      <float>4.0E-7</float>
+     </void>
+     <void property="name">
+      <string>nax</string>
+     </void>
+    </object>
+    <object class="java.util.Vector">
+     <void method="add">
+      <string>OneSecGrp_SectionRef_1</string>
+     </void>
+    </object>
+   </void>
+   <void method="put">
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
+     <void property="density">
+      <float>4.0E-8</float>
+     </void>
+     <void property="name">
+      <string>kamt</string>
+     </void>
+    </object>
+    <object class="java.util.Vector">
+     <void method="add">
+      <string>OneSecGrp_SectionRef_1</string>
+     </void>
+    </object>
+   </void>
+   <void method="put">
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
+     <void property="density">
+      <float>3.33333E-10</float>
+     </void>
+     <void property="name">
+      <string>pas</string>
+     </void>
+    </object>
+    <object class="java.util.Vector">
+     <void method="add">
+      <string>ModelViewParmSubset_2</string>
+     </void>
+    </object>
+   </void>
+   <void method="put">
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
+     <void property="density">
       <float>-1.0</float>
      </void>
      <void property="extraParameters">
@@ -399,22 +444,7 @@
    <void method="put">
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
      <void property="density">
-      <float>3.33333E-10</float>
-     </void>
-     <void property="name">
-      <string>pas</string>
-     </void>
-    </object>
-    <object class="java.util.Vector">
-     <void method="add">
-      <string>ModelViewParmSubset_2</string>
-     </void>
-    </object>
-   </void>
-   <void method="put">
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
-     <void property="density">
-      <float>4.0E-7</float>
+      <float>2.0E-7</float>
      </void>
      <void property="name">
       <string>nax</string>
@@ -422,37 +452,7 @@
     </object>
     <object class="java.util.Vector">
      <void method="add">
-      <string>OneSecGrp_SectionRef_1</string>
-     </void>
-    </object>
-   </void>
-   <void method="put">
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
-     <void property="density">
-      <float>6.0E-8</float>
-     </void>
-     <void property="name">
-      <string>kdrmt</string>
-     </void>
-    </object>
-    <object class="java.util.Vector">
-     <void method="add">
-      <string>OneSecGrp_SectionRef_1</string>
-     </void>
-    </object>
-   </void>
-   <void method="put">
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
-     <void property="density">
-      <float>1.33333E-9</float>
-     </void>
-     <void property="name">
-      <string>pas</string>
-     </void>
-    </object>
-    <object class="java.util.Vector">
-     <void method="add">
-      <string>ModelViewParmSubset_3</string>
+      <string>ModelViewParmSubset_4</string>
      </void>
     </object>
    </void>

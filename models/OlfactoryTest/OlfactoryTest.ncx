@@ -13,10 +13,9 @@ part of NeuroML or any standardised XML specification. -->
 
 Work carried out in collaboration with Simon O&apos;Connor  
 
-Tested on NEURON, GENESIS &amp; MOOSE so far.
-
 POINTS TO NOTE:
 
+Use this with NEURON 7.1!!
 
 
 TODO:
@@ -1059,7 +1058,7 @@ Use different ena for GC and MT
       <string>GraphWin_7</string>
      </void>
      <void property="maxValue">
-      <float>1.7E-20</float>
+      <float>2.0E-20</float>
      </void>
      <void property="minValue">
       <float>0.0</float>
@@ -1118,7 +1117,7 @@ Use different ena for GC and MT
       <string>GraphWin_7</string>
      </void>
      <void property="maxValue">
-      <float>1.7E-20</float>
+      <float>2.0E-20</float>
      </void>
      <void property="minValue">
       <float>0.0</float>
@@ -1425,7 +1424,7 @@ Use different ena for GC and MT
       <string>GraphWin_13</string>
      </void>
      <void property="maxValue">
-      <float>1.0E-8</float>
+      <float>1.0E-7</float>
      </void>
      <void property="minValue">
       <float>0.0</float>
@@ -1456,7 +1455,7 @@ Use different ena for GC and MT
       <string>GraphWin_13</string>
      </void>
      <void property="maxValue">
-      <float>1.0E-8</float>
+      <float>1.0E-7</float>
      </void>
      <void property="minValue">
       <float>0.0</float>
@@ -1518,7 +1517,7 @@ Use different ena for GC and MT
       <string>GraphWin_7</string>
      </void>
      <void property="maxValue">
-      <float>0.01</float>
+      <float>0.02</float>
      </void>
      <void property="minValue">
       <float>0.0</float>
@@ -1730,11 +1729,11 @@ Use different ena for GC and MT
     <string></string>
    </void>
    <void method="put">
-    <float>-1.0</float>
+    <float>1.0</float>
     <string></string>
    </void>
    <void method="put">
-    <float>1.0</float>
+    <float>-1.0</float>
     <string></string>
    </void>
    <void method="put">
@@ -1868,16 +1867,17 @@ forall if (ismembrane(&quot;Ca_mit_conc&quot;)) {
     <string></string>
    </void>
    <void method="put">
+    <int>-1</int>
+    <string></string>
+   </void>
+   <void method="put">
     <int>1</int>
     <string>str someTempCompName
 
 // These values are in SI units, mol/m3 or millimoles per liter!
 
 float restCa = 0.00001
-//float restCa = 0.02
 float initCa   = 0.00001
-//float initCa   = 0.02
-//float initCa = 0.8e-5
 
 echo &quot;***************************&quot;
 echo &quot;&quot;
@@ -1936,10 +1936,6 @@ echo &quot;This first step before the final reset is to initialise the value of 
     end
 </string>
    </void>
-   <void method="put">
-    <int>-1</int>
-    <string></string>
-   </void>
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.psics.PsicsSettings">
@@ -1961,7 +1957,7 @@ echo &quot;This first step before the final reset is to initialise the value of 
    <float>0.11</float>
   </void>
   <void property="reference">
-   <string>Sim_587</string>
+   <string>Sim_598</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -2492,9 +2488,6 @@ echo &quot;This first step before the final reset is to initialise the value of 
     <object class="ucl.physiol.neuroconstruct.project.SimConfig">
      <void property="cellGroups">
       <void method="add">
-       <string>CG_ca_g</string>
-      </void>
-      <void method="add">
        <string>CG_ca</string>
       </void>
      </void>
@@ -2514,10 +2507,16 @@ echo &quot;This first step before the final reset is to initialise the value of 
        <string>Var_17</string>
       </void>
       <void method="add">
+       <string>Var_13</string>
+      </void>
+      <void method="add">
        <string>CG_ca_g_v_2</string>
       </void>
       <void method="add">
        <string>CG_ca_g_v_1</string>
+      </void>
+      <void method="add">
+       <string>Var_11</string>
       </void>
       <void method="add">
        <string>Var_6</string>
