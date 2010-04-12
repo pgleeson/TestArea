@@ -65,9 +65,6 @@ part of NeuroML or any standardised XML specification. -->
     <void method="add"> 
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/> 
     </void> 
-    <void method="add"> 
-     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/> 
-    </void> 
    </void> 
    <void method="get"> 
     <string>Cell Type</string> 
@@ -77,9 +74,6 @@ part of NeuroML or any standardised XML specification. -->
     <void method="add"> 
      <string>SampleCellKS</string> 
     </void> 
-    <void method="add"> 
-     <string>SampleCell2</string> 
-    </void> 
    </void> 
    <void method="get"> 
     <string>Priority</string> 
@@ -88,9 +82,6 @@ part of NeuroML or any standardised XML specification. -->
     </void> 
     <void method="add"> 
      <int>9</int> 
-    </void> 
-    <void method="add"> 
-     <int>8</int> 
     </void> 
    </void> 
    <void method="get"> 
@@ -111,20 +102,9 @@ part of NeuroML or any standardised XML specification. -->
       <int>255</int> 
      </object> 
     </void> 
-    <void method="add"> 
-     <object class="java.awt.Color"> 
-      <int>131</int> 
-      <int>236</int> 
-      <int>216</int> 
-      <int>255</int> 
-     </object> 
-    </void> 
    </void> 
    <void method="get"> 
     <string>Region Name</string> 
-    <void method="add"> 
-     <string>SampleRegion</string> 
-    </void> 
     <void method="add"> 
      <string>SampleRegion</string> 
     </void> 
@@ -139,9 +119,6 @@ part of NeuroML or any standardised XML specification. -->
     </void> 
     <void method="add"> 
      <string>CellGroup_2</string> 
-    </void> 
-    <void method="add"> 
-     <string>CellGroup_3</string> 
     </void> 
    </void> 
   </void> 
@@ -198,34 +175,6 @@ part of NeuroML or any standardised XML specification. -->
      </void> 
      <void property="plotReference"> 
       <string>CellGroup_2_v</string> 
-     </void> 
-     <void property="segmentId"> 
-      <string>0</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="add"> 
-    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
-     <void property="cellGroup"> 
-      <string>CellGroup_3</string> 
-     </void> 
-     <void property="cellNumber"> 
-      <string>*</string> 
-     </void> 
-     <void property="graphWindow"> 
-      <string>SampleGraph</string> 
-     </void> 
-     <void property="maxValue"> 
-      <float>50.0</float> 
-     </void> 
-     <void property="minValue"> 
-      <float>-90.0</float> 
-     </void> 
-     <void property="plotAndOrSave"> 
-      <string>Plot and save</string> 
-     </void> 
-     <void property="plotReference"> 
-      <string>CellGroup_3_v</string> 
      </void> 
      <void property="segmentId"> 
       <string>0</string> 
@@ -577,29 +526,6 @@ part of NeuroML or any standardised XML specification. -->
      </void> 
     </object> 
    </void> 
-   <void method="add"> 
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
-     <void property="amp"> 
-      <void property="fixedNum"> 
-       <float>0.15</float> 
-      </void> 
-     </void> 
-     <void property="cellGroup"> 
-      <string>CellGroup_3</string> 
-     </void> 
-     <void property="dur"> 
-      <void property="fixedNum"> 
-       <float>20.0</float> 
-      </void> 
-      <void property="numberType"> 
-       <int>11</int> 
-      </void> 
-     </void> 
-     <void property="reference"> 
-      <string>Input_1</string> 
-     </void> 
-    </object> 
-   </void> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.project.SimConfigInfo"> 
@@ -620,9 +546,6 @@ part of NeuroML or any standardised XML specification. -->
      <void property="inputs"> 
       <void method="add"> 
        <string>SampleIClamp</string> 
-      </void> 
-      <void method="add"> 
-       <string>Input_1</string> 
       </void> 
       <void method="add"> 
        <string>Input_0</string> 
@@ -658,9 +581,6 @@ part of NeuroML or any standardised XML specification. -->
       </void> 
       <void method="add"> 
        <string>Var_1</string> 
-      </void> 
-      <void method="add"> 
-       <string>CellGroup_3_v</string> 
       </void> 
       <void method="add"> 
        <string>Var_0</string> 

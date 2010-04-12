@@ -5,6 +5,13 @@
 
     <channel_type name="KConductanceKS">
 
+        <status value = "stable">
+            <meta:comment>Compared behaviour to HH K channel example with small dt and it matches</meta:comment>
+            <meta:contributor>
+                <meta:name>Padraig Gleeson</meta:name>
+            </meta:contributor>
+        </status>
+
         <meta:notes>K conductance with 5 kinetic states. NOTE: currently a mapping is only provided
                     to the NEURON Channel Builder format and PSICS</meta:notes>
 
