@@ -46,7 +46,7 @@ BREAKPOINT {
 }
 
 DERIVATIVE states {
-  i' = 0.04 * pow(v, 2) + 5 * i + 140 - U + i
+  i' = 0.04 * v + 5 * v + 140 - U
   U' = a * (b * v - U)
 }
 

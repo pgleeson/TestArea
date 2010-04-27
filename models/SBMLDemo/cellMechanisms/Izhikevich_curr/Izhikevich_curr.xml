@@ -2,13 +2,26 @@
 <sbml xmlns="http://www.sbml.org/sbml/level2" metaid="metaid_0000001" level="2" version="1">
   <model metaid="metaid_0000002" id="Izhikevich_curr" name="Izhikevich2003_SpikingNeuron">
     <notes>
-      <p xmlns="http://www.w3.org/1999/xhtml">Model modified slightly by P. Gleeson from Biomodels: The model is according to the paper <i>Simple Model of Spiking Neurons</i> In this paper, a simple spiking model is presented that is as biologically plausible as the Hodgkin-Huxley model, yet as computationally efficient as the integrate-and-fire model. Known types of neurons correspond to different values of the parameters a,b,c,d in the model. Figure2RS,IB,CH,FS,LTS have been simulated by MathSBML. <p>RS: a=0.02,  b=0.2,  c=-65, d=8.</p>
+      <p xmlns="http://www.w3.org/1999/xhtml">##Model modified slightly by P. Gleeson from Biomodels####
+      ##This version of the Izhikevich model results in a current which will cause a cell membrane potenial
+      to act like the main version in the absence of other external input##
+      The model is according to the paper <i>Simple Model of Spiking Neurons</i> In this paper, a simple
+      spiking model is presented that is as biologically plausible as the Hodgkin-Huxley model, yet
+      as computationally efficient as the integrate-and-fire model. Known types of neurons correspond
+      to different values of the parameters a,b,c,d in the model. Figure2RS,IB,CH,FS,LTS have been simulated by MathSBML.
+      <p>RS: a=0.02,  b=0.2,  c=-65, d=8.</p>
       <p>IB:  a=0.02,b=0.2,c=-55,d=4</p>
       <p>CH: a=0.02,b=0.2,c=-50,d=2</p>
       <p>FS:a=0.1b=0.2c=-65,d=2</p>
       <p>LTS:a=0.02,b=0.25,c=-65,d=2</p>
     </p>
-    <p xmlns="http://www.w3.org/1999/xhtml">This model originates from BioModels Database: A Database of Annotated Published Models. It is copyright (c) 2005-2010 The BioModels Team.<br/>For more information see the <a href="http://www.ebi.ac.uk/biomodels/legal.html" target="_blank">terms of use</a>.<br/>To cite BioModels Database, please use <a href="http://www.pubmedcentral.nih.gov/articlerender.fcgi?tool=pubmed&amp;pubmedid=16381960" target="_blank">Le Novère N., Bornstein B., Broicher A., Courtot M., Donizelli M., Dharuri H., Li L., Sauro H., Schilstra M., Shapiro B., Snoep J.L., Hucka M. (2006) BioModels Database: A Free, Centralized Database of Curated, Published, Quantitative Kinetic Models of Biochemical and Cellular Systems Nucleic Acids Res., 34: D689-D691.</a>
+    <p xmlns="http://www.w3.org/1999/xhtml">This model originates from BioModels Database: A Database of
+    Annotated Published Models. It is copyright (c) 2005-2010 The BioModels Team.<br/>For more information
+    see the <a href="http://www.ebi.ac.uk/biomodels/legal.html" target="_blank">terms of use</a>.<br/>To
+    cite BioModels Database, please use <a href="http://www.pubmedcentral.nih.gov/articlerender.fcgi?tool=pubmed&amp;pubmedid=16381960"
+    target="_blank">Le Novère N., Bornstein B., Broicher A., Courtot M., Donizelli M., Dharuri H., Li L., Sauro H., Schilstra M., Shapiro
+    B., Snoep J.L., Hucka M. (2006) BioModels Database: A Free, Centralized Database of Curated, Published, Quantitative Kinetic Models
+    of Biochemical and Cellular Systems Nucleic Acids Res., 34: D689-D691.</a>
   </p>
 </notes><annotation>
   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
@@ -123,8 +136,7 @@
       </rdf:RDF>
     </annotation>
     <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <apply>
-        <plus/>
+  
         <apply>
           <minus/>
           <apply>
@@ -132,23 +144,19 @@
             <apply>
               <times/>
               <cn> 0.04 </cn>
-              <apply>
-                <power/>
+              
                 <ci> v </ci>
-                <cn type="integer"> 2 </cn>
-              </apply>
             </apply>
             <apply>
               <times/>
               <cn type="integer"> 5 </cn>
-              <ci> i </ci>
+              <ci> v </ci>
             </apply>
             <cn type="integer"> 140 </cn>
           </apply>
           <ci> U </ci>
         </apply>
-        <ci> i </ci>
-      </apply>
+
     </math>
   </rateRule>
   <rateRule metaid="metaid_0000023" variable="U">

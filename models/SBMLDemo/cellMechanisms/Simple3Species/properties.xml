@@ -18,5 +18,7 @@ Note the following:
 <entry key="Implementation method">SBML based Cell Mechanism</entry>
 <entry key="ChannelML file">Simple3Species.xml</entry>
 <entry key="NEURON mapping">SBML2NEURON.py</entry>
-<entry key="Description">A simple example in SBML with 3 states and 2 reactions between them</entry>
+<entry key="Description">
+    
+</entry>
 </properties>
