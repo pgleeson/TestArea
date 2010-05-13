@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version2" metaid="metaid_0000001" level="2" version="2"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sbml.org/sbml/level2/version2   http://sbml.org/Special/xml-schemas/sbml-l2v2-schema/sbml.xsd">
+
+<model id="SimpleVoltDepCurrent">
+
+<notes>
+  <p xmlns="http://www.w3.org/1999/xhtml">Simple test SBML script to provide membrane current based on voltage...</p>
+</notes>
+
+<!-- No species present!! -->
+
+<listOfCompartments>
+  <compartment id="cell" size="1"/>
+</listOfCompartments>
+
+<listOfParameters>
+  <parameter id="a" value="2e-8"/>
+  <parameter id="b" value="3e-8"/>
+  <parameter id="erev" value="-30"/>
+
+  <parameter id="v" value="-70" constant="false" sboTerm="SBO:0000259"/> <!-- Will be mapped to v in NEURON-->
+    
+  <parameter id="g" value="0"   constant="false" /> <!-- sboTerm="SBO:0000257"conductance -->
+  <parameter id="i" value="0"   constant="false" sboTerm="SBO:0000999"/> <!-- *DUMMY* SBO term to indicate a parameter refers to transmembrane current. -->
+</listOfParameters>
+
+
+
+<listOfRules>
+  <rateRule variable="g">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+          <times/>
+          <ci> v </ci>
+          <ci> a </ci>
+      </apply>
+    </math>
+  </rateRule>
+
+  <assignmentRule variable="i">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> g </ci>
+          <apply>
+            <minus/>
+            <ci> v </ci>
+            <ci> erev </ci>
+          </apply>
+        </apply>
+    </math>
+  </assignmentRule>
+
+</listOfRules>
+
+
+</model>
+</sbml>

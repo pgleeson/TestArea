@@ -1,3 +1,4 @@
+import os.path
 #!/usr/bin/env python
 
 #
@@ -24,7 +25,11 @@
 
 
 import sys
+import os
 import libsbml
+
+import subprocess
+
 
 voltageSBOTerm = 'SBO:0000259' # To indicate a parameter refers to voltage/membrane potential
 
@@ -33,7 +38,9 @@ specialSBOTerms = [voltageSBOTerm]
 functionDefs = {}
 
 functionDefs["gt"] =  "FUNCTION gt(A, B) {\n    if (A > B) {gt = 1}\n    else {gt = 0}\n}\n\n"
+functionDefs["geq"] =  "FUNCTION geq(A, B) {\n    if (A >= B) {geq = 1}\n    else {geq = 0}\n}\n\n"
 functionDefs["lt"] =  "FUNCTION lt(A, B) {\n    if (A < B) {lt = 1}\n    else {lt = 0}\n}\n\n"
+functionDefs["leq"] =  "FUNCTION leq(A, B) {\n    if (A <= B) {leq = 1}\n    else {leq = 0}\n}\n\n"
 functionDefs["power"] = "FUNCTION power(A, B) {\n    power\n}\n\n"
 #TODO: more functions to add from here: http://sbml.org/Software/libSBML/docs/python-api/libsbml-python-math.html
 
@@ -105,7 +112,7 @@ class Parameter:
         self.scope = scope
 
     def getShortName(self):
-        return "PA_%i"%self.index
+        return "p%s"%hex(self.index)[2:]
 
     def getValue(self):
         return self.value
@@ -119,12 +126,21 @@ class Parameter:
     def __str__(self):
         return self.getRealName()
 
- 
+
+
+
 def main (args):
 
-  if len(args) != 2 and len(args) != 4:
+  testMode = False
+  if "-test" in args:
+      testMode = True
+      args.remove("-test")
+
+
+  if len(args) != 2 and len(args) != 4 and len(args) != 6:
     print "Usage examples: \n    python SBML2NEURON.py ex.xml \n        (to create a mod file ex.mod from the SBML file)"
     print "\n    python SBML2NEURON.py ex.xml 100 0.01\n        (to create a mod file ex.mod from the SBML file, plus a test hoc file to run the simulation for 100ms, timestep 0.01ms)"
+    print "\n    python SBML2NEURON.py ex.xml 100 0.01 -1 12\n        (to files as above, with y axis from -1 to 12)"
     sys.exit(1)
 
   infile = args[1]
@@ -133,34 +149,52 @@ def main (args):
   generateModFromSBML(infile, modfile)
   
   
-  if len(args) == 4:
+  if len(args) == 4 or len(args) == 6:
   
-    compileMod()
+    rv = compileMod(modfile)
+
+    if rv != 0:
+        raise Exception('Problem compiling the mod file: %s'%modfile)
+        return
+
   
     hocfile = infile[0:infile.rfind('.')]+"_test.hoc"
     dur = float(args[2])
     dt = float(args[3])
-    generateTestHocFromSBML(infile, hocfile, dur, dt)
-    
-    
-def compileMod():
+    ymin = 0
+    ymax = 10
+    if len(args) == 6:
+        ymin = float(args[4])
+        ymax = float(args[5])
+        
+    generateTestHocFromSBML(infile, hocfile, dur, dt, ymin, ymax, testMode)
 
- 
 
-  cmdToCompileMod = 'nrnivmodl'               # Assumes command is on PATH for Linux/Mac
+
+
+    
+def compileMod(infile):
+
+  modToCompile = os.path.realpath(infile)
+  dirToCompile = os.path.split(modToCompile)[0]
+  cmdToCompileMod = 'nrnivmodl'+ dirToCompile               # Assumes command is on PATH for Linux/Mac
 
   if sys.platform.count('win') >0:
       nrnDir = 'C:/nrn62'                     # NOTE forward slash is preferred by Python
-      cmdToCompileMod = "\""+nrnDir+"/bin/rxvt.exe\" -e \""+nrnDir+"/bin/sh\" \""+nrnDir+"/lib/mknrndll.sh\" \""+ nrnDir+"\""
+      cmdToCompileMod = "\""+nrnDir+"/bin/rxvt.exe\" -e \""+nrnDir+"/bin/sh\" \""+nrnDir+"/lib/mknrndll.sh\" \""+ nrnDir+"\" "
   
-  print "Compiling the mod files using: "+ cmdToCompileMod
+  print "Compiling the mod files using: "+ cmdToCompileMod +" in dir: "+ dirToCompile
 
-  import subprocess 
-  subprocess.Popen(cmdToCompileMod)
+  process = subprocess.Popen(cmdToCompileMod, cwd=dirToCompile)
+
+  rv = process.wait()
+  print "Compilation has finished with return val: %s"%rv
+  return rv
+      
 
   
   
-def generateTestHocFromSBML(sbmlFile, hocfile, dur, dt):
+def generateTestHocFromSBML(sbmlFile, hocfile, dur, dt, ymin, ymax, testMode):
       
   print "Going to read SBML from file: %s and create hoc file: %s" % (sbmlFile, hocfile)
   
@@ -195,8 +229,8 @@ def generateTestHocFromSBML(sbmlFile, hocfile, dur, dt):
   hoc.write("objref SampleGraph\n")
   hoc.write("SampleGraph = new Graph(0)\n\n")
   
-  hoc.write("minVal = 0\n")
-  hoc.write("maxVal = 10\n\n")
+  hoc.write("minVal = %s\n"%ymin)
+  hoc.write("maxVal = %s\n\n"%ymax)
   
   hoc.write("{SampleGraph.size(0,tstop,minVal,maxVal)}\n")
   
@@ -239,8 +273,17 @@ def generateTestHocFromSBML(sbmlFile, hocfile, dur, dt):
   hoc.write("{run()}\n")
   
   hoc.write("print \"Finished simulation!\"\n")
-  
-  print "Hoc file written to %s" % (hocfile) 
+
+  print "Hoc file written to %s\n" % (hocfile)
+
+  if testMode:
+
+      hoc.write("\nobjref testResultFile\n")
+      hoc.write("{testResultFile = new File()}\n")
+      hoc.write("{testResultFile.wopen(\"%s.finished\")}\n" % (os.path.basename(hocfile) ))
+      #{testResultFile.printf("numPassed=%g\n", numTestsPassed)}
+
+      hoc.write("{testResultFile.close()}\n")
 
 
 def getModelId(model):
@@ -409,10 +452,17 @@ def generateModFromSBML(sbmlFile, modFile):
         if param.isGlobalScope() or param.getScope()==rid:
             formula = replaceInFormula(formula, param.getRealName(), param.getLocalName())
 
-    if substituteSpeciesNames:
+
+    for species in speciesInfo:
+        formula = replaceInFormula(formula, species.getRealName(), species.getLocalName())
+
+    '''if substituteSpeciesNames:
         for species in speciesInfo:
-            formula = replaceInFormula(formula, species.getRealName(), species.getShortName())
-       
+            formula = replaceInFormula(formula, species.getRealName(), species.getShortName())'''
+
+    if substituteSpeciesNames:
+        formula = formula.replace(" * ", "*")
+        formula = formula.replace(" + ", "+")
       
     prodString = ""
     reacString = ""
@@ -560,19 +610,20 @@ def generateModFromSBML(sbmlFile, modFile):
 
   if substituteSpeciesNames:
 
-      mod.write("  LOCAL")
-      for speciesInd in range(0, len(speciesInfo)):
+      mod.write("  LOCAL dummy ")
+      '''for speciesInd in range(0, len(speciesInfo)):
         if speciesInd>0:  mod.write(",")
-        mod.write(" %s"%speciesInfo[speciesInd].getShortName())
+        mod.write("%s"%speciesInfo[speciesInd].getShortName())'''
         
       for param in parameterInfo:
-        mod.write(", %s"%param.getShortName())
+        mod.write(",%s"%param.getShortName())
       mod.write("\n")
 
 
-      for species in speciesInfo:
+      '''for species in speciesInfo:
         mod.write("  %s = %s\n"%(species.getShortName(), species.getLocalName()))
-      mod.write("\n")
+      mod.write("\n")'''
+
       for param in parameterInfo:
         mod.write("  %s = %s\n"%(param.getShortName(), param.getLocalName()))
       mod.write("\n")

@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sbml xmlns="http://www.sbml.org/sbml/level2" metaid="metaid_0000001" level="2" version="1">
+<sbml xmlns="http://www.sbml.org/sbml/level2/version2" metaid="metaid_0000001" level="2" version="2"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sbml.org/sbml/level2/version2   http://sbml.org/Special/xml-schemas/sbml-l2v2-schema/sbml.xsd">
+
   <model metaid="metaid_0000002" id="Izhikevich_curr" name="Izhikevich2003_SpikingNeuron">
     <notes>
-      <p xmlns="http://www.w3.org/1999/xhtml">##Model modified slightly by P. Gleeson from Biomodels####
+      <p xmlns="http://www.w3.org/1999/xhtml"><b>##Model modified slightly by P. Gleeson from Biomodels####
       ##This version of the Izhikevich model results in a current which will cause a cell membrane potenial
-      to act like the main version in the absence of other external input##
-      The model is according to the paper <i>Simple Model of Spiking Neurons</i> In this paper, a simple
+      to act like the main version in the absence of other external input##</b></p>
+      <p xmlns="http://www.w3.org/1999/xhtml">The model is according to the paper <i>Simple Model of Spiking Neurons</i> In this paper, a simple
       spiking model is presented that is as biologically plausible as the Hodgkin-Huxley model, yet
       as computationally efficient as the integrate-and-fire model. Known types of neurons correspond
       to different values of the parameters a,b,c,d in the model. Figure2RS,IB,CH,FS,LTS have been simulated by MathSBML.
@@ -118,12 +121,12 @@
   <parameter id="v" value="-70" sboTerm="SBO:0000259"/> <!-- Will be mapped to v in NEURON-->
   
   
-  <parameter metaid="metaid_0000016" id="i" value="0" constant="false"/>
+  <parameter metaid="metaid_0000016" id="i_mech" value="0" constant="false"/>
   <parameter metaid="metaid_0000021" id="U" value="-14" constant="false"/>
 </listOfParameters>
 
 <listOfRules>
-  <rateRule metaid="metaid_0000022" variable="i">
+  <rateRule metaid="metaid_0000022" variable="i_mech">
     <annotation>
       <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
         <rdf:Description rdf:about="#metaid_0000022">
@@ -137,15 +140,16 @@
     </annotation>
     <math xmlns="http://www.w3.org/1998/Math/MathML">
   
-        <apply>
+      <apply>
           <minus/>
           <apply>
             <plus/>
             <apply>
               <times/>
               <cn> 0.04 </cn>
-              
-                <ci> v </ci>
+
+              <ci> v </ci>
+              <ci> v </ci>
             </apply>
             <apply>
               <times/>

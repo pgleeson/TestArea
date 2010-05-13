@@ -13,7 +13,6 @@ NEURON {
   RANGE c
   RANGE d
   RANGE Vthresh
-  RANGE v
 }
 
 PARAMETER {
@@ -23,16 +22,16 @@ PARAMETER {
   c = -65.0
   d = 8.0
   Vthresh = 30.0
-  v = -70.0
+  v (mV)
 }
 
 STATE {
-  i
+  i_mech
   U
 }
 
 INITIAL {
-  i = 0.0
+  i_mech = 0.0
   U = -14.0
 }
 
@@ -46,7 +45,7 @@ BREAKPOINT {
 }
 
 DERIVATIVE states {
-  i' = 0.04 * v + 5 * v + 140 - U
+  i_mech' = 0.04 * v * v + 5 * v + 140 - U
   U' = a * (b * v - U)
 }
 
