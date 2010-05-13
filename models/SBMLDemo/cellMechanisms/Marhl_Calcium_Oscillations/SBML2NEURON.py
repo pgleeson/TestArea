@@ -31,9 +31,10 @@ import libsbml
 import subprocess
 
 
-voltageSBOTerm = 'SBO:0000259' # To indicate a parameter refers to voltage/membrane potential
+voltageSBOTerm = 'SBO:0000259'   # To indicate a parameter refers to voltage/membrane potential
+currentSBOTerm = 'SBO:0000999'   # *DUMMY* SBO term to indicate a parameter refers to transmembrane current
 
-specialSBOTerms = [voltageSBOTerm]
+specialSBOTerms = [voltageSBOTerm, currentSBOTerm]
 
 functionDefs = {}
 
@@ -333,11 +334,8 @@ def generateModFromSBML(sbmlFile, modFile):
   
   mod.write("}\n\n")
   
-
   derivs = ""
-  
   initial = ""
-
 
   substituteSpeciesNames = False
 
@@ -347,7 +345,6 @@ def generateModFromSBML(sbmlFile, modFile):
   for species in sbmldoc.getModel().getListOfSpecies():
 
     s = Species(species.getId(), len(speciesInfo))
-
     speciesInfo.append(s)
     
     initVal = species.getInitialAmount()
@@ -376,7 +373,7 @@ def generateModFromSBML(sbmlFile, modFile):
     p.setSBOTerm(parameter.getSBOTermID())
 
     if parameter.getSBOTermID() in specialSBOTerms:
-        print "SBOTerm of %s is special..."%parameter.getId()
+        print "SBOTerm of %s (%s) is special..." % (parameter.getId(), parameter.getSBOTermID() )
         if parameter.getSBOTermID() == voltageSBOTerm:
             p.setLocalName('v')
             
@@ -510,18 +507,21 @@ def generateModFromSBML(sbmlFile, modFile):
   
     if species.getStateIncrease() != "":
       derivs = "%s  %s\' = %s \n" % (derivs, species.getLocalName(), species.getStateIncrease())
-  
+
+  assigned = ''
 
   mod.write("NEURON {\n")
   mod.write("  SUFFIX %s\n" % modelId)
 
   for param in parameterInfo:
-    if param.getSBOTerm() != voltageSBOTerm and not param.getHasRateRule():
+    if param.getSBOTerm() != voltageSBOTerm and param.getSBOTerm() != currentSBOTerm and not param.getHasRateRule():
         mod.write("  RANGE %s\n" % param.getLocalName())
+    if param.getSBOTerm() == currentSBOTerm:
+        mod.write("  NONSPECIFIC_CURRENT %s\n" % param.getLocalName())
+        #assigned = "%s\n  %s (nanoamp)\n"%(assigned, param.getLocalName())
     
   mod.write("}\n\n")
 
-  assigned = ''
   
   mod.write("PARAMETER {\n")
   
@@ -530,6 +530,8 @@ def generateModFromSBML(sbmlFile, modFile):
     if not param.getHasRateRule():
       if param.getSBOTerm() == voltageSBOTerm:
         mod.write("  v (mV)\n")
+      elif param.getSBOTerm() == currentSBOTerm:
+        assigned = "%s  %s (nanoamp)\n"%(assigned, param.getLocalName())
       else:
         mod.write("  %s = %s\n"%(param.getLocalName(), param.getValue()))
 
@@ -570,12 +572,20 @@ def generateModFromSBML(sbmlFile, modFile):
   mod.write("BREAKPOINT {\n")
   mod.write("  SOLVE states METHOD derivimplicit\n")
 
+  mod.write("  ? Need to check order in which assignments/event assignments should be updated!!!\n")
+
+  for rule in sbmldoc.getModel().getListOfRules():
+
+    if rule.getType() == libsbml.RULE_TYPE_SCALAR:
+        ruleString = "%s = %s"%(rule.getVariable(), rule.getFormula())
+        mod.write("\n  ? Assignment rule here: %s\n"%ruleString)
+        mod.write("  %s\n"%ruleString)
+
   for event in sbmldoc.getModel().getListOfEvents():
 
     trigger = libsbml.formulaToString((event.getTrigger().getMath()))
     trigger = replaceInFormula(trigger, "time", "t")
     print "Adding info on event with trigger: %s"%(trigger)
-
 
     mod.write("  if (%s) {\n" % trigger)
 

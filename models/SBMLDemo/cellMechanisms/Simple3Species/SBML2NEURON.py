@@ -507,18 +507,21 @@ def generateModFromSBML(sbmlFile, modFile):
   
     if species.getStateIncrease() != "":
       derivs = "%s  %s\' = %s \n" % (derivs, species.getLocalName(), species.getStateIncrease())
-  
+
+  assigned = ''
 
   mod.write("NEURON {\n")
   mod.write("  SUFFIX %s\n" % modelId)
 
   for param in parameterInfo:
-    if param.getSBOTerm() != voltageSBOTerm and not param.getHasRateRule():
+    if param.getSBOTerm() != voltageSBOTerm and param.getSBOTerm() != currentSBOTerm and not param.getHasRateRule():
         mod.write("  RANGE %s\n" % param.getLocalName())
+    if param.getSBOTerm() == currentSBOTerm:
+        mod.write("  NONSPECIFIC_CURRENT %s\n" % param.getLocalName())
+        #assigned = "%s\n  %s (nanoamp)\n"%(assigned, param.getLocalName())
     
   mod.write("}\n\n")
 
-  assigned = ''
   
   mod.write("PARAMETER {\n")
   
@@ -527,6 +530,8 @@ def generateModFromSBML(sbmlFile, modFile):
     if not param.getHasRateRule():
       if param.getSBOTerm() == voltageSBOTerm:
         mod.write("  v (mV)\n")
+      elif param.getSBOTerm() == currentSBOTerm:
+        assigned = "%s  %s (nanoamp)\n"%(assigned, param.getLocalName())
       else:
         mod.write("  %s = %s\n"%(param.getLocalName(), param.getValue()))
 
