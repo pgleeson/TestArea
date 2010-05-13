@@ -80,6 +80,12 @@ Requires libSBML &amp; its Python bindings to be installed...</string>
     <void method="add"> 
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/> 
     </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/> 
+    </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Cell Type</string> 
@@ -104,6 +110,12 @@ Requires libSBML &amp; its Python bindings to be installed...</string>
     <void method="add"> 
      <string>IF_cond_alpha_A</string> 
     </void> 
+    <void method="add"> 
+     <string>SampleCell_K</string> 
+    </void> 
+    <void method="add"> 
+     <string>SampleCell_K_SBML</string> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Priority</string> 
@@ -127,6 +139,12 @@ Requires libSBML &amp; its Python bindings to be installed...</string>
     </void> 
     <void method="add"> 
      <int>4</int> 
+    </void> 
+    <void method="add"> 
+     <int>3</int> 
+    </void> 
+    <void method="add"> 
+     <int>2</int> 
     </void> 
    </void> 
    <void method="get"> 
@@ -187,9 +205,31 @@ Requires libSBML &amp; its Python bindings to be installed...</string>
       <int>255</int> 
      </object> 
     </void> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>88</int> 
+      <int>92</int> 
+      <int>105</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>127</int> 
+      <int>161</int> 
+      <int>223</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Region Name</string> 
+    <void method="add"> 
+     <string>SampleRegion</string> 
+    </void> 
+    <void method="add"> 
+     <string>SampleRegion</string> 
+    </void> 
     <void method="add"> 
      <string>SampleRegion</string> 
     </void> 
@@ -234,6 +274,12 @@ Requires libSBML &amp; its Python bindings to be installed...</string>
     </void> 
     <void method="add"> 
      <string>CGIAF</string> 
+    </void> 
+    <void method="add"> 
+     <string>CG_K</string> 
+    </void> 
+    <void method="add"> 
+     <string>CG_K_SBML</string> 
     </void> 
    </void> 
   </void> 
@@ -1087,6 +1133,124 @@ Requires libSBML &amp; its Python bindings to be installed...</string>
      </void> 
     </object> 
    </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_K</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>CG_K_v</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>CG_K_v</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_K_SBML</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>CG_K_v</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>CG_K_SBML_v</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_K</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_3</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>1.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_3</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>KConductance:n</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_K_SBML</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_3</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>1.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>CG_K_SBML_v_1</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>KChan_SBML:n</string> 
+     </void> 
+    </object> 
+   </void> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.project.ProjectProperties"/> 
@@ -1140,7 +1304,7 @@ setpointer  VarSyn[0].g_scaling, a_CGB[0].Soma.CaM_Marhl_Calcium_Oscillations(0.
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_167</string> 
+   <string>Sim_180</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -1303,6 +1467,56 @@ setpointer  VarSyn[0].g_scaling, a_CGB[0].Soma.CaM_Marhl_Calcium_Oscillations(0.
      </void> 
      <void property="reference"> 
       <string>Input_5</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
+       <float>0.2</float> 
+      </void> 
+     </void> 
+     <void property="cellGroup"> 
+      <string>CG_K</string> 
+     </void> 
+     <void property="del"> 
+      <void property="fixedNum"> 
+       <float>70.0</float> 
+      </void> 
+     </void> 
+     <void property="dur"> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_6</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
+       <float>0.2</float> 
+      </void> 
+     </void> 
+     <void property="cellGroup"> 
+      <string>CG_K_SBML</string> 
+     </void> 
+     <void property="del"> 
+      <void property="fixedNum"> 
+       <float>70.0</float> 
+      </void> 
+     </void> 
+     <void property="dur"> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_7</string> 
      </void> 
     </object> 
    </void> 
@@ -1491,6 +1705,46 @@ setpointer  VarSyn[0].g_scaling, a_CGB[0].Soma.CaM_Marhl_Calcium_Oscillations(0.
      </void> 
      <void property="simDuration"> 
       <float>100.0</float> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
+     <void property="cellGroups"> 
+      <void method="add"> 
+       <string>CG_K_SBML</string> 
+      </void> 
+      <void method="add"> 
+       <string>CG_K</string> 
+      </void> 
+     </void> 
+     <void property="inputs"> 
+      <void method="add"> 
+       <string>Input_7</string> 
+      </void> 
+      <void method="add"> 
+       <string>Input_6</string> 
+      </void> 
+     </void> 
+     <void property="name"> 
+      <string>KChannel in SBML</string> 
+     </void> 
+     <void property="plots"> 
+      <void method="add"> 
+       <string>CG_K_SBML_v</string> 
+      </void> 
+      <void method="add"> 
+       <string>CG_K_SBML_v_1</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_3</string> 
+      </void> 
+      <void method="add"> 
+       <string>CG_K_v</string> 
+      </void> 
+     </void> 
+     <void property="simDuration"> 
+      <float>150.0</float> 
      </void> 
     </object> 
    </void> 

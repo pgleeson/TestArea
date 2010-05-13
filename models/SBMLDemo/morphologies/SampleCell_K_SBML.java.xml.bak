@@ -76,8 +76,11 @@
    </void> 
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="density"> 
+      <float>3.0E-7</float> 
+     </void> 
      <void property="name"> 
-      <string>Izhikevich</string> 
+      <string>KChan_SBML</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
@@ -88,7 +91,7 @@
    </void> 
   </void> 
   <void property="instanceName"> 
-   <string>IzhikevichCell</string> 
+   <string>SampleCell_K_SBML</string> 
   </void> 
   <void property="synapsesVsGroups"> 
    <void method="put"> 

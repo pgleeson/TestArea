@@ -62,10 +62,10 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>1.0E-6</float> 
+      <float>3.0E-9</float> 
      </void> 
      <void property="name"> 
-      <string>KCondExt</string> 
+      <string>LeakConductance</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
@@ -76,11 +76,8 @@
    </void> 
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
-      <float>3.0E-9</float> 
-     </void> 
      <void property="name"> 
-      <string>LeakConductance</string> 
+      <string>BasicMech</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
@@ -103,8 +100,11 @@
    </void> 
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="density"> 
+      <float>1.0E-6</float> 
+     </void> 
      <void property="name"> 
-      <string>BasicMech</string> 
+      <string>KCondExt</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
