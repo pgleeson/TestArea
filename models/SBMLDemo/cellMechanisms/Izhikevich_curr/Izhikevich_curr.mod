@@ -37,6 +37,7 @@ INITIAL {
 
 BREAKPOINT {
   SOLVE states METHOD derivimplicit
+  ? Need to check order in which assignments/event assignments should be updated!!!
   if (gt(v, Vthresh)) {
     v = c
     U = U + d

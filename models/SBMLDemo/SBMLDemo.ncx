@@ -1304,7 +1304,7 @@ setpointer  VarSyn[0].g_scaling, a_CGB[0].Soma.CaM_Marhl_Calcium_Oscillations(0.
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_180</string> 
+   <string>Sim_185</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -1666,7 +1666,7 @@ setpointer  VarSyn[0].g_scaling, a_CGB[0].Soma.CaM_Marhl_Calcium_Oscillations(0.
     <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
      <void property="cellGroups"> 
       <void method="add"> 
-       <string>CGIAF</string> 
+       <string>CG_Iz</string> 
       </void> 
       <void method="add"> 
        <string>CG_Iz2</string> 
