@@ -13,6 +13,8 @@ NEURON {
   RANGE c
   RANGE d
   RANGE Vthresh
+  RANGE factor
+  RANGE vv
 }
 
 PARAMETER {
@@ -22,22 +24,24 @@ PARAMETER {
   c = -65.0
   d = 8.0
   Vthresh = 30.0
-  v (mV)
+  factor = 0.001
+  vv = 0.0
 }
 
 STATE {
-  i_mech
   U
 }
 
 INITIAL {
-  i_mech = 0.0
   U = -14.0
 }
 
 BREAKPOINT {
   SOLVE states METHOD derivimplicit
   ? Need to check order in which assignments/event assignments should be updated!!!
+
+  ? Assignment rule here: i = factor * factor
+  i = factor * factor
   if (gt(v, Vthresh)) {
     v = c
     U = U + d

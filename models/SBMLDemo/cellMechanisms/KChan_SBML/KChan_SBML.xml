@@ -21,14 +21,17 @@
 <listOfParameters>
   <parameter id="erev" value="-77"/>
 
-  <parameter id="v" value="-70" constant="false" sboTerm="SBO:0000259"/> <!-- Will be mapped to v in NEURON-->
+  <parameter id="v"       value="-70"   constant="false" sboTerm="SBO:0000259"/> <!-- Will be mapped to v in NEURON-->
 
-  <parameter id="n" value="0"   constant="false" />
-  <parameter id="alpha_n" value="0"   constant="false" />
-  <parameter id="beta_n" value="0"   constant="false" />
+  <parameter id="n"       value="0"     constant="false" />
+  <parameter id="alpha_n" value="0"     constant="false" />
+  <parameter id="beta_n"  value="0"     constant="false" />
 
-  <parameter id="gmax" value="0.036"   constant="false" /> <!-- sboTerm="SBO:0000257"conductance -->
-  <parameter id="i" value="0"   constant="false" sboTerm="SBO:0000999"/> <!-- *DUMMY* SBO term to indicate a parameter refers to transmembrane current. -->
+  <parameter id="gmax"    value="0.036" constant="false" /> <!-- sboTerm="SBO:0000257"conductance -->
+  <parameter id="i"       value="0"     constant="false" sboTerm="SBO:0000999"/> <!-- *DUMMY* SBO term to indicate a parameter refers to transmembrane current. -->
+
+  <parameter id="4AP_tgt"  value="0"     constant="false" />
+
 </listOfParameters>
 
 
@@ -37,7 +40,7 @@
     
   <rateRule metaid="metaid_0000047" variable="n">
     <notes>
-      <p xmlns="http://www.w3.org/1999/xhtml"> dn/dt = alpha_n * (1.0 - n) - beta_n * n </p>
+      <p xmlns="http:// www.w3.org/1999/xhtml"> dn/dt = alpha_n * (1.0 - n) - beta_n * n </p>
     </notes>
     <annotation>
       <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">

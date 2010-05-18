@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.6.0_03" class="java.beans.XMLDecoder"> 
+<java version="1.6.0_07" class="java.beans.XMLDecoder"> 
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -1304,7 +1304,7 @@ setpointer  VarSyn[0].g_scaling, a_CGB[0].Soma.CaM_Marhl_Calcium_Oscillations(0.
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_185</string> 
+   <string>Sim_186</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -1665,9 +1665,6 @@ setpointer  VarSyn[0].g_scaling, a_CGB[0].Soma.CaM_Marhl_Calcium_Oscillations(0.
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
      <void property="cellGroups"> 
-      <void method="add"> 
-       <string>CG_Iz</string> 
-      </void> 
       <void method="add"> 
        <string>CG_Iz2</string> 
       </void> 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<java version="1.6.0_03" class="java.beans.XMLDecoder"> 
+<java version="1.6.0_07" class="java.beans.XMLDecoder"> 
 
 <!-- Note that this XML is specific to the neuroConstruct Java cell object model and not any part of the NeuroML framework -->
 
@@ -61,18 +61,6 @@
   <void property="chanMechsVsGroups"> 
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="name"> 
-      <string>SimpleIntFire</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>all</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
       <float>3.0E-9</float> 
      </void> 
@@ -90,6 +78,18 @@
      </void> 
      <void property="name"> 
       <string>LeakConductance</string> 
+     </void> 
+    </object> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>all</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="name"> 
+      <string>SimpleIntFire</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
@@ -117,10 +117,10 @@
     </object> 
    </void> 
    <void method="put"> 
-    <string>STDPSynapse2</string> 
+    <string>STDPSynapse</string> 
     <object class="java.util.Vector"> 
      <void method="add"> 
-      <string>soma_group</string> 
+      <string>all</string> 
      </void> 
     </object> 
    </void> 
@@ -133,10 +133,10 @@
     </object> 
    </void> 
    <void method="put"> 
-    <string>STDPSynapse</string> 
+    <string>STDPSynapse2</string> 
     <object class="java.util.Vector"> 
      <void method="add"> 
-      <string>all</string> 
+      <string>soma_group</string> 
      </void> 
     </object> 
    </void> 
