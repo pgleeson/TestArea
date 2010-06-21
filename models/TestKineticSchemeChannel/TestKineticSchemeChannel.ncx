@@ -11,10 +11,14 @@ part of NeuroML or any standardised XML specification. -->
   <void property="projectDescription"> 
    <string>This is a simple project which compares the HH squid axon K+ channel expressed in &quot;traditional&quot; HH form (with 4 instances of identical gating complexes) or a 4 closed and 1 open state kinetic scheme description.
 
+Note that the mapping of the 5 state kinetic scheme description of the K cahnnel,  KConductanceKS , is to NEURON&apos;s ChannelBuilder format. There is no mapping to GENESIS MOOSE yet for this channel.
+
+The behaviour of the classical HH example &amp; the 5 state example can be compared on PSICS too, but this involves removing all but one cell from the Sim Config and regenerating before running on PSICS.
+
 </string> 
   </void> 
   <void property="projectFileVersion"> 
-   <string>neuroConstruct v1.3.8</string> 
+   <string>neuroConstruct v1.4.1</string> 
   </void> 
   <void property="projectName"> 
    <string>TestKineticSchemeChannel</string> 
@@ -65,6 +69,9 @@ part of NeuroML or any standardised XML specification. -->
     <void method="add"> 
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/> 
     </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.packing.SinglePositionedCellPackingAdapter"/> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Cell Type</string> 
@@ -74,6 +81,9 @@ part of NeuroML or any standardised XML specification. -->
     <void method="add"> 
      <string>SampleCellKS</string> 
     </void> 
+    <void method="add"> 
+     <string>OneSegKSK</string> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Priority</string> 
@@ -82,6 +92,9 @@ part of NeuroML or any standardised XML specification. -->
     </void> 
     <void method="add"> 
      <int>9</int> 
+    </void> 
+    <void method="add"> 
+     <int>8</int> 
     </void> 
    </void> 
    <void method="get"> 
@@ -102,9 +115,20 @@ part of NeuroML or any standardised XML specification. -->
       <int>255</int> 
      </object> 
     </void> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>143</int> 
+      <int>66</int> 
+      <int>17</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Region Name</string> 
+    <void method="add"> 
+     <string>SampleRegion</string> 
+    </void> 
     <void method="add"> 
      <string>SampleRegion</string> 
     </void> 
@@ -119,6 +143,9 @@ part of NeuroML or any standardised XML specification. -->
     </void> 
     <void method="add"> 
      <string>CellGroup_2</string> 
+    </void> 
+    <void method="add"> 
+     <string>CG_KSKmod</string> 
     </void> 
    </void> 
   </void> 
@@ -429,6 +456,282 @@ part of NeuroML or any standardised XML specification. -->
      </void> 
     </object> 
    </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_KSKmod</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>CG_KSKmod_v</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>CG_KSKmod_v</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_KSKmod</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_1</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>0.0020</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_KSKmod_1</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>g_KSK</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_KSKmod</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_4</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>0.02225</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_KSKmod_2</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>cai</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_KSKmod</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_6</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>1.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_KSKmod_3</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>KSK:c1</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_KSKmod</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_6</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>1.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_KSKmod_4</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>KSK:c2</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_KSKmod</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_5</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>0.0070</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_KSKmod_5</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>KSK:c3</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_KSKmod</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_5</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>0.0070</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_KSKmod_6</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>KSK:c4</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_KSKmod</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_5</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>0.0070</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_KSKmod_7</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>KSK:o1</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_KSKmod</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_5</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>0.0070</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_KSKmod_8</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>KSK:o2</string> 
+     </void> 
+    </object> 
+   </void> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.project.ProjectProperties"> 
@@ -458,6 +761,33 @@ part of NeuroML or any standardised XML specification. -->
   <void property="generateComments"> 
    <boolean>false</boolean> 
   </void> 
+  <void property="nativeBlocks"> 
+   <void method="put"> 
+    <float>1.0</float> 
+    <string>
+forall if (ismembrane(&quot;ca_ion&quot;)) {
+    if (init_cai &gt; 0) {
+        print &quot;Changing initial cai in: &quot;, secname(), &quot; to &quot;, init_cai,&quot; before INITIAL calls, so correct val of cai is used there...&quot;
+        cai = init_cai
+    }
+}</string> 
+   </void> 
+   <void method="put"> 
+    <float>0.0</float> 
+    <string>// Just left in for testing purposes. [Ca2+] is initialised to rest_conc of cell mechanism cad (=0) anyway...
+
+init_cai = 2225e-5
+
+forall if (ismembrane(&quot;ca_ion&quot;)) {
+    if (init_cai &gt; 0) {
+        print &quot;Changing initial cai in: &quot;, secname(), &quot; to &quot;, init_cai,&quot; before INITIAL calls, so correct val of cai is used there...&quot;
+        cai = init_cai
+    }
+}
+
+</string> 
+   </void> 
+  </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.genesis.GenesisSettings"/> 
  <object class="ucl.physiol.neuroconstruct.psics.PsicsSettings"/> 
@@ -469,10 +799,13 @@ part of NeuroML or any standardised XML specification. -->
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_20</string> 
+   <string>Sim_26</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
+  </void> 
+  <void property="temperature"> 
+   <float>23.0</float> 
   </void> 
   <void property="whatToRecord"> 
    <int>2</int> 
@@ -556,16 +889,13 @@ part of NeuroML or any standardised XML specification. -->
      </void> 
      <void property="plots"> 
       <void method="add"> 
-       <string>SamplePlot</string> 
+       <string>CellGroup_2_v</string> 
       </void> 
       <void method="add"> 
        <string>Var_7</string> 
       </void> 
       <void method="add"> 
        <string>Var_6</string> 
-      </void> 
-      <void method="add"> 
-       <string>CellGroup_2_v</string> 
       </void> 
       <void method="add"> 
        <string>Var_5</string> 
@@ -583,11 +913,58 @@ part of NeuroML or any standardised XML specification. -->
        <string>Var_1</string> 
       </void> 
       <void method="add"> 
+       <string>SamplePlot</string> 
+      </void> 
+      <void method="add"> 
        <string>Var_0</string> 
       </void> 
      </void> 
      <void property="simDuration"> 
       <float>60.0</float> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
+     <void property="cellGroups"> 
+      <void method="add"> 
+       <string>CG_KSKmod</string> 
+      </void> 
+     </void> 
+     <void property="name"> 
+      <string>TestKSK</string> 
+     </void> 
+     <void property="plots"> 
+      <void method="add"> 
+       <string>Var_KSKmod_8</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_KSKmod_7</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_KSKmod_6</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_KSKmod_5</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_KSKmod_4</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_KSKmod_3</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_KSKmod_2</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_KSKmod_1</string> 
+      </void> 
+      <void method="add"> 
+       <string>CG_KSKmod_v</string> 
+      </void> 
+     </void> 
+     <void property="simDuration"> 
+      <float>100.0</float> 
      </void> 
     </object> 
    </void> 
