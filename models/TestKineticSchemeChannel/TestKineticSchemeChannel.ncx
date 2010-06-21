@@ -72,6 +72,17 @@ The behaviour of the classical HH example &amp; the 5 state example can be compa
     <void method="add"> 
      <object class="ucl.physiol.neuroconstruct.project.packing.SinglePositionedCellPackingAdapter"/> 
     </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.packing.SinglePositionedCellPackingAdapter"> 
+      <void property="parameterList"> 
+       <void index="1"> 
+        <void property="value"> 
+         <float>100.0</float> 
+        </void> 
+       </void> 
+      </void> 
+     </object> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Cell Type</string> 
@@ -84,6 +95,9 @@ The behaviour of the classical HH example &amp; the 5 state example can be compa
     <void method="add"> 
      <string>OneSegKSK</string> 
     </void> 
+    <void method="add"> 
+     <string>OneSegKSK_CML</string> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Priority</string> 
@@ -95,6 +109,9 @@ The behaviour of the classical HH example &amp; the 5 state example can be compa
     </void> 
     <void method="add"> 
      <int>8</int> 
+    </void> 
+    <void method="add"> 
+     <int>7</int> 
     </void> 
    </void> 
    <void method="get"> 
@@ -123,9 +140,20 @@ The behaviour of the classical HH example &amp; the 5 state example can be compa
       <int>255</int> 
      </object> 
     </void> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>248</int> 
+      <int>55</int> 
+      <int>166</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Region Name</string> 
+    <void method="add"> 
+     <string>SampleRegion</string> 
+    </void> 
     <void method="add"> 
      <string>SampleRegion</string> 
     </void> 
@@ -146,6 +174,9 @@ The behaviour of the classical HH example &amp; the 5 state example can be compa
     </void> 
     <void method="add"> 
      <string>CG_KSKmod</string> 
+    </void> 
+    <void method="add"> 
+     <string>CG_KSK_CML</string> 
     </void> 
    </void> 
   </void> 
@@ -620,7 +651,7 @@ The behaviour of the classical HH example &amp; the 5 state example can be compa
       <string>GraphWin_5</string> 
      </void> 
      <void property="maxValue"> 
-      <float>0.0070</float> 
+      <float>0.19</float> 
      </void> 
      <void property="minValue"> 
       <float>0.0</float> 
@@ -651,7 +682,7 @@ The behaviour of the classical HH example &amp; the 5 state example can be compa
       <string>GraphWin_5</string> 
      </void> 
      <void property="maxValue"> 
-      <float>0.0070</float> 
+      <float>0.19</float> 
      </void> 
      <void property="minValue"> 
       <float>0.0</float> 
@@ -682,7 +713,7 @@ The behaviour of the classical HH example &amp; the 5 state example can be compa
       <string>GraphWin_5</string> 
      </void> 
      <void property="maxValue"> 
-      <float>0.0070</float> 
+      <float>0.19</float> 
      </void> 
      <void property="minValue"> 
       <float>0.0</float> 
@@ -713,7 +744,7 @@ The behaviour of the classical HH example &amp; the 5 state example can be compa
       <string>GraphWin_5</string> 
      </void> 
      <void property="maxValue"> 
-      <float>0.0070</float> 
+      <float>0.19</float> 
      </void> 
      <void property="minValue"> 
       <float>0.0</float> 
@@ -729,6 +760,96 @@ The behaviour of the classical HH example &amp; the 5 state example can be compa
      </void> 
      <void property="valuePlotted"> 
       <string>KSK:o2</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_KSK_CML</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>CG_KSKmod_v</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>CG_KSK_CML_v</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_KSK_CML</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_1</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>0.0020</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_KSKmod_9</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>g_K_AHP</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_KSK_CML</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_4</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>0.02225</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_KSKmod_10</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>cai</string> 
      </void> 
     </object> 
    </void> 
@@ -758,6 +879,9 @@ The behaviour of the classical HH example &amp; the 5 state example can be compa
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings"> 
+  <void property="copySimFiles"> 
+   <boolean>true</boolean> 
+  </void> 
   <void property="generateComments"> 
    <boolean>false</boolean> 
   </void> 
@@ -799,7 +923,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_26</string> 
+   <string>Sim_34</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -930,11 +1054,20 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
       <void method="add"> 
        <string>CG_KSKmod</string> 
       </void> 
+      <void method="add"> 
+       <string>CG_KSK_CML</string> 
+      </void> 
      </void> 
      <void property="name"> 
       <string>TestKSK</string> 
      </void> 
      <void property="plots"> 
+      <void method="add"> 
+       <string>Var_KSKmod_10</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_KSKmod_9</string> 
+      </void> 
       <void method="add"> 
        <string>Var_KSKmod_8</string> 
       </void> 
@@ -961,6 +1094,9 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
       </void> 
       <void method="add"> 
        <string>CG_KSKmod_v</string> 
+      </void> 
+      <void method="add"> 
+       <string>CG_KSK_CML_v</string> 
       </void> 
      </void> 
      <void property="simDuration"> 
