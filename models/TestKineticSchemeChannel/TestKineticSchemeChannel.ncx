@@ -93,10 +93,10 @@ The behaviour of the classical HH example &amp; the 5 state example can be compa
      <string>SampleCellKS</string>
     </void>
     <void method="add">
-     <string>OneSegKSK</string>
+     <string>OneSegKSK_cl</string>
     </void>
     <void method="add">
-     <string>OneSegKSK_CML</string>
+     <string>OneSegKSK_CML_cl</string>
     </void>
    </void>
    <void method="get">
@@ -1055,7 +1055,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
     <float>0.0</float>
     <string>// Just left in for testing purposes. [Ca2+] is initialised to rest_conc of cell mechanism cad (=0) anyway...
 
-init_cai = 2225e-5
+init_cai = 5e-5
 
 forall if (ismembrane(&quot;ca_ion&quot;)) {
     if (init_cai &gt; 0) {
@@ -1078,7 +1078,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    <float>100.0</float>
   </void>
   <void property="reference">
-   <string>Sim_39</string>
+   <string>Sim_43</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
