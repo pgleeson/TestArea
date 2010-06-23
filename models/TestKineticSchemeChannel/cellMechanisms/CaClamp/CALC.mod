@@ -18,13 +18,12 @@ UNITS {
 	(um)    = (micron)
 	(molar) = (1/liter)
         (mM)    = (millimolar)
-   	F      = (faraday) (coulomb)
 }
 
 PARAMETER {
         ica             (mA/cm2)
-        del = 0           (ms)
-        dur = 0           (ms)
+        del = 20           (ms)
+        dur = 20           (ms)
         level1 = 5e-5     (mM)
         level2 = 5e-4     (mM)
 }
@@ -53,7 +52,7 @@ BREAKPOINT {
 
 DERIVATIVE conc {
 
-	cai' =  6e-4 (targetLevel - cai)
+	cai' =  6e-2 * (targetLevel - cai)
 }
 
 
