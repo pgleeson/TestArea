@@ -558,7 +558,7 @@ The behaviour of the classical HH example &amp; the 5 state example can be compa
       <string>GraphWin_4</string> 
      </void> 
      <void property="maxValue"> 
-      <float>2.5E-4</float> 
+      <float>5.0E-4</float> 
      </void> 
      <void property="minValue"> 
       <float>0.0</float> 
@@ -834,7 +834,7 @@ The behaviour of the classical HH example &amp; the 5 state example can be compa
       <string>GraphWin_4</string> 
      </void> 
      <void property="maxValue"> 
-      <float>2.5E-4</float> 
+      <float>5.0E-4</float> 
      </void> 
      <void property="minValue"> 
       <float>0.0</float> 
@@ -1072,13 +1072,13 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
  <object class="ucl.physiol.neuroconstruct.psics.PsicsSettings"/> 
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters"> 
   <void property="dt"> 
-   <float>0.0020</float> 
+   <float>0.02</float> 
   </void> 
   <void property="duration"> 
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_47</string> 
+   <string>Sim_50</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 

@@ -52,7 +52,7 @@ BREAKPOINT {
 
 DERIVATIVE conc {
 
-	cai' =  6e-2 * (targetLevel - cai)
+	cai' =  1 * (targetLevel - cai)
 }
 
 
