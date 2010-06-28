@@ -10,39 +10,65 @@
 	        </status>
 	        
 	        <meta:notes>A type K channel</meta:notes>
-	    
-	        <meta:authorList>
+	        
+	         <meta:authorList>
+             <meta:modelAuthor>
+                <meta:name>E.DAngelo</meta:name>  
+                <meta:comment>Cited implementer according to the original .mod file</meta:comment>
+            </meta:modelAuthor>
+
+            <meta:modelAuthor>
+                <meta:name>T.Nieus</meta:name>
+                <meta:comment>Cited implementer according to the original .mod file</meta:comment>
+            </meta:modelAuthor>
+
+          <meta:modelAuthor>
+                <meta:name>A. Fontana</meta:name>
+                <meta:comment>Cited implementer according to the original .mod file</meta:comment>
+            </meta:modelAuthor>
+
+           <meta:authorList>
 	            <meta:modelTranslator>
 	                <meta:name>Padraig Gleeson</meta:name>
 	                <meta:institution>UCL</meta:institution>    
 	                <meta:email>p.gleeson - at - ucl.ac.uk</meta:email>
 	            </meta:modelTranslator>
 	        </meta:authorList>
-	        
-	            <!--
-	        
-	        <meta:publication>
-	           <meta:fullTitle>Maex, R and De Schutter, E. 
-	           Synchronization of Golgi and Granule Cell Firing in a Detailed Network Model of the 
-	           cerebellar Granule Cell Layer. J Neurophysiol, Nov 1998; 80: 2521 - 2537</meta:fullTitle>
-	           <meta:pubmedRef>http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=9819260&amp;dopt=Abstract</meta:pubmedRef>
-	        </meta:publication>     
-	   
-	        <meta:neuronDBref>
-	            <meta:modelName>K channels</meta:modelName>
-	            <meta:uri>http://senselab.med.yale.edu/senselab/NeuronDB/channelGene2.htm#table3</meta:uri>
-	        </meta:neuronDBref>
-	        
-	        -->
+
+            <meta:modelTranslator>
+                <meta:name>Matteo Farinella</meta:name>
+                <meta:institution>UCL</meta:institution>    
+                <meta:email>m.farinella - at - ucl.ac.uk</meta:email>
+            </meta:modelTranslator>
+        </meta:authorList>
+
+         <meta:publication>
+            <meta:fullTitle>Solinas S, Forti L, Cesana E, Mapelli J, De Schutter E, D'Angelo E. (2007) Computational reconstruction of pacemaking and intrinsic electroresponsiveness in cerebellar Golgi cells.  Front Cell Neurosci. 2007;1:2.</meta:fullTitle>
+            <meta:pubmedRef>http://www.ncbi.nlm.nih.gov/pubmed/18946520</meta:pubmedRef>
+        </meta:publication>
+
+        <meta:neuronDBref>
+            <meta:modelName>Ca channels</meta:modelName>
+            <meta:uri>http://senselab.med.yale.edu/NeuronDB/ChannelGene2.htm#table1</meta:uri>
+        </meta:neuronDBref>
+
+        <meta:modelDBref>
+            <meta:modelName>Cerebellar Golgi cell (Solinas et al. 2007a, 2007b)</meta:modelName>
+            <meta:uri>http://senselab.med.yale.edu/modeldb/ShowModel.asp?model=112685</meta:uri>
+        </meta:modelDBref>
 	
 	
 	        
 	        <current_voltage_relation cond_law="ohmic" ion="k" default_gmax="48" default_erev="-85">
 	            
-	            <q10_settings q10_factor="3" experimental_temp="20"/>	            	            
-	          
-	                <!--
-	                Aalpha_a = 0.8147 (/ms)
+	            <q10_settings q10_factor="3" experimental_temp="25.5"/>	     
+            
+            <gate name="a" instances="3">
+                <closed_state id="a0"/>
+                <open_state id="a"/>
+
+                    <!--
+	         Aalpha_a = 0.8147 (/ms)
 			Kalpha_a = -23.32708 (mV)
 			V0alpha_a = -9.17203 (mV)
 			
@@ -51,58 +77,25 @@
 						              sigm = 1/(exp(x/y) + 1)
 						}
 						
-			alp_a = tcorr*Aalpha_a*1/(exp((v-V0alpha_a)/Kalpha_a)) + 1)
-
-						
+			alp_a = tcorr*Aalpha_a   *   1/(exp(  (v-V0alpha_a)  /  Kalpha_a  )) + 1)
+                       = 0.8147  * 1 /   (exp(  (v-(-9.17203))  /   -23.32708)) + 1)
+            						
 			Abeta_a = 0.1655 (/ms)
 			Kbeta_a = 19.47175 (mV)
 			V0beta_a = -18.27914 (mV)
 			
 			bet_a = tcorr*Abeta_a/(exp((v-V0beta_a)/Kbeta_a))
+                      = tcorr*0.1655 /(exp((v + 18.27914)/19.47175 ))
 
+           V0_ainf = -38(mV)
+           K_ainf = -17(mV)
+           a_inf = 1/(1+exp((v-V0_ainf)/K_ainf)) 
 
-			Aalpha_b = 0.0368 (/ms)
-			Kalpha_b = 12.8433 (mV)
-			V0alpha_b = -111.33209 (mV) 
-			
-			alp_b = tcorr*Aalpha_b*sigm(v-V0alpha_b,Kalpha_b)
+            -->
 
-			
-			Abeta_b = 0.0345(/ms)
-			Kbeta_b = -8.90123 (mV)
-			V0beta_b = -49.9537 (mV)
-			
-			bet_b = tcorr*Abeta_b*sigm(v-V0beta_b,Kbeta_b)
-
-
-			V0_ainf = -38(mV)
-			K_ainf = -17(mV)
-
-			a_inf = 1/(1+exp((v-V0_ainf)/K_ainf)) 
-
-			V0_binf = -78.8 (mV)
-			K_binf = 8.4 (mV)	
-			
-			b_inf = 1/(1+exp((v-V0_binf)/K_binf))
-
-			
-			A / (1 + exp(k * (v-d))) (sigmoid)
-			
-			alpha =  A * ((v-V1/2)/B)  / (1 - exp(-(v-V1/2)/B))  (exp_linear)
-			
-			beta = A * exp((v-V1/2)/B)   (exponential)
-			
-			
-			 
-	                -->
-            
-            <gate name="a" instances="3">
-                <closed_state id="a0"/>
-                <open_state id="a"/>
-
-                <transition name="alpha" from="a0" to="a" expr_form="sigmoid" rate="0.8147" scale="-0.0428 " midpoint="-9.17203"/>  
-                <transition name="beta" from="a" to="a0" expr_form="generic" expr="0.1655 /(exp((v+18.27914)/19.47175)"/>  
-                <!--<steady_state name="inf" from="a0" to="a" expr_form="sigmoid" rate="1" scale="-0.1428 " midpoint="-38"/>-->
+                <transition name="alpha" from="a0" to="a" expr_form="sigmoid" rate="0.8147 " scale="-23.32708" midpoint="-9.17203"/>   
+                <transition name="beta" from="a" to="a0"  expr_form="generic" expr="0.1655 /(exp((v + 18.27914)/19.47175 ))"/>  
+               <steady_state name="inf" from="a0" to="a" expr_form="sigmoid" rate="1" scale=" -17" midpoint=" -38"/>
 
             </gate>
             
@@ -110,9 +103,36 @@
 		<closed_state id="b0"/>
 		<open_state   id="b"/>
 
-		<transition name="alpha" from="b0" to="b" expr_form="sigmoid" rate="0.0368" scale="-0.0778 " midpoint="-111.33209"/>   
-		<transition name="beta"  from="b" to="b0" expr_form="sigmoid" rate="0.8147" scale="-0.1123 " midpoint="-9.17203"/> 
-		<steady_state name="inf" from="b0" to="b" expr_form="sigmoid" rate="1" scale="-0.119 " midpoint="-78.8"/>
+             <!--
+
+			Aalpha_b = 0.0368 (/ms)
+			Kalpha_b = 12.8433 (mV)
+			V0alpha_b = -111.33209 (mV) 
+			
+			alp_b = tcorr*Aalpha_b*sigm(v-V0alpha_b,Kalpha_b)
+                       = tcorr* 0.0368 *   1/(exp(  (v + 111.33209 )  /  12.8433   )) + 1)
+			
+			Abeta_b = 0.0345(/ms)
+			Kbeta_b = -8.90123 (mV)
+			V0beta_b = -49.9537 (mV)
+			
+			bet_b = tcorr*Abeta_b*sigm(v-V0beta_b,Kbeta_b)
+                       = tcorr*0.0345*   1/(exp(  (v  + 49.9537 )  / -8.90123    )) + 1)
+
+			V0_ainf = -38(mV)
+			K_ainf = -17(mV)
+			a_inf = 1/(1+exp((v-V0_ainf)/K_ainf)) 
+
+			V0_binf = -78.8 (mV)
+			K_binf = 8.4 (mV)				
+			b_inf = 1/(1+exp((v-V0_binf)/K_binf))
+                      = 1/(1+exp((v-(-78.8))/ 8.4))
+		
+	                -->
+
+		<transition name="alpha" from="b0" to="b" expr_form="sigmoid" rate="0.0368 " scale=" 12.8433 " midpoint=" -111.33209"/>
+		<transition name="beta"  from="b" to="b0" expr_form="sigmoid" rate="0.0345" scale="-8.90123" midpoint="-49.953"/>
+		<steady_state name="inf" from="b0" to="b" expr_form="sigmoid" rate="1" scale=" 8.4 " midpoint="-78.8"/>
 
             </gate>
             
@@ -122,6 +142,5 @@
 		    <table_settings max_v="30" min_v="-100" table_divisions="13000"/>
 	</impl_prefs>
 
-        
     </channel_type>
 </channelml>

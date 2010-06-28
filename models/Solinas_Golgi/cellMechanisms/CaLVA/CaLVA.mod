@@ -52,7 +52,7 @@ PARAMETER {
         v               (mV)
         celsius (degC)
         eca2 (mV)
-	   gmax  = %Max Conductance Density%  (mho/cm2)
+	gmax  = %Max Conductance Density%  (mho/cm2)
         shift   = 2     (mV)            : screening charge for Ca_o = 2 mM
         ca2i  (mM)           : adjusted for eca=120 mV
         ca2o  (mM)
