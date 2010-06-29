@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema  ../../../../../trunk/web/NeuroMLFiles/Schemata/v1.7.3/Level2/ChannelML_v1.7.3.xsd" units="Physiological Units">
+<channelml xmlns="http://morphml.org/channelml/schema" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:meta="http://morphml.org/metadata/schema"
+    xsi:schemaLocation="http://morphml.org/channelml/schema  http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd"
+    units="Physiological Units">
 
     <meta:notes>ChannelML file containing a single Channel description</meta:notes>
     
     <channel_type name="CaHVA_CML">
         
        <status value="stable">
-                <meta:contributor>
+            <meta:contributor>
                 <meta:name>Matteo Farinella</meta:name>
+            </meta:contributor>
+            <meta:contributor>
+                <meta:name>Padraig Gleeson</meta:name>
+                <meta:comment>30mV for table may be too low an upper limit (peak of AP can go above this)</meta:comment>
             </meta:contributor>
         </status>
         
-       <meta:notes>CaHVA channel</meta:notes>
+       <meta:notes>CaHVA channel based on mod file supplied with Solinas et al 2007 (ModelDB 112685)</meta:notes>
     
         <meta:authorList>
              <meta:modelAuthor>
@@ -54,7 +62,6 @@
         <current_voltage_relation cond_law="ohmic" ion="ca" default_gmax="0.1" default_erev="132.458" charge="2">
             
             <q10_settings q10_factor="3" experimental_temp="20"/>
-            
             
             <gate name="s" instances="2">
             

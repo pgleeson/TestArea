@@ -17,7 +17,7 @@ Note the following:
 <entry key="Implementation method">ChannelML based Cell Mechanism</entry>
 <entry key="NEURON file requires compilation">true</entry>
 <entry key="Mechanism Type">Channel mechanism</entry>
-<entry key="ChannelML file">KChannel_NewFormat.xml</entry>
+<entry key="ChannelML file">KChannel_newFormat.xml</entry>
 <entry key="GENESIS file requires compilation">true</entry>
 <entry key="Mechanism Name">KAHP_CML</entry>
 <entry key="Mechanism Model">ChannelML based process</entry>
