@@ -1,37 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema  ../../Schemata/v1.7.3/Level2/ChannelML_v1.7.3.xsd" units="Physiological Units">
 
-    <meta:notes>ChannelML file containing a single Channel description</meta:notes>
+<channelml xmlns="http://morphml.org/channelml/schema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:meta="http://morphml.org/metadata/schema"
+    xsi:schemaLocation="http://morphml.org/channelml/schema  http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd"
+    units="Physiological Units">
 
-    <channel_type name="NaP_CML" density="yes">
+    <meta:notes>ChannelML file containing a single Channel description from Solinas et al 2007</meta:notes>
     
-        <status value="stable">
-	           
-	        </status>
+    <channel_type name="NaP_CML" density="yes">
+
+       <status value="stable">
+            <meta:contributor>
+                <meta:name>Matteo Farinella</meta:name>
+            </meta:contributor>
+            <meta:contributor>
+                <meta:name>Padraig Gleeson</meta:name>
+                <meta:comment>30mV for table may be too low an upper limit (peak of AP can go above this)</meta:comment>
+            </meta:contributor>
+        </status>
+
+        <meta:notes>Persistent Na+ channel</meta:notes>
 	        
-	        <meta:notes>Na channel</meta:notes>
-	        
-	        <meta:authorList>
+	 <meta:authorList>
              <meta:modelAuthor>
-                <meta:name>E.DAngelo</meta:name>  
-                <meta:comment>Cited implementer according to the original .mod file</meta:comment>
+                <meta:name>E.DAngelo</meta:name>
+                <meta:comment>Cited implementer according to the original .mod file. Note from original mod file: Last revised: 8.5.2000</meta:comment>
             </meta:modelAuthor>
 
             <meta:modelAuthor>
                 <meta:name>T.Nieus</meta:name>
-                <meta:comment>Cited implementer according to the original .mod file</meta:comment>
+                <meta:comment>Cited implementer according to the original .mod file. Note from original mod file: Last revised: 8.5.2000</meta:comment>
             </meta:modelAuthor>
 
-          <meta:modelAuthor>
+            <meta:modelAuthor>
                 <meta:name>A. Fontana</meta:name>
-                <meta:comment>Cited implementer according to the original .mod file</meta:comment>
+                <meta:comment>Cited implementer according to the original .mod file. Note from original mod file: Last revised: 8.5.2000</meta:comment>
             </meta:modelAuthor>
 
-           <meta:modelTranslator>
-	                <meta:name>Padraig Gleeson</meta:name>
-	                <meta:institution>UCL</meta:institution>    
-	                <meta:email>p.gleeson - at - ucl.ac.uk</meta:email>
-	            </meta:modelTranslator>
+            <meta:modelTranslator>
+                <meta:name>Matteo Farinella</meta:name>
+                <meta:institution>UCL</meta:institution>
+                <meta:email>m.farinella - at - ucl.ac.uk</meta:email>
+            </meta:modelTranslator>
+
+            <meta:modelTranslator>
+                <meta:name>Padraig Gleeson</meta:name>
+                <meta:institution>UCL</meta:institution>
+                <meta:email>p.gleeson - at - ucl.ac.uk</meta:email>
+            </meta:modelTranslator>
+            
         </meta:authorList>
 
          <meta:publication>
@@ -40,8 +58,8 @@
         </meta:publication>
 
         <meta:neuronDBref>
-            <meta:modelName>Ca channels</meta:modelName>
-            <meta:uri>http://senselab.med.yale.edu/NeuronDB/ChannelGene2.htm#table1</meta:uri>
+            <meta:modelName>Na channels</meta:modelName>
+            <meta:uri>http://senselab.med.yale.edu/senselab/NeuronDB/channelGene2.htm#table2</meta:uri>
         </meta:neuronDBref>
 
         <meta:modelDBref>

@@ -3111,7 +3111,7 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
    <float>1000.0</float>
   </void>
   <void property="reference">
-   <string>Sim_473</string>
+   <string>Sim_487</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -3726,10 +3726,18 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
    </void>
    <void method="add">
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+     <void property="amp">
+      <void property="fixedNum">
+       <float>0.01</float>
+      </void>
+     </void>
      <void property="cellGroup">
       <string>test_NaR_mod</string>
      </void>
      <void property="dur">
+      <void property="fixedNum">
+       <float>20.0</float>
+      </void>
       <void property="numberType">
        <int>11</int>
       </void>
@@ -3741,10 +3749,18 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
    </void>
    <void method="add">
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+     <void property="amp">
+      <void property="fixedNum">
+       <float>0.01</float>
+      </void>
+     </void>
      <void property="cellGroup">
       <string>test_NaR_CML</string>
      </void>
      <void property="dur">
+      <void property="fixedNum">
+       <float>20.0</float>
+      </void>
       <void property="numberType">
        <int>11</int>
       </void>
