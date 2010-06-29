@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema   ../../Schemata/v1.1/Level2/ChannelML_v1.1.xsd" units="Physiological Units">
+
+  <meta:notes>Internal calcium concentration due to calcium currents and pump</meta:notes>
+    
+    <ion name="ca" charge="2" role="SignallingSubstance">  
+        <meta:notes>Signifies that the ion is involved in a process which alters its concentration</meta:notes>
+    </ion>
+    
+    <ion_concentration name="Golgi_CALC_CML">
+    
+        <status value="in_progress">
+                <meta:comment/>
+                <meta:contributor>
+                <meta:name>Matteo Farinella</meta:name>
+            </meta:contributor>
+        </status>
+        
+        <meta:notes>Calcium first order kinetics   
+   </meta:notes>
+    
+        <meta:authorList>
+             <meta:modelAuthor>
+                <meta:name>A.Fontana</meta:name>
+                <meta:institution/>    
+                <meta:comment/>
+            </meta:modelAuthor>
+
+            <meta:modelTranslator>
+                <meta:name>Matteo Farinella</meta:name>
+                <meta:institution>UCL</meta:institution>    
+                <meta:email>m.farinella - at - ucl.ac.uk</meta:email>
+            </meta:modelTranslator>
+        </meta:authorList>
+
+         <meta:publication>
+            <meta:fullTitle/>
+            <meta:pubmedRef/>
+        </meta:publication>
+
+        <meta:publication>
+            <meta:fullTitle/>
+            <meta:pubmedRef/>
+        </meta:publication>
+
+        <meta:modelDBref>
+            <meta:modelName/>
+            <meta:uri/>
+        </meta:modelDBref>
+        
+        <ion_species>ca</ion_species>
+        
+        <decaying_pool_model>
+            <resting_conc>5e-11</resting_conc>
+            <decay_constant>0.769</decay_constant>
+            
+            <pool_volume_info>
+                <shell_thickness>2e-5</shell_thickness>
+            </pool_volume_info>
+            
+        </decaying_pool_model>
+        
+        
+    </ion_concentration>
+</channelml>

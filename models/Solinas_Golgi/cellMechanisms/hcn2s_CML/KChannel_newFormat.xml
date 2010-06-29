@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+   $Revision: 151 $
+   $LastChangedBy: pgleeson $ 
+   $Date: 2008-10-07 14:13:37 +0100 (Tue, 07 Oct 2008) $ 
+   $HeadURL: https://neuroml.svn.sourceforge.net/svnroot/neuroml/tempModels/neuroConstruct/Ex7_GranuleCell/cellMechanisms/Gran_KA_98/KA_Chan.xml $
+            
+-->
+
+<channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema  ../../../../../trunk/web/NeuroMLFiles/Schemata/v1.7.3/Level2/ChannelML_v1.7.3.xsd" units="Physiological Units">
+
+    <meta:notes>A channel from Maex, R and De Schutter, E. Synchronization of Golgi and Granule Cell Firing in a 
+    Detailed Network Model of the Cerebellar Granule Cell Layer</meta:notes>
+    
+    <channel_type name="hcn2s_CML">
+        
+        <status value="in_progress">
+           
+        </status>
+        
+        <meta:notes>hcn1 channel - slow component</meta:notes>
+    
+                <meta:authorList>
+             <meta:modelAuthor>
+                <meta:name>E.DAngelo</meta:name>  
+                <meta:comment>Cited implementer according to the original .mod file</meta:comment>
+            </meta:modelAuthor>
+
+            <meta:modelAuthor>
+                <meta:name>L.Forti</meta:name>
+                <meta:comment>Cited implementer according to the original .mod file</meta:comment>
+            </meta:modelAuthor>
+
+          <meta:modelAuthor>
+                <meta:name>S.Solinas</meta:name>
+                <meta:comment>Cited implementer according to the original .mod file</meta:comment>
+            </meta:modelAuthor>
+
+            <meta:modelTranslator>
+                <meta:name>Matteo Farinella</meta:name>
+                <meta:institution>UCL</meta:institution>    
+                <meta:email>m.farinella - at - ucl.ac.uk</meta:email>
+            </meta:modelTranslator>
+        </meta:authorList>
+
+         <meta:publication>
+            <meta:fullTitle>Solinas S, Forti L, Cesana E, Mapelli J, De Schutter E, D'Angelo E. (2007) Computational reconstruction of pacemaking and intrinsic electroresponsiveness in cerebellar Golgi cells.  Front Cell Neurosci. 2007;1:2.</meta:fullTitle>
+            <meta:pubmedRef>http://www.ncbi.nlm.nih.gov/pubmed/18946520</meta:pubmedRef>
+        </meta:publication>
+
+        <meta:neuronDBref>
+            <meta:modelName>Ca channels</meta:modelName>
+            <meta:uri>http://senselab.med.yale.edu/NeuronDB/ChannelGene2.htm#table1</meta:uri>
+        </meta:neuronDBref>
+
+        <meta:modelDBref>
+            <meta:modelName>Cerebellar Golgi cell (Solinas et al. 2007a, 2007b)</meta:modelName>
+            <meta:uri>http://senselab.med.yale.edu/modeldb/ShowModel.asp?model=112685</meta:uri>
+        </meta:modelDBref>
+
+
+
+        
+        <current_voltage_relation cond_law="ohmic" ion="h" default_gmax="0.1" default_erev="-20">
+            
+            <!--<q10_settings q10_factor="3" experimental_temp="33"/>   -->         
+            
+            
+                                        <!--
+
+  ehcn2 = -20 (mV)
+	Ehalf = -81.95 (mV)
+	c = 0.1661 (/mV)
+	q_10 = 3
+	rA = -0.0227 (/mV)
+    rB = -1.4694 (1)
+    tCf = 0.0269 (1)
+    tDf = -5.6111 (mV)
+	tEf = 2.3026 (/mV)
+	tCs = 0.0152 (1)
+    tDs = -5.2944 (mV)
+	tEs = 2.3026 (/mV)
+
+        tau_fast = exp(t3 * ((t1 * potential) - t2))
+        tau_slow = exp(t3 * ((t1 * potential) - t2))
+        o_inf = 1 / (1 + exp((potential - Ehalf) * c))
+         r =  (r1 * potential) + r2
+
+	o_fast_inf = ((rA * v) + rB) * 1 / (1 + exp((v - Ehalf) * c))
+                      = (-0.0227  * v  -1.4694) * 1 / (1 + exp((v + 81.95) * 0.1661 ))
+    o_slow_inf = (1 - ((rA * v) + rB )) * 1 / (1 + exp((v - Ehalf) * c)) 
+                         = (1 + 0.0227  * v  + 1.4694)) *  1 / (1 + exp((v + 81.95) * 0.1661 ))
+	tau_f =  tau_fast(v,tCf,tDf,tEf) = exp(tEf * ((tCf, * v) - tDf))
+                                                        = exp(2.3026* (0.0269 * v + 5.6111))
+	tau_s =  tau_slow(v,tCs,tDs,tEs) = exp(tEs * ((tCs * v) - tDs))
+                                                               = exp(2.3026* (0.0152 * v + 5.2944))
+
+                -->
+
+
+           
+           <gate name="s" instances="1">
+            
+               <closed_state id="s0"/>
+               <open_state id="s"/>                           
+ 
+               <time_course name="tau" from="s0" to="s" expr_form="generic" expr="exp(2.3026* (0.0152 * v + 5.2944))"/> 
+               <steady_state name="inf" from="s0" to="s" expr_form="generic" expr="(1 + 0.0227  * v  + 1.4694) *  1 / (1 + exp((v + 81.95) * 0.1661 ))"/> 
+                    
+            </gate>               
+        
+        </current_voltage_relation> 
+        
+        <impl_prefs>
+		    <table_settings max_v="30" min_v="-100" table_divisions="13000"/>
+	</impl_prefs>
+        
+        
+    </channel_type>
+</channelml>

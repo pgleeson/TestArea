@@ -2973,6 +2973,10 @@ Resonance: the response to a current injection is enached during repeted stimula
     <string></string> 
    </void> 
    <void method="put"> 
+    <float>-1.0</float> 
+    <string></string> 
+   </void> 
+   <void method="put"> 
     <float>1.0</float> 
     <string>print &quot;Changing values of ena, ek&quot;
 
@@ -2987,10 +2991,6 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
 }
 
 </string> 
-   </void> 
-   <void method="put"> 
-    <float>-1.0</float> 
-    <string></string> 
    </void> 
    <void method="put"> 
     <float>2.0</float> 
