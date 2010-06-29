@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <channelml xmlns="http://morphml.org/channelml/schema" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:meta="http://morphml.org/metadata/schema"
     xsi:schemaLocation="http://morphml.org/channelml/schema  http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd"
     units="Physiological Units">
 
-    <meta:notes>ChannelML file containing a single Channel description</meta:notes>
+    <meta:notes>ChannelML file containing a single Channel description from Solinas et al 2007</meta:notes>
     
     <channel_type name="CaHVA_CML">
         
@@ -19,22 +20,22 @@
             </meta:contributor>
         </status>
         
-       <meta:notes>CaHVA channel based on mod file supplied with Solinas et al 2007 (ModelDB 112685)</meta:notes>
+       <meta:notes>High voltage Activated Ca2+ channel, based on mod file supplied with Solinas et al 2007 (ModelDB 112685)</meta:notes>
     
         <meta:authorList>
              <meta:modelAuthor>
                 <meta:name>E.DAngelo</meta:name>  
-                <meta:comment>Cited implementer according to the original .mod file</meta:comment>
+                <meta:comment>Cited implementer according to the original .mod file. Note from original mod file: Last revised: 8.5.2000</meta:comment>
             </meta:modelAuthor>
 
             <meta:modelAuthor>
                 <meta:name>T.Nieus</meta:name>
-                <meta:comment>Cited implementer according to the original .mod file</meta:comment>
+                <meta:comment>Cited implementer according to the original .mod file. Note from original mod file: Last revised: 8.5.2000</meta:comment>
             </meta:modelAuthor>
 
           <meta:modelAuthor>
                 <meta:name>A. Fontana</meta:name>
-                <meta:comment>Cited implementer according to the original .mod file</meta:comment>
+                <meta:comment>Cited implementer according to the original .mod file. Note from original mod file: Last revised: 8.5.2000</meta:comment>
             </meta:modelAuthor>
 
             <meta:modelTranslator>

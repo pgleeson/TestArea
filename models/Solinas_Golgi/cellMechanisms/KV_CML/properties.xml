@@ -11,9 +11,9 @@ Note the following:
    Mechanism Type should only have values: Channel mechanism, Synaptic mechanism, Ion concentration, Point process, Gap junction
 
 </comment>
-<entry key="Description">v type KC channel</entry>
-<entry key="NEURON mapping">ChannelML_v1.7.3_NEURONmod.xsl</entry>
-<entry key="GENESIS mapping">ChannelML_v1.7.3_GENESIStab.xsl</entry>
+<entry key="Description">Delayed rectifier K+ channel, based on mod file supplied with Solinas et al 2007 (ModelDB 112685)</entry>
+<entry key="NEURON mapping">ChannelML_v1.8.1_NEURONmod.xsl</entry>
+<entry key="GENESIS mapping">ChannelML_v1.8.1_GENESIStab.xsl</entry>
 <entry key="Implementation method">ChannelML based Cell Mechanism</entry>
 <entry key="NEURON file requires compilation">true</entry>
 <entry key="Mechanism Type">Channel mechanism</entry>
