@@ -1443,7 +1443,7 @@ Resonance: the response to a current injection is enached during repeted stimula
       <string>*</string> 
      </void> 
      <void property="graphWindow"> 
-      <string>GraphWin_0</string> 
+      <string>GraphWin_17</string> 
      </void> 
      <void property="maxValue"> 
       <float>50.0</float> 
@@ -1471,7 +1471,7 @@ Resonance: the response to a current injection is enached during repeted stimula
       <string>*</string> 
      </void> 
      <void property="graphWindow"> 
-      <string>GraphWin_0</string> 
+      <string>GraphWin_17</string> 
      </void> 
      <void property="maxValue"> 
       <float>50.0</float> 
@@ -1499,7 +1499,7 @@ Resonance: the response to a current injection is enached during repeted stimula
       <string>0</string> 
      </void> 
      <void property="graphWindow"> 
-      <string>GraphWin_1</string> 
+      <string>GraphWin_18</string> 
      </void> 
      <void property="maxValue"> 
       <float>1.0</float> 
@@ -1530,7 +1530,7 @@ Resonance: the response to a current injection is enached during repeted stimula
       <string>0</string> 
      </void> 
      <void property="graphWindow"> 
-      <string>GraphWin_1</string> 
+      <string>GraphWin_18</string> 
      </void> 
      <void property="maxValue"> 
       <float>1.0</float> 
@@ -1561,7 +1561,7 @@ Resonance: the response to a current injection is enached during repeted stimula
       <string>0</string> 
      </void> 
      <void property="graphWindow"> 
-      <string>GraphWin_1</string> 
+      <string>GraphWin_18</string> 
      </void> 
      <void property="maxValue"> 
       <float>1.0</float> 
@@ -1592,7 +1592,7 @@ Resonance: the response to a current injection is enached during repeted stimula
       <string>0</string> 
      </void> 
      <void property="graphWindow"> 
-      <string>GraphWin_1</string> 
+      <string>GraphWin_18</string> 
      </void> 
      <void property="maxValue"> 
       <float>1.0</float> 
@@ -3156,7 +3156,7 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
    <float>1000.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_499</string> 
+   <string>Sim_502</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -4779,6 +4779,9 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
        <string>test_NaT_CML</string> 
       </void> 
       <void method="add"> 
+       <string>test_KA_CML</string> 
+      </void> 
+      <void method="add"> 
        <string>test_CaHVA_mod</string> 
       </void> 
       <void method="add"> 
@@ -4792,6 +4795,9 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
       </void> 
       <void method="add"> 
        <string>test_NaT_mod</string> 
+      </void> 
+      <void method="add"> 
+       <string>test_KA_mod</string> 
       </void> 
       <void method="add"> 
        <string>test_Kslow_mod</string> 
