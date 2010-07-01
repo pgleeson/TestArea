@@ -11,12 +11,12 @@
     <channel_type name="NaP_CML" density="yes">
 
        <status value="stable">
+            <meta:comment>30mV for table may be too low an upper limit (peak of AP can go above this).</meta:comment>
             <meta:contributor>
                 <meta:name>Matteo Farinella</meta:name>
             </meta:contributor>
             <meta:contributor>
                 <meta:name>Padraig Gleeson</meta:name>
-                <meta:comment>30mV for table may be too low an upper limit (peak of AP can go above this)</meta:comment>
             </meta:contributor>
         </status>
 

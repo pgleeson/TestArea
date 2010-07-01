@@ -8,15 +8,15 @@
 
     <meta:notes>ChannelML file containing a single Channel description from Solinas et al 2007</meta:notes>
 
-    <channel_type name="KA_CML" density="yes">
+    <channel_type name="KA_CML">
 
        <status value="stable">
+            <meta:comment>30mV for table may be too low an upper limit (peak of AP can go above this).</meta:comment>
             <meta:contributor>
                 <meta:name>Matteo Farinella</meta:name>
             </meta:contributor>
             <meta:contributor>
                 <meta:name>Padraig Gleeson</meta:name>
-                <meta:comment>30mV for table may be too low an upper limit (peak of AP can go above this)</meta:comment>
             </meta:contributor>
         </status>
 	        
