@@ -16,8 +16,8 @@
             </meta:contributor>
             <meta:contributor>
                 <meta:name>Padraig Gleeson</meta:name>
-                <meta:comment>Does not include check in beta_s for x1=(v+V0beta_s)/Kbeta_s (when v > ~-22mV), but this shouldn't matter as beta_s << 1 for these values</meta:comment>
-                <meta:comment>30mV for table may be too low an upper limit (peak of AP can go above this)</meta:comment>
+                <meta:comment>Does not include check in beta_s for x1=(v+V0beta_s)/Kbeta_s (when v > ~-22mV), but this shouldn't matter as beta_s ~ 0 for these values.
+                30mV for table may be too low an upper limit (peak of AP can go above this)</meta:comment>
             </meta:contributor>
         </status>
 
