@@ -1040,7 +1040,7 @@ The behaviour of the classical HH example &amp; the 5 state example can be compa
       <string>*</string>
      </void>
      <void property="graphWindow">
-      <string>CellGroup_3_v</string>
+      <string>SampleGraph</string>
      </void>
      <void property="maxValue">
       <float>50.0</float>
@@ -1056,6 +1056,192 @@ The behaviour of the classical HH example &amp; the 5 state example can be compa
      </void>
      <void property="segmentId">
       <string>0</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CellGroup_3</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_3</string>
+     </void>
+     <void property="maxValue">
+      <float>1.0E-5</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>Var_8</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>KConductanceKSm:CURR_DENS:k</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CellGroup_3</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_9</string>
+     </void>
+     <void property="maxValue">
+      <float>1.0</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>Var_9</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>KConductanceKSm:n1</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CellGroup_3</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_9</string>
+     </void>
+     <void property="maxValue">
+      <float>1.0</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>Var_10</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>KConductanceKSm:n2</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CellGroup_3</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_9</string>
+     </void>
+     <void property="maxValue">
+      <float>1.0</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>Var_11</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>KConductanceKSm:n3</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CellGroup_3</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_9</string>
+     </void>
+     <void property="maxValue">
+      <float>1.0</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>Var_12</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>KConductanceKSm:n4</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CellGroup_3</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_9</string>
+     </void>
+     <void property="maxValue">
+      <float>1.0</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>Var_13</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>KConductanceKSm:n</string>
      </void>
     </object>
    </void>
@@ -1120,13 +1306,13 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
  <object class="ucl.physiol.neuroconstruct.psics.PsicsSettings"/>
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters">
   <void property="dt">
-   <float>0.02</float>
+   <float>0.002</float>
   </void>
   <void property="duration">
    <float>100.0</float>
   </void>
   <void property="reference">
-   <string>Sim_54</string>
+   <string>Sim_64</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -1197,6 +1383,9 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
       <string>CellGroup_3</string>
      </void>
      <void property="dur">
+      <void property="fixedNum">
+       <float>20.0</float>
+      </void>
       <void property="numberType">
        <int>11</int>
       </void>
@@ -1243,6 +1432,24 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
      <void property="plots">
       <void method="add">
        <string>CellGroup_3_v</string>
+      </void>
+      <void method="add">
+       <string>Var_13</string>
+      </void>
+      <void method="add">
+       <string>Var_12</string>
+      </void>
+      <void method="add">
+       <string>Var_11</string>
+      </void>
+      <void method="add">
+       <string>Var_10</string>
+      </void>
+      <void method="add">
+       <string>Var_9</string>
+      </void>
+      <void method="add">
+       <string>Var_8</string>
       </void>
       <void method="add">
        <string>CellGroup_2_v</string>

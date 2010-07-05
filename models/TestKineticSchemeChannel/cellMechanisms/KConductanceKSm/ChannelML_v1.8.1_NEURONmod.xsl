@@ -345,6 +345,9 @@ select="cml:current_voltage_relation/cml:conc_factor/@variable_name"/><xsl:text>
         </xsl:when>
         <xsl:otherwise>
     <xsl:choose><xsl:when test="$voltConcDependence='yes'">SOLVE states METHOD derivimplicit</xsl:when> <!-- Needed for concentration dependence-->
+    <xsl:when test="count(cml:current_voltage_relation/cml:gate/cml:closed_state) &gt; 1">
+
+    SOLVE kin METHOD sparse</xsl:when>
     <xsl:when test="count(cml:current_voltage_relation/cml:ohmic/cml:conductance/cml:gate) &gt; 0 or 
                     count(cml:current_voltage_relation/cml:gate) &gt; 0">
                         
@@ -461,12 +464,16 @@ INITIAL {
             <xsl:value-of select="$stateName"/> = <xsl:value-of select="../../../../cml:hh_gate[@state=$stateName]/cml:transition/cml:voltage_conc_gate/cml:initialisation/@value"/>: Hard coded initialisation!!
         </xsl:if>
     </xsl:for-each>
+    <xsl:choose>
+    <xsl:when test="count(cml:current_voltage_relation/cml:gate/cml:closed_state) = 1">
     <xsl:for-each select="cml:current_voltage_relation/cml:gate/cml:open_state">
     <xsl:variable name="stateName" select="@id"/>
     <xsl:value-of select="$stateName"/> = <xsl:value-of select="$stateName"/>inf
         <xsl:if test="$forceCorrectInit='0' and count(../cml:initialisation) &gt; 0">
             <xsl:value-of select="$stateName"/> = <xsl:value-of select="../cml:initialisation/@value"/>: Hard coded initialisation!!
-        </xsl:if></xsl:for-each>
+        </xsl:if></xsl:for-each></xsl:when>
+    <xsl:otherwise>SOLVE kin STEADYSTATE sparse</xsl:otherwise>
+    </xsl:choose>
     
 }
     
@@ -486,6 +493,32 @@ STATE {
     </xsl:text>
     </xsl:for-each>
 }
+
+<xsl:choose>
+    <xsl:when test="count(cml:current_voltage_relation/cml:gate/cml:closed_state) &gt; 1">
+
+KINETIC kin {
+    rates(v)
+    <xsl:for-each select="cml:current_voltage_relation/cml:gate/cml:transition">
+        <xsl:variable name="from"><xsl:value-of select="@from"/></xsl:variable>
+        <xsl:variable name="to"><xsl:value-of select="@to"/></xsl:variable>
+        <xsl:variable name="position"><xsl:value-of select="position()"/></xsl:variable>
+        <xsl:variable name="positionRev"><xsl:for-each select="../cml:transition"><xsl:if test="@from=$to"><xsl:if test="@to=$from"><xsl:value-of select="position()"/></xsl:if></xsl:if></xsl:for-each></xsl:variable>
+       
+    <!--<xsl:choose>
+    <xsl:when test="../cml:transition[@to=$from
+    ..<xsl:value-of select="number($position)"/>..
+    <xsl:value-of select="$positionRev"/>
+    ++<xsl:value-of select="number($positionRev)"/>++-->
+    
+        <xsl:if test="number($position) &lt; number($positionRev)">
+    ~ <xsl:value-of select="$from"/> &lt;-> <xsl:value-of select="$to"/> (<xsl:value-of select="@name"/>, <xsl:value-of select="../cml:transition[number($positionRev)]/@name"/>) </xsl:if>
+    </xsl:for-each>
+    CONSERVE <xsl:for-each select="cml:current_voltage_relation/cml:gate/cml:closed_state | cml:current_voltage_relation/cml:gate/cml:open_state"><xsl:if test="position() > 1"> + </xsl:if><xsl:value-of select="@id"/></xsl:for-each> = 1
+}
+
+</xsl:when>
+    <xsl:otherwise>
 
 DERIVATIVE states {
     <xsl:choose>
@@ -516,6 +549,9 @@ DERIVATIVE states {
     </xsl:choose>
 
 }
+    </xsl:otherwise>
+</xsl:choose>
+
 
 <xsl:choose>
         <xsl:when test="$voltConcDependence='yes'">PROCEDURE settables(v(mV), cai(mM)) { </xsl:when>
