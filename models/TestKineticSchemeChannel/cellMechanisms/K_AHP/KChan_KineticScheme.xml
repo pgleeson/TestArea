@@ -30,14 +30,14 @@
                 <closed_state id="c4"/>
                 <open_state id="o1" fraction="1"/>
                      
-                <transition name="alpha_n0_n1" from="c1" to="c2" expr_form="exp_linear" rate="0.4" scale="10" midpoint="-55"/>
-                <transition name="beta_n0_n1" from="c2" to="c1" expr_form="exponential" rate="0.125" scale="-80" midpoint="-65"/>
-                <transition name="alpha_n1_n2" from="c2" to="c3" expr_form="exp_linear" rate="0.3" scale="10" midpoint="-55"/>
-                <transition name="beta_n1_n2" from="c3" to="c2" expr_form="exponential" rate="0.25" scale="-80" midpoint="-65"/>
-                <transition name="alpha_n2_n3" from="c3" to="c4" expr_form="exp_linear" rate="0.2" scale="10" midpoint="-55"/>
-                <transition name="beta_n2_n3" from="c4" to="c3" expr_form="exponential" rate="0.375" scale="-80" midpoint="-65"/>
-                <transition name="alpha_n3_n" from="c4" to="o1" expr_form="exp_linear" rate="0.1" scale="10" midpoint="-55"/>
-                <transition name="beta_n3_n" from="o1" to="c4" expr_form="exponential" rate="0.5" scale="-80" midpoint="-65"/>
+                <transition name="alpha_c1_c2" from="c1" to="c2" expr_form="exp_linear" rate="0.4" scale="10" midpoint="-55"/>
+                <transition name="beta_c2_c1" from="c2" to="c1" expr_form="exponential" rate="0.125" scale="-80" midpoint="-65"/>
+                <transition name="alpha_c2_c3" from="c2" to="c3" expr_form="exp_linear" rate="0.3" scale="10" midpoint="-55"/>
+                <transition name="beta_c3_c2" from="c3" to="c2" expr_form="exponential" rate="0.25" scale="-80" midpoint="-65"/>
+                <transition name="alpha_c3_c4" from="c3" to="c4" expr_form="exp_linear" rate="0.2" scale="10" midpoint="-55"/>
+                <transition name="beta_c4_c3" from="c4" to="c3" expr_form="exponential" rate="0.375" scale="-80" midpoint="-65"/>
+                <transition name="alpha_c4_o1" from="c4" to="o1" expr_form="exp_linear" rate="0.1" scale="10" midpoint="-55"/>
+                <transition name="beta_o1_c4" from="o1" to="c4" expr_form="exponential" rate="0.5" scale="-80" midpoint="-65"/>
                     
             </gate>
         </current_voltage_relation> 

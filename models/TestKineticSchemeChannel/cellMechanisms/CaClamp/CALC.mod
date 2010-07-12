@@ -22,7 +22,7 @@ UNITS {
 
 PARAMETER {
         ica             (mA/cm2)
-        del = 20           (ms)
+        del = 120           (ms)
         dur = 20           (ms)
         level1 = 5e-5     (mM)
         level2 = 5e-4     (mM)

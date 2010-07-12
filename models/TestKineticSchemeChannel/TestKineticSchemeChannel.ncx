@@ -841,7 +841,7 @@ The behaviour of the classical HH example &amp; the 5 state example can be compa
       <string>0</string>
      </void>
      <void property="valuePlotted">
-      <string>g_K_AHP</string>
+      <string>gion_K_AHP</string>
      </void>
     </object>
    </void>
@@ -1312,7 +1312,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    <float>100.0</float>
   </void>
   <void property="reference">
-   <string>Sim_64</string>
+   <string>Sim_70</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -1554,7 +1554,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
       </void>
      </void>
      <void property="simDuration">
-      <float>100.0</float>
+      <float>200.0</float>
      </void>
     </object>
    </void>
