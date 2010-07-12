@@ -351,7 +351,8 @@ select="cml:current_voltage_relation/cml:conc_factor/@variable_name"/><xsl:text>
     <xsl:choose><xsl:when test="$voltConcDependence='yes'">SOLVE states METHOD derivimplicit</xsl:when> <!-- Needed for concentration dependence-->
     <xsl:when test="count(cml:current_voltage_relation/cml:gate) = 1 and count(cml:current_voltage_relation/cml:gate/cml:closed_state) &gt; 1">
 
-    SOLVE kin METHOD sparse</xsl:when>
+    SOLVE kin METHOD sparse
+    </xsl:when>
     <xsl:when test="count(cml:current_voltage_relation/cml:ohmic/cml:conductance/cml:gate) &gt; 0 or 
                     count(cml:current_voltage_relation/cml:gate) &gt; 0">
                         
@@ -363,8 +364,10 @@ select="cml:current_voltage_relation/cml:conc_factor/@variable_name"/><xsl:text>
             <xsl:value-of select="cml:state/@fraction"/>*</xsl:if><xsl:value-of select="cml:state/@name"/>)^<xsl:value-of select="@power"/>)</xsl:for-each>
     </xsl:if>
     <xsl:if test="count(cml:current_voltage_relation/cml:gate) &gt; 0"> <!-- post v1.7.3 -->
-    gion = gmax<xsl:for-each select="cml:current_voltage_relation/cml:gate/cml:open_state">*((<xsl:if test="count(@fraction) &gt; 0">
-            <xsl:value-of select="@fraction"/>*</xsl:if><xsl:value-of select="@id"/>)^<xsl:value-of select="../@instances"/>)</xsl:for-each>
+        <xsl:for-each select="cml:current_voltage_relation/cml:gate">
+    ?<xsl:value-of select="@name"/> = <xsl:for-each select="cml:open_state"> <xsl:if test="position() &gt; 1"> +</xsl:if> (<xsl:if test="count(@fraction) &gt; 0"><xsl:value-of select="@fraction"/>*</xsl:if><xsl:value-of select="@id"/>)</xsl:for-each>
+    </xsl:for-each>
+    gion = gmax<xsl:for-each select="cml:current_voltage_relation/cml:gate"> * ( ( <xsl:for-each select="cml:open_state"> <xsl:if test="position() &gt; 1"> +</xsl:if> (<xsl:if test="count(@fraction) &gt; 0"><xsl:value-of select="@fraction"/>*</xsl:if><xsl:value-of select="@id"/>) </xsl:for-each> ) ^<xsl:value-of select="@instances"/>)</xsl:for-each>
     </xsl:if>
     <xsl:for-each select="cml:current_voltage_relation/cml:ohmic/cml:conductance/cml:conc_factor | cml:current_voltage_relation/cml:conc_factor">
     <xsl:text>
@@ -578,11 +581,12 @@ DERIVATIVE states {
             select="$stateName"/>, d_<xsl:value-of select="name()"/>_<xsl:value-of select="$stateName"/></xsl:if></xsl:if>
     </xsl:for-each>
     </xsl:for-each>
-    <xsl:for-each select="cml:current_voltage_relation/cml:gate/cml:open_state"
-    ><xsl:variable name="gateName"><xsl:value-of select="../@name"/></xsl:variable><xsl:variable name="stateName"><xsl:value-of select="@id"/></xsl:variable>, temp_adj_<xsl:value-of select="$stateName"/>
-        <xsl:for-each select='../cml:transition | ../cml:time_course | ../cml:steady_state'
-        ><xsl:if test="$favourPublicParameters = 0">, A_<xsl:value-of select="@name"/>_<xsl:value-of select="$gateName"/>, B_<xsl:value-of select="@name"/>_<xsl:value-of
-            select="$gateName"/>, Vhalf_<xsl:value-of select="@name"/>_<xsl:value-of select="$gateName"/></xsl:if>
+    <xsl:for-each select="cml:current_voltage_relation/cml:gate"
+    ><xsl:variable name="gateName"><xsl:value-of select="@name"/></xsl:variable>, temp_adj_<xsl:value-of select="$gateName"/>
+        <xsl:for-each select='cml:transition | cml:time_course | cml:steady_state'
+        ><xsl:variable name="stateName"><xsl:value-of select="@id"/></xsl:variable><xsl:if test="$favourPublicParameters = 0">,<xsl:text>
+        </xsl:text> A_<xsl:value-of select="@name"/>_<xsl:value-of select="$gateName"/>, B_<xsl:value-of select="@name"/>_<xsl:value-of
+            select="$gateName"/>, Vhalf_<xsl:value-of select="@name"/>_<xsl:value-of select="$gateName"/>  </xsl:if>
     </xsl:for-each>
     
     
@@ -656,8 +660,8 @@ DERIVATIVE states {
                             <xsl:for-each select="../../cml:gate"> <!-- pre v1.7.3 -->
     temp_adj_<xsl:value-of select="cml:state/@name"/> = <xsl:value-of select="$expression"/>
                             </xsl:for-each>
-                            <xsl:for-each select="../cml:gate/cml:open_state"> <!-- post v1.7.3 -->
-    temp_adj_<xsl:value-of select="@id"/> = <xsl:value-of select="$expression"/>
+                            <xsl:for-each select="../cml:gate"> <!-- post v1.7.3 -->
+    temp_adj_<xsl:value-of select="@name"/> = <xsl:value-of select="$expression"/>
                             </xsl:for-each>
                         </xsl:when><xsl:when test="count(@fixed_q10) &gt; 0">     
                             <xsl:variable name="expression"><xsl:value-of select="@fixed_q10" /></xsl:variable>
@@ -928,8 +932,9 @@ DERIVATIVE states {
     </xsl:for-each>
     
     <xsl:for-each select="cml:current_voltage_relation/cml:gate">  
-        
+
         <xsl:variable name="gateName" select="@name"/>
+        <xsl:variable name="isKSgate" select="count(cml:closed_state) + count(cml:open_state) &gt; 2"/>
             
                 
        <!-- <xsl:for-each select='cml:conc_dependence'>
@@ -941,7 +946,6 @@ DERIVATIVE states {
     ?      ***  Adding rate equations for gate: <xsl:value-of select="$gateName"/>  ***<xsl:text>
         </xsl:text>   
         
-    <!--<xsl:if test="count(cml:open_state) =1 and count(cml:closed_state) =1">  Classical HH -->
         <xsl:for-each select='cml:transition | cml:time_course | cml:steady_state'>
         
         <xsl:if  test="name()!='conc_dependence'">
@@ -1122,11 +1126,16 @@ DERIVATIVE states {
             
             </xsl:otherwise>
         </xsl:choose>
-                
+
+       <xsl:if test="name()='transition' and boolean($isKSgate)">
+    <xsl:value-of select="@name"/> = <xsl:value-of select="@name"/> * temp_adj_<xsl:value-of select="$gateName"/>   ? Applying temp adj here as channel has KS description<xsl:text>
+    </xsl:text>
+       </xsl:if>
+
        <xsl:if test="name()='time_course'">
     <xsl:value-of select="@to"/>tau = tau/temp_adj_<xsl:value-of select="@to"/><xsl:text>
-    </xsl:text>   
-       </xsl:if>    
+    </xsl:text>
+       </xsl:if>
                    
        <xsl:if test="name()='steady_state'">
     <xsl:value-of select="@to"/>inf = inf<xsl:text>
@@ -1138,8 +1147,7 @@ DERIVATIVE states {
     
     <!-- Finishing off the alpha & beta to tau & inf conversion... -->
 
-
-    <xsl:if test="count(cml:closed_state)=1">
+    <xsl:if test="not(boolean($isKSgate))">
         <xsl:if test="count(cml:time_course)=0">
     <xsl:value-of select="$gateName"/>tau = 1/(temp_adj_<xsl:value-of select="$gateName"/>*(alpha + beta))<xsl:text>
     </xsl:text>

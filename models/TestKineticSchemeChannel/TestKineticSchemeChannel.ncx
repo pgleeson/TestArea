@@ -609,7 +609,7 @@ The behaviour of the classical HH example &amp; the 5 state example can be compa
       <string>0</string>
      </void>
      <void property="graphWindow">
-      <string>GraphWin_6</string>
+      <string>GraphWin_5</string>
      </void>
      <void property="maxValue">
       <float>1.0</float>
@@ -640,7 +640,7 @@ The behaviour of the classical HH example &amp; the 5 state example can be compa
       <string>0</string>
      </void>
      <void property="graphWindow">
-      <string>GraphWin_6</string>
+      <string>GraphWin_5</string>
      </void>
      <void property="maxValue">
       <float>1.0</float>
@@ -674,7 +674,7 @@ The behaviour of the classical HH example &amp; the 5 state example can be compa
       <string>GraphWin_5</string>
      </void>
      <void property="maxValue">
-      <float>0.19</float>
+      <float>1.0</float>
      </void>
      <void property="minValue">
       <float>0.0</float>
@@ -705,7 +705,7 @@ The behaviour of the classical HH example &amp; the 5 state example can be compa
       <string>GraphWin_5</string>
      </void>
      <void property="maxValue">
-      <float>0.19</float>
+      <float>1.0</float>
      </void>
      <void property="minValue">
       <float>0.0</float>
@@ -736,7 +736,7 @@ The behaviour of the classical HH example &amp; the 5 state example can be compa
       <string>GraphWin_5</string>
      </void>
      <void property="maxValue">
-      <float>0.19</float>
+      <float>1.0</float>
      </void>
      <void property="minValue">
       <float>0.0</float>
@@ -767,7 +767,7 @@ The behaviour of the classical HH example &amp; the 5 state example can be compa
       <string>GraphWin_5</string>
      </void>
      <void property="maxValue">
-      <float>0.19</float>
+      <float>1.0</float>
      </void>
      <void property="minValue">
       <float>0.0</float>
@@ -1245,6 +1245,37 @@ The behaviour of the classical HH example &amp; the 5 state example can be compa
      </void>
     </object>
    </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CG_KSK_CML</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_8</string>
+     </void>
+     <void property="maxValue">
+      <float>1.0</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>Var_KSKmod_16</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>o2_K_AHP</string>
+     </void>
+    </object>
+   </void>
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.project.ProjectProperties">
@@ -1312,7 +1343,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    <float>100.0</float>
   </void>
   <void property="reference">
-   <string>Sim_70</string>
+   <string>Sim_86</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -1392,6 +1423,62 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
      </void>
      <void property="reference">
       <string>Input_1</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+     <void property="amp">
+      <void property="fixedNum">
+       <float>0.15</float>
+      </void>
+     </void>
+     <void property="cellGroup">
+      <string>CG_KSKmod</string>
+     </void>
+     <void property="del">
+      <void property="fixedNum">
+       <float>50.0</float>
+      </void>
+     </void>
+     <void property="dur">
+      <void property="fixedNum">
+       <float>20.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="reference">
+      <string>Input_2</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+     <void property="amp">
+      <void property="fixedNum">
+       <float>0.15</float>
+      </void>
+     </void>
+     <void property="cellGroup">
+      <string>CG_KSK_CML</string>
+     </void>
+     <void property="del">
+      <void property="fixedNum">
+       <float>50.0</float>
+      </void>
+     </void>
+     <void property="dur">
+      <void property="fixedNum">
+       <float>20.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="reference">
+      <string>Input_3</string>
      </void>
     </object>
    </void>
@@ -1497,10 +1584,21 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
        <string>CG_KSK_CML</string>
       </void>
      </void>
+     <void property="inputs">
+      <void method="add">
+       <string>Input_3</string>
+      </void>
+      <void method="add">
+       <string>Input_2</string>
+      </void>
+     </void>
      <void property="name">
       <string>TestKSK</string>
      </void>
      <void property="plots">
+      <void method="add">
+       <string>Var_KSKmod_16</string>
+      </void>
       <void method="add">
        <string>Var_KSKmod_15</string>
       </void>
