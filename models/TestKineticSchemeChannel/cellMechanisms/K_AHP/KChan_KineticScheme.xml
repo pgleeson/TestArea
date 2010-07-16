@@ -15,8 +15,7 @@
             </meta:contributor>
         </status>
 
-        <meta:notes>K conductance with 6 kinetic states. NOTE: currently a mapping is only provided
-                    to the NEURON Channel Builder format and PSICS</meta:notes>
+        <meta:notes>...</meta:notes>
 
         <parameters>
             <parameter name="invc1" value="80e-3"/>
@@ -32,15 +31,15 @@
             <parameter name="dirc3" value="160"/>
             <parameter name="dirc4" value="80"/>
 
+            <parameter name="diff" value="3"/>
 
-
-            <parameter name="ca_conc" value="5e-5"/>
+            <!--<parameter name="ca_conc" value="5e-5"/>-->
 
         </parameters>
 
         <current_voltage_relation cond_law="ohmic" ion="k" default_gmax="36" default_erev="-77.0">
 
-            <!--<conc_dependence name="Calcium" ion="ca" charge="2" variable_name="ca_conc" min_conc="0" max_conc="0.050"/>-->
+            <conc_dependence name="Calcium" ion="ca" charge="2" variable_name="ca_conc" min_conc="0" max_conc="0.050"/>
 
             <q10_settings q10_factor="3" experimental_temp="23"/>
 
@@ -50,22 +49,23 @@
                 <closed_state id="c2"/>
                 <closed_state id="c3"/>
                 <closed_state id="c4"/>
-                <open_state id="o1" fraction="1"/>
-                <open_state id="o2" fraction="1"/>
+
+                <open_state id="o1"/>
+                <open_state id="o2"/>
                      
-                <transition name="alpha_c1_c2" from="c1" to="c2" expr_form="generic" expr="dirc2 * ca_conc"/>
+                <transition name="alpha_c1_c2" from="c1" to="c2" expr_form="generic" expr="dirc2 * (ca_conc*1e6/diff)"/>
                 <transition name="beta_c2_c1" from="c2" to="c1" expr_form="generic" expr="invc1"/>
 
-                <transition name="alpha_c2_c3" from="c2" to="c3" expr_form="generic" expr="dirc3 * ca_conc"/>
+                <transition name="alpha_c2_c3" from="c2" to="c3" expr_form="generic" expr="dirc3 * (ca_conc*1e6/diff)"/>
                 <transition name="beta_c3_c2" from="c3" to="c2" expr_form="generic" expr="invc2"/>
 
-                <transition name="alpha_c3_c4" from="c3" to="c4" expr_form="generic" expr="dirc4 * ca_conc"/>
+                <transition name="alpha_c3_c4" from="c3" to="c4" expr_form="generic" expr="dirc4 * (ca_conc*1e6/diff)"/>
                 <transition name="beta_c4_c3" from="c4" to="c3" expr_form="generic" expr="invc3"/>
 
-                <transition name="alpha_c3_o1" from="c3" to="o1" expr_form="generic" expr="diro1 * ca_conc"/>
+                <transition name="alpha_c3_o1" from="c3" to="o1" expr_form="generic" expr="diro1"/>
                 <transition name="beta_o1_c3" from="o1" to="c3" expr_form="generic" expr="invo1"/>
 
-                <transition name="alpha_c4_o2" from="c4" to="o2" expr_form="generic" expr="diro2 * ca_conc"/>
+                <transition name="alpha_c4_o2" from="c4" to="o2" expr_form="generic" expr="diro2"/>
                 <transition name="beta_o2_c4" from="o2" to="c4" expr_form="generic" expr="invo2"/>
                     
             </gate>
