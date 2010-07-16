@@ -110,8 +110,8 @@ Last revised: May 2007</meta:comment>
                <closed_state id="f0"/>
                <open_state id="f"/>                           
  
-               <time_course name="tau" from="f0" to="f" expr_form="generic" expr="exp(((0.01371 * v) + 3.368 )* 2.302585092 )"/> 
-               <steady_state name="inf" from="f0" to="f" expr_form="generic" expr="(0.002096 * v + 0.97596) * 1 / (1 + exp((v - (-72.49)) * 0.11305))"/> 
+               <time_course name="tau" from="f0" to="f" expr_form="generic" expr="(exp (((0.01371 * v) + 3.368 )* 2.302585092 ))"/>
+               <steady_state name="inf" from="f0" to="f" expr_form="generic" expr="(0.002096 * v + 0.97596) * 1 / (1 + (exp ((v - (-72.49)) * 0.11305)))"/>
                     
             </gate>               
         

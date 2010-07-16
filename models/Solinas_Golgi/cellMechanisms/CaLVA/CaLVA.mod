@@ -117,8 +117,6 @@ INITIAL {
 :   Transformation to 36 deg assuming Q10 of 5 and 3 for m and h
 :   (as in Coulter et al., J Physiol 414: 587, 1989)
 :
-        phi_m = 5.0 ^ ((celsius-24)/10)
-        phi_h = 3.0 ^ ((celsius-24)/10)
 
         evaluate_fct(v)
         m = m_inf
@@ -129,6 +127,9 @@ PROCEDURE evaluate_fct(v(mV)) {
 :
 :   Time constants were obtained from J. Huguenard
 :
+        phi_m = 5.0 ^ ((celsius-24)/10)
+        phi_h = 3.0 ^ ((celsius-24)/10)
+        
 	TABLE m_inf, tau_m, h_inf, tau_h
 	DEPEND shift, phi_m, phi_h FROM -100 TO 30 WITH 13000 
         m_inf = 1.0 / ( 1 + exp((v + shift - v0_m_inf)/k_m_inf) )

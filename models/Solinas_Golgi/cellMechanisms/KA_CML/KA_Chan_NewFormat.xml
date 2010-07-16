@@ -105,7 +105,7 @@
             -->
 
                 <transition name="alpha" from="a0" to="a" expr_form="sigmoid" rate="0.8147 " scale="-23.32708" midpoint="-9.17203"/>
-                <transition name="beta" from="a" to="a0"  expr_form="generic" expr="0.1655 /(exp((v + 18.27914)/19.47175 ))"/>
+                <transition name="beta" from="a" to="a0"  expr_form="generic" expr="0.1655 /( exp ((v + 18.27914)/19.47175 ))"/>
 
                 <steady_state name="inf" from="a0" to="a" expr_form="sigmoid" rate="1" scale=" -17" midpoint=" -38"/>
 

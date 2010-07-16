@@ -134,7 +134,7 @@
                 <open_state   id="h"/>
 
                 <transition name="alpha" from="h0" to="h" expr_form="exponential" rate="0.21" scale="-3.333" midpoint="-50"/>
-                <transition name="beta"  from="h" to="h0" expr_form="generic" expr="3/(1+exp((v+17)/-5))"/>
+                <transition name="beta"  from="h" to="h0" expr_form="generic" expr="3/(1+ (exp ((v+17)/-5)))"/>
 
             </gate>
             

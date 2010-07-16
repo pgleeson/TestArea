@@ -104,7 +104,7 @@
                             
                 <transition name="beta" from="n" to="n0" expr_form="exponential" rate="0.0033" scale="-20" midpoint="-30"/>
                 
-                <steady_state name="inf" from="n0" to="n" expr_form="generic" expr="1/(1+exp(-(v+35)/6))"/>
+                <steady_state name="inf" from="n0" to="n" expr_form="generic" expr="1/(1+(exp (-(v+35)/6)))"/>
                               
 	 </gate>
 

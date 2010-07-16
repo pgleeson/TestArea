@@ -48,8 +48,8 @@
 
                 -->
                      
-                <transition name="alpha" from="c0" to="c" expr_form="generic" expr="7/(1 + (0.0015 * exp(-v/11.765)/(ca_conc * 1e6)))"/>
-                <transition name="beta" from="c" to="c0" expr_form="generic" expr="1/(1 + (ca_conc * 1e6)/(0.00015*exp(-v/11.765)))"/>
+                <transition name="alpha" from="c0" to="c" expr_form="generic" expr="7/(1 + (0.0015 * (exp (v/-11.765))/(ca_conc * 1e6)))"/>
+                <transition name="beta" from="c" to="c0" expr_form="generic" expr="1/(1 + (ca_conc * 1e6)/(0.00015* (exp (v/-11.765)) ))"/>
 
                 <!--<time_course name="tau" from="c0" to="c" expr_form="generic" expr="1/(alpha+beta)"/>-->
 

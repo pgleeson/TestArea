@@ -208,6 +208,12 @@ Resonance: the response to a current injection is enached during repeted stimula
     <void method="add">
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/>
     </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/>
+    </void>
    </void>
    <void method="get">
     <string>Cell Type</string>
@@ -307,6 +313,12 @@ Resonance: the response to a current injection is enached during repeted stimula
     <void method="add">
      <string>Golgi_CML</string>
     </void>
+    <void method="add">
+     <string>Golgi_KAHP_block</string>
+    </void>
+    <void method="add">
+     <string>Golgi_CML_KAHP_block</string>
+    </void>
    </void>
    <void method="get">
     <string>Priority</string>
@@ -402,6 +414,12 @@ Resonance: the response to a current injection is enached during repeted stimula
     </void>
     <void method="add">
      <int>-20</int>
+    </void>
+    <void method="add">
+     <int>-23</int>
+    </void>
+    <void method="add">
+     <int>-22</int>
     </void>
     <void method="add">
      <int>-23</int>
@@ -635,9 +653,31 @@ Resonance: the response to a current injection is enached during repeted stimula
       <int>255</int>
      </object>
     </void>
+    <void method="add">
+     <object class="java.awt.Color">
+      <int>226</int>
+      <int>136</int>
+      <int>137</int>
+      <int>255</int>
+     </object>
+    </void>
+    <void method="add">
+     <object class="java.awt.Color">
+      <int>7</int>
+      <int>216</int>
+      <int>239</int>
+      <int>255</int>
+     </object>
+    </void>
    </void>
    <void method="get">
     <string>Region Name</string>
+    <void method="add">
+     <string>Regions_1</string>
+    </void>
+    <void method="add">
+     <string>Regions_1</string>
+    </void>
     <void method="add">
      <string>Regions_1</string>
     </void>
@@ -832,6 +872,12 @@ Resonance: the response to a current injection is enached during repeted stimula
     </void>
     <void method="add">
      <string>Golgi_CML</string>
+    </void>
+    <void method="add">
+     <string>Golgi_TestNeuGen</string>
+    </void>
+    <void method="add">
+     <string>Golgi_CML_TestNeuGen</string>
     </void>
    </void>
   </void>
@@ -3526,6 +3572,310 @@ Resonance: the response to a current injection is enached during repeted stimula
      </void>
     </object>
    </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>Golgi_TestNeuGen</string>
+     </void>
+     <void property="cellNumber">
+      <string>*</string>
+     </void>
+     <void property="graphWindow">
+      <string>Golgi_TestNeuGen_v</string>
+     </void>
+     <void property="maxValue">
+      <float>50.0</float>
+     </void>
+     <void property="minValue">
+      <float>-90.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>Golgi_TestNeuGen_v</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>mod</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_24</string>
+     </void>
+     <void property="maxValue">
+      <float>3.0E-4</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>test_CALC_mod_ca_6</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>cai</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>mod</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_24</string>
+     </void>
+     <void property="maxValue">
+      <float>3.0E-4</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>test_CALC_mod_ca2_1</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>ca2i</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CML</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_24</string>
+     </void>
+     <void property="maxValue">
+      <float>3.0E-22</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>test_CALC_CML_ca2_1</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>Golgi_CALC_ca2_CML:CONC:ca2</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CML</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_24</string>
+     </void>
+     <void property="maxValue">
+      <float>3.0E-22</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>test_CALC_CML_ca_2</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>Golgi_CALC_CML:CONC:ca</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>Golgi</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_28</string>
+     </void>
+     <void property="maxValue">
+      <float>3.0E-4</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>test_CALC_mod_ca_7</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>cai</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>Golgi</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_28</string>
+     </void>
+     <void property="maxValue">
+      <float>3.0E-4</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>test_CALC_mod_ca2_2</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>ca2i</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>Golgi_CML</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_28</string>
+     </void>
+     <void property="maxValue">
+      <float>3.0E-22</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>test_CALC_CML_ca2_2</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>Golgi_CALC_ca2_CML:CONC:ca2</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>Golgi_CML</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_28</string>
+     </void>
+     <void property="maxValue">
+      <float>3.0E-22</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>test_CALC_CML_ca_3</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>Golgi_CALC_CML:CONC:ca</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>Golgi_CML_TestNeuGen</string>
+     </void>
+     <void property="cellNumber">
+      <string>*</string>
+     </void>
+     <void property="graphWindow">
+      <string>Golgi_TestNeuGen_v</string>
+     </void>
+     <void property="maxValue">
+      <float>50.0</float>
+     </void>
+     <void property="minValue">
+      <float>-90.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>Golgi_CML_TestNeuGen_v</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+    </object>
+   </void>
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.project.ProjectProperties">
@@ -3569,10 +3919,6 @@ Resonance: the response to a current injection is enached during repeted stimula
     <string></string>
    </void>
    <void method="put">
-    <float>-1.0</float>
-    <string></string>
-   </void>
-   <void method="put">
     <float>1.0</float>
     <string>print &quot;Changing values of ena, ek&quot;
 
@@ -3587,6 +3933,10 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
 }
 
 </string>
+   </void>
+   <void method="put">
+    <float>-1.0</float>
+    <string></string>
    </void>
    <void method="put">
     <float>2.0</float>
@@ -3611,7 +3961,7 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
    <float>1000.0</float>
   </void>
   <void property="reference">
-   <string>Sim_605</string>
+   <string>Sim_625</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -4508,6 +4858,18 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
      </void>
      <void property="plots">
       <void method="add">
+       <string>test_CALC_mod_ca_7</string>
+      </void>
+      <void method="add">
+       <string>test_CALC_mod_ca_6</string>
+      </void>
+      <void method="add">
+       <string>test_CALC_mod_ca2_2</string>
+      </void>
+      <void method="add">
+       <string>test_CALC_mod_ca2_1</string>
+      </void>
+      <void method="add">
        <string>mod_v</string>
       </void>
       <void method="add">
@@ -4517,11 +4879,23 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
        <string>Golgi_v</string>
       </void>
       <void method="add">
+       <string>test_CALC_CML_ca2_2</string>
+      </void>
+      <void method="add">
+       <string>test_CALC_CML_ca2_1</string>
+      </void>
+      <void method="add">
+       <string>test_CALC_CML_ca_3</string>
+      </void>
+      <void method="add">
+       <string>test_CALC_CML_ca_2</string>
+      </void>
+      <void method="add">
        <string>CML_v</string>
       </void>
      </void>
      <void property="simDuration">
-      <float>200.0</float>
+      <float>1000.0</float>
      </void>
     </object>
    </void>
@@ -5683,6 +6057,29 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
      </void>
      <void property="simDuration">
       <float>100.0</float>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+     <void property="cellGroups">
+      <void method="add">
+       <string>Golgi_CML_TestNeuGen</string>
+      </void>
+     </void>
+     <void property="name">
+      <string>TestNeuronGenesis</string>
+     </void>
+     <void property="plots">
+      <void method="add">
+       <string>Golgi_CML_TestNeuGen_v</string>
+      </void>
+      <void method="add">
+       <string>Golgi_TestNeuGen_v</string>
+      </void>
+     </void>
+     <void property="simDuration">
+      <float>200.0</float>
      </void>
     </object>
    </void>

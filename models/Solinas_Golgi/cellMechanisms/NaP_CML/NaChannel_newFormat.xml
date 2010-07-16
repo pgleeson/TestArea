@@ -113,7 +113,7 @@
 
                 <transition name="alpha" from="m0" to="m" expr_form="exp_linear" rate="0.91" scale="5" midpoint="-40"/>  
                 <transition name="beta" from="m" to="m0" expr_form="exp_linear" rate="0.62" scale="-5" midpoint="-40"/> 
-                <steady_state name="inf" from="m0" to="m" expr_form="generic" expr="1/(1+exp(-(v+43)/5))"/>
+                <steady_state name="inf" from="m0" to="m" expr_form="generic" expr="1/(1+(exp (-(v+43)/5)))"/>
 	    </gate>
             
         </current_voltage_relation>       

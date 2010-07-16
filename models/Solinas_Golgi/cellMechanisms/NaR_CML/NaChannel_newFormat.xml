@@ -107,8 +107,8 @@
                 <transition name="beta" from="s" to="s0" expr_form="exp_linear" rate="0.0016854444" scale="-0.10818" midpoint="-43.97494"/>  
                 -->
                 
-                <transition name="alpha" from="s0" to="s" expr_form="generic" expr=" 0.00008 + 0.0336167333 * ((v-4.48754)/6.81881)  / (1 - exp(-(v-4.48754)/6.81881))"/>  
-                <transition name="beta" from="s" to="s0" expr_form="generic" expr=" 0.04752 + 0.0016854444 * ((v+43.97494)/-0.10818)  / (1 - exp(-(v+43.97494)/-0.10818))"/>
+                <transition name="alpha" from="s0" to="s" expr_form="generic" expr=" 0.00008 + 0.0336167333 * ((v-4.48754)/6.81881)  / (1 - (exp (-(v-4.48754)/6.81881)))"/>
+                <transition name="beta" from="s" to="s0" expr_form="generic" expr=" 0.04752 + 0.0016854444 * ((v+43.97494)/-0.10818)  / (1 - (exp (-(v+43.97494)/-0.10818)))"/>
                 
             </gate>
             
