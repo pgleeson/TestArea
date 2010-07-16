@@ -22,7 +22,7 @@
         
         <meta:notes>A slow M-like K+ channel, based on mod file supplied with Solinas et al 2007 (ModelDB 112685)</meta:notes>
 
-     <meta:authorList>
+        <meta:authorList>
              <meta:modelAuthor>
                 <meta:name>E.DAngelo</meta:name>
                 <meta:comment>Cited implementer according to the original .mod file. Note from original mod file: Last revised: 8.5.2000</meta:comment>

@@ -11,13 +11,13 @@ Note the following:
    Mechanism Type should only have values: Channel mechanism, Synaptic mechanism, Ion concentration, Point process, Gap junction
 
 </comment>
-<entry key="Description">v type Kv channel</entry>
+<entry key="Description">SK type Ca2+ dependent K+ channel (After HyperPolarizing), based on mod file supplied with Solinas et al 2007 (ModelDB 112685)</entry>
 <entry key="NEURON mapping">ChannelML_v1.8.1_NEURONmod.xsl</entry>
 <entry key="GENESIS mapping">ChannelML_v1.8.1_GENESIStab.xsl</entry>
 <entry key="Implementation method">ChannelML based Cell Mechanism</entry>
 <entry key="NEURON file requires compilation">true</entry>
 <entry key="Mechanism Type">Channel mechanism</entry>
-<entry key="ChannelML file">KChannel_newFormat.xml</entry>
+<entry key="ChannelML file">KChan_KineticScheme.xml</entry>
 <entry key="GENESIS file requires compilation">true</entry>
 <entry key="Mechanism Name">KAHP_CML</entry>
 <entry key="Mechanism Model">ChannelML based process</entry>
