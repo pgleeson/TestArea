@@ -348,16 +348,19 @@ select="cml:current_voltage_relation/cml:conc_factor/@variable_name"/><xsl:text>
     i = gmax*(v - e) 
         </xsl:when>
         <xsl:otherwise>
-    <xsl:choose><xsl:when test="$voltConcDependence='yes'">SOLVE states METHOD derivimplicit</xsl:when> <!-- Needed for concentration dependence-->
-    <xsl:when test="count(cml:current_voltage_relation/cml:gate) = 1 and count(cml:current_voltage_relation/cml:gate/cml:closed_state) &gt; 1">
+    <xsl:choose>
+        <xsl:when test="count(cml:current_voltage_relation/cml:gate) = 1 and count(cml:current_voltage_relation/cml:gate/cml:closed_state) &gt; 1">
 
     SOLVE kin METHOD sparse
-    </xsl:when>
-    <xsl:when test="count(cml:current_voltage_relation/cml:ohmic/cml:conductance/cml:gate) &gt; 0 or 
+        </xsl:when>
+        <xsl:when test="$voltConcDependence='yes'">
+    SOLVE states METHOD derivimplicit</xsl:when> <!-- Needed for concentration dependence-->
+    
+        <xsl:when test="count(cml:current_voltage_relation/cml:ohmic/cml:conductance/cml:gate) &gt; 0 or
                     count(cml:current_voltage_relation/cml:gate) &gt; 0">
                         
     SOLVE states METHOD cnexp
-    </xsl:when> <!-- When it's not a nonSpecificCurrent but there are no gates, this statement is not needed-->
+        </xsl:when> <!-- When it's not a nonSpecificCurrent but there are no gates, this statement is not needed-->
     </xsl:choose>
     <xsl:if test="count(cml:current_voltage_relation/cml:ohmic) &gt; 0"> <!-- pre v1.7.3 -->
     gion = gmax<xsl:for-each select="cml:current_voltage_relation/cml:ohmic/cml:conductance/cml:gate">*((<xsl:if test="count(cml:state/@fraction) &gt; 0">
@@ -365,9 +368,8 @@ select="cml:current_voltage_relation/cml:conc_factor/@variable_name"/><xsl:text>
     </xsl:if>
     <xsl:if test="count(cml:current_voltage_relation/cml:gate) &gt; 0"> <!-- post v1.7.3 -->
         <xsl:for-each select="cml:current_voltage_relation/cml:gate">
-    ?<xsl:value-of select="@name"/> = <xsl:for-each select="cml:open_state"> <xsl:if test="position() &gt; 1"> +</xsl:if> (<xsl:if test="count(@fraction) &gt; 0"><xsl:value-of select="@fraction"/>*</xsl:if><xsl:value-of select="@id"/>)</xsl:for-each>
     </xsl:for-each>
-    gion = gmax<xsl:for-each select="cml:current_voltage_relation/cml:gate"> * ( ( <xsl:for-each select="cml:open_state"> <xsl:if test="position() &gt; 1"> +</xsl:if> (<xsl:if test="count(@fraction) &gt; 0"><xsl:value-of select="@fraction"/>*</xsl:if><xsl:value-of select="@id"/>) </xsl:for-each> ) ^<xsl:value-of select="@instances"/>)</xsl:for-each>
+    gion = gmax<xsl:for-each select="cml:current_voltage_relation/cml:gate"> * (<xsl:if test="count(cml:open_state) &gt; 1">( </xsl:if> <xsl:for-each select="cml:open_state"><xsl:if test="position() &gt; 1"> + </xsl:if> <xsl:if test="count(@fraction) &gt; 0">(<xsl:value-of select="@fraction"/>*</xsl:if><xsl:value-of select="@id"/><xsl:if test="count(@fraction) &gt; 0">)</xsl:if> </xsl:for-each><xsl:if test="count(cml:open_state) &gt; 1"> )</xsl:if>^<xsl:value-of select="@instances"/>)</xsl:for-each>
     </xsl:if>
     <xsl:for-each select="cml:current_voltage_relation/cml:ohmic/cml:conductance/cml:conc_factor | cml:current_voltage_relation/cml:conc_factor">
     <xsl:text>
@@ -510,7 +512,12 @@ STATE {
     <xsl:when test="count(cml:current_voltage_relation/cml:gate[1]/cml:closed_state) &gt; 1">
 
 KINETIC kin {
-    rates(v)
+    <xsl:choose>
+        <xsl:when test="$voltConcDependence='yes'">settables(v,cai)
+    </xsl:when>
+        <xsl:otherwise>rates(v)
+    </xsl:otherwise>
+    </xsl:choose>
     <xsl:for-each select="cml:current_voltage_relation/cml:gate/cml:transition">
         <xsl:variable name="from"><xsl:value-of select="@from"/></xsl:variable>
         <xsl:variable name="to"><xsl:value-of select="@to"/></xsl:variable>
@@ -561,13 +568,14 @@ DERIVATIVE states {
     </xsl:choose>
 
 }
-    </xsl:otherwise>
+
+</xsl:otherwise>
 </xsl:choose>
 
 
 <xsl:choose>
-        <xsl:when test="$voltConcDependence='yes'">PROCEDURE settables(v(mV), cai(mM)) { </xsl:when>
-        <xsl:otherwise>PROCEDURE rates(v(mV)) { </xsl:otherwise>
+    <xsl:when test="$voltConcDependence='yes'">PROCEDURE settables(v(mV), cai(mM)) { </xsl:when>
+    <xsl:otherwise>PROCEDURE rates(v(mV)) { </xsl:otherwise>
     </xsl:choose> 
     
     ? Note: not all of these may be used, depending on the form of rate equations

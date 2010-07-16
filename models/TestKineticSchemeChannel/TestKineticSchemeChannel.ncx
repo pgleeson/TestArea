@@ -1343,7 +1343,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    <float>100.0</float>
   </void>
   <void property="reference">
-   <string>Sim_94</string>
+   <string>Sim_98</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>

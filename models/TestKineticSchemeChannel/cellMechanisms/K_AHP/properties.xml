@@ -11,8 +11,7 @@ Note the following:
    Mechanism Type should only have values: Channel mechanism, Synaptic mechanism, Ion concentration, Point process, Gap junction
 
 </comment>
-<entry key="Description">K conductance with 6 kinetic states. NOTE: currently a mapping is only provided
-                    to the NEURON Channel Builder format and PSICS</entry>
+<entry key="Description">SK type Ca2+ dependent K+ channel (After Hyper Polarizing), based on mod file supplied with Solinas et al 2007 (ModelDB 112685)</entry>
 <entry key="NEURON mapping">ChannelML_v1.8.1_NEURONmod.xsl</entry>
 <entry key="PSICS file requires compilation">false</entry>
 <entry key="Implementation method">ChannelML based Cell Mechanism</entry>
