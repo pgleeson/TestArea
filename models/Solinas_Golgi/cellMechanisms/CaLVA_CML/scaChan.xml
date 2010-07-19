@@ -87,8 +87,8 @@
                 <open_state id="m"/>
                 
                           <!--                
-    shift   = 2   
-    v0_m_inf = -50 (mV)	
+        shift   = 2
+        v0_m_inf = -50 (mV)
 	k_m_inf = -7.4 (mV)
 	
 	C_tau_m = 3
@@ -98,9 +98,9 @@
 	k_tau_m1 = 10 (mV)
 	k_tau_m2 = -15 (mV)
 	
-    m_inf = 1.0 / ( 1 + exp((v + shift - v0_m_inf)/k_m_inf) )
+        m_inf = 1.0 / ( 1 + exp((v + shift - v0_m_inf)/k_m_inf) )
                = 1.0 / ( 1 + exp((v + 2 - (-50))/-7.4 ) )
-    tau_m = ( C_tau_m + A_tau_m / ( exp((v+shift - v0_tau_m1)/ k_tau_m1) + exp((v+shift - v0_tau_m2)/k_tau_m2) ) ) / phi_m
+        tau_m = ( C_tau_m + A_tau_m / ( exp((v+shift - v0_tau_m1)/ k_tau_m1) + exp((v+shift - v0_tau_m2)/k_tau_m2) ) ) / phi_m
                 = ( 3 + 1/ ( exp((v+2 - (-25))/ 10) + exp((v+2 - (-100))/-15) ) ) / phi_m      with     phi_m = 5.0 ^ ((celsius-24)/10)				    
                 	-->
 
@@ -119,7 +119,7 @@
 
 
 	shift   = 2   
-    v0_h_inf = -78 (mV)
+        v0_h_inf = -78 (mV)
 	k_h_inf = 5.0  (mv)
 	
 	C_tau_h = 85
@@ -129,9 +129,10 @@
 	k_tau_h1 = 4 (mV)
 	k_tau_h2 = -50 (mV)
 
-   h_inf = 1.0 / ( 1 + exp((v + shift - v0_h_inf)/k_h_inf) )
+       h_inf = 1.0 / ( 1 + exp((v + shift - v0_h_inf)/k_h_inf) )
              = 1.0 / ( 1 + exp((v + 2 - (-78))/5) )
-   tau_h = ( C_tau_h + A_tau_h / ( exp((v+shift - v0_tau_h1)/k_tau_h1) + exp((v+shift - v0_tau_h2)/k_tau_h2) ) ) / phi_h
+
+       tau_h = ( C_tau_h + A_tau_h / ( exp((v+shift - v0_tau_h1)/k_tau_h1) + exp((v+shift - v0_tau_h2)/k_tau_h2) ) ) / phi_h
               = ( 85 + 1 / ( exp((v+2 - (-46))/4) + exp((v+2 - (-405))/-50) ) ) / phi_h      with     phi_h = 3.0 ^ ((celsius-24)/10)
 
           -->

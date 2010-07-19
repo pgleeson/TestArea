@@ -1010,6 +1010,9 @@ Resonance: the response to a current injection is enached during repeted stimula
      <void property="minValue">
       <float>-90.0</float>
      </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
      <void property="plotReference">
       <string>Golgi_Noise_reset</string>
      </void>
@@ -3955,13 +3958,13 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
  <object class="ucl.physiol.neuroconstruct.psics.PsicsSettings"/>
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters">
   <void property="dt">
-   <float>0.005</float>
+   <float>0.01</float>
   </void>
   <void property="duration">
    <float>1000.0</float>
   </void>
   <void property="reference">
-   <string>Sim_625</string>
+   <string>Sim_673</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -4830,13 +4833,7 @@ forall if (ismembrane(&quot;k_ion&quot;)) {
     <object class="ucl.physiol.neuroconstruct.project.SimConfig">
      <void property="cellGroups">
       <void method="add">
-       <string>Golgi_CML</string>
-      </void>
-      <void method="add">
        <string>CML</string>
-      </void>
-      <void method="add">
-       <string>Golgi</string>
       </void>
       <void method="add">
        <string>mod</string>
