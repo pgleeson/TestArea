@@ -1242,12 +1242,13 @@ NEURON {
     RANGE ceiling
     </xsl:if>
     
-    GLOBAL total_current
-    
     <xsl:if test="count(cml:decaying_pool_model/cml:pool_volume_info) &gt; 0">
     RANGE thickness, F
+
+
+    RANGE total_current
+    RANGE volume_pool
     
-    GLOBAL volume, surf_area
     </xsl:if>
     <xsl:if test="count(cml:decaying_pool_model/cml:fixed_pool_info) &gt; 0">
     RANGE phi
@@ -1259,18 +1260,51 @@ ASSIGNED {
 
     i<xsl:value-of select="$ionused"/> (mA/cm2)
     diam (um)
+    area (um)
 }
 
 INITIAL {
     <xsl:if test="count(cml:decaying_pool_model/cml:pool_volume_info) &gt; 0">
         
-    LOCAL shell_inner_diam
+    LOCAL pi, shell_inner_diam, cylinderLen, circumference, circumference_shell, volumeOuter, volumeInner, volumeSph, volumeCyl
+
+    pi = 3.14159265
 
     shell_inner_diam = diam - (2*thickness)
-    
-    volume = (diam*diam*diam)*3.14159/6 - (shell_inner_diam*shell_inner_diam*shell_inner_diam)*3.14159/6
-    
-    surf_area = (diam*diam)*3.14159
+
+
+    ?  Volume of the pool if it is a shell inside a sphere of diameter diam
+
+    volumeSph = (diam*diam*diam) * pi / 6 - (shell_inner_diam*shell_inner_diam*shell_inner_diam)* pi / 6
+
+
+    ? Volume of the pool if it is a cylinder
+
+    circumference = diam * pi
+    circumference_shell = shell_inner_diam * pi
+
+    cylinderLen = area/circumference
+
+    volumeOuter = (diam * diam/4) * pi * cylinderLen
+    volumeInner = (shell_inner_diam * shell_inner_diam/4) * pi * cylinderLen
+    volumeCyl = volumeOuter - volumeInner
+
+    if ((area - (pi * diam * diam)) &lt; 1e-4 &amp;&amp; (area - (pi * diam * diam)) &gt; -1e-4 ) {
+
+        ? Assume the segment is a sphere
+        printf("+++++++ Assume a sphere: %g, %g, %g\n", area, (pi * diam * diam), (area - (pi * diam * diam)))
+
+        volume_pool = volumeSph
+        
+    } else {
+
+        ? assume segment is a cylinder
+        printf("+++++++ Assume a cylinder: %g, %g, %g\n", area, (pi * diam * diam), (area - (pi * diam * diam)))
+
+        volume_pool = volumeCyl
+    }
+
+    printf("+++++++ Init ca, diam: %g, cylinderLen: %g, volume_pool: %g, volumeSph: %g, volumeCyl: %g, area as sph: %g, area x d: %g, area: %g\n", diam, cylinderLen, volume_pool, volumeSph, volumeCyl, (pi * diam * diam), (area*thickness), area)
     
     </xsl:if>
     <xsl:value-of select="$ionused"/>i = rest_conc
@@ -1322,8 +1356,7 @@ PARAMETER {
                     <xsl:with-param name="quantity">Length</xsl:with-param>
                 </xsl:call-template> (um)   
                 
-    volume
-    surf_area
+    volume_pool
     </xsl:if>
     <xsl:if test="count(cml:decaying_pool_model/cml:fixed_pool_info) &gt; 0">
     phi = <xsl:value-of select="cml:decaying_pool_model/cml:fixed_pool_info/cml:phi"/>
@@ -1356,8 +1389,8 @@ DERIVATIVE conc {
     LOCAL thickness_cm, surf_area_cm2, volume_cm3 ? Note, normally dimensions are in um, but curr dens is in mA/cm2, etc
     
     thickness_cm = thickness *(1e-4)
-    surf_area_cm2 = surf_area * 1e-8
-    volume_cm3 = volume * 1e-12
+    surf_area_cm2 = area * 1e-8
+    volume_cm3 = volume_pool * 1e-12
     
     total_current = i<xsl:value-of select="$ionused"/> * surf_area_cm2
 
@@ -1839,7 +1872,8 @@ NET_RECEIVE(weight (uS)<xsl:if test="count(cml:fac_dep_syn)>0 ">, U, R, tsyn (ms
     
         M = M*exp((t_post_spike-t)/tau_ltd) - del_weight_ltd
 
-        //////////// ?????  deltaw = wmax * P * exp(-(t - t_pre_spike)/tau_ltp)
+        //Todo: double check this!
+        //?  deltaw = wmax * P * exp(-(t - t_pre_spike)/tau_ltp)
         deltaw = deltaw + wmax * P * exp(-(t - t_pre_spike)/tau_ltp)
         
         t_post_spike = t
