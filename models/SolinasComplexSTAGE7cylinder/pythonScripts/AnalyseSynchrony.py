@@ -29,7 +29,7 @@ from ucl.physiol.neuroconstruct.dataset import DataSet
 
 projFile = File("../SolinasComplexSTAGE7cylinder.ncx")
 
-simRefs = ["Sim_2331", "Sim_2333", "Sim_2334", "Sim_2335", "Sim_2337", "Sim_2338", "Sim_2344", "Sim_2348", "Sim_2349"]
+simRefs = ["Sim_2363", "Sim_2374", "Sim_2365", "Sim_2366", "Sim_2368", "Sim_2369", "Sim_2376", "Sim_2371", "Sim_2372"]
 #simRefs = ["Sim_2296"]
 
 threshold = -20  # above which constitutes a spike
