@@ -3,10 +3,10 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sbml.org/sbml/level2/version2   http://sbml.org/Special/xml-schemas/sbml-l2v2-schema/sbml.xsd">
 
-<model id="KChan_SBML" name="KChan_SBML" >
+<model id="Arch_SBML" name="Arch_SBML" >
 
 <notes>
-  <p xmlns="http://www.w3.org/1999/xhtml">Simple test SBML script replicating HH K Channel. Based on K chan in BIOMD0000000020 - Hodgkin-Huxley1952 squid-axon</p>
+  <p xmlns="http://www.w3.org/1999/xhtml">Archaerhodopsin...</p>
 </notes>
 
 
