@@ -248,10 +248,37 @@ incorporating channel mechanisms based on ChannelML</string>
    <void method="put">
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
      <void property="density">
-      <float>8.89691E-8</float>
+      <float>3.30033E-10</float>
      </void>
      <void property="name">
-      <string>Gran_KDr_98</string>
+      <string>GranPassiveCond</string>
+     </void>
+    </object>
+    <object class="java.util.Vector">
+     <void method="add">
+      <string>soma_group</string>
+     </void>
+    </object>
+   </void>
+   <void method="put">
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
+     <void property="name">
+      <string>Gran_CaPool_98</string>
+     </void>
+    </object>
+    <object class="java.util.Vector">
+     <void method="add">
+      <string>soma_group</string>
+     </void>
+    </object>
+   </void>
+   <void method="put">
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
+     <void property="density">
+      <float>5.57227E-7</float>
+     </void>
+     <void property="name">
+      <string>Gran_NaF_98</string>
      </void>
     </object>
     <object class="java.util.Vector">
@@ -278,10 +305,10 @@ incorporating channel mechanisms based on ChannelML</string>
    <void method="put">
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
      <void property="density">
-      <float>5.57227E-7</float>
+      <float>8.89691E-8</float>
      </void>
      <void property="name">
-      <string>Gran_NaF_98</string>
+      <string>Gran_KDr_98</string>
      </void>
     </object>
     <object class="java.util.Vector">
@@ -292,8 +319,11 @@ incorporating channel mechanisms based on ChannelML</string>
    </void>
    <void method="put">
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
+     <void property="density">
+      <float>3.090506E-10</float>
+     </void>
      <void property="name">
-      <string>Gran_CaPool_98</string>
+      <string>Gran_H_98</string>
      </void>
     </object>
     <object class="java.util.Vector">
@@ -320,40 +350,10 @@ incorporating channel mechanisms based on ChannelML</string>
    <void method="put">
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
      <void property="density">
-      <float>3.30033E-10</float>
-     </void>
-     <void property="name">
-      <string>GranPassiveCond</string>
-     </void>
-    </object>
-    <object class="java.util.Vector">
-     <void method="add">
-      <string>soma_group</string>
-     </void>
-    </object>
-   </void>
-   <void method="put">
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
-     <void property="density">
       <float>1.79811E-7</float>
      </void>
      <void property="name">
       <string>Gran_KCa_98</string>
-     </void>
-    </object>
-    <object class="java.util.Vector">
-     <void method="add">
-      <string>soma_group</string>
-     </void>
-    </object>
-   </void>
-   <void method="put">
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
-     <void property="density">
-      <float>3.090506E-10</float>
-     </void>
-     <void property="name">
-      <string>Gran_H_98</string>
      </void>
     </object>
     <object class="java.util.Vector">

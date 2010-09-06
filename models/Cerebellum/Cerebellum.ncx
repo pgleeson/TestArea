@@ -451,7 +451,7 @@ part of NeuroML or any standardised XML specification. -->
     <void method="add">
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter">
       <void property="maxNumberCells">
-       <int>600</int>
+       <int>60</int>
       </void>
      </object>
     </void>
@@ -471,14 +471,14 @@ part of NeuroML or any standardised XML specification. -->
     <void method="add">
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter">
       <void property="maxNumberCells">
-       <int>4</int>
+       <int>2</int>
       </void>
      </object>
     </void>
     <void method="add">
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter">
       <void property="maxNumberCells">
-       <int>3</int>
+       <int>2</int>
       </void>
      </object>
     </void>
@@ -1316,9 +1316,6 @@ part of NeuroML or any standardised XML specification. -->
      <void property="segmentId">
       <string>0</string>
      </void>
-     <void property="valuePlotted">
-      <string>SPIKE:-20</string>
-     </void>
     </object>
    </void>
    <void method="add">
@@ -1371,9 +1368,6 @@ part of NeuroML or any standardised XML specification. -->
      </void>
      <void property="segmentId">
       <string>0</string>
-     </void>
-     <void property="valuePlotted">
-      <string>SPIKE:-20</string>
      </void>
     </object>
    </void>
@@ -1680,6 +1674,9 @@ part of NeuroML or any standardised XML specification. -->
     <int>255</int>
    </object>
   </void>
+  <void property="displayOption">
+   <string>Soma solid, neurite lines</string>
+  </void>
   <void property="minRadius">
    <float>1.0</float>
   </void>
@@ -1687,12 +1684,6 @@ part of NeuroML or any standardised XML specification. -->
    <int>16</int>
   </void>
   <void property="showInputs">
-   <boolean>false</boolean>
-  </void>
-  <void property="showSynapseConns">
-   <boolean>false</boolean>
-  </void>
-  <void property="showSynapseEndpoints">
    <boolean>false</boolean>
   </void>
  </object>
@@ -1769,7 +1760,7 @@ part of NeuroML or any standardised XML specification. -->
    <float>700.0</float>
   </void>
   <void property="reference">
-   <string>Sim_613</string>
+   <string>Sim_619</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -2010,6 +2001,9 @@ part of NeuroML or any standardised XML specification. -->
      </void>
      <void property="netConns">
       <void method="add">
+       <string>NetConn_GrC_3D_Purkinjes</string>
+      </void>
+      <void method="add">
        <string>NetConnGrCGoC</string>
       </void>
       <void method="add">
@@ -2018,10 +2012,16 @@ part of NeuroML or any standardised XML specification. -->
       <void method="add">
        <string>NetConnMFGrC</string>
       </void>
+      <void method="add">
+       <string>NetConn_GrC_3D_Golgis_detailed</string>
+      </void>
      </void>
      <void property="plots">
       <void method="add">
        <string>MF_3D_Small_v</string>
+      </void>
+      <void method="add">
+       <string>GrC_3D_v</string>
       </void>
       <void method="add">
        <string>Plot_0</string>
@@ -2030,14 +2030,23 @@ part of NeuroML or any standardised XML specification. -->
        <string>Purkinjes_v</string>
       </void>
       <void method="add">
+       <string>Golgis_detailed_v</string>
+      </void>
+      <void method="add">
+       <string>MF_3D_v</string>
+      </void>
+      <void method="add">
        <string>Var_0</string>
       </void>
       <void method="add">
        <string>GrC_3D_Small_v</string>
       </void>
+      <void method="add">
+       <string>GoC_3D_v</string>
+      </void>
      </void>
      <void property="simDuration">
-      <float>1000.0</float>
+      <float>500.0</float>
      </void>
     </object>
    </void>
@@ -2315,9 +2324,21 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
     <void method="add">
      <string>NetConnGoCGrC</string>
     </void>
+    <void method="add">
+     <string>NetConn_GrC_3D_Golgis_detailed</string>
+    </void>
+    <void method="add">
+     <string>NetConn_GrC_3D_Purkinjes</string>
+    </void>
    </void>
    <void method="get">
     <string>AP speed</string>
+    <void method="add">
+     <float>3.4028235E38</float>
+    </void>
+    <void method="add">
+     <float>3.4028235E38</float>
+    </void>
     <void method="add">
      <float>3.4028235E38</float>
     </void>
@@ -2810,6 +2831,71 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
       </void>
      </object>
     </void>
+    <void method="add">
+     <object class="java.util.Vector">
+      <void method="add">
+       <object class="ucl.physiol.neuroconstruct.project.SynapticProperties">
+        <void property="delayGenerator">
+         <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+          <void property="numberType">
+           <int>11</int>
+          </void>
+         </object>
+        </void>
+        <void property="synapseType">
+         <string>AMPA_GranGol</string>
+        </void>
+        <void property="threshold">
+         <double>-20.0</double>
+        </void>
+        <void property="weightsGenerator">
+         <object class="ucl.physiol.neuroconstruct.utils.WeightGenerator">
+          <void property="distributionType">
+           <int>1</int>
+          </void>
+          <void property="max">
+           <float>0.69</float>
+          </void>
+          <void property="min">
+           <float>0.51</float>
+          </void>
+          <void property="numberType">
+           <int>11</int>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="java.util.Vector">
+      <void method="add">
+       <object class="ucl.physiol.neuroconstruct.project.SynapticProperties">
+        <void property="delayGenerator">
+         <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+          <void property="numberType">
+           <int>11</int>
+          </void>
+         </object>
+        </void>
+        <void property="synapseType">
+         <string>AMPA_GranGol</string>
+        </void>
+        <void property="threshold">
+         <double>-20.0</double>
+        </void>
+        <void property="weightsGenerator">
+         <object class="ucl.physiol.neuroconstruct.utils.WeightGenerator">
+          <void property="numberType">
+           <int>11</int>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
    </void>
    <void method="get">
     <string>Max/min</string>
@@ -2847,6 +2933,12 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
        <int>200</int>
       </void>
      </object>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.MaxMinLength"/>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.MaxMinLength"/>
     </void>
     <void method="add">
      <object class="ucl.physiol.neuroconstruct.project.MaxMinLength"/>
@@ -2898,31 +2990,36 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
     </void>
     <void method="add">
      <object class="ucl.physiol.neuroconstruct.project.SearchPattern">
-      <void property="randomCloseNumber">
-       <int>20</int>
-      </void>
       <void property="type">
-       <int>1</int>
+       <int>0</int>
       </void>
      </object>
     </void>
     <void method="add">
      <object class="ucl.physiol.neuroconstruct.project.SearchPattern">
-      <void property="randomCloseNumber">
-       <int>20</int>
-      </void>
       <void property="type">
-       <int>1</int>
+       <int>0</int>
       </void>
      </object>
     </void>
     <void method="add">
      <object class="ucl.physiol.neuroconstruct.project.SearchPattern">
-      <void property="randomCloseNumber">
-       <int>20</int>
-      </void>
       <void property="type">
-       <int>1</int>
+       <int>0</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.SearchPattern">
+      <void property="type">
+       <int>2</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.SearchPattern">
+      <void property="type">
+       <int>2</int>
       </void>
      </object>
     </void>
@@ -2955,6 +3052,12 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
     </void>
     <void method="add">
      <string>GoC_3D</string>
+    </void>
+    <void method="add">
+     <string>GrC_3D</string>
+    </void>
+    <void method="add">
+     <string>GrC_3D</string>
     </void>
    </void>
    <void method="get">
@@ -3073,6 +3176,42 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
       </void>
      </object>
     </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+      <void property="allowAutapses">
+       <boolean>false</boolean>
+      </void>
+      <void property="generationDirection">
+       <int>1</int>
+      </void>
+      <void property="numConnsInitiatingCellGroup">
+       <void property="fixedNum">
+        <float>40.0</float>
+       </void>
+      </void>
+      <void property="onlyConnectToUniqueCells">
+       <boolean>true</boolean>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+      <void property="allowAutapses">
+       <boolean>false</boolean>
+      </void>
+      <void property="generationDirection">
+       <int>1</int>
+      </void>
+      <void property="numConnsInitiatingCellGroup">
+       <void property="fixedNum">
+        <float>30.0</float>
+       </void>
+      </void>
+      <void property="onlyConnectToUniqueCells">
+       <boolean>true</boolean>
+      </void>
+     </object>
+    </void>
    </void>
    <void method="get">
     <string>Target</string>
@@ -3102,6 +3241,12 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
     </void>
     <void method="add">
      <string>GrC_3D</string>
+    </void>
+    <void method="add">
+     <string>Golgis_detailed</string>
+    </void>
+    <void method="add">
+     <string>Purkinjes</string>
     </void>
    </void>
   </void>

@@ -29,7 +29,7 @@ from ucl.physiol.neuroconstruct.simulation import SimulationData
 from ucl.physiol.neuroconstruct.simulation import SpikeAnalyser
 
 
-projFile = File("../GranCellLayer.ncx")
+projFile = File("../Cerebellum.ncx")
 
 
 ###########  Main settings  ###########

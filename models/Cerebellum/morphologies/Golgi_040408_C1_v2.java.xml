@@ -140134,10 +140134,10 @@ See the main project description for more details on the cells included with thi
    <void method="put">
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
      <void property="density">
-      <float>3.8E-7</float>
+      <float>4.6E-9</float>
      </void>
      <void property="name">
-      <string>KSK</string>
+      <string>Ca_HVA</string>
      </void>
     </object>
     <object class="java.util.Vector">
@@ -140149,10 +140149,40 @@ See the main project description for more details on the cells included with thi
    <void method="put">
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
      <void property="density">
-      <float>8.0E-8</float>
+      <float>3.2E-7</float>
      </void>
      <void property="name">
-      <string>KA_VervaekeEtAl</string>
+      <string>KV</string>
+     </void>
+    </object>
+    <object class="java.util.Vector">
+     <void method="add">
+      <string>soma_group</string>
+     </void>
+    </object>
+   </void>
+   <void method="put">
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
+     <void property="density">
+      <float>5.0E-10</float>
+     </void>
+     <void property="name">
+      <string>HCN1</string>
+     </void>
+    </object>
+    <object class="java.util.Vector">
+     <void method="add">
+      <string>soma_group</string>
+     </void>
+    </object>
+   </void>
+   <void method="put">
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
+     <void property="density">
+      <float>1.9E-9</float>
+     </void>
+     <void property="name">
+      <string>NaP_VervaekeEtAl</string>
      </void>
     </object>
     <object class="java.util.Vector">
@@ -140168,6 +140198,33 @@ See the main project description for more details on the cells included with thi
      </void>
      <void property="name">
       <string>HCN2</string>
+     </void>
+    </object>
+    <object class="java.util.Vector">
+     <void method="add">
+      <string>soma_group</string>
+     </void>
+    </object>
+   </void>
+   <void method="put">
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
+     <void property="density">
+      <float>1.7E-8</float>
+     </void>
+     <void property="name">
+      <string>NaR</string>
+     </void>
+    </object>
+    <object class="java.util.Vector">
+     <void method="add">
+      <string>soma_group</string>
+     </void>
+    </object>
+   </void>
+   <void method="put">
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
+     <void property="name">
+      <string>CALC_ca2</string>
      </void>
     </object>
     <object class="java.util.Vector">
@@ -140206,6 +140263,36 @@ See the main project description for more details on the cells included with thi
    <void method="put">
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
      <void property="density">
+      <float>2.5E-9</float>
+     </void>
+     <void property="name">
+      <string>Ca_LVA</string>
+     </void>
+    </object>
+    <object class="java.util.Vector">
+     <void method="add">
+      <string>soma_group</string>
+     </void>
+    </object>
+   </void>
+   <void method="put">
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
+     <void property="density">
+      <float>3.8E-7</float>
+     </void>
+     <void property="name">
+      <string>KSK</string>
+     </void>
+    </object>
+    <object class="java.util.Vector">
+     <void method="add">
+      <string>soma_group</string>
+     </void>
+    </object>
+   </void>
+   <void method="put">
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
+     <void property="density">
       <float>4.8E-7</float>
      </void>
      <void property="name">
@@ -140220,23 +140307,11 @@ See the main project description for more details on the cells included with thi
    </void>
    <void method="put">
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
-     <void property="name">
-      <string>CALC_ca2</string>
-     </void>
-    </object>
-    <object class="java.util.Vector">
-     <void method="add">
-      <string>soma_group</string>
-     </void>
-    </object>
-   </void>
-   <void method="put">
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
      <void property="density">
-      <float>5.0E-10</float>
+      <float>8.0E-8</float>
      </void>
      <void property="name">
-      <string>HCN1</string>
+      <string>KA_VervaekeEtAl</string>
      </void>
     </object>
     <object class="java.util.Vector">
@@ -140257,81 +140332,6 @@ See the main project description for more details on the cells included with thi
     <object class="java.util.Vector">
      <void method="add">
       <string>all</string>
-     </void>
-    </object>
-   </void>
-   <void method="put">
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
-     <void property="density">
-      <float>4.6E-9</float>
-     </void>
-     <void property="name">
-      <string>Ca_HVA</string>
-     </void>
-    </object>
-    <object class="java.util.Vector">
-     <void method="add">
-      <string>soma_group</string>
-     </void>
-    </object>
-   </void>
-   <void method="put">
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
-     <void property="density">
-      <float>1.7E-8</float>
-     </void>
-     <void property="name">
-      <string>NaR</string>
-     </void>
-    </object>
-    <object class="java.util.Vector">
-     <void method="add">
-      <string>soma_group</string>
-     </void>
-    </object>
-   </void>
-   <void method="put">
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
-     <void property="density">
-      <float>1.9E-9</float>
-     </void>
-     <void property="name">
-      <string>NaP_VervaekeEtAl</string>
-     </void>
-    </object>
-    <object class="java.util.Vector">
-     <void method="add">
-      <string>soma_group</string>
-     </void>
-    </object>
-   </void>
-   <void method="put">
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
-     <void property="density">
-      <float>2.5E-9</float>
-     </void>
-     <void property="name">
-      <string>Ca_LVA</string>
-     </void>
-    </object>
-    <object class="java.util.Vector">
-     <void method="add">
-      <string>soma_group</string>
-     </void>
-    </object>
-   </void>
-   <void method="put">
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
-     <void property="density">
-      <float>3.2E-7</float>
-     </void>
-     <void property="name">
-      <string>KV</string>
-     </void>
-    </object>
-    <object class="java.util.Vector">
-     <void method="add">
-      <string>soma_group</string>
      </void>
     </object>
    </void>
@@ -140414,6 +140414,14 @@ See the main project description for more details on the cells included with thi
    </void>
    <void method="put">
     <string>GapJuncCML</string>
+    <object class="java.util.Vector">
+     <void method="add">
+      <string>dendrite_group</string>
+     </void>
+    </object>
+   </void>
+   <void method="put">
+    <string>AMPA_GranGol</string>
     <object class="java.util.Vector">
      <void method="add">
       <string>dendrite_group</string>
