@@ -2067,7 +2067,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_450</string> 
+   <string>Sim_451</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -2418,7 +2418,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
      </void> 
      <void property="dur"> 
       <void property="fixedNum"> 
-       <float>500.0</float> 
+       <float>100.0</float> 
       </void> 
       <void property="numberType"> 
        <int>11</int> 
@@ -2446,7 +2446,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
      </void> 
      <void property="dur"> 
       <void property="fixedNum"> 
-       <float>500.0</float> 
+       <float>100.0</float> 
       </void> 
       <void property="numberType"> 
        <int>11</int> 
@@ -2474,7 +2474,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
      </void> 
      <void property="dur"> 
       <void property="fixedNum"> 
-       <float>500.0</float> 
+       <float>100.0</float> 
       </void> 
       <void property="numberType"> 
        <int>11</int> 
@@ -2502,7 +2502,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
      </void> 
      <void property="dur"> 
       <void property="fixedNum"> 
-       <float>500.0</float> 
+       <float>100.0</float> 
       </void> 
       <void property="numberType"> 
        <int>11</int> 
