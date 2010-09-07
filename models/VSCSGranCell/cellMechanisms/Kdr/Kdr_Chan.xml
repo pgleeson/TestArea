@@ -2,14 +2,11 @@
 <channelml xmlns="http://morphml.org/channelml/schema" 
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
            xmlns:meta="http://morphml.org/metadata/schema" 
-           xsi:schemaLocation="http://morphml.org/channelml/schema   ../../../../templates/xmlTemplates/Schemata/v1.6/Level2/ChannelML_v1.6.xsd"
+           xsi:schemaLocation="http://morphml.org/channelml/schema    http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd"
            units="Physiological Units">
 
     <meta:notes>A channel originally from Maex, R and De Schutter, E. 1998, used in Berends et al 2005</meta:notes>
     
-    <ion name="k" charge="1" default_erev="-84.7">
-        <meta:notes>Using rev pot from D'Angelo et al 2001</meta:notes>
-    </ion>
     
     <channel_type name="Kdr" density="yes">
             
@@ -60,13 +57,13 @@
             <meta:uri>http://senselab.med.yale.edu/senselab/NeuronDB/channelGene2.htm#table3</meta:uri>
         </meta:neuronDBref>
 
-        
+        <!--
         <current_voltage_relation>
             <ohmic ion="k">
                 <conductance default_gmax="3">  
                     
                     <rate_adjustments>
-                        <q10_settings fixed_q10="5" experimental_temp="37"/> <!-- Note channel should only be used at 37 deg C!-->
+                        <q10_settings fixed_q10="5" experimental_temp="37"/> Note channel should only be used at 37 deg C!
                         <offset value="10"/>
                     </rate_adjustments>
                     
@@ -118,7 +115,34 @@
                     </beta>                                    
                 </voltage_gate>
             </transition>
-        </hh_gate>
+        </hh_gate>-->
+
+        <current_voltage_relation cond_law="ohmic" ion="k" default_gmax="3" default_erev="-84.7">
+
+            <q10_settings fixed_q10="5" experimental_temp="37"/>
+
+            <offset value="10"/>
+
+            <gate name="m" instances="4">
+                <closed_state id="m0"/>
+                <open_state id="m"/>
+
+                <transition name="alpha" from="m0" to="m" expr_form="exponential" rate="0.17" scale="13.7" midpoint="-38" />
+
+                <transition name="beta" from="m" to="m0" expr_form="exponential" rate="0.17" scale="-55.55" midpoint="-38" />
+
+            </gate>
+
+            <gate name="h" instances="1">
+                <closed_state id="h0"/>
+                <open_state id="h"/>
+
+                <transition name="alpha" from="h0" to="h" expr_form="generic" expr="v &gt; -46 ? 0.00076 : 0.0007 + 6.0e-5*(exp (-0.080*(v - (-46))))" />
+
+                <transition name="beta" from="h" to="h0" expr_form="sigmoid" rate="1.1e-3" scale="-12.4" midpoint="-44" />
+
+            </gate>
+        </current_voltage_relation>
         
         
         <impl_prefs>

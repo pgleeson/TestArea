@@ -93,10 +93,10 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
      <string>GranuleCell_mod_all</string> 
     </void> 
     <void method="add"> 
-     <string>GranuleCell_KA</string> 
+     <string>GranuleCell_Kdr</string> 
     </void> 
     <void method="add"> 
-     <string>GranuleCell_mod_KA</string> 
+     <string>GranuleCell_mod_Kdr</string> 
     </void> 
    </void> 
    <void method="get"> 
@@ -633,7 +633,7 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
      <void property="cellGroup"> 
-      <string>AllChansCG</string> 
+      <string>OneChanCML</string> 
      </void> 
      <void property="cellNumber"> 
       <string>0</string> 
@@ -664,7 +664,7 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
      <void property="cellGroup"> 
-      <string>AllChansCG_mod</string> 
+      <string>OneChanMod</string> 
      </void> 
      <void property="cellNumber"> 
       <string>0</string> 
@@ -695,7 +695,7 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
      <void property="cellGroup"> 
-      <string>AllChansCG</string> 
+      <string>OneChanCML</string> 
      </void> 
      <void property="cellNumber"> 
       <string>0</string> 
@@ -726,7 +726,7 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
      <void property="cellGroup"> 
-      <string>AllChansCG_mod</string> 
+      <string>OneChanMod</string> 
      </void> 
      <void property="cellNumber"> 
       <string>0</string> 
@@ -1415,11 +1415,11 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
     <string></string> 
    </void> 
    <void method="put"> 
-    <float>1.0</float> 
+    <float>-1.0</float> 
     <string></string> 
    </void> 
    <void method="put"> 
-    <float>-1.0</float> 
+    <float>1.0</float> 
     <string></string> 
    </void> 
    <void method="put"> 
@@ -1492,7 +1492,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_431</string> 
+   <string>Sim_435</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -1908,22 +1908,22 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
      </void> 
      <void property="plots"> 
       <void method="add"> 
+       <string>Var_13</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_12</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_11</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_10</string> 
+      </void> 
+      <void method="add"> 
        <string>OneChanCML_v</string> 
       </void> 
       <void method="add"> 
-       <string>Var_19</string> 
-      </void> 
-      <void method="add"> 
        <string>OneChanMod_v</string> 
-      </void> 
-      <void method="add"> 
-       <string>Var_25</string> 
-      </void> 
-      <void method="add"> 
-       <string>Var_24</string> 
-      </void> 
-      <void method="add"> 
-       <string>Var_20</string> 
       </void> 
      </void> 
      <void property="simDuration"> 
