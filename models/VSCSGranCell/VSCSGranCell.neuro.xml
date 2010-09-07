@@ -1987,11 +1987,11 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
     <string></string> 
    </void> 
    <void method="put"> 
-    <float>1.0</float> 
+    <float>-1.0</float> 
     <string></string> 
    </void> 
    <void method="put"> 
-    <float>-1.0</float> 
+    <float>1.0</float> 
     <string></string> 
    </void> 
    <void method="put"> 
@@ -2067,7 +2067,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_451</string> 
+   <string>Sim_452</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -2521,10 +2521,10 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
     <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
      <void property="cellGroups"> 
       <void method="add"> 
-       <string>OrigModCellGroup</string> 
+       <string>SampleCellGroup</string> 
       </void> 
       <void method="add"> 
-       <string>SampleCellGroup</string> 
+       <string>OrigModCellGroup</string> 
       </void> 
      </void> 
      <void property="description"> 
@@ -2532,10 +2532,10 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
      </void> 
      <void property="inputs"> 
       <void method="add"> 
-       <string>SampleIClamp</string> 
+       <string>Input_0</string> 
       </void> 
       <void method="add"> 
-       <string>Input_0</string> 
+       <string>SampleIClamp</string> 
       </void> 
      </void> 
      <void property="name"> 
@@ -2558,10 +2558,28 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
        <string>Var_30</string> 
       </void> 
       <void method="add"> 
+       <string>Var_7</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_6</string> 
+      </void> 
+      <void method="add"> 
        <string>Var_5</string> 
       </void> 
       <void method="add"> 
        <string>Var_4</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_3</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_2</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_1</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_0</string> 
       </void> 
       <void method="add"> 
        <string>CG_Kir_v</string> 
