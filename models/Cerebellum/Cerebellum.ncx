@@ -46,6 +46,9 @@ part of NeuroML or any standardised XML specification. -->
     <void method="add"> 
      <string>Large3DPurkinjeCellLayer</string> 
     </void> 
+    <void method="add"> 
+     <string>Large3DMolecularLayer</string> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Colour</string> 
@@ -83,9 +86,9 @@ part of NeuroML or any standardised XML specification. -->
     </void> 
     <void method="add"> 
      <object class="java.awt.Color"> 
-      <int>255</int> 
-      <int>255</int> 
-      <int>255</int> 
+      <int>234</int> 
+      <int>232</int> 
+      <int>235</int> 
       <int>255</int> 
      </object> 
     </void> 
@@ -102,9 +105,17 @@ part of NeuroML or any standardised XML specification. -->
     </void> 
     <void method="add"> 
      <object class="java.awt.Color"> 
+      <int>0</int> 
+      <int>0</int> 
+      <int>0</int> 
       <int>255</int> 
-      <int>255</int> 
-      <int>255</int> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>237</int> 
+      <int>238</int> 
+      <int>239</int> 
       <int>255</int> 
      </object> 
     </void> 
@@ -235,7 +246,7 @@ part of NeuroML or any standardised XML specification. -->
        </void> 
        <void index="3"> 
         <void property="value"> 
-         <float>700.0</float> 
+         <float>500.0</float> 
         </void> 
        </void> 
        <void index="4"> 
@@ -245,7 +256,7 @@ part of NeuroML or any standardised XML specification. -->
        </void> 
        <void index="5"> 
         <void property="value"> 
-         <float>700.0</float> 
+         <float>500.0</float> 
         </void> 
        </void> 
       </void> 
@@ -318,32 +329,63 @@ part of NeuroML or any standardised XML specification. -->
       <void property="parameterList"> 
        <void index="0"> 
         <void property="value"> 
-         <float>-180.0</float> 
-        </void> 
-       </void> 
-       <void index="1"> 
-        <void property="value"> 
-         <float>15.0</float> 
+         <float>-250.0</float> 
         </void> 
        </void> 
        <void index="2"> 
         <void property="value"> 
-         <float>-180.0</float> 
+         <float>-250.0</float> 
         </void> 
        </void> 
        <void index="3"> 
         <void property="value"> 
-         <float>630.0</float> 
+         <float>500.0</float> 
         </void> 
        </void> 
        <void index="4"> 
         <void property="value"> 
-         <float>1.0</float> 
+         <float>40.0</float> 
         </void> 
        </void> 
        <void index="5"> 
         <void property="value"> 
-         <float>630.0</float> 
+         <float>500.0</float> 
+        </void> 
+       </void> 
+      </void> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.RectangularBox"> 
+      <void property="parameterList"> 
+       <void index="0"> 
+        <void property="value"> 
+         <float>-250.0</float> 
+        </void> 
+       </void> 
+       <void index="1"> 
+        <void property="value"> 
+         <float>40.0</float> 
+        </void> 
+       </void> 
+       <void index="2"> 
+        <void property="value"> 
+         <float>-250.0</float> 
+        </void> 
+       </void> 
+       <void index="3"> 
+        <void property="value"> 
+         <float>500.0</float> 
+        </void> 
+       </void> 
+       <void index="4"> 
+        <void property="value"> 
+         <float>250.0</float> 
+        </void> 
+       </void> 
+       <void index="5"> 
+        <void property="value"> 
+         <float>500.0</float> 
         </void> 
        </void> 
       </void> 
@@ -449,14 +491,14 @@ part of NeuroML or any standardised XML specification. -->
     <void method="add"> 
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"> 
       <void property="maxNumberCells"> 
-       <int>1500</int> 
+       <int>150</int> 
       </void> 
      </object> 
     </void> 
     <void method="add"> 
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"> 
       <void property="maxNumberCells"> 
-       <int>60</int> 
+       <int>100</int> 
       </void> 
      </object> 
     </void> 
@@ -474,25 +516,16 @@ part of NeuroML or any standardised XML specification. -->
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/> 
     </void> 
     <void method="add"> 
-     <object class="ucl.physiol.neuroconstruct.project.packing.HexagonalLayerPackingAdapter"> 
-      <void property="parameterList"> 
-       <void index="0"> 
-        <void property="value"> 
-         <float>0.0</float> 
-        </void> 
-       </void> 
-       <void index="1"> 
-        <void property="value"> 
-         <float>340.0</float> 
-        </void> 
-       </void> 
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"> 
+      <void property="maxNumberCells"> 
+       <int>4</int> 
       </void> 
      </object> 
     </void> 
     <void method="add"> 
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"> 
       <void property="maxNumberCells"> 
-       <int>6</int> 
+       <int>4</int> 
       </void> 
      </object> 
     </void> 
@@ -609,7 +642,7 @@ part of NeuroML or any standardised XML specification. -->
      <int>-1</int> 
     </void> 
     <void method="add"> 
-     <int>-1</int> 
+     <int>6</int> 
     </void> 
     <void method="add"> 
      <int>-2</int> 
@@ -673,16 +706,16 @@ part of NeuroML or any standardised XML specification. -->
     </void> 
     <void method="add"> 
      <object class="java.awt.Color"> 
-      <int>7</int> 
-      <int>50</int> 
-      <int>110</int> 
+      <int>9</int> 
+      <int>195</int> 
+      <int>9</int> 
       <int>255</int> 
      </object> 
     </void> 
     <void method="add"> 
-     <object id="Color1" class="java.awt.Color"> 
+     <object class="java.awt.Color"> 
       <int>204</int> 
-      <int>153</int> 
+      <int>0</int> 
       <int>0</int> 
       <int>255</int> 
      </object> 
@@ -713,22 +746,27 @@ part of NeuroML or any standardised XML specification. -->
     </void> 
     <void method="add"> 
      <object class="java.awt.Color"> 
-      <int>252</int> 
-      <int>0</int> 
-      <int>0</int> 
+      <int>130</int> 
+      <int>4</int> 
+      <int>84</int> 
       <int>255</int> 
      </object> 
     </void> 
     <void method="add"> 
      <object class="java.awt.Color"> 
-      <int>201</int> 
-      <int>203</int> 
-      <int>238</int> 
+      <int>57</int> 
+      <int>67</int> 
+      <int>237</int> 
       <int>255</int> 
      </object> 
     </void> 
     <void method="add"> 
-     <object idref="Color1"/> 
+     <object class="java.awt.Color"> 
+      <int>204</int> 
+      <int>17</int> 
+      <int>0</int> 
+      <int>255</int> 
+     </object> 
     </void> 
     <void method="add"> 
      <object class="java.awt.Color"> 
@@ -1797,9 +1835,9 @@ part of NeuroML or any standardised XML specification. -->
  <object class="ucl.physiol.neuroconstruct.utils.Display3DProperties"> 
   <void property="backgroundColour3D"> 
    <object class="java.awt.Color"> 
-    <int>0</int> 
-    <int>0</int> 
-    <int>0</int> 
+    <int>255</int> 
+    <int>255</int> 
+    <int>255</int> 
     <int>255</int> 
    </object> 
   </void> 
@@ -2056,13 +2094,7 @@ part of NeuroML or any standardised XML specification. -->
        <string>Purkinjes</string> 
       </void> 
       <void method="add"> 
-       <string>CellGroup_15</string> 
-      </void> 
-      <void method="add"> 
        <string>Golgis_detailed</string> 
-      </void> 
-      <void method="add"> 
-       <string>CellGroup_14</string> 
       </void> 
       <void method="add"> 
        <string>MF_3D</string> 
@@ -3200,8 +3232,11 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
     </void> 
     <void method="add"> 
      <object class="ucl.physiol.neuroconstruct.project.SearchPattern"> 
+      <void property="randomCloseNumber"> 
+       <int>10</int> 
+      </void> 
       <void property="type"> 
-       <int>2</int> 
+       <int>1</int> 
       </void> 
      </object> 
     </void> 
