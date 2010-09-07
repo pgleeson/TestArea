@@ -9,7 +9,8 @@ part of NeuroML or any standardised XML specification. -->
 
  <object class="ucl.physiol.neuroconstruct.project.BasicProjectInfo"> 
   <void property="projectDescription"> 
-   <string>*****Test project to investigate large scale 3D cerebellum models*****</string> 
+   <string>
+      *****Test project to investigate large scale 3D cerebellum models*****</string> 
   </void> 
   <void property="projectFileVersion"> 
    <string>neuroConstruct v1.4.1</string> 
@@ -49,6 +50,12 @@ part of NeuroML or any standardised XML specification. -->
     <void method="add"> 
      <string>Large3DMolecularLayer</string> 
     </void> 
+    <void method="add"> 
+     <string>100Cube</string> 
+    </void> 
+    <void method="add"> 
+     <string>100CubeTripleVolume</string> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Colour</string> 
@@ -85,14 +92,6 @@ part of NeuroML or any standardised XML specification. -->
      </object> 
     </void> 
     <void method="add"> 
-     <object class="java.awt.Color"> 
-      <int>234</int> 
-      <int>232</int> 
-      <int>235</int> 
-      <int>255</int> 
-     </object> 
-    </void> 
-    <void method="add"> 
      <object id="Color0" class="java.awt.Color"> 
       <int>255</int> 
       <int>255</int> 
@@ -101,21 +100,35 @@ part of NeuroML or any standardised XML specification. -->
      </object> 
     </void> 
     <void method="add"> 
+     <object id="Color1" class="java.awt.Color"> 
+      <int>255</int> 
+      <int>255</int> 
+      <int>255</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object idref="Color1"/> 
+    </void> 
+    <void method="add"> 
+     <object idref="Color0"/> 
+    </void> 
+    <void method="add"> 
      <object idref="Color0"/> 
     </void> 
     <void method="add"> 
      <object class="java.awt.Color"> 
-      <int>0</int> 
-      <int>0</int> 
-      <int>0</int> 
+      <int>255</int> 
+      <int>255</int> 
+      <int>255</int> 
       <int>255</int> 
      </object> 
     </void> 
     <void method="add"> 
      <object class="java.awt.Color"> 
-      <int>237</int> 
-      <int>238</int> 
-      <int>239</int> 
+      <int>255</int> 
+      <int>255</int> 
+      <int>255</int> 
       <int>255</int> 
      </object> 
     </void> 
@@ -391,6 +404,53 @@ part of NeuroML or any standardised XML specification. -->
       </void> 
      </object> 
     </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.RectangularBox"> 
+      <void property="parameterList"> 
+       <void index="4"> 
+        <void property="value"> 
+         <float>100.0</float> 
+        </void> 
+       </void> 
+      </void> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.RectangularBox"> 
+      <void property="parameterList"> 
+       <void index="0"> 
+        <void property="value"> 
+         <float>-22.112478</float> 
+        </void> 
+       </void> 
+       <void index="1"> 
+        <void property="value"> 
+         <float>-22.112478</float> 
+        </void> 
+       </void> 
+       <void index="2"> 
+        <void property="value"> 
+         <float>-22.112478</float> 
+        </void> 
+       </void> 
+       <void index="3"> 
+        <void property="value"> 
+         <float>144.22496</float> 
+        </void> 
+       </void> 
+       <void index="4"> 
+        <void property="value"> 
+         <float>144.22496</float> 
+        </void> 
+       </void> 
+       <void index="5"> 
+        <void property="value"> 
+         <float>144.22496</float> 
+        </void> 
+       </void> 
+      </void> 
+     </object> 
+    </void> 
    </void> 
   </void> 
  </object> 
@@ -557,6 +617,46 @@ part of NeuroML or any standardised XML specification. -->
       </void> 
      </object> 
     </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"> 
+      <void property="maxNumberCells"> 
+       <int>4096</int> 
+      </void> 
+      <void property="parameterList"> 
+       <void index="0"> 
+        <void property="value"> 
+         <float>0.0</float> 
+        </void> 
+       </void> 
+      </void> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"> 
+      <void property="maxNumberCells"> 
+       <int>27</int> 
+      </void> 
+      <void property="parameterList"> 
+       <void index="0"> 
+        <void property="value"> 
+         <float>0.0</float> 
+        </void> 
+       </void> 
+       <void index="1"> 
+        <void property="value"> 
+         <float>0.0</float> 
+        </void> 
+       </void> 
+      </void> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"> 
+      <void property="maxNumberCells"> 
+       <int>315</int> 
+      </void> 
+     </object> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Cell Type</string> 
@@ -605,6 +705,15 @@ part of NeuroML or any standardised XML specification. -->
     <void method="add"> 
      <string>Golgi_040408_C1_v2</string> 
     </void> 
+    <void method="add"> 
+     <string>GranuleS</string> 
+    </void> 
+    <void method="add"> 
+     <string>Golgi_CML</string> 
+    </void> 
+    <void method="add"> 
+     <string>MossyFiberBig</string> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Priority</string> 
@@ -652,6 +761,15 @@ part of NeuroML or any standardised XML specification. -->
     </void> 
     <void method="add"> 
      <int>22</int> 
+    </void> 
+    <void method="add"> 
+     <int>100</int> 
+    </void> 
+    <void method="add"> 
+     <int>300</int> 
+    </void> 
+    <void method="add"> 
+     <int>200</int> 
     </void> 
    </void> 
    <void method="get"> 
@@ -776,6 +894,30 @@ part of NeuroML or any standardised XML specification. -->
       <int>255</int> 
      </object> 
     </void> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>2</int> 
+      <int>2</int> 
+      <int>103</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>27</int> 
+      <int>138</int> 
+      <int>27</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>219</int> 
+      <int>21</int> 
+      <int>21</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Region Name</string> 
@@ -824,6 +966,15 @@ part of NeuroML or any standardised XML specification. -->
     <void method="add"> 
      <string>Large3DGranuleCellLayer</string> 
     </void> 
+    <void method="add"> 
+     <string>100Cube</string> 
+    </void> 
+    <void method="add"> 
+     <string>100Cube</string> 
+    </void> 
+    <void method="add"> 
+     <string>100Cube</string> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Cell Group Name</string> 
@@ -871,6 +1022,15 @@ part of NeuroML or any standardised XML specification. -->
     </void> 
     <void method="add"> 
      <string>CellGroup_15</string> 
+    </void> 
+    <void method="add"> 
+     <string>Sol10_GrC</string> 
+    </void> 
+    <void method="add"> 
+     <string>Sol10_GoC</string> 
+    </void> 
+    <void method="add"> 
+     <string>Sol10_Glom</string> 
     </void> 
    </void> 
   </void> 
@@ -1825,6 +1985,90 @@ part of NeuroML or any standardised XML specification. -->
      </void> 
     </object> 
    </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>Sol10_GrC</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>Sol10_GrC_v</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Sol10_GrC_v</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>Sol10_GoC</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>Sol10_GoC_v</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Sol10_GoC_v</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>Sol10_Glom</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>Sol10_Glom_v</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Sol10_Glom_v</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+    </object> 
+   </void> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.project.ProjectProperties"> 
@@ -1849,23 +2093,29 @@ part of NeuroML or any standardised XML specification. -->
     <int>255</int> 
    </object> 
   </void> 
+  <void property="displayOption"> 
+   <string>Soma solid, no neurites</string> 
+  </void> 
   <void property="minRadius"> 
    <float>0.5</float> 
   </void> 
   <void property="resolution3DElements"> 
    <int>12</int> 
   </void> 
-  <void property="show3DAxes"> 
-   <boolean>true</boolean> 
+  <void property="showAxonalArbours"> 
+   <boolean>false</boolean> 
   </void> 
   <void property="showInputs"> 
    <boolean>false</boolean> 
   </void> 
-  <void property="showSynapseConns"> 
+  <void property="showRegions"> 
    <boolean>false</boolean> 
   </void> 
   <void property="showSynapseEndpoints"> 
    <boolean>false</boolean> 
+  </void> 
+  <void property="transparency"> 
+   <float>0.95</float> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings"> 
@@ -1885,11 +2135,11 @@ part of NeuroML or any standardised XML specification. -->
     <string></string> 
    </void> 
    <void method="put"> 
-    <float>1.0</float> 
+    <float>-1.0</float> 
     <string></string> 
    </void> 
    <void method="put"> 
-    <float>-1.0</float> 
+    <float>1.0</float> 
     <string></string> 
    </void> 
    <void method="put"> 
@@ -1917,11 +2167,11 @@ part of NeuroML or any standardised XML specification. -->
     <string></string> 
    </void> 
    <void method="put"> 
-    <int>1</int> 
+    <int>-1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
-    <int>-1</int> 
+    <int>1</int> 
     <string></string> 
    </void> 
   </void> 
@@ -2101,7 +2351,7 @@ part of NeuroML or any standardised XML specification. -->
       </void> 
      </void> 
      <void property="description"> 
-      <string>Simulation with 12 Mossy Fibers, 75 Granule Cells, 4 Golgis. Reproduces network model for Maex De Schutter 98 as obtained from http://www.tnb.ua.ac.be/models/models.shtml</string> 
+      <string>Test sim config for large scale network with detailed Purkinje and Golgi cells</string> 
      </void> 
      <void property="inputs"> 
       <void method="add"> 
@@ -2131,7 +2381,7 @@ part of NeuroML or any standardised XML specification. -->
          <string></string> 
         </void> 
         <void property="queueType"> 
-         <object id="QueueInfo$QueueType0" class="ucl.physiol.neuroconstruct.hpc.mpi.QueueInfo$QueueType" method="valueOf"> 
+         <object class="ucl.physiol.neuroconstruct.hpc.mpi.QueueInfo$QueueType" method="valueOf"> 
           <string>SGE</string> 
          </object> 
         </void> 
@@ -2144,13 +2394,13 @@ part of NeuroML or any standardised XML specification. -->
        <object class="ucl.physiol.neuroconstruct.hpc.mpi.RemoteLogin"> 
         <void property="executables"> 
          <void method="put"> 
-          <object id="MpiSettings$KnownSimulators0" class="ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators" method="valueOf"> 
+          <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators" method="valueOf"> 
            <string>NEURON</string> 
           </object> 
           <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv</string> 
          </void> 
          <void method="put"> 
-          <object id="MpiSettings$KnownSimulators1" class="ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators" method="valueOf"> 
+          <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators" method="valueOf"> 
            <string>PY_NEURON</string> 
           </object> 
           <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv -python</string> 
@@ -2235,180 +2485,6 @@ part of NeuroML or any standardised XML specification. -->
     <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
      <void property="cellGroups"> 
       <void method="add"> 
-       <string>GoC_3D_Small</string> 
-      </void> 
-      <void method="add"> 
-       <string>GrC_3D_Small</string> 
-      </void> 
-      <void method="add"> 
-       <string>MF_3D_Small</string> 
-      </void> 
-     </void> 
-     <void property="description"> 
-      <string>A 3D network model with the same number of cells as the 1D example. Note that the cells are connected randomly and reproduce the effects of the 1D case, i.e. all Golgi cells firing synchronously</string> 
-     </void> 
-     <void property="inputs"> 
-      <void method="add"> 
-       <string>Input_2</string> 
-      </void> 
-     </void> 
-     <void property="name"> 
-      <string>3DNetworkModel</string> 
-     </void> 
-     <void property="netConns"> 
-      <void method="add"> 
-       <string>NetConn_GrC_3D_Small_GoC_3D_Small</string> 
-      </void> 
-      <void method="add"> 
-       <string>NetConn_GoC_3D_Small_GrC_3D_Small</string> 
-      </void> 
-      <void method="add"> 
-       <string>NetConn_MF_3D_Small_GrC_3D_Small</string> 
-      </void> 
-     </void> 
-     <void property="plots"> 
-      <void method="add"> 
-       <string>MF_3D_Small_v</string> 
-      </void> 
-      <void method="add"> 
-       <string>GoC_3D_Small_v</string> 
-      </void> 
-      <void method="add"> 
-       <string>Var_2</string> 
-      </void> 
-      <void method="add"> 
-       <string>Var_1</string> 
-      </void> 
-      <void method="add"> 
-       <string>GrC_3D_Small_v</string> 
-      </void> 
-     </void> 
-     <void property="simDuration"> 
-      <float>1000.0</float> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="add"> 
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
-     <void property="cellGroups"> 
-      <void method="add"> 
-       <string>GrC_3D</string> 
-      </void> 
-      <void method="add"> 
-       <string>GoC_3D</string> 
-      </void> 
-      <void method="add"> 
-       <string>MF_3D</string> 
-      </void> 
-     </void> 
-     <void property="description"> 
-      <string>A large scale 3D network model with 600 granule cells, 96 MFs and 32 Golgi cells. A number of separate beams can be distinguished along which the Golgi cells synchronise. Network should take approx 2 mins to generate. NOTE: This network can take about 1-2 hours to run the full 4 second sim, and generates a lot of data. ~4GB of memory is needed to load the sim back into neuroConstruct.</string> 
-     </void> 
-     <void property="inputs"> 
-      <void method="add"> 
-       <string>Input_4</string> 
-      </void> 
-     </void> 
-     <void id="MpiConfiguration1" property="mpiConf"> 
-      <void property="hostList"> 
-       <void index="0"> 
-        <void property="hostname"> 
-         <string>node0</string> 
-        </void> 
-        <void property="numProcessors"> 
-         <int>8</int> 
-        </void> 
-       </void> 
-      </void> 
-      <void property="mpiVersion"> 
-       <string>OPENMPI v2.*</string> 
-      </void> 
-      <void property="name"> 
-       <string>MatLem, nrn62 (1 x 8p)</string> 
-      </void> 
-      <void property="queueInfo"> 
-       <object class="ucl.physiol.neuroconstruct.hpc.mpi.QueueInfo"> 
-        <void property="account"> 
-         <string></string> 
-        </void> 
-        <void property="queueType"> 
-         <object idref="QueueInfo$QueueType0"/> 
-        </void> 
-        <void property="wallTimeMins"> 
-         <int>6</int> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="remoteLogin"> 
-       <object class="ucl.physiol.neuroconstruct.hpc.mpi.RemoteLogin"> 
-        <void property="executables"> 
-         <void method="put"> 
-          <object idref="MpiSettings$KnownSimulators0"/> 
-          <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv</string> 
-         </void> 
-         <void method="put"> 
-          <object idref="MpiSettings$KnownSimulators1"/> 
-          <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv -python</string> 
-         </void> 
-        </void> 
-        <void property="hostname"> 
-         <string>128.16.14.177</string> 
-        </void> 
-        <void property="userName"> 
-         <string>ucgbpgl</string> 
-        </void> 
-        <void property="workDir"> 
-         <string>/home/ucgbpgl/nCsims</string> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="useScp"> 
-       <boolean>true</boolean> 
-      </void> 
-     </void> 
-     <void property="mpiConf"> 
-      <object idref="MpiConfiguration1"/> 
-     </void> 
-     <void property="name"> 
-      <string>Large3DNetwork</string> 
-     </void> 
-     <void property="netConns"> 
-      <void method="add"> 
-       <string>NetConnGrCGoC</string> 
-      </void> 
-      <void method="add"> 
-       <string>NetConnGoCGrC</string> 
-      </void> 
-      <void method="add"> 
-       <string>NetConnMFGrC</string> 
-      </void> 
-     </void> 
-     <void property="plots"> 
-      <void method="add"> 
-       <string>GrC_3D_v</string> 
-      </void> 
-      <void method="add"> 
-       <string>MF_3D_v</string> 
-      </void> 
-      <void method="add"> 
-       <string>Var_5</string> 
-      </void> 
-      <void method="add"> 
-       <string>Var_4</string> 
-      </void> 
-      <void method="add"> 
-       <string>GoC_3D_v</string> 
-      </void> 
-     </void> 
-     <void property="simDuration"> 
-      <float>1000.0</float> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="add"> 
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
-     <void property="cellGroups"> 
-      <void method="add"> 
        <string>SingleGranule</string> 
       </void> 
      </void> 
@@ -2472,6 +2548,43 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
      </void> 
     </object> 
    </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
+     <void property="cellGroups"> 
+      <void method="add"> 
+       <string>Sol10_GoC</string> 
+      </void> 
+      <void method="add"> 
+       <string>Sol10_GrC</string> 
+      </void> 
+      <void method="add"> 
+       <string>Sol10_Glom</string> 
+      </void> 
+     </void> 
+     <void property="name"> 
+      <string>SolinasEtAl2010Net</string> 
+     </void> 
+     <void property="netConns"> 
+      <void method="add"> 
+       <string>NetConn_Sol10_Glom_Sol10_GrC</string> 
+      </void> 
+     </void> 
+     <void property="plots"> 
+      <void method="add"> 
+       <string>Sol10_Glom_v</string> 
+      </void> 
+      <void method="add"> 
+       <string>Sol10_GoC_v</string> 
+      </void> 
+      <void method="add"> 
+       <string>Sol10_GrC_v</string> 
+      </void> 
+     </void> 
+     <void property="simDuration"> 
+      <float>700.0</float> 
+     </void> 
+    </object> 
+   </void> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.project.SimpleNetworkConnectionsInfo"> 
@@ -2514,9 +2627,15 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
     <void method="add"> 
      <string>NetConn_Purkinjes_Grans</string> 
     </void> 
+    <void method="add"> 
+     <string>NetConn_Sol10_Glom_Sol10_GrC</string> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>AP speed</string> 
+    <void method="add"> 
+     <float>3.4028235E38</float> 
+    </void> 
     <void method="add"> 
      <float>3.4028235E38</float> 
     </void> 
@@ -3114,6 +3233,58 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
       </void> 
      </object> 
     </void> 
+    <void method="add"> 
+     <object class="java.util.Vector"> 
+      <void method="add"> 
+       <object class="ucl.physiol.neuroconstruct.project.SynapticProperties"> 
+        <void property="delayGenerator"> 
+         <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+          <void property="numberType"> 
+           <int>11</int> 
+          </void> 
+         </object> 
+        </void> 
+        <void property="synapseType"> 
+         <string>MF_AMPA</string> 
+        </void> 
+        <void property="threshold"> 
+         <double>-20.0</double> 
+        </void> 
+        <void property="weightsGenerator"> 
+         <object class="ucl.physiol.neuroconstruct.utils.WeightGenerator"> 
+          <void property="numberType"> 
+           <int>11</int> 
+          </void> 
+         </object> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="ucl.physiol.neuroconstruct.project.SynapticProperties"> 
+        <void property="delayGenerator"> 
+         <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+          <void property="numberType"> 
+           <int>11</int> 
+          </void> 
+         </object> 
+        </void> 
+        <void property="synapseType"> 
+         <string>NMDA</string> 
+        </void> 
+        <void property="threshold"> 
+         <double>-20.0</double> 
+        </void> 
+        <void property="weightsGenerator"> 
+         <object class="ucl.physiol.neuroconstruct.utils.WeightGenerator"> 
+          <void property="numberType"> 
+           <int>11</int> 
+          </void> 
+         </object> 
+        </void> 
+       </object> 
+      </void> 
+     </object> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Max/min</string> 
@@ -3163,6 +3334,13 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
     </void> 
     <void method="add"> 
      <object class="ucl.physiol.neuroconstruct.project.MaxMinLength"/> 
+    </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.MaxMinLength"> 
+      <void property="maxLength"> 
+       <float>40.0</float> 
+      </void> 
+     </object> 
     </void> 
    </void> 
    <void method="get"> 
@@ -3254,6 +3432,16 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
       </void> 
      </object> 
     </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.SearchPattern"> 
+      <void property="randomCloseNumber"> 
+       <int>30</int> 
+      </void> 
+      <void property="type"> 
+       <int>1</int> 
+      </void> 
+     </object> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Source</string> 
@@ -3292,6 +3480,9 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
     </void> 
     <void method="add"> 
      <string>Purkinjes</string> 
+    </void> 
+    <void method="add"> 
+     <string>Sol10_Glom</string> 
     </void> 
    </void> 
    <void method="get"> 
@@ -3464,6 +3655,24 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
       </void> 
      </object> 
     </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions"> 
+      <void property="allowAutapses"> 
+       <boolean>false</boolean> 
+      </void> 
+      <void property="generationDirection"> 
+       <int>1</int> 
+      </void> 
+      <void property="numConnsInitiatingCellGroup"> 
+       <void property="fixedNum"> 
+        <float>4.0</float> 
+       </void> 
+      </void> 
+      <void property="onlyConnectToUniqueCells"> 
+       <boolean>true</boolean> 
+      </void> 
+     </object> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Target</string> 
@@ -3502,6 +3711,9 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
     </void> 
     <void method="add"> 
      <string>Golgis_detailed</string> 
+    </void> 
+    <void method="add"> 
+     <string>Sol10_GrC</string> 
     </void> 
    </void> 
   </void> 
