@@ -492,7 +492,7 @@ part of NeuroML or any standardised XML specification. -->
     <void method="add"> 
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"> 
       <void property="maxNumberCells"> 
-       <int>8</int> 
+       <int>6</int> 
       </void> 
      </object> 
     </void> 
@@ -500,6 +500,27 @@ part of NeuroML or any standardised XML specification. -->
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"> 
       <void property="maxNumberCells"> 
        <int>40000</int> 
+      </void> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.packing.SinglePositionedCellPackingAdapter"> 
+      <void property="parameterList"> 
+       <void index="0"> 
+        <void property="value"> 
+         <float>-240.0</float> 
+        </void> 
+       </void> 
+       <void index="1"> 
+        <void property="value"> 
+         <float>-40.0</float> 
+        </void> 
+       </void> 
+       <void index="3"> 
+        <void property="value"> 
+         <float>0.0</float> 
+        </void> 
+       </void> 
       </void> 
      </object> 
     </void> 
@@ -548,6 +569,9 @@ part of NeuroML or any standardised XML specification. -->
     <void method="add"> 
      <string>Granule_98</string> 
     </void> 
+    <void method="add"> 
+     <string>Golgi_040408_C1_v2</string> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Priority</string> 
@@ -592,6 +616,9 @@ part of NeuroML or any standardised XML specification. -->
     </void> 
     <void method="add"> 
      <int>-3</int> 
+    </void> 
+    <void method="add"> 
+     <int>22</int> 
     </void> 
    </void> 
    <void method="get"> 
@@ -686,7 +713,7 @@ part of NeuroML or any standardised XML specification. -->
     </void> 
     <void method="add"> 
      <object class="java.awt.Color"> 
-      <int>153</int> 
+      <int>252</int> 
       <int>0</int> 
       <int>0</int> 
       <int>255</int> 
@@ -694,14 +721,22 @@ part of NeuroML or any standardised XML specification. -->
     </void> 
     <void method="add"> 
      <object class="java.awt.Color"> 
-      <int>170</int> 
-      <int>162</int> 
-      <int>195</int> 
+      <int>201</int> 
+      <int>203</int> 
+      <int>238</int> 
       <int>255</int> 
      </object> 
     </void> 
     <void method="add"> 
      <object idref="Color1"/> 
+    </void> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>211</int> 
+      <int>210</int> 
+      <int>255</int> 
+      <int>255</int> 
+     </object> 
     </void> 
    </void> 
    <void method="get"> 
@@ -741,6 +776,9 @@ part of NeuroML or any standardised XML specification. -->
     </void> 
     <void method="add"> 
      <string>Large3DPurkinjeCellLayer</string> 
+    </void> 
+    <void method="add"> 
+     <string>Large3DGranuleCellLayer</string> 
     </void> 
     <void method="add"> 
      <string>Large3DGranuleCellLayer</string> 
@@ -792,6 +830,9 @@ part of NeuroML or any standardised XML specification. -->
     </void> 
     <void method="add"> 
      <string>CellGroup_14</string> 
+    </void> 
+    <void method="add"> 
+     <string>CellGroup_15</string> 
     </void> 
    </void> 
   </void> 
@@ -1718,6 +1759,34 @@ part of NeuroML or any standardised XML specification. -->
      </void> 
     </object> 
    </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CellGroup_15</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>CellGroup_15_v</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>CellGroup_15_v</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+    </object> 
+   </void> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.project.ProjectProperties"> 
@@ -1748,6 +1817,9 @@ part of NeuroML or any standardised XML specification. -->
   <void property="resolution3DElements"> 
    <int>12</int> 
   </void> 
+  <void property="show3DAxes"> 
+   <boolean>true</boolean> 
+  </void> 
   <void property="showInputs"> 
    <boolean>false</boolean> 
   </void> 
@@ -1775,11 +1847,11 @@ part of NeuroML or any standardised XML specification. -->
     <string></string> 
    </void> 
    <void method="put"> 
-    <float>-1.0</float> 
+    <float>1.0</float> 
     <string></string> 
    </void> 
    <void method="put"> 
-    <float>1.0</float> 
+    <float>-1.0</float> 
     <string></string> 
    </void> 
    <void method="put"> 
@@ -1807,11 +1879,11 @@ part of NeuroML or any standardised XML specification. -->
     <string></string> 
    </void> 
    <void method="put"> 
-    <int>-1</int> 
+    <int>1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
-    <int>1</int> 
+    <int>-1</int> 
     <string></string> 
    </void> 
   </void> 
@@ -1984,6 +2056,9 @@ part of NeuroML or any standardised XML specification. -->
        <string>Purkinjes</string> 
       </void> 
       <void method="add"> 
+       <string>CellGroup_15</string> 
+      </void> 
+      <void method="add"> 
        <string>Golgis_detailed</string> 
       </void> 
       <void method="add"> 
@@ -2038,15 +2113,15 @@ part of NeuroML or any standardised XML specification. -->
         <void property="executables"> 
          <void method="put"> 
           <object id="MpiSettings$KnownSimulators0" class="ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators" method="valueOf"> 
-           <string>PY_NEURON</string> 
-          </object> 
-          <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv -python</string> 
-         </void> 
-         <void method="put"> 
-          <object id="MpiSettings$KnownSimulators1" class="ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators" method="valueOf"> 
            <string>NEURON</string> 
           </object> 
           <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv</string> 
+         </void> 
+         <void method="put"> 
+          <object id="MpiSettings$KnownSimulators1" class="ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators" method="valueOf"> 
+           <string>PY_NEURON</string> 
+          </object> 
+          <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv -python</string> 
          </void> 
         </void> 
         <void property="hostname"> 
@@ -2237,11 +2312,11 @@ part of NeuroML or any standardised XML specification. -->
         <void property="executables"> 
          <void method="put"> 
           <object idref="MpiSettings$KnownSimulators0"/> 
-          <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv -python</string> 
+          <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv</string> 
          </void> 
          <void method="put"> 
           <object idref="MpiSettings$KnownSimulators1"/> 
-          <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv</string> 
+          <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv -python</string> 
          </void> 
         </void> 
         <void property="hostname"> 
