@@ -95,6 +95,18 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
     <void method="add"> 
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/> 
     </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/> 
+    </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/> 
+    </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/> 
+    </void> 
+    <void method="add"> 
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Cell Type</string> 
@@ -111,7 +123,7 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
      <string>GranuleCell_mod_all</string> 
     </void> 
     <void method="add"> 
-     <string>GranuleCell_Kir</string> 
+     <string>GranuleCell_NaF</string> 
     </void> 
     <void method="add"> 
      <string>GranuleCell_mod_Kir</string> 
@@ -133,6 +145,18 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
     </void> 
     <void method="add"> 
      <string>GranuleCell_mod_KA</string> 
+    </void> 
+    <void method="add"> 
+     <string>GranuleCell_NaF</string> 
+    </void> 
+    <void method="add"> 
+     <string>GranuleCell_mod_NaF</string> 
+    </void> 
+    <void method="add"> 
+     <string>GranuleCell_NaP</string> 
+    </void> 
+    <void method="add"> 
+     <string>GranuleCell_mod_NaP</string> 
     </void> 
    </void> 
    <void method="get"> 
@@ -172,6 +196,18 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
     </void> 
     <void method="add"> 
      <int>-1</int> 
+    </void> 
+    <void method="add"> 
+     <int>-2</int> 
+    </void> 
+    <void method="add"> 
+     <int>-3</int> 
+    </void> 
+    <void method="add"> 
+     <int>-4</int> 
+    </void> 
+    <void method="add"> 
+     <int>-5</int> 
     </void> 
    </void> 
    <void method="get"> 
@@ -272,9 +308,53 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
       <int>255</int> 
      </object> 
     </void> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>168</int> 
+      <int>215</int> 
+      <int>244</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>171</int> 
+      <int>172</int> 
+      <int>152</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>142</int> 
+      <int>215</int> 
+      <int>205</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="java.awt.Color"> 
+      <int>230</int> 
+      <int>223</int> 
+      <int>100</int> 
+      <int>255</int> 
+     </object> 
+    </void> 
    </void> 
    <void method="get"> 
     <string>Region Name</string> 
+    <void method="add"> 
+     <string>SampleRegion</string> 
+    </void> 
+    <void method="add"> 
+     <string>SampleRegion</string> 
+    </void> 
+    <void method="add"> 
+     <string>SampleRegion</string> 
+    </void> 
+    <void method="add"> 
+     <string>SampleRegion</string> 
+    </void> 
     <void method="add"> 
      <string>SampleRegion</string> 
     </void> 
@@ -349,6 +429,18 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
     </void> 
     <void method="add"> 
      <string>CG_KA_mod</string> 
+    </void> 
+    <void method="add"> 
+     <string>CG_NaF</string> 
+    </void> 
+    <void method="add"> 
+     <string>CG_NaF_mod</string> 
+    </void> 
+    <void method="add"> 
+     <string>CG_NaP</string> 
+    </void> 
+    <void method="add"> 
+     <string>CG_NaP_mod</string> 
     </void> 
    </void> 
   </void> 
@@ -709,7 +801,7 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
      <void property="cellGroup"> 
-      <string>SampleCellGroup</string> 
+      <string>CG_NaP</string> 
      </void> 
      <void property="cellNumber"> 
       <string>0</string> 
@@ -740,7 +832,7 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
      <void property="cellGroup"> 
-      <string>OrigModCellGroup</string> 
+      <string>CG_NaP_mod</string> 
      </void> 
      <void property="cellNumber"> 
       <string>0</string> 
@@ -1168,13 +1260,13 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
      <void property="cellGroup"> 
-      <string>SampleCellGroup</string> 
+      <string>CG_NaF</string> 
      </void> 
      <void property="cellNumber"> 
       <string>0</string> 
      </void> 
      <void property="graphWindow"> 
-      <string>GraphWin_5</string> 
+      <string>GraphWin_20</string> 
      </void> 
      <void property="maxValue"> 
       <float>1.0</float> 
@@ -1199,13 +1291,13 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
      <void property="cellGroup"> 
-      <string>OrigModCellGroup</string> 
+      <string>CG_NaF_mod</string> 
      </void> 
      <void property="cellNumber"> 
       <string>0</string> 
      </void> 
      <void property="graphWindow"> 
-      <string>GraphWin_5</string> 
+      <string>GraphWin_20</string> 
      </void> 
      <void property="maxValue"> 
       <float>1.0</float> 
@@ -1674,6 +1766,180 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
      </void> 
     </object> 
    </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_NaF</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>CG_NaF_v</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>CG_NaF_v</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_NaF_mod</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>CG_NaF_v</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>CG_NaF_mod_v</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_NaP</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>CG_NaP_v</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>CG_NaP_v</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_NaP_mod</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>*</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>CG_NaP_v</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>50.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>-90.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>CG_NaP_mod_v</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_NaF</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_20</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>1.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_32</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>NaF:h</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
+     <void property="cellGroup"> 
+      <string>CG_NaF_mod</string> 
+     </void> 
+     <void property="cellNumber"> 
+      <string>0</string> 
+     </void> 
+     <void property="graphWindow"> 
+      <string>GraphWin_20</string> 
+     </void> 
+     <void property="maxValue"> 
+      <float>1.0</float> 
+     </void> 
+     <void property="minValue"> 
+      <float>0.0</float> 
+     </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
+     <void property="plotReference"> 
+      <string>Var_33</string> 
+     </void> 
+     <void property="segmentId"> 
+      <string>0</string> 
+     </void> 
+     <void property="valuePlotted"> 
+      <string>NaF_mod:h</string> 
+     </void> 
+    </object> 
+   </void> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.project.ProjectProperties"/> 
@@ -1721,11 +1987,11 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
     <string></string> 
    </void> 
    <void method="put"> 
-    <float>-1.0</float> 
+    <float>1.0</float> 
     <string></string> 
    </void> 
    <void method="put"> 
-    <float>1.0</float> 
+    <float>-1.0</float> 
     <string></string> 
    </void> 
    <void method="put"> 
@@ -1801,7 +2067,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_447</string> 
+   <string>Sim_450</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -2135,6 +2401,118 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
      </void> 
     </object> 
    </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
+       <float>0.01</float> 
+      </void> 
+     </void> 
+     <void property="cellGroup"> 
+      <string>CG_NaF</string> 
+     </void> 
+     <void property="del"> 
+      <void property="fixedNum"> 
+       <float>100.0</float> 
+      </void> 
+     </void> 
+     <void property="dur"> 
+      <void property="fixedNum"> 
+       <float>500.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_11</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
+       <float>0.01</float> 
+      </void> 
+     </void> 
+     <void property="cellGroup"> 
+      <string>CG_NaF_mod</string> 
+     </void> 
+     <void property="del"> 
+      <void property="fixedNum"> 
+       <float>100.0</float> 
+      </void> 
+     </void> 
+     <void property="dur"> 
+      <void property="fixedNum"> 
+       <float>500.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_12</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
+       <float>0.01</float> 
+      </void> 
+     </void> 
+     <void property="cellGroup"> 
+      <string>CG_NaP</string> 
+     </void> 
+     <void property="del"> 
+      <void property="fixedNum"> 
+       <float>100.0</float> 
+      </void> 
+     </void> 
+     <void property="dur"> 
+      <void property="fixedNum"> 
+       <float>500.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_13</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings"> 
+     <void property="amp"> 
+      <void property="fixedNum"> 
+       <float>0.01</float> 
+      </void> 
+     </void> 
+     <void property="cellGroup"> 
+      <string>CG_NaP_mod</string> 
+     </void> 
+     <void property="del"> 
+      <void property="fixedNum"> 
+       <float>100.0</float> 
+      </void> 
+     </void> 
+     <void property="dur"> 
+      <void property="fixedNum"> 
+       <float>500.0</float> 
+      </void> 
+      <void property="numberType"> 
+       <int>11</int> 
+      </void> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_14</string> 
+     </void> 
+    </object> 
+   </void> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.project.SimConfigInfo"> 
@@ -2357,10 +2735,19 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
     <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
      <void property="cellGroups"> 
       <void method="add"> 
+       <string>CG_NaF_mod</string> 
+      </void> 
+      <void method="add"> 
        <string>CG_KA_mod</string> 
       </void> 
       <void method="add"> 
        <string>CG_Kir_mod</string> 
+      </void> 
+      <void method="add"> 
+       <string>CG_NaP_mod</string> 
+      </void> 
+      <void method="add"> 
+       <string>CG_NaP</string> 
       </void> 
       <void method="add"> 
        <string>CG_Kir</string> 
@@ -2372,6 +2759,9 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
        <string>CG_Kdr_mod</string> 
       </void> 
       <void method="add"> 
+       <string>CG_NaF</string> 
+      </void> 
+      <void method="add"> 
        <string>CG_Kdr</string> 
       </void> 
      </void> 
@@ -2379,6 +2769,9 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
       <string>Sim config for comparing one channel orig mod file to ChannelML impl</string> 
      </void> 
      <void property="inputs"> 
+      <void method="add"> 
+       <string>Input_11</string> 
+      </void> 
       <void method="add"> 
        <string>Input_10</string> 
       </void> 
@@ -2395,7 +2788,16 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
        <string>Input_6</string> 
       </void> 
       <void method="add"> 
+       <string>Input_14</string> 
+      </void> 
+      <void method="add"> 
        <string>Input_5</string> 
+      </void> 
+      <void method="add"> 
+       <string>Input_13</string> 
+      </void> 
+      <void method="add"> 
+       <string>Input_12</string> 
       </void> 
      </void> 
      <void property="name"> 
@@ -2404,6 +2806,12 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
      <void property="plots"> 
       <void method="add"> 
        <string>Var_19</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_17</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_16</string> 
       </void> 
       <void method="add"> 
        <string>Var_15</string> 
@@ -2427,16 +2835,58 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
        <string>CG_Kir_mod_v</string> 
       </void> 
       <void method="add"> 
+       <string>CG_NaP_v</string> 
+      </void> 
+      <void method="add"> 
        <string>CG_KA_mod_v</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_33</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_32</string> 
       </void> 
       <void method="add"> 
        <string>Var_31</string> 
       </void> 
       <void method="add"> 
+       <string>Var_9</string> 
+      </void> 
+      <void method="add"> 
        <string>Var_30</string> 
       </void> 
       <void method="add"> 
+       <string>Var_8</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_7</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_6</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_5</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_4</string> 
+      </void> 
+      <void method="add"> 
        <string>CG_Kdr_v</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_3</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_2</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_1</string> 
+      </void> 
+      <void method="add"> 
+       <string>Var_0</string> 
+      </void> 
+      <void method="add"> 
+       <string>CG_NaF_v</string> 
       </void> 
       <void method="add"> 
        <string>CG_Kir_v</string> 
@@ -2457,10 +2907,16 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
        <string>Var_25</string> 
       </void> 
       <void method="add"> 
+       <string>CG_NaF_mod_v</string> 
+      </void> 
+      <void method="add"> 
        <string>Var_24</string> 
       </void> 
       <void method="add"> 
        <string>Var_23</string> 
+      </void> 
+      <void method="add"> 
+       <string>CG_NaP_mod_v</string> 
       </void> 
       <void method="add"> 
        <string>Var_22</string> 
