@@ -8,6 +8,8 @@
     <meta:notes>A channel from Maex, R and De Schutter, E. Synchronization of Golgi and Granule Cell Firing in a 
     Detailed Network Model of the Cerebellar Granule Cell Layer</meta:notes>
 
+                
+    <ion name="ca" charge="2" default_erev="80"/>  
      
     <channel_type name="CaHVA" density="yes">
         

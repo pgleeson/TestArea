@@ -93,10 +93,10 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
      <string>GranuleCell_mod_all</string> 
     </void> 
     <void method="add"> 
-     <string>GranuleCell_Kdr</string> 
+     <string>GranuleCell_Kir</string> 
     </void> 
     <void method="add"> 
-     <string>GranuleCell_mod_Kdr</string> 
+     <string>GranuleCell_mod_Kir</string> 
     </void> 
    </void> 
    <void method="get"> 
@@ -1415,11 +1415,11 @@ Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex
     <string></string> 
    </void> 
    <void method="put"> 
-    <float>-1.0</float> 
+    <float>1.0</float> 
     <string></string> 
    </void> 
    <void method="put"> 
-    <float>1.0</float> 
+    <float>-1.0</float> 
     <string></string> 
    </void> 
    <void method="put"> 
@@ -1492,7 +1492,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    <float>100.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_435</string> 
+   <string>Sim_440</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -1907,18 +1907,6 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
       <string>OneChan</string> 
      </void> 
      <void property="plots"> 
-      <void method="add"> 
-       <string>Var_13</string> 
-      </void> 
-      <void method="add"> 
-       <string>Var_12</string> 
-      </void> 
-      <void method="add"> 
-       <string>Var_11</string> 
-      </void> 
-      <void method="add"> 
-       <string>Var_10</string> 
-      </void> 
       <void method="add"> 
        <string>OneChanCML_v</string> 
       </void> 
