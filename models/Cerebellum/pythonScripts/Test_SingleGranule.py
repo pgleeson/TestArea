@@ -1,6 +1,6 @@
 #
 #
-#   File to test behaviour of the Granule Cell.
+#   File to test behaviour of the Golgi Cell.
 #
 #   To execute this type of file, type '..\..\..\nC.bat -python XXX.py' (Windows)
 #   or '../../../nC.sh -python XXX.py' (Linux/Mac). Note: you may have to update the
@@ -28,7 +28,7 @@ sys.path.append(os.environ["NC_HOME"]+"/pythonNeuroML/nCUtils")
 
 import ncutils as nc
 
-projFile = File("../GranCellLayer.ncx")
+projFile = File("../Cerebellum.ncx")
 
 
 ##############  Main settings  ##################
@@ -36,11 +36,11 @@ projFile = File("../GranCellLayer.ncx")
 simConfigs = []
 
 #simConfigs.append("Default Simulation Configuration")
-simConfigs.append("Single Granule cell")
+simConfigs.append("Single Golgi Cell")
 
 simDt =                 0.001
 
-simulators =            ["NEURON", "GENESIS_PHYS", "GENESIS_SI", "MOOSE_PHYS", "MOOSE_SI"]
+simulators =            ["NEURON", "GENESIS_PHYS", "GENESIS_SI"] # Note: nernst object isn't implemented in MOOSE yet
 
 varTimestepNeuron =     True
 varTimestepTolerance =  0.00001
@@ -76,12 +76,11 @@ def testAll(argv=None):
 
     # These were discovered using analyseSims = True above.
     # They need to hold for all simulators
-    spikeTimesToCheck = {'SingleGranule_0': [108.25, 135.861, 161.793, 187.234, 212.362, \
-                                    237.349, 262.302, 287.2, 312.079, 336.969, \
-                                    361.881, 386.779, 411.68, 436.46, 461.4, \
-                                    486.3, 511.2, 536.1, 561.05, 586]}
+    spikeTimesToCheck = {'SingleGolgi_0': [12.2, 33.5, 93.0, 197.4, 310.1, 424.8,
+                                           508.0, 529.3, 564.5, 613.8, 668.3, 724.1, 780.2,
+                                           836.6, 893.0, 949.5, 1157.6, 1277.6, 1394.4]}
 
-    spikeTimeAccuracy = 0.1
+    spikeTimeAccuracy = 1  # Note run time of 1500 ms...
 
     report = simManager.checkSims(spikeTimesToCheck = spikeTimesToCheck,
                                   spikeTimeAccuracy = spikeTimeAccuracy)
@@ -93,4 +92,3 @@ def testAll(argv=None):
 
 if __name__ == "__main__":
     testAll()
-
