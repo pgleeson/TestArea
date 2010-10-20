@@ -2093,9 +2093,6 @@ part of NeuroML or any standardised XML specification. -->
     <int>255</int>
    </object>
   </void>
-  <void property="displayOption">
-   <string>Soma solid, no neurites</string>
-  </void>
   <void property="minRadius">
    <float>0.5</float>
   </void>
@@ -2141,11 +2138,11 @@ part of NeuroML or any standardised XML specification. -->
     <string></string>
    </void>
    <void method="put">
-    <float>1.0</float>
+    <float>-1.0</float>
     <string></string>
    </void>
    <void method="put">
-    <float>-1.0</float>
+    <float>1.0</float>
     <string></string>
    </void>
    <void method="put">
@@ -2173,11 +2170,11 @@ part of NeuroML or any standardised XML specification. -->
     <string></string>
    </void>
    <void method="put">
-    <int>-1</int>
+    <int>1</int>
     <string></string>
    </void>
    <void method="put">
-    <int>1</int>
+    <int>-1</int>
     <string></string>
    </void>
   </void>
@@ -2459,16 +2456,16 @@ part of NeuroML or any standardised XML specification. -->
          <void method="put">
           <object id="MpiSettings$KnownSimulators0" class="java.lang.Enum" method="valueOf">
            <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
-           <string>NEURON</string>
+           <string>PY_NEURON</string>
           </object>
-          <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv</string>
+          <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv -python</string>
          </void>
          <void method="put">
           <object id="MpiSettings$KnownSimulators1" class="java.lang.Enum" method="valueOf">
            <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
-           <string>PY_NEURON</string>
+           <string>NEURON</string>
           </object>
-          <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv -python</string>
+          <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv</string>
          </void>
         </void>
         <void property="hostname">
@@ -2665,19 +2662,19 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
        <object class="ucl.physiol.neuroconstruct.hpc.mpi.RemoteLogin">
         <void property="executables">
          <void method="put">
+          <object idref="MpiSettings$KnownSimulators0"/>
+          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv -python</string>
+         </void>
+         <void method="put">
+          <object idref="MpiSettings$KnownSimulators1"/>
+          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv</string>
+         </void>
+         <void method="put">
           <object class="java.lang.Enum" method="valueOf">
            <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
            <string>MOOSE</string>
           </object>
           <string>/share/apps/neuro/moose</string>
-         </void>
-         <void method="put">
-          <object idref="MpiSettings$KnownSimulators0"/>
-          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv</string>
-         </void>
-         <void method="put">
-          <object idref="MpiSettings$KnownSimulators1"/>
-          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv -python</string>
          </void>
         </void>
         <void property="hostname">
@@ -2707,6 +2704,9 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
       </void>
       <void method="add">
        <string>NetConn_Sol10_Glom_Sol10_GoC</string>
+      </void>
+      <void method="add">
+       <string>NetConn_Sol10_GoC_Sol10_GrC</string>
       </void>
      </void>
      <void property="plots">
@@ -2773,9 +2773,15 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
     <void method="add">
      <string>NetConn_Sol10_Glom_Sol10_GoC</string>
     </void>
+    <void method="add">
+     <string>NetConn_Sol10_GoC_Sol10_GrC</string>
+    </void>
    </void>
    <void method="get">
     <string>AP speed</string>
+    <void method="add">
+     <float>3.4028235E38</float>
+    </void>
     <void method="add">
      <float>3.4028235E38</float>
     </void>
@@ -3483,6 +3489,58 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
       </void>
      </object>
     </void>
+    <void method="add">
+     <object class="java.util.Vector">
+      <void method="add">
+       <object class="ucl.physiol.neuroconstruct.project.SynapticProperties">
+        <void property="delayGenerator">
+         <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+          <void property="numberType">
+           <int>11</int>
+          </void>
+         </object>
+        </void>
+        <void property="synapseType">
+         <string>GABAA</string>
+        </void>
+        <void property="threshold">
+         <double>-20.0</double>
+        </void>
+        <void property="weightsGenerator">
+         <object class="ucl.physiol.neuroconstruct.utils.WeightGenerator">
+          <void property="numberType">
+           <int>11</int>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="ucl.physiol.neuroconstruct.project.SynapticProperties">
+        <void property="delayGenerator">
+         <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+          <void property="numberType">
+           <int>11</int>
+          </void>
+         </object>
+        </void>
+        <void property="synapseType">
+         <string>GABAA_spillover</string>
+        </void>
+        <void property="threshold">
+         <double>-20.0</double>
+        </void>
+        <void property="weightsGenerator">
+         <object class="ucl.physiol.neuroconstruct.utils.WeightGenerator">
+          <void property="numberType">
+           <int>11</int>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
    </void>
    <void method="get">
     <string>Max/min</string>
@@ -3539,6 +3597,9 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
        <float>40.0</float>
       </void>
      </object>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.MaxMinLength"/>
     </void>
     <void method="add">
      <object class="ucl.physiol.neuroconstruct.project.MaxMinLength"/>
@@ -3650,6 +3711,13 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
       </void>
      </object>
     </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.SearchPattern">
+      <void property="type">
+       <int>0</int>
+      </void>
+     </object>
+    </void>
    </void>
    <void method="get">
     <string>Source</string>
@@ -3694,6 +3762,9 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
     </void>
     <void method="add">
      <string>Sol10_Glom</string>
+    </void>
+    <void method="add">
+     <string>Sol10_GoC</string>
     </void>
    </void>
    <void method="get">
@@ -3902,6 +3973,18 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
       </void>
      </object>
     </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+      <void property="allowAutapses">
+       <boolean>false</boolean>
+      </void>
+      <void property="numConnsInitiatingCellGroup">
+       <void property="fixedNum">
+        <float>0.0</float>
+       </void>
+      </void>
+     </object>
+    </void>
    </void>
    <void method="get">
     <string>Target</string>
@@ -3946,6 +4029,9 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
     </void>
     <void method="add">
      <string>Sol10_GoC</string>
+    </void>
+    <void method="add">
+     <string>Sol10_GrC</string>
     </void>
    </void>
   </void>
