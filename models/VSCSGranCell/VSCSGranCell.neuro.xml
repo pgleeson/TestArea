@@ -21,7 +21,7 @@ Kdr - checked with rates - updated to latest CML - added shift - valid - checked
 KA - checked with rates - updated to latest CML - added shift - valid - checked Gen
 Ksl - checked with rates - updated to latest CML - no shift - valid - checked Gen
 CaHVA - checked with rates - updated to latest CML - added shift - valid
-KCa - 
+KCa - checked with rates - updated to latest CML - added shift - valid
 
 CaPool - checked - updated to latest CML - valid
 
@@ -2224,11 +2224,11 @@ CaPool - checked - updated to latest CML - valid
     <string></string>
    </void>
    <void method="put">
-    <float>-1.0</float>
+    <float>1.0</float>
     <string></string>
    </void>
    <void method="put">
-    <float>1.0</float>
+    <float>-1.0</float>
     <string></string>
    </void>
    <void method="put">
@@ -2304,7 +2304,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    <float>100.0</float>
   </void>
   <void property="reference">
-   <string>Sim_562</string>
+   <string>Sim_575</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
