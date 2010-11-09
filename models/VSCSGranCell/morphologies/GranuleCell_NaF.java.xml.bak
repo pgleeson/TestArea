@@ -86,7 +86,7 @@
          <string>shift</string>
         </void>
         <void property="value">
-         <float>15.0</float>
+         <float>-15.0</float>
         </void>
        </object>
       </void>
