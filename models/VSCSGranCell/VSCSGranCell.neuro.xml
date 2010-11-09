@@ -14,8 +14,8 @@ part of NeuroML or any standardised XML specification. -->
 Based on Maex &amp; De Schutter 1998, D&apos;Angelo et al 2001 and Berends, Maex &amp; De Schutter 2005
 
 Conversion status
-NaF - checked with rates - updated to latest CML - added shift - valid
-NaP - checked with rates
+NaF - checked with rates - updated to latest CML - added shift - valid - checked Gen
+NaP - checked with rates - updated to latest CML - no shift - valid - checked Gen
 Kir - checked with rates
 Kdr - checked with rates
 KA - checked with rates
@@ -2141,9 +2141,6 @@ Ksl - checked with rates
   <void property="copySimFiles">
    <boolean>true</boolean>
   </void>
-  <void property="generateComments">
-   <boolean>false</boolean>
-  </void>
   <void property="nativeBlocks">
    <void method="put">
     <float>10.0</float>
@@ -2160,11 +2157,11 @@ Ksl - checked with rates
     <string></string>
    </void>
    <void method="put">
-    <float>-1.0</float>
+    <float>1.0</float>
     <string></string>
    </void>
    <void method="put">
-    <float>1.0</float>
+    <float>-1.0</float>
     <string></string>
    </void>
    <void method="put">
@@ -2240,7 +2237,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    <float>100.0</float>
   </void>
   <void property="reference">
-   <string>Sim_487</string>
+   <string>Sim_494</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -2982,10 +2979,10 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
     <object class="ucl.physiol.neuroconstruct.project.SimConfig">
      <void property="cellGroups">
       <void method="add">
-       <string>CG_NaF</string>
+       <string>CG_NaP_mod</string>
       </void>
       <void method="add">
-       <string>CG_NaF_mod</string>
+       <string>CG_NaP</string>
       </void>
      </void>
      <void property="description">
@@ -3184,7 +3181,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
     <object class="ucl.physiol.neuroconstruct.project.SimConfig">
      <void property="cellGroups">
       <void method="add">
-       <string>CG_NaF</string>
+       <string>CG_NaP</string>
       </void>
      </void>
      <void property="inputs">

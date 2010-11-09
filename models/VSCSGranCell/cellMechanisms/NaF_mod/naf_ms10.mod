@@ -82,7 +82,7 @@ INITIAL {
 } 
  
 BREAKPOINT { 
-	SOLVE states METHOD cnexp 
+	SOLVE states METHOD cnexp  
 	g = gmax*(m^3)*h 
 	ina = g*(v - ena)
 	alpha_m = alp_m(v)
