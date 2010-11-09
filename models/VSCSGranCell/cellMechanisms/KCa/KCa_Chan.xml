@@ -60,7 +60,7 @@
                 <voltage_conc_gate>
                     <conc_dependence name="Calcium" ion="ca" variable_name="ca_conc" min_conc="7.55e-7" max_conc="0.050"/>
                     <alpha>
-                        <generic_equation_hh expr="2500/(1 + ( (1.5e-3 *(exp (-85*v))) / ca_conc))"/>
+                        <generic_equation_hh expr="2500/(1 + ( (1.5e-3 *(exp (-85 * v))) / ca_conc))"/>
                     </alpha>
                     <beta>
                         <generic_equation_hh expr="1500/(1 + (ca_conc / (1.5e-4 * (exp (-77*v)))))"/>

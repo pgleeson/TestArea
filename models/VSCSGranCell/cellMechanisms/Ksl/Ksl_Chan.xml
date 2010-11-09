@@ -9,8 +9,8 @@
     
     <channel_type name="Ksl">
             
-        <status value="in_progress">
-            <meta:comment>...</meta:comment>
+        <status value="stable">
+            <meta:comment>Comment in original mod: Based on D'Angelo(2001)</meta:comment>
             <meta:issue>Comment in original mod: Special infinity values have still to be implemented</meta:issue>
             <meta:contributor>
                 <meta:name>Padraig Gleeson</meta:name>

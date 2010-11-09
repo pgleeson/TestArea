@@ -20,6 +20,9 @@ Kir - checked with rates - updated to latest CML - no shift - valid - checked Ge
 Kdr - checked with rates - updated to latest CML - added shift - valid - checked Gen
 KA - checked with rates - updated to latest CML - added shift - valid - checked Gen
 Ksl - checked with rates - updated to latest CML - no shift - valid - checked Gen
+CaHVA - checked with rates - updated to latest CML - added shift - valid
+
+CaPool - checked - updated to latest CML - valid
 
 </string>
   </void>
@@ -2238,7 +2241,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    <float>100.0</float>
   </void>
   <void property="reference">
-   <string>Sim_531</string>
+   <string>Sim_555</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -2834,16 +2837,49 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
      </void>
      <void property="plots">
       <void method="add">
-       <string>Var_4</string>
+       <string>Var_16</string>
       </void>
       <void method="add">
-       <string>Var_1</string>
+       <string>Var_15</string>
+      </void>
+      <void method="add">
+       <string>CG_Kir_mod_v</string>
       </void>
       <void method="add">
        <string>SamplePlot</string>
       </void>
       <void method="add">
+       <string>Var_7</string>
+      </void>
+      <void method="add">
+       <string>Var_6</string>
+      </void>
+      <void method="add">
+       <string>OneChanCML_v</string>
+      </void>
+      <void method="add">
+       <string>Var_5</string>
+      </void>
+      <void method="add">
+       <string>Var_4</string>
+      </void>
+      <void method="add">
+       <string>Var_3</string>
+      </void>
+      <void method="add">
+       <string>Var_2</string>
+      </void>
+      <void method="add">
+       <string>Var_1</string>
+      </void>
+      <void method="add">
        <string>Var_0</string>
+      </void>
+      <void method="add">
+       <string>CG_Kir_v</string>
+      </void>
+      <void method="add">
+       <string>OneChanMod_v</string>
       </void>
      </void>
      <void property="simDuration">
