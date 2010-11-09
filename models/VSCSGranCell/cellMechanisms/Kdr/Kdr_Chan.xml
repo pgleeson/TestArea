@@ -5,13 +5,13 @@
            xsi:schemaLocation="http://morphml.org/channelml/schema    http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd"
            units="Physiological Units">
 
-    <meta:notes>A channel from a granule cell model developed by Volker Steuber and Chiara Saviane, originally from Maex, R and De Schutter, E. 1998, used in Berends et al 2005</meta:notes>
+    <meta:notes>A channel from a granule cell model developed by Volker Steuber and Chiara Saviane, originally from Maex, R and De Schutter, E. 1998</meta:notes>
     
     
     <channel_type name="Kdr">
             
-        <status value="in_progress">
-          <meta:comment>...</meta:comment>
+        <status value="stable">
+          <meta:comment>From orig mod file:Based on Maex/De Schutter</meta:comment>
             <meta:issue>From orig mod file:  V0beta_h = -44(mV) : or should it be +44? Left that as it was...</meta:issue>
             <meta:issue>Orig mod file had: "if (alp_h &lt; 7.6e-4){" in proc for alp_h, PG changed it to: "if (alp_h &lt; TC*7.6e-4){"</meta:issue>
             <meta:contributor>

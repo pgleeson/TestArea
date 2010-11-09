@@ -18,8 +18,8 @@ NaF - checked with rates - updated to latest CML - added shift - valid - checked
 NaP - checked with rates - updated to latest CML - no shift - valid - checked Gen
 Kir - checked with rates - updated to latest CML - no shift - valid - checked Gen
 Kdr - checked with rates - updated to latest CML - added shift - valid - checked Gen
-KA - checked with rates
-Ksl - checked with rates
+KA - checked with rates - updated with latest CML - added shift - valid - checked Gen
+Ksl - checked with rates 
 </string>
   </void>
   <void property="projectFileVersion">
@@ -2237,7 +2237,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    <float>100.0</float>
   </void>
   <void property="reference">
-   <string>Sim_510</string>
+   <string>Sim_523</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -2979,10 +2979,10 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
     <object class="ucl.physiol.neuroconstruct.project.SimConfig">
      <void property="cellGroups">
       <void method="add">
-       <string>CG_Kdr</string>
+       <string>CG_KA</string>
       </void>
       <void method="add">
-       <string>CG_Kdr_mod</string>
+       <string>CG_KA_mod</string>
       </void>
      </void>
      <void property="description">
@@ -3181,7 +3181,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
     <object class="ucl.physiol.neuroconstruct.project.SimConfig">
      <void property="cellGroups">
       <void method="add">
-       <string>CG_Kdr</string>
+       <string>CG_KA</string>
       </void>
      </void>
      <void property="inputs">
