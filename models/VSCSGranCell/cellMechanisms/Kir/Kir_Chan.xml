@@ -10,7 +10,7 @@
     
     <channel_type name="Kir">
     
-        <status value="in_progress">
+        <status value="stable">
             <meta:comment>Comment from original mod file: Based upon Table 2 of Rossi_JNS_98, but with increased gbar</meta:comment>
             <meta:issue>Does not follow Table 1 in D'Angelo et al. 2001</meta:issue>
             <meta:contributor>

@@ -79,6 +79,18 @@
      <void property="density">
       <float>3.0E-8</float>
      </void>
+     <void property="extraParameters">
+      <void method="add">
+       <object class="ucl.physiol.neuroconstruct.cell.MechParameter">
+        <void property="name">
+         <string>shift</string>
+        </void>
+        <void property="value">
+         <float>-15.0</float>
+        </void>
+       </object>
+      </void>
+     </void>
      <void property="name">
       <string>Kdr_mod</string>
      </void>
