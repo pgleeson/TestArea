@@ -2157,11 +2157,11 @@ Ksl - checked with rates
     <string></string>
    </void>
    <void method="put">
-    <float>1.0</float>
+    <float>-1.0</float>
     <string></string>
    </void>
    <void method="put">
-    <float>-1.0</float>
+    <float>1.0</float>
     <string></string>
    </void>
    <void method="put">
@@ -2237,7 +2237,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    <float>100.0</float>
   </void>
   <void property="reference">
-   <string>Sim_494</string>
+   <string>Sim_499</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -2979,10 +2979,10 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
     <object class="ucl.physiol.neuroconstruct.project.SimConfig">
      <void property="cellGroups">
       <void method="add">
-       <string>CG_NaP_mod</string>
+       <string>CG_Kir</string>
       </void>
       <void method="add">
-       <string>CG_NaP</string>
+       <string>CG_Kir_mod</string>
       </void>
      </void>
      <void property="description">
@@ -3181,7 +3181,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
     <object class="ucl.physiol.neuroconstruct.project.SimConfig">
      <void property="cellGroups">
       <void method="add">
-       <string>CG_NaP</string>
+       <string>CG_Kir</string>
       </void>
      </void>
      <void property="inputs">

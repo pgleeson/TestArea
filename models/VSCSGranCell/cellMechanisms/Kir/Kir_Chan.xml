@@ -2,18 +2,16 @@
 <channelml xmlns="http://morphml.org/channelml/schema" 
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
            xmlns:meta="http://morphml.org/metadata/schema" 
-           xsi:schemaLocation="http://morphml.org/channelml/schema   ../../../../templates/xmlTemplates/Schemata/v1.6/Level2/ChannelML_v1.6.xsd" units="Physiological Units">
+           xsi:schemaLocation="http://morphml.org/channelml/schema  http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd"
+           units="Physiological Units">
 
-    <meta:notes>A channel from D'Angelo et al 2001</meta:notes>
+    <meta:notes>A channel from a granule cell model developed by Volker Steuber and Chiara Saviane, originally from D'Angelo et al 2001</meta:notes>
     
-    <ion name="k" charge="1" default_erev="-84.7">
-      <meta:notes>Using rev pot from D'Angelo et al 2001</meta:notes>
-    </ion>
     
-    <channel_type name="Kir" density="yes">
+    <channel_type name="Kir">
     
-        <status value="stable">
-            <meta:comment>Verified equivalence of NEURON and GENESIS mapping to orig NEURON mod impl at 0.02ms dt with current pulse</meta:comment>
+        <status value="in_progress">
+            <meta:comment>Comment from original mod file: Based upon Table 2 of Rossi_JNS_98, but with increased gbar</meta:comment>
             <meta:issue>Does not follow Table 1 in D'Angelo et al. 2001</meta:issue>
             <meta:contributor>
                 <meta:name>Padraig Gleeson</meta:name>
@@ -22,13 +20,21 @@
     
         <meta:notes>Inward rectifying K+ channel</meta:notes>
         
+
         <meta:authorList>
-            <meta:modelTranslator>
-                <meta:name>Padraig Gleeson</meta:name>
-                <meta:institution>UCL</meta:institution>
-                <meta:email>p.gleeson - at - ucl.ac.uk</meta:email>
-            </meta:modelTranslator>
+            <meta:modelAuthor>
+                <meta:name>Volker Steuber</meta:name>
+            </meta:modelAuthor>
+            <meta:modelAuthor>
+                <meta:name>Chiara Saviane</meta:name>
+            </meta:modelAuthor>
+          <meta:modelTranslator>
+            <meta:name>Padraig Gleeson</meta:name>
+            <meta:institution>UCL</meta:institution>
+            <meta:email>p.gleeson - at - ucl.ac.uk</meta:email>
+          </meta:modelTranslator>
         </meta:authorList>
+           
         
         <meta:publication>
           <meta:fullTitle>Paola Rossi, Giovanna De Filippi, Simona Armano, Vanni Taglietti, and Egidio D'Angelo. 
@@ -49,38 +55,18 @@
             <meta:uri>http://senselab.med.yale.edu/senselab/NeuronDB/channelGene2.htm#table3</meta:uri>
         </meta:neuronDBref>
 
-        
-        <current_voltage_relation>
-            <ohmic ion="k">
-                <conductance default_gmax="0.9">   
-                    <gate power="1">
-                        <state name="m" fraction="1"/>
-                    </gate>
-                </conductance>
-            </ohmic>
+        <current_voltage_relation cond_law="ohmic" ion="k" default_gmax="0.9" default_erev="-84.7">
+            <gate name="m" instances="1">
+
+                <closed_state id="m0"/>
+                <open_state id="m" fraction="1"/>
+
+                <transition name="alpha" from="m0" to="m" expr_form="exponential" rate="0.4" scale="-12.5" midpoint="-86.3" />
+
+                <transition name="beta" from="m" to="m0" expr_form="exponential" rate="0.4" scale="25" midpoint="-86.3" />
+
+            </gate>
         </current_voltage_relation>
- 
-        
-        <hh_gate state="m">
-          <transition>
-            <voltage_gate>
-              <alpha>
-                <parameterised_hh type="exponential">
-                  <parameter name="A" value="0.4"/>
-                  <parameter name="k" value="-0.08"/>
-                  <parameter name="d" value="-86.3"/>
-                </parameterised_hh>
-              </alpha>
-              <beta>
-                <parameterised_hh type="exponential">
-                  <parameter name="A" value="0.4"/>
-                  <parameter name="k" value="0.04"/>
-                  <parameter name="d" value="-86.3"/>
-                </parameterised_hh>
-              </beta>
-            </voltage_gate>
-            </transition>
-        </hh_gate>
         
 
         

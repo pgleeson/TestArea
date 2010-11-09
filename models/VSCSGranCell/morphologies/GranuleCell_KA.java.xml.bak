@@ -62,10 +62,10 @@
    <void method="put">
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
      <void property="density">
-      <float>4.0E-8</float>
+      <float>6.366E-10</float>
      </void>
      <void property="name">
-      <string>KA</string>
+      <string>GranCellPassiveCond</string>
      </void>
     </object>
     <object class="java.util.Vector">
@@ -77,10 +77,10 @@
    <void method="put">
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
      <void property="density">
-      <float>6.366E-10</float>
+      <float>4.0E-8</float>
      </void>
      <void property="name">
-      <string>GranCellPassiveCond</string>
+      <string>KA</string>
      </void>
     </object>
     <object class="java.util.Vector">
