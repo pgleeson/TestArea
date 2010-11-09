@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <channelml xmlns="http://morphml.org/channelml/schema" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xmlns:meta="http://morphml.org/metadata/schema" 
-    xsi:schemaLocation="http://morphml.org/channelml/schema  ../../../../../NeuroMLValidator/web/NeuroMLFiles/Schemata/v1.6/Level2/ChannelML_v1.6.xsd" 
+    xmlns:meta="http://morphml.org/metadata/schema"
+    xsi:schemaLocation="http://morphml.org/channelml/schema  http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd"
     units="SI Units">
 
     <meta:notes>A channel from Maex, R and De Schutter, E. Synchronization of Golgi and Granule Cell Firing in a 
     Detailed Network Model of the Cerebellar Granule Cell Layer</meta:notes>
 
-    
-    <ion name="k" default_erev="-0.09" charge="1" role="PermeatedSubstance">
-        <meta:notes>The ion which actually flows through the channel</meta:notes>
-    </ion>
-	<ion name="ca" charge="2" role="ModulatingSubstance">
-        <meta:notes>The channel's conductance of K is dependent on this ion's concentration</meta:notes>
-    </ion>
     
     <channel_type name="KCa" density="yes">
         
@@ -39,35 +32,25 @@
             <meta:uri>http://senselab.med.yale.edu/senselab/NeuronDB/channelGene2.htm#table3</meta:uri>
         </meta:neuronDBref>
 
-        <current_voltage_relation>
-            <ohmic ion="k">
-                <conductance default_gmax="180">  
-                    <rate_adjustments>
-                        <q10_settings fixed_q10="5" experimental_temp="37"/> <!-- Note channel should only be used at 37 deg C!-->
-                        <offset value="0.010"/>
-                    </rate_adjustments>
-                    <gate power="1">
-                        <state name="m" fraction="1"/>
-                    </gate>
-                </conductance>
-            </ohmic>
-        </current_voltage_relation>
-        
-    
+        <parameters>
+            <parameter name="shift" value ="-0.010"/> <!-- Will be overwritten when placed on cell-->
+        </parameters>
 
-        <hh_gate state="m">
-            <transition>
-                <voltage_conc_gate>
-                    <conc_dependence name="Calcium" ion="ca" variable_name="ca_conc" min_conc="7.55e-7" max_conc="0.050"/>
-                    <alpha>
-                        <generic_equation_hh expr="2500/(1 + ( (1.5e-3 *(exp (-85 * v))) / ca_conc))"/>
-                    </alpha>
-                    <beta>
-                        <generic_equation_hh expr="1500/(1 + (ca_conc / (1.5e-4 * (exp (-77*v)))))"/>
-                    </beta>                                    
-                </voltage_conc_gate>
-            </transition>
-        </hh_gate>
+        <current_voltage_relation cond_law="ohmic" ion="k" default_gmax="0.179811" default_erev="-0.09">
+
+            <conc_dependence name="Calcium" ion="ca" charge="2" variable_name="ca_conc" min_conc="7.5e-7" max_conc="0.050"/>
+
+            <q10_settings fixed_q10="5" experimental_temp="37"/> <!-- Note channel should only be used at 37 deg C!-->
+
+            <gate name="m" instances="1">
+                <closed_state id="m0"/>
+                <open_state id="m"/>
+
+                <transition name="alpha" from="m0" to="m" expr_form="generic" expr="2500/(1 + ( (1.5e-3 *(exp (-85* (v+shift)))) / ca_conc))" />
+                <transition name="beta" from="m" to="m0" expr_form="generic" expr="1500/(1 + (ca_conc / (1.5e-4 * (exp (-77*(v+shift))))))" />
+
+            </gate>
+        </current_voltage_relation>
         
       
         

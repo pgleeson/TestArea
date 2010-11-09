@@ -21,6 +21,7 @@ Kdr - checked with rates - updated to latest CML - added shift - valid - checked
 KA - checked with rates - updated to latest CML - added shift - valid - checked Gen
 Ksl - checked with rates - updated to latest CML - no shift - valid - checked Gen
 CaHVA - checked with rates - updated to latest CML - added shift - valid
+KCa - 
 
 CaPool - checked - updated to latest CML - valid
 
@@ -2117,6 +2118,68 @@ CaPool - checked - updated to latest CML - valid
      </void>
     </object>
    </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>SampleCellGroup</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_21</string>
+     </void>
+     <void property="maxValue">
+      <float>1.0</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>Var_36</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>KCa:m</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>OrigModCellGroup</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_21</string>
+     </void>
+     <void property="maxValue">
+      <float>1.0</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>Var_37</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>KCa_mod:m</string>
+     </void>
+    </object>
+   </void>
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.project.ProjectProperties"/>
@@ -2241,7 +2304,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    <float>100.0</float>
   </void>
   <void property="reference">
-   <string>Sim_555</string>
+   <string>Sim_562</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -2762,10 +2825,10 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
      </void>
      <void property="inputs">
       <void method="add">
-       <string>Input_0</string>
+       <string>SampleIClamp</string>
       </void>
       <void method="add">
-       <string>SampleIClamp</string>
+       <string>Input_0</string>
       </void>
      </void>
      <void property="name">
@@ -2780,6 +2843,12 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
       </void>
       <void method="add">
        <string>OrigModCellGroup_v</string>
+      </void>
+      <void method="add">
+       <string>Var_37</string>
+      </void>
+      <void method="add">
+       <string>Var_36</string>
       </void>
       <void method="add">
        <string>Var_31</string>
