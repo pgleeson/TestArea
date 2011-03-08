@@ -1439,13 +1439,13 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
    <void method="add"> 
     <object class="ucl.physiol.neuroconstruct.project.SimPlot"> 
      <void property="cellGroup"> 
-      <string>Channeltestgroup</string> 
+      <string>pyrCML_group</string> 
      </void> 
      <void property="cellNumber"> 
       <string>0</string> 
      </void> 
      <void property="graphWindow"> 
-      <string>GraphWin_1</string> 
+      <string>LV_pyr_group_v</string> 
      </void> 
      <void property="maxValue"> 
       <float>50.0</float> 
@@ -1453,11 +1453,14 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
      <void property="minValue"> 
       <float>-90.0</float> 
      </void> 
+     <void property="plotAndOrSave"> 
+      <string>Plot and save</string> 
+     </void> 
      <void property="plotReference"> 
       <string>pyrCML_apical17_V</string> 
      </void> 
      <void property="segmentId"> 
-      <string>0</string> 
+      <string>4460</string> 
      </void> 
     </object> 
    </void> 
@@ -1501,12 +1504,12 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
   </void> 
   <void property="nativeBlocks"> 
    <void method="put"> 
-    <float>-1.0</float> 
-    <string></string> 
-   </void> 
-   <void method="put"> 
     <float>1.0</float> 
     <string>forall Ra=85</string> 
+   </void> 
+   <void method="put"> 
+    <float>-1.0</float> 
+    <string></string> 
    </void> 
    <void method="put"> 
     <float>2.0</float> 
@@ -1534,7 +1537,7 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
    <float>-70.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_934</string> 
+   <string>Sim_939</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -2375,7 +2378,7 @@ A somatic current injection that triggers only 1 AP if presented alone is able t
       </void> 
      </void> 
      <void property="description"> 
-      <string>A paired pulse (20ms) from 30 synchronous synapses located on a single apical branch triggers an NMDA spike.</string> 
+      <string>20 losely synchronous (5ms) synapses clustered on a single apical branch (90um) triggers an NMDA spike.</string> 
      </void> 
      <void property="inputs"> 
       <void method="add"> 

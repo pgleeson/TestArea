@@ -1504,12 +1504,12 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
   </void> 
   <void property="nativeBlocks"> 
    <void method="put"> 
-    <float>-1.0</float> 
-    <string></string> 
-   </void> 
-   <void method="put"> 
     <float>1.0</float> 
     <string>forall Ra=85</string> 
+   </void> 
+   <void method="put"> 
+    <float>-1.0</float> 
+    <string></string> 
    </void> 
    <void method="put"> 
     <float>2.0</float> 
@@ -1537,7 +1537,7 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
    <float>-70.0</float> 
   </void> 
   <void property="reference"> 
-   <string>Sim_937</string> 
+   <string>Sim_939</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
