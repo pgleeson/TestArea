@@ -116,7 +116,7 @@
 		 
 		 <transition name="beta" from="h" to="h0" expr_form="sigmoid" rate="0.00216" scale="-28" midpoint="-5"/>
          
-         <steady_state name = "inf" from = "h0" to = "h" expr_form = "generic" expr = "alpha/(alpha+beta)"/>
+         <steady_state name = "inf" from = "h0" to = "h" expr_form = "generic" expr = " temp_adj_h*alpha/(alpha+beta)"/>
 		                 
             </gate>
         

@@ -12,12 +12,10 @@ NEURON {
 	POINT_PROCESS %Name%  :glutamate :
 	USEION ca READ cai WRITE ica VALENCE 2		
 	NONSPECIFIC_CURRENT i  :the two components are lumped together
-
-	RANGE e ,gmax,ntar,local_v, i	
+	RANGE e ,gmax,ntar,local_v, i	
 	RANGE g, gnmda, inmda, ica
 	
-	GLOBAL n, gama,tau1,tau2,tau_ampa,tauh,cah
-
+	GLOBAL n, gama,tau1,tau2,tau_ampa,tauh,cah
 }
 
 UNITS {
@@ -95,7 +93,7 @@ BREAKPOINT {
 	
 	gnmda=(A-B)/(1+n*exp(-gama*v) )	
 	gh=(exp(-h))
-	inmda =(1e-3)* gnmda * (v-e) :* gh            (factor not used as suggested by Polsy)
+	inmda =(1e-3)* gnmda * gh * (v-e)
 	ica=inmda/10
 	i= (1e-3)*g* (v- e) + inmda
 	local_v=v
