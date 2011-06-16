@@ -25,6 +25,7 @@ except ImportError:
 sys.path.append(os.environ["NC_HOME"]+"/pythonNeuroML/nCUtils")
 
 from ucl.physiol.neuroconstruct.hpc.mpi import MpiSettings
+from ucl.physiol.neuroconstruct.simulation import SimulationData
 
 import ncutils as nc # Many useful functions such as SimManager.runMultipleSims found here
 
@@ -33,7 +34,7 @@ projFile = File("../Parallel.ncx")
 simConfig="SmallNetwork"
 
 ###########  Main settings  ###########
-simDuration =           500 # ms
+simDuration =           200 # ms
 simDt =                 0.025 # ms
 neuroConstructSeed =    1234
 simulatorSeed =         1111
@@ -41,9 +42,9 @@ simulators =            ["NEURON"]
 simConfigs = []
 simConfigs.append("Default Simulation Configuration")
 
-mpiConfig =               MpiSettings.LEGION_4PROC
-mpiConfig =               MpiSettings.MATLEM_8PROC
-mpiConfig =               MpiSettings.LOCAL_SERIAL
+
+mpiConfigs =              [MpiSettings.MATLEM_1PROC, MpiSettings.MATLEM_2PROC, MpiSettings.MATLEM_4PROC, MpiSettings.MATLEM_8PROC, MpiSettings.MATLEM_16PROC] #, MpiSettings.MATLEM_4PROC, MpiSettings.MATLEM_8PROC, MpiSettings.MATLEM_16PROC
+#mpiConfigs =              [MpiSettings.LOCAL_SERIAL]
 
 suggestedRemoteRunTime = 2   # mins
 
@@ -55,9 +56,10 @@ plotVoltageOnly =       True
 
 simAllPrefix =          "Py_"   # Adds a prefix to simulation reference
 
-runInBackground =       mpiConfig == MpiSettings.LOCAL_SERIAL
+runInBackground =       mpiConfigs == [MpiSettings.LOCAL_SERIAL]
 
 verbose =               True
+runSims =               False
 
 #######################################
 
@@ -71,14 +73,28 @@ def testAll(argv=None):
     simManager = nc.SimulationManager(projFile,
                                       verbose = verbose)
 
-    simManager.runMultipleSims(simConfigs =           simConfigs,
-                               simDt =                simDt,
-                               simulators =           simulators,
-                               runInBackground =      runInBackground,
-                               varTimestepNeuron =    varTimestepNeuron,
-                               mpiConfig =                mpiConfig,
-                               suggestedRemoteRunTime =   suggestedRemoteRunTime)
+    allSims = simManager.runMultipleSims(simConfigs =             simConfigs,
+                               simDt =                   simDt,
+                               simDuration =             simDuration,
+                               simulators =              simulators,
+                               runInBackground =         runInBackground,
+                               varTimestepNeuron =       varTimestepNeuron,
+                               mpiConfigs =              mpiConfigs,
+                               suggestedRemoteRunTime =  suggestedRemoteRunTime,
+                               simRefGlobalPrefix =      simAllPrefix,
+                               runSims =                 runSims)
 
+    for sim in allSims:
+        simDir = File(projFile.getParentFile(), "/simulations/"+sim)
+
+        try:
+            simData = SimulationData(simDir)
+            simData.initialise()
+            simTime = simData.getSimulationProperties().getProperty("RealSimulationTime")
+            print "Simulation: %s took %s seconds"%(sim, simTime)
+
+        except:
+            self.printver("Error analysing simulation data from: %s"%simDir.getCanonicalPath())
 
 if __name__ == "__main__":
     testAll()
