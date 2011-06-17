@@ -826,7 +826,7 @@ print &quot;Done...&quot;</string>
    <float>1.0E-5</float>
   </void>
   <void property="reference">
-   <string>e_39</string>
+   <string>testompi_8</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -1063,9 +1063,269 @@ print &quot;Done...&quot;</string>
          </void>
         </object>
        </void>
+       <void method="add">
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost">
+         <void property="hostname">
+          <string>node2</string>
+         </void>
+         <void property="numProcessors">
+          <int>8</int>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost">
+         <void property="hostname">
+          <string>node3</string>
+         </void>
+         <void property="numProcessors">
+          <int>8</int>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost">
+         <void property="hostname">
+          <string>node4</string>
+         </void>
+         <void property="numProcessors">
+          <int>8</int>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost">
+         <void property="hostname">
+          <string>node5</string>
+         </void>
+         <void property="numProcessors">
+          <int>8</int>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost">
+         <void property="hostname">
+          <string>node6</string>
+         </void>
+         <void property="numProcessors">
+          <int>8</int>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost">
+         <void property="hostname">
+          <string>node7</string>
+         </void>
+         <void property="numProcessors">
+          <int>8</int>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost">
+         <void property="hostname">
+          <string>node8</string>
+         </void>
+         <void property="numProcessors">
+          <int>8</int>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost">
+         <void property="hostname">
+          <string>node9</string>
+         </void>
+         <void property="numProcessors">
+          <int>8</int>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost">
+         <void property="hostname">
+          <string>node10</string>
+         </void>
+         <void property="numProcessors">
+          <int>8</int>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost">
+         <void property="hostname">
+          <string>node11</string>
+         </void>
+         <void property="numProcessors">
+          <int>8</int>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost">
+         <void property="hostname">
+          <string>node12</string>
+         </void>
+         <void property="numProcessors">
+          <int>8</int>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost">
+         <void property="hostname">
+          <string>node13</string>
+         </void>
+         <void property="numProcessors">
+          <int>8</int>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost">
+         <void property="hostname">
+          <string>node14</string>
+         </void>
+         <void property="numProcessors">
+          <int>8</int>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost">
+         <void property="hostname">
+          <string>node15</string>
+         </void>
+         <void property="numProcessors">
+          <int>8</int>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost">
+         <void property="hostname">
+          <string>node16</string>
+         </void>
+         <void property="numProcessors">
+          <int>8</int>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost">
+         <void property="hostname">
+          <string>node17</string>
+         </void>
+         <void property="numProcessors">
+          <int>8</int>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost">
+         <void property="hostname">
+          <string>node18</string>
+         </void>
+         <void property="numProcessors">
+          <int>8</int>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost">
+         <void property="hostname">
+          <string>node19</string>
+         </void>
+         <void property="numProcessors">
+          <int>8</int>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost">
+         <void property="hostname">
+          <string>node20</string>
+         </void>
+         <void property="numProcessors">
+          <int>8</int>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost">
+         <void property="hostname">
+          <string>node21</string>
+         </void>
+         <void property="numProcessors">
+          <int>8</int>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost">
+         <void property="hostname">
+          <string>node22</string>
+         </void>
+         <void property="numProcessors">
+          <int>8</int>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost">
+         <void property="hostname">
+          <string>node23</string>
+         </void>
+         <void property="numProcessors">
+          <int>8</int>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost">
+         <void property="hostname">
+          <string>node24</string>
+         </void>
+         <void property="numProcessors">
+          <int>8</int>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost">
+         <void property="hostname">
+          <string>node25</string>
+         </void>
+         <void property="numProcessors">
+          <int>8</int>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost">
+         <void property="hostname">
+          <string>node26</string>
+         </void>
+         <void property="numProcessors">
+          <int>8</int>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost">
+         <void property="hostname">
+          <string>node27</string>
+         </void>
+         <void property="numProcessors">
+          <int>8</int>
+         </void>
+        </object>
+       </void>
       </void>
       <void property="name">
-       <string>MatLem (2 x 8p)</string>
+       <string>MatLem (25 x 8p)</string>
       </void>
       <void property="queueInfo">
        <object class="ucl.physiol.neuroconstruct.hpc.mpi.QueueInfo">
@@ -1089,30 +1349,30 @@ print &quot;Done...&quot;</string>
          <void method="put">
           <object id="MpiSettings$KnownSimulators0" class="java.lang.Enum" method="valueOf">
            <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
-           <string>PY_NEURON</string>
-          </object>
-          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv -python</string>
-         </void>
-         <void method="put">
-          <object id="MpiSettings$KnownSimulators1" class="java.lang.Enum" method="valueOf">
-           <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
            <string>MOOSE</string>
           </object>
           <string>/share/apps/neuro/moose/moose</string>
          </void>
          <void method="put">
-          <object id="MpiSettings$KnownSimulators2" class="java.lang.Enum" method="valueOf">
+          <object id="MpiSettings$KnownSimulators1" class="java.lang.Enum" method="valueOf">
            <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
-           <string>NEURON</string>
+           <string>PY_NEURON</string>
           </object>
-          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv</string>
+          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv -python</string>
          </void>
          <void method="put">
-          <object class="java.lang.Enum" method="valueOf">
+          <object id="MpiSettings$KnownSimulators2" class="java.lang.Enum" method="valueOf">
            <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
            <string>GENESIS</string>
           </object>
           <string>/share/apps/neuro/genesis-2.3/genesis/genesis</string>
+         </void>
+         <void method="put">
+          <object id="MpiSettings$KnownSimulators3" class="java.lang.Enum" method="valueOf">
+           <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
+           <string>NEURON</string>
+          </object>
+          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv</string>
          </void>
         </void>
         <void property="hostname">
@@ -1193,13 +1453,73 @@ print &quot;Done...&quot;</string>
      <void id="MpiConfiguration1" property="mpiConf">
       <void property="hostList">
        <void index="0">
-        <void property="numProcessors">
-         <int>4</int>
+        <void property="hostname">
+         <string>node0</string>
         </void>
+        <void property="numProcessors">
+         <int>8</int>
+        </void>
+       </void>
+       <void method="add">
+        <object class="ucl.physiol.neuroconstruct.hpc.mpi.MpiHost">
+         <void property="hostname">
+          <string>node1</string>
+         </void>
+         <void property="numProcessors">
+          <int>8</int>
+         </void>
+        </object>
        </void>
       </void>
       <void property="name">
-       <string>Local machine (4p)</string>
+       <string>MatLem (2 x 8p)</string>
+      </void>
+      <void property="queueInfo">
+       <object class="ucl.physiol.neuroconstruct.hpc.mpi.QueueInfo">
+        <void property="account">
+         <string></string>
+        </void>
+        <void property="queueType">
+         <object idref="QueueInfo$QueueType0"/>
+        </void>
+        <void property="wallTimeMins">
+         <int>6</int>
+        </void>
+       </object>
+      </void>
+      <void property="remoteLogin">
+       <object class="ucl.physiol.neuroconstruct.hpc.mpi.RemoteLogin">
+        <void property="executables">
+         <void method="put">
+          <object idref="MpiSettings$KnownSimulators0"/>
+          <string>/share/apps/neuro/moose/moose</string>
+         </void>
+         <void method="put">
+          <object idref="MpiSettings$KnownSimulators1"/>
+          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv -python</string>
+         </void>
+         <void method="put">
+          <object idref="MpiSettings$KnownSimulators2"/>
+          <string>/share/apps/neuro/genesis-2.3/genesis/genesis</string>
+         </void>
+         <void method="put">
+          <object idref="MpiSettings$KnownSimulators3"/>
+          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv</string>
+         </void>
+        </void>
+        <void property="hostname">
+         <string>128.16.14.177</string>
+        </void>
+        <void property="userName">
+         <string>ucgbpgl</string>
+        </void>
+        <void property="workDir">
+         <string>/home/ucgbpgl/nCsims</string>
+        </void>
+       </object>
+      </void>
+      <void property="useScp">
+       <boolean>true</boolean>
       </void>
      </void>
      <void property="mpiConf">
@@ -1362,15 +1682,15 @@ print &quot;Done...&quot;</string>
         <void property="executables">
          <void method="put">
           <object idref="MpiSettings$KnownSimulators0"/>
-          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv -python</string>
-         </void>
-         <void method="put">
-          <object idref="MpiSettings$KnownSimulators2"/>
-          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv</string>
+          <string>/share/apps/neuro/moose</string>
          </void>
          <void method="put">
           <object idref="MpiSettings$KnownSimulators1"/>
-          <string>/share/apps/neuro/moose</string>
+          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv -python</string>
+         </void>
+         <void method="put">
+          <object idref="MpiSettings$KnownSimulators3"/>
+          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv</string>
          </void>
         </void>
         <void property="hostname">

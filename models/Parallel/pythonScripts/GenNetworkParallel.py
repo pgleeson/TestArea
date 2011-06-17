@@ -13,6 +13,7 @@
 
 import sys
 import os
+import time
 
 
 try:
@@ -43,7 +44,9 @@ simConfigs = []
 simConfigs.append("Default Simulation Configuration")
 
 
-mpiConfigs =              [MpiSettings.MATLEM_1PROC, MpiSettings.MATLEM_2PROC, MpiSettings.MATLEM_4PROC, MpiSettings.MATLEM_8PROC, MpiSettings.MATLEM_16PROC] #, MpiSettings.MATLEM_4PROC, MpiSettings.MATLEM_8PROC, MpiSettings.MATLEM_16PROC
+mpiConfigs =              [MpiSettings.MATLEM_1PROC, MpiSettings.MATLEM_2PROC, MpiSettings.MATLEM_4PROC, \
+                           MpiSettings.MATLEM_8PROC, MpiSettings.MATLEM_16PROC, MpiSettings.MATLEM_32PROC, \
+                           MpiSettings.MATLEM_64PROC]#, MpiSettings.MATLEM_128PROC, MpiSettings.MATLEM_200PROC]
 #mpiConfigs =              [MpiSettings.LOCAL_SERIAL]
 
 suggestedRemoteRunTime = 2   # mins
@@ -60,6 +63,10 @@ runInBackground =       mpiConfigs == [MpiSettings.LOCAL_SERIAL]
 
 verbose =               True
 runSims =               False
+runSims =               True
+
+numConcurrentSims = 4
+if mpiConfigs != [MpiSettings.LOCAL_SERIAL]: numConcurrentSims = 30
 
 #######################################
 
@@ -71,6 +78,7 @@ def testAll(argv=None):
 
 
     simManager = nc.SimulationManager(projFile,
+                                      numConcurrentSims = numConcurrentSims,
                                       verbose = verbose)
 
     allSims = simManager.runMultipleSims(simConfigs =             simConfigs,
@@ -84,6 +92,11 @@ def testAll(argv=None):
                                simRefGlobalPrefix =      simAllPrefix,
                                runSims =                 runSims)
 
+    while (len(simManager.allRunningSims)>0):
+        print "Waiting for the following sims to finish: "+str(simManager.allRunningSims)
+        time.sleep(5) # wait a while...
+        simManager.updateSimsRunning()
+
     for sim in allSims:
         simDir = File(projFile.getParentFile(), "/simulations/"+sim)
 
@@ -94,7 +107,7 @@ def testAll(argv=None):
             print "Simulation: %s took %s seconds"%(sim, simTime)
 
         except:
-            self.printver("Error analysing simulation data from: %s"%simDir.getCanonicalPath())
+            print "Error analysing simulation data from: %s"%simDir.getCanonicalPath()
 
 if __name__ == "__main__":
     testAll()
