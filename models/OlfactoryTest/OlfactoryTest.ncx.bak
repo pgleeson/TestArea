@@ -1735,11 +1735,11 @@ Use different ena for GC and MT
     <string></string>
    </void>
    <void method="put">
-    <float>-1.0</float>
+    <float>1.0</float>
     <string></string>
    </void>
    <void method="put">
-    <float>1.0</float>
+    <float>-1.0</float>
     <string></string>
    </void>
    <void method="put">
@@ -1859,6 +1859,10 @@ forall if (ismembrane(&quot;Ca_mit_conc&quot;)) {
     <string></string>
    </void>
    <void method="put">
+    <int>-1</int>
+    <string></string>
+   </void>
+   <void method="put">
     <int>1</int>
     <string>str someTempCompName
 
@@ -1926,10 +1930,6 @@ echo &quot;This first step before the final reset is to initialise the value of 
     end
 </string>
    </void>
-   <void method="put">
-    <int>-1</int>
-    <string></string>
-   </void>
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.psics.PsicsSettings">
@@ -1951,7 +1951,7 @@ echo &quot;This first step before the final reset is to initialise the value of 
    <float>0.11</float>
   </void>
   <void property="reference">
-   <string>Sim_632</string>
+   <string>Sim_633</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
