@@ -34,7 +34,7 @@ projFile = File("../Parallel.ncx")
 
 
 ###########  Main settings  ###########
-simDuration =           300 # ms
+simDuration =           100 # ms
 simDt =                 0.025 # ms
 neuroConstructSeed =    1234
 simulatorSeed =         1111
@@ -48,6 +48,7 @@ mpiConfigs =              [MpiSettings.MATLEM_1PROC, MpiSettings.MATLEM_2PROC, M
                            #MpiSettings.MATLEM_64PROC]#, MpiSettings.MATLEM_128PROC, MpiSettings.MATLEM_200PROC]
 #mpiConfigs =              [MpiSettings.LOCAL_SERIAL]
 mpiConfigs =              [MpiSettings.MATLEM_8PROC, MpiSettings.MATLEM_16PROC]
+#mpiConfigs =              [MpiSettings.LOCAL_4PROC]
 
 multipleRuns =          [-1, -2, -3, -4]
 multipleRuns =          [-1]
@@ -60,10 +61,10 @@ analyseSims =           True
 plotSims =              True
 plotVoltageOnly =       True
 
-simAllPrefix =          "H_"   # Adds a prefix to simulation reference
+simAllPrefix =          "Q_"   # Adds a prefix to simulation reference
 
-numCells1 = 50000
-numCells2 = 50000
+numCells1 = 60000
+numCells2 = 60000
 
 runInBackground =       True
 
@@ -78,7 +79,7 @@ saveOnlySpikes =        True
 
 from ucl.physiol.neuroconstruct.neuron import NeuronFileManager
 runMode = NeuronFileManager.RUN_HOC
-runMode = NeuronFileManager.RUN_PYTHON_XML
+#runMode = NeuronFileManager.RUN_PYTHON_XML
 
 
 numConcurrentSims = 4
