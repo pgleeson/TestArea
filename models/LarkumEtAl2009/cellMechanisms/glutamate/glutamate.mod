@@ -12,10 +12,12 @@ NEURON {
 	POINT_PROCESS %Name%  :glutamate :
 	USEION ca READ cai WRITE ica VALENCE 2		
 	NONSPECIFIC_CURRENT i  :the two components are lumped together
-	RANGE e ,gmax,ntar,local_v, i	
+
+	RANGE e ,gmax,ntar,local_v, i	
 	RANGE g, gnmda, inmda, ica
 	
-	GLOBAL n, gama,tau1,tau2,tau_ampa,tauh,cah
+	GLOBAL n, gama,tau1,tau2,tau_ampa,tauh,cah
+
 }
 
 UNITS {

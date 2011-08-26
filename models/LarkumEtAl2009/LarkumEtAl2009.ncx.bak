@@ -2354,12 +2354,12 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
   </void>
   <void property="nativeBlocks">
    <void method="put">
-    <float>1.0</float>
-    <string>forall Ra=85</string>
-   </void>
-   <void method="put">
     <float>-1.0</float>
     <string></string>
+   </void>
+   <void method="put">
+    <float>1.0</float>
+    <string>forall Ra=85</string>
    </void>
    <void method="put">
     <float>2.0</float>
@@ -3002,6 +3002,1427 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
      </void>
     </object>
    </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAspike_focal</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical17</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>1</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAs_17</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical17</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAs_18</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical18</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAs_21</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical21</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAs_23</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical23</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAs_24</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical24</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAs_25</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical25</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAs_27</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical27</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAs_28</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical28</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAs_31</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical31</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAs_34</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical34</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAs_35</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical35</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAs_37</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical37</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAs_38</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical38</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAs_44</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical44</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAs_46</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical46</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAs_52</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical52</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAs_53</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical53</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAs_54</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical54</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAs_56</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical56</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAs_57</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical57</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAs_61</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical61</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAs_62</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical62</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAs_65</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical65</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAs_67</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical67</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAs_68</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical68</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAs_69</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical69</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAs_72</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical72</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>300.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>NMDAs_73</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical73</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
+     </void>
+    </object>
+   </void>
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.project.SimConfigInfo">
@@ -3281,11 +4702,6 @@ A somatic current injection that triggers only 1 AP if presented alone is able t
      </void>
      <void property="description">
       <string>20 losely synchronous (5ms) synapses clustered on a single apical branch (90um) triggers an NMDA spike.</string>
-     </void>
-     <void property="inputs">
-      <void method="add">
-       <string>NMDAspike</string>
-      </void>
      </void>
      <void id="MpiConfiguration0" property="mpiConf">
       <void property="mpiVersion">
