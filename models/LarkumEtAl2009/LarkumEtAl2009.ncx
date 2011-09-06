@@ -139,6 +139,13 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
     <void method="add">
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/>
     </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter">
+      <void property="maxNumberCells">
+       <int>1500</int>
+      </void>
+     </object>
+    </void>
    </void>
    <void method="get">
     <string>Cell Type</string>
@@ -154,6 +161,9 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
     <void method="add">
      <string>LarkumPyr_CML</string>
     </void>
+    <void method="add">
+     <string>ExcCell</string>
+    </void>
    </void>
    <void method="get">
     <string>Priority</string>
@@ -168,6 +178,9 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
     </void>
     <void method="add">
      <int>4</int>
+    </void>
+    <void method="add">
+     <int>6</int>
     </void>
    </void>
    <void method="get">
@@ -204,6 +217,14 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
       <int>255</int>
      </object>
     </void>
+    <void method="add">
+     <object class="java.awt.Color">
+      <int>204</int>
+      <int>0</int>
+      <int>51</int>
+      <int>255</int>
+     </object>
+    </void>
    </void>
    <void method="get">
     <string>Region Name</string>
@@ -219,6 +240,9 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
     <void method="add">
      <string>pyr_region</string>
     </void>
+    <void method="add">
+     <string>exc_region</string>
+    </void>
    </void>
    <void method="get">
     <string>Cell Group Name</string>
@@ -233,6 +257,9 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
     </void>
     <void method="add">
      <string>pyrCML_group</string>
+    </void>
+    <void method="add">
+     <string>ExcCellGroup</string>
     </void>
    </void>
   </void>
@@ -4423,6 +4450,62 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
      </void>
     </object>
    </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainSettings">
+     <void property="cellGroup">
+      <string>ExcCellGroup</string>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>8.5E-4</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>backgroundExc_cells</string>
+     </void>
+     <void property="synapseType">
+      <string>FastSynInput</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.005</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>backgroundInh</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>GROUP_ApicalDendrites</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>250</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>GABA</string>
+     </void>
+    </object>
+   </void>
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.project.SimConfigInfo">
@@ -4732,16 +4815,16 @@ A somatic current injection that triggers only 1 AP if presented alone is able t
          <void method="put">
           <object class="java.lang.Enum" method="valueOf">
            <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
-           <string>PY_NEURON</string>
+           <string>NEURON</string>
           </object>
-          <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv -python</string>
+          <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv</string>
          </void>
          <void method="put">
           <object class="java.lang.Enum" method="valueOf">
            <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
-           <string>NEURON</string>
+           <string>PY_NEURON</string>
           </object>
-          <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv</string>
+          <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv -python</string>
          </void>
         </void>
         <void property="hostname">
@@ -4765,6 +4848,11 @@ A somatic current injection that triggers only 1 AP if presented alone is able t
      <void property="name">
       <string>NMDAspike input</string>
      </void>
+     <void property="netConns">
+      <void method="add">
+       <string>NetConn_ExcCellGroup_pyrCML_group</string>
+      </void>
+     </void>
      <void property="plots">
       <void method="add">
        <string>pyrCML_apical17_V</string>
@@ -4782,12 +4870,15 @@ A somatic current injection that triggers only 1 AP if presented alone is able t
     <object class="ucl.physiol.neuroconstruct.project.SimConfig">
      <void property="cellGroups">
       <void method="add">
+       <string>ExcCellGroup</string>
+      </void>
+      <void method="add">
        <string>pyrCML_group</string>
       </void>
      </void>
      <void property="inputs">
       <void method="add">
-       <string>backgroundExc</string>
+       <string>backgroundExc_cells</string>
       </void>
       <void method="add">
        <string>NMDAspike</string>
@@ -4795,6 +4886,11 @@ A somatic current injection that triggers only 1 AP if presented alone is able t
      </void>
      <void property="name">
       <string>background activity</string>
+     </void>
+     <void property="netConns">
+      <void method="add">
+       <string>NetConn_ExcCellGroup_pyrCML_group</string>
+      </void>
      </void>
      <void property="plots">
       <void method="add">
@@ -4845,6 +4941,98 @@ A somatic current injection that triggers only 1 AP if presented alone is able t
    </void>
   </void>
  </object>
- <object class="ucl.physiol.neuroconstruct.project.SimpleNetworkConnectionsInfo"/>
+ <object class="ucl.physiol.neuroconstruct.project.SimpleNetworkConnectionsInfo">
+  <void property="internalData">
+   <void method="get">
+    <string>Name</string>
+    <void method="add">
+     <string>NetConn_ExcCellGroup_pyrCML_group</string>
+    </void>
+   </void>
+   <void method="get">
+    <string>AP speed</string>
+    <void method="add">
+     <float>3.4028235E38</float>
+    </void>
+   </void>
+   <void method="get">
+    <string>Synapse Type</string>
+    <void method="add">
+     <object class="java.util.Vector">
+      <void method="add">
+       <object class="ucl.physiol.neuroconstruct.project.SynapticProperties">
+        <void property="delayGenerator">
+         <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+          <void property="fixedNum">
+           <float>5.0</float>
+          </void>
+          <void property="numberType">
+           <int>11</int>
+          </void>
+         </object>
+        </void>
+        <void property="synapseType">
+         <string>glutamate</string>
+        </void>
+        <void property="threshold">
+         <double>-20.0</double>
+        </void>
+        <void property="weightsGenerator">
+         <object class="ucl.physiol.neuroconstruct.utils.WeightGenerator">
+          <void property="numberType">
+           <int>11</int>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+   </void>
+   <void method="get">
+    <string>Max/min</string>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.MaxMinLength"/>
+    </void>
+   </void>
+   <void method="get">
+    <string>Search Pattern</string>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.SearchPattern">
+      <void property="type">
+       <int>0</int>
+      </void>
+     </object>
+    </void>
+   </void>
+   <void method="get">
+    <string>Source</string>
+    <void method="add">
+     <string>ExcCellGroup</string>
+    </void>
+   </void>
+   <void method="get">
+    <string>Connectivity Conditions</string>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+      <void property="allowAutapses">
+       <boolean>false</boolean>
+      </void>
+      <void property="prePostAllowedLoc">
+       <void property="somaAllowedPost">
+        <boolean>false</boolean>
+       </void>
+      </void>
+     </object>
+    </void>
+   </void>
+   <void method="get">
+    <string>Target</string>
+    <void method="add">
+     <string>pyrCML_group</string>
+    </void>
+   </void>
+  </void>
+ </object>
  <object class="ucl.physiol.neuroconstruct.project.ArbourConnectionsInfo"/>
 </java>

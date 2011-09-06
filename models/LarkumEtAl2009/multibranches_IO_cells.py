@@ -62,7 +62,7 @@ if numGenerated > 0:
 
     #multiple simulation settings:    
     prefix = "" #string that will be added to the name of the simulations to identify the simulation set    
-    trials = 2
+    trials = 300
     Nbranches = 19
     Configuration = ["NMDAspike input"]
 
@@ -93,7 +93,7 @@ if numGenerated > 0:
        
        selectedBranches = []
 
-       prefix = "b"+str(j) #number of branches stimulated
+       prefix = "bc"+str(j) #number of branches stimulated
        
        print
        print "-----------------------------------------------------------------------"
@@ -102,7 +102,7 @@ if numGenerated > 0:
        print "-----------------------------------------------------------------------"
        print
        
-       for i in range(0, trials):
+       for i in range(100, trials):
           
           print ""
           selectedBranches = []
@@ -122,7 +122,7 @@ if numGenerated > 0:
              simInputs.add(apical_stim[randomApicalBranch])
 	     simPlots.add(apical_plot[randomApicalBranch]) 
 
-	  simGroups.add("pyrCML_group")          
+	  simGroups.add("pyrCML_group")       
 	  simPlots.add("pyrCML_soma_V")
 	  
 	  simConfig.setCellGroups(simGroups)
@@ -140,7 +140,7 @@ if numGenerated > 0:
 	  myProject.simulationParameters.setReference(simRef)
 	  refStored.append(simRef)
 
-	  ##### RUN BLOCK control #####
+	  ##### RUN BLOCK #####
 
 	  randomseed = random.randint(1000,5000)
 
@@ -165,95 +165,14 @@ if numGenerated > 0:
 
 	#####################'''
 
-          ########  Rerunning the same configuration + background exc ###############
+          ########  Rerunning the same configuration + background noise ###############
 
-	  simInputs.add("backgroundExc")
 	  
-	  simConfig.setInputs(simInputs)
-
-	  print "group generated: "+simConfig.getCellGroups().toString()
-	  print "going to stimulate: "+simConfig.getInputs().toString()
-	  print "going to record: "+simConfig.getPlots().toString()
-          
-          ##########################################################################################'''
+          simGroups.add("ExcCellGroup") 
+          simInputs.add("backgroundExc_cells")
 	  
-	  simRef = prefix+"exc"+str(i)
-	  print "Simref: "+simRef
-	  myProject.simulationParameters.setReference(simRef)
-	  refStored.append(simRef)
-
-	  ##### RUN BLOCK background exc #####
-
-	  randomseed = random.randint(1000,5000)
-
-	  pm.doGenerate(simConfig.getName(), randomseed)
-	  while pm.isGenerating():
-	    print "Waiting for the project to be generated..."
-	    time.sleep(2)
-		    
-	  myProject.neuronFileManager.setSuggestedRemoteRunTime(10)
-	  myProject.neuronFileManager.generateTheNeuronFiles(simConfig, None, NeuronFileManager.RUN_HOC, randomseed)
-	
-	  print "Generated NEURON files for: "+simRef	
-	  compileProcess = ProcessManager(myProject.neuronFileManager.getMainHocFile())	
-	  compileSuccess = compileProcess.compileFileWithNeuron(0,0)	
-	  print "Compiled NEURON files for: "+simRef
-
-	  if compileSuccess:
-	    pm.doRunNeuron(simConfig)
-	    print "Set running simulation: "+simRef
-	  
-	  time.sleep(2) # Wait for sim to be kicked off
-
-	#####################'''
-
-        ########  Rerunning the same configuration + background exc/inh ###############
-
-	  simInputs.add("backgroundInh")
-	  
-	  simConfig.setInputs(simInputs)
-
-	  print "group generated: "+simConfig.getCellGroups().toString()
-	  print "going to stimulate: "+simConfig.getInputs().toString()
-	  print "going to record: "+simConfig.getPlots().toString()
-          
-          ##########################################################################################'''
-	  
-	  simRef = prefix+"excinh"+str(i)
-	  print "Simref: "+simRef
-	  myProject.simulationParameters.setReference(simRef)
-	  refStored.append(simRef)
-
-	  ##### RUN BLOCK background exc/inh #####
-
-	  randomseed = random.randint(1000,5000)
-
-	  pm.doGenerate(simConfig.getName(), randomseed)
-	  while pm.isGenerating():
-	    print "Waiting for the project to be generated..."
-	    time.sleep(2)
-		    
-	  myProject.neuronFileManager.setSuggestedRemoteRunTime(10)
-	  myProject.neuronFileManager.generateTheNeuronFiles(simConfig, None, NeuronFileManager.RUN_HOC, randomseed)
-	
-	  print "Generated NEURON files for: "+simRef	
-	  compileProcess = ProcessManager(myProject.neuronFileManager.getMainHocFile())	
-	  compileSuccess = compileProcess.compileFileWithNeuron(0,0)	
-	  print "Compiled NEURON files for: "+simRef
-
-	  if compileSuccess:
-	    pm.doRunNeuron(simConfig)
-	    print "Set running simulation: "+simRef
-	  
-	  time.sleep(2) # Wait for sim to be kicked off
-
-	#####################'''
-
-        ########  Rerunning the same configuration + background inh ###############
-
-	  simInputs.remove("backgroundExc")
-	  
-	  simConfig.setInputs(simInputs)
+          simConfig.setCellGroups(simGroups)
+          simConfig.setInputs(simInputs)
 
 	  print "group generated: "+simConfig.getCellGroups().toString()
 	  print "going to stimulate: "+simConfig.getInputs().toString()
@@ -266,7 +185,7 @@ if numGenerated > 0:
 	  myProject.simulationParameters.setReference(simRef)
 	  refStored.append(simRef)
 
-	  ##### RUN BLOCK background inh #####
+	  ##### RUN BLOCK 2 #####
 
 	  randomseed = random.randint(1000,5000)
 
