@@ -62,7 +62,7 @@ if numGenerated > 0:
 
     #multiple simulation settings:    
     prefix = "" #string that will be added to the name of the simulations to identify the simulation set    
-    trials = 2
+    trials = 25
     Nbranches = 19
     Configuration = ["NMDAspike input"]
 
@@ -87,7 +87,7 @@ if numGenerated > 0:
     print "nConstruct using SIMULATION CONFIGURATION: " +stringConfig
     simConfig = myProject.simConfigInfo.getSimConfig(stringConfig) 
        
-    for y in range(0, 1):#Nbranches):
+    for y in range(1, 9):#Nbranches):
        
        j=y+1
        
@@ -140,7 +140,7 @@ if numGenerated > 0:
 	  myProject.simulationParameters.setReference(simRef)
 	  refStored.append(simRef)
 
-	  ##### RUN BLOCK control #####
+	  '''##### RUN BLOCK control #####
 
 	  randomseed = random.randint(1000,5000)
 
@@ -177,12 +177,12 @@ if numGenerated > 0:
           
           ##########################################################################################'''
 	  
-	  simRef = prefix+"exc"+str(i)
+	  simRef = prefix+"excback"+str(i)
 	  print "Simref: "+simRef
 	  myProject.simulationParameters.setReference(simRef)
 	  refStored.append(simRef)
 
-	  ##### RUN BLOCK background exc #####
+	  '''##### RUN BLOCK background exc #####
 
 	  randomseed = random.randint(1000,5000)
 
@@ -219,12 +219,12 @@ if numGenerated > 0:
           
           ##########################################################################################'''
 	  
-	  simRef = prefix+"excinh"+str(i)
+	  simRef = prefix+"excinhback"+str(i)
 	  print "Simref: "+simRef
 	  myProject.simulationParameters.setReference(simRef)
 	  refStored.append(simRef)
 
-	  ##### RUN BLOCK background exc/inh #####
+	  '''##### RUN BLOCK background exc/inh #####
 
 	  randomseed = random.randint(1000,5000)
 
@@ -261,12 +261,12 @@ if numGenerated > 0:
           
           ##########################################################################################'''
 	  
-	  simRef = prefix+"noise"+str(i)
+	  simRef = prefix+"inhback"+str(i)
 	  print "Simref: "+simRef
 	  myProject.simulationParameters.setReference(simRef)
 	  refStored.append(simRef)
 
-	  ##### RUN BLOCK background inh #####
+	  '''##### RUN BLOCK background inh #####
 
 	  randomseed = random.randint(1000,5000)
 
