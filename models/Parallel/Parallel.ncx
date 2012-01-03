@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="1.6.0_20" class="java.beans.XMLDecoder">
+<java version="1.6.0_23" class="java.beans.XMLDecoder">
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -12,7 +12,7 @@ part of NeuroML or any standardised XML specification. -->
    <string>Project for testing parallel functionality...    </string>
   </void>
   <void property="projectFileVersion">
-   <string>neuroConstruct v1.5.1</string>
+   <string>neuroConstruct v1.5.2</string>
   </void>
   <void property="projectName">
    <string>Parallel</string>
@@ -832,7 +832,7 @@ print &quot;Done...&quot;</string>
    <float>1.0E-5</float>
   </void>
   <void property="reference">
-   <string>Sim1_41</string>
+   <string>Sim1_45</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -1083,32 +1083,32 @@ print &quot;Done...&quot;</string>
        <object class="ucl.physiol.neuroconstruct.hpc.mpi.RemoteLogin">
         <void property="executables">
          <void method="put">
-          <object class="java.lang.Enum" method="valueOf">
+          <object id="MpiSettings$KnownSimulators0" class="java.lang.Enum" method="valueOf">
            <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
-           <string>GENESIS</string>
+           <string>PY_NEURON</string>
           </object>
-          <string>/share/apps/neuro/genesis-2.3/genesis/genesis</string>
+          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv -python</string>
          </void>
          <void method="put">
-          <object id="MpiSettings$KnownSimulators0" class="java.lang.Enum" method="valueOf">
+          <object id="MpiSettings$KnownSimulators1" class="java.lang.Enum" method="valueOf">
            <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
            <string>MOOSE</string>
           </object>
           <string>/share/apps/neuro/moose/moose</string>
          </void>
          <void method="put">
-          <object id="MpiSettings$KnownSimulators1" class="java.lang.Enum" method="valueOf">
+          <object id="MpiSettings$KnownSimulators2" class="java.lang.Enum" method="valueOf">
            <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
            <string>NEURON</string>
           </object>
           <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv</string>
          </void>
          <void method="put">
-          <object id="MpiSettings$KnownSimulators2" class="java.lang.Enum" method="valueOf">
+          <object class="java.lang.Enum" method="valueOf">
            <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
-           <string>PY_NEURON</string>
+           <string>GENESIS</string>
           </object>
-          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv -python</string>
+          <string>/share/apps/neuro/genesis-2.3/genesis/genesis</string>
          </void>
         </void>
         <void property="hostname">
@@ -1332,15 +1332,15 @@ print &quot;Done...&quot;</string>
         <void property="executables">
          <void method="put">
           <object idref="MpiSettings$KnownSimulators0"/>
-          <string>/share/apps/neuro/moose</string>
+          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv -python</string>
          </void>
          <void method="put">
           <object idref="MpiSettings$KnownSimulators1"/>
-          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv</string>
+          <string>/share/apps/neuro/moose</string>
          </void>
          <void method="put">
           <object idref="MpiSettings$KnownSimulators2"/>
-          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv -python</string>
+          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv</string>
          </void>
         </void>
         <void property="hostname">
