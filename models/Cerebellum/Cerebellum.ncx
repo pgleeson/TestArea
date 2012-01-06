@@ -657,6 +657,34 @@ part of NeuroML or any standardised XML specification. -->
       </void>
      </object>
     </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter">
+      <void property="maxNumberCells">
+       <int>4</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter">
+      <void property="maxNumberCells">
+       <int>4</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter">
+      <void property="maxNumberCells">
+       <int>4</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter">
+      <void property="maxNumberCells">
+       <int>4</int>
+      </void>
+     </object>
+    </void>
    </void>
    <void method="get">
     <string>Cell Type</string>
@@ -714,6 +742,18 @@ part of NeuroML or any standardised XML specification. -->
     <void method="add">
      <string>MossyFiberBig</string>
     </void>
+    <void method="add">
+     <string>alxP</string>
+    </void>
+    <void method="add">
+     <string>e4cb3a1</string>
+    </void>
+    <void method="add">
+     <string>p19</string>
+    </void>
+    <void method="add">
+     <string>p20</string>
+    </void>
    </void>
    <void method="get">
     <string>Priority</string>
@@ -770,6 +810,18 @@ part of NeuroML or any standardised XML specification. -->
     </void>
     <void method="add">
      <int>200</int>
+    </void>
+    <void method="add">
+     <int>-8</int>
+    </void>
+    <void method="add">
+     <int>-9</int>
+    </void>
+    <void method="add">
+     <int>-10</int>
+    </void>
+    <void method="add">
+     <int>-11</int>
     </void>
    </void>
    <void method="get">
@@ -918,6 +970,38 @@ part of NeuroML or any standardised XML specification. -->
       <int>255</int>
      </object>
     </void>
+    <void method="add">
+     <object class="java.awt.Color">
+      <int>104</int>
+      <int>194</int>
+      <int>49</int>
+      <int>255</int>
+     </object>
+    </void>
+    <void method="add">
+     <object class="java.awt.Color">
+      <int>204</int>
+      <int>0</int>
+      <int>51</int>
+      <int>255</int>
+     </object>
+    </void>
+    <void method="add">
+     <object class="java.awt.Color">
+      <int>138</int>
+      <int>34</int>
+      <int>136</int>
+      <int>255</int>
+     </object>
+    </void>
+    <void method="add">
+     <object class="java.awt.Color">
+      <int>204</int>
+      <int>255</int>
+      <int>153</int>
+      <int>255</int>
+     </object>
+    </void>
    </void>
    <void method="get">
     <string>Region Name</string>
@@ -975,6 +1059,18 @@ part of NeuroML or any standardised XML specification. -->
     <void method="add">
      <string>100Cube</string>
     </void>
+    <void method="add">
+     <string>Large3DPurkinjeCellLayer</string>
+    </void>
+    <void method="add">
+     <string>Large3DPurkinjeCellLayer</string>
+    </void>
+    <void method="add">
+     <string>Large3DPurkinjeCellLayer</string>
+    </void>
+    <void method="add">
+     <string>Large3DPurkinjeCellLayer</string>
+    </void>
    </void>
    <void method="get">
     <string>Cell Group Name</string>
@@ -1031,6 +1127,18 @@ part of NeuroML or any standardised XML specification. -->
     </void>
     <void method="add">
      <string>Sol10_Glom</string>
+    </void>
+    <void method="add">
+     <string>Purks2</string>
+    </void>
+    <void method="add">
+     <string>Purks3</string>
+    </void>
+    <void method="add">
+     <string>Purks4</string>
+    </void>
+    <void method="add">
+     <string>Purks5</string>
     </void>
    </void>
   </void>
@@ -2094,6 +2202,146 @@ part of NeuroML or any standardised XML specification. -->
      </void>
     </object>
    </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>Purks2</string>
+     </void>
+     <void property="cellNumber">
+      <string>*</string>
+     </void>
+     <void property="graphWindow">
+      <string>Purks2_v</string>
+     </void>
+     <void property="maxValue">
+      <float>50.0</float>
+     </void>
+     <void property="minValue">
+      <float>-90.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>Purks2_v</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>Purks3</string>
+     </void>
+     <void property="cellNumber">
+      <string>*</string>
+     </void>
+     <void property="graphWindow">
+      <string>Purks3_v</string>
+     </void>
+     <void property="maxValue">
+      <float>50.0</float>
+     </void>
+     <void property="minValue">
+      <float>-90.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>Purks3_v</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>purks3</string>
+     </void>
+     <void property="cellNumber">
+      <string>*</string>
+     </void>
+     <void property="graphWindow">
+      <string>purks3_v</string>
+     </void>
+     <void property="maxValue">
+      <float>50.0</float>
+     </void>
+     <void property="minValue">
+      <float>-90.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>purks3_v</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>Purks4</string>
+     </void>
+     <void property="cellNumber">
+      <string>*</string>
+     </void>
+     <void property="graphWindow">
+      <string>Purks4_v</string>
+     </void>
+     <void property="maxValue">
+      <float>50.0</float>
+     </void>
+     <void property="minValue">
+      <float>-90.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>Purks4_v</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>Purks5</string>
+     </void>
+     <void property="cellNumber">
+      <string>*</string>
+     </void>
+     <void property="graphWindow">
+      <string>Purks5_v</string>
+     </void>
+     <void property="maxValue">
+      <float>50.0</float>
+     </void>
+     <void property="minValue">
+      <float>-90.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>Purks5_v</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+    </object>
+   </void>
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.project.ProjectProperties">
@@ -2126,6 +2374,9 @@ part of NeuroML or any standardised XML specification. -->
   </void>
   <void property="resolution3DElements">
    <int>12</int>
+  </void>
+  <void property="show3DAxes">
+   <boolean>true</boolean>
   </void>
   <void property="showAxonalArbours">
    <boolean>false</boolean>
@@ -2160,11 +2411,11 @@ part of NeuroML or any standardised XML specification. -->
     <string></string>
    </void>
    <void method="put">
-    <float>-1.0</float>
+    <float>1.0</float>
     <string></string>
    </void>
    <void method="put">
-    <float>1.0</float>
+    <float>-1.0</float>
     <string></string>
    </void>
    <void method="put">
@@ -2216,7 +2467,7 @@ part of NeuroML or any standardised XML specification. -->
    <float>700.0</float>
   </void>
   <void property="reference">
-   <string>Sim_634</string>
+   <string>Sim_635</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -2418,6 +2669,18 @@ part of NeuroML or any standardised XML specification. -->
    <void method="add">
     <object class="ucl.physiol.neuroconstruct.project.SimConfig">
      <void property="cellGroups">
+      <void method="add">
+       <string>Purks5</string>
+      </void>
+      <void method="add">
+       <string>Purks4</string>
+      </void>
+      <void method="add">
+       <string>Purks3</string>
+      </void>
+      <void method="add">
+       <string>Purks2</string>
+      </void>
       <void method="add">
        <string>Purkinjes</string>
       </void>
@@ -2684,6 +2947,44 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
      </void>
      <void property="simDuration">
       <float>500.0</float>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+     <void property="cellGroups">
+      <void method="add">
+       <string>Purks5</string>
+      </void>
+      <void method="add">
+       <string>Purks4</string>
+      </void>
+      <void method="add">
+       <string>Purks3</string>
+      </void>
+      <void method="add">
+       <string>Purks2</string>
+      </void>
+      <void method="add">
+       <string>Purkinjes</string>
+      </void>
+     </void>
+     <void property="name">
+      <string>Purks</string>
+     </void>
+     <void property="plots">
+      <void method="add">
+       <string>Purkinjes_v</string>
+      </void>
+      <void method="add">
+       <string>Purks3_v</string>
+      </void>
+      <void method="add">
+       <string>Purks2_v</string>
+      </void>
+     </void>
+     <void property="simDuration">
+      <float>700.0</float>
      </void>
     </object>
    </void>
