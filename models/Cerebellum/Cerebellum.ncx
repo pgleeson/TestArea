@@ -578,7 +578,7 @@ part of NeuroML or any standardised XML specification. -->
     <void method="add">
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter">
       <void property="maxNumberCells">
-       <int>4</int>
+       <int>2</int>
       </void>
      </object>
     </void>
@@ -885,7 +885,7 @@ part of NeuroML or any standardised XML specification. -->
     <void method="add">
      <object class="java.awt.Color">
       <int>204</int>
-      <int>0</int>
+      <int>204</int>
       <int>0</int>
       <int>255</int>
      </object>
@@ -916,9 +916,9 @@ part of NeuroML or any standardised XML specification. -->
     </void>
     <void method="add">
      <object class="java.awt.Color">
-      <int>130</int>
-      <int>4</int>
-      <int>84</int>
+      <int>204</int>
+      <int>0</int>
+      <int>255</int>
       <int>255</int>
      </object>
     </void>
@@ -971,36 +971,21 @@ part of NeuroML or any standardised XML specification. -->
      </object>
     </void>
     <void method="add">
-     <object class="java.awt.Color">
-      <int>104</int>
-      <int>194</int>
-      <int>49</int>
-      <int>255</int>
-     </object>
-    </void>
-    <void method="add">
-     <object class="java.awt.Color">
+     <object id="Color2" class="java.awt.Color">
       <int>204</int>
       <int>0</int>
-      <int>51</int>
+      <int>0</int>
       <int>255</int>
      </object>
     </void>
     <void method="add">
-     <object class="java.awt.Color">
-      <int>138</int>
-      <int>34</int>
-      <int>136</int>
-      <int>255</int>
-     </object>
+     <object idref="Color2"/>
     </void>
     <void method="add">
-     <object class="java.awt.Color">
-      <int>204</int>
-      <int>255</int>
-      <int>153</int>
-      <int>255</int>
-     </object>
+     <object idref="Color2"/>
+    </void>
+    <void method="add">
+     <object idref="Color2"/>
     </void>
    </void>
    <void method="get">
@@ -2670,13 +2655,7 @@ part of NeuroML or any standardised XML specification. -->
     <object class="ucl.physiol.neuroconstruct.project.SimConfig">
      <void property="cellGroups">
       <void method="add">
-       <string>Purks5</string>
-      </void>
-      <void method="add">
        <string>Purks4</string>
-      </void>
-      <void method="add">
-       <string>Purks3</string>
       </void>
       <void method="add">
        <string>Purks2</string>
@@ -2883,9 +2862,9 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
          <void method="put">
           <object class="java.lang.Enum" method="valueOf">
            <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
-           <string>MOOSE</string>
+           <string>PY_NEURON</string>
           </object>
-          <string>/share/apps/neuro/moose</string>
+          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv -python</string>
          </void>
          <void method="put">
           <object class="java.lang.Enum" method="valueOf">
@@ -2897,9 +2876,9 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
          <void method="put">
           <object class="java.lang.Enum" method="valueOf">
            <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
-           <string>PY_NEURON</string>
+           <string>MOOSE</string>
           </object>
-          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv -python</string>
+          <string>/share/apps/neuro/moose</string>
          </void>
         </void>
         <void property="hostname">
