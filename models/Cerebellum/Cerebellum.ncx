@@ -558,7 +558,7 @@ part of NeuroML or any standardised XML specification. -->
     <void method="add">
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter">
       <void property="maxNumberCells">
-       <int>100</int>
+       <int>50</int>
       </void>
      </object>
     </void>
@@ -667,21 +667,21 @@ part of NeuroML or any standardised XML specification. -->
     <void method="add">
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter">
       <void property="maxNumberCells">
-       <int>4</int>
+       <int>2</int>
       </void>
      </object>
     </void>
     <void method="add">
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter">
       <void property="maxNumberCells">
-       <int>4</int>
+       <int>2</int>
       </void>
      </object>
     </void>
     <void method="add">
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter">
       <void property="maxNumberCells">
-       <int>4</int>
+       <int>2</int>
       </void>
      </object>
     </void>
@@ -971,21 +971,36 @@ part of NeuroML or any standardised XML specification. -->
      </object>
     </void>
     <void method="add">
-     <object id="Color2" class="java.awt.Color">
-      <int>204</int>
+     <object class="java.awt.Color">
+      <int>153</int>
       <int>0</int>
-      <int>0</int>
+      <int>51</int>
       <int>255</int>
      </object>
     </void>
     <void method="add">
-     <object idref="Color2"/>
+     <object class="java.awt.Color">
+      <int>255</int>
+      <int>51</int>
+      <int>255</int>
+      <int>255</int>
+     </object>
     </void>
     <void method="add">
-     <object idref="Color2"/>
+     <object class="java.awt.Color">
+      <int>255</int>
+      <int>102</int>
+      <int>51</int>
+      <int>255</int>
+     </object>
     </void>
     <void method="add">
-     <object idref="Color2"/>
+     <object class="java.awt.Color">
+      <int>102</int>
+      <int>102</int>
+      <int>0</int>
+      <int>255</int>
+     </object>
     </void>
    </void>
    <void method="get">
@@ -2396,11 +2411,11 @@ part of NeuroML or any standardised XML specification. -->
     <string></string>
    </void>
    <void method="put">
-    <float>1.0</float>
+    <float>-1.0</float>
     <string></string>
    </void>
    <void method="put">
-    <float>-1.0</float>
+    <float>1.0</float>
     <string></string>
    </void>
    <void method="put">
@@ -2428,11 +2443,11 @@ part of NeuroML or any standardised XML specification. -->
     <string></string>
    </void>
    <void method="put">
-    <int>-1</int>
+    <int>1</int>
     <string></string>
    </void>
    <void method="put">
-    <int>1</int>
+    <int>-1</int>
     <string></string>
    </void>
   </void>
@@ -2862,6 +2877,13 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
          <void method="put">
           <object class="java.lang.Enum" method="valueOf">
            <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
+           <string>MOOSE</string>
+          </object>
+          <string>/share/apps/neuro/moose</string>
+         </void>
+         <void method="put">
+          <object class="java.lang.Enum" method="valueOf">
+           <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
            <string>PY_NEURON</string>
           </object>
           <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv -python</string>
@@ -2872,13 +2894,6 @@ Note: the granule cell model&apos;s Ca reversal potential is fixed at 80mV due t
            <string>NEURON</string>
           </object>
           <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv</string>
-         </void>
-         <void method="put">
-          <object class="java.lang.Enum" method="valueOf">
-           <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
-           <string>MOOSE</string>
-          </object>
-          <string>/share/apps/neuro/moose</string>
          </void>
         </void>
         <void property="hostname">
