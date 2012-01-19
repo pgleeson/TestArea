@@ -2,6 +2,7 @@
 
 Made for Jython.
 """
+from __future__ import with_statement
 import imp
 import os
 import shutil
@@ -100,8 +101,8 @@ class OverrideBuiltinsImportTestCase(unittest.TestCase):
     def test_override(self):
         modname = os.path.__name__
         tests = [
-            ("import os.path"         , "('os.path', None, -1, 'os')"  ),
-            ("import os.path as path2", "('os.path', None, -1, 'os')"  ),
+            ("import os.path"         , "('os.path', None, -1, 'os')"),
+            ("import os.path as path2", "('os.path', None, -1, 'os')"),
             ("from os.path import *"  ,
              "('os.path', ('*',), -1, '%s')" % modname),
             ("from os.path import join",
@@ -143,6 +144,24 @@ class ImpTestCase(unittest.TestCase):
                          (None, '__builtin__', ('', '', 6)))
         self.assertEqual(imp.find_module('imp'), (None, 'imp', ('', '', 6)))
 
+    def test_imp_is_builtin(self):
+        self.assertTrue(all(imp.is_builtin(mod)
+                            for mod in ['sys', '__builtin__', 'imp']))
+        self.assertFalse(imp.is_builtin('os'))
+
+    def test_load_compiled(self):
+        compiled = os.__file__
+        if compiled.endswith('.py'):
+            compiled = compiled[:-3] + COMPILED_SUFFIX
+
+        os.__doc__ = 'foo'
+        self.assertEqual(os, imp.load_compiled("os", compiled))
+        self.assertFalse(os.__doc__ == 'foo')
+        with open(compiled, 'rb') as fp:
+            os.__doc__ = 'foo'
+            self.assertEqual(os, imp.load_compiled("os", compiled, fp))
+            self.assertFalse(os.__doc__ == 'foo')
+
     def test_getattr_module(self):
         '''Replacing __getattr__ in a class shouldn't lead to calls to __getitem__
 
@@ -163,6 +182,28 @@ class ImpTestCase(unittest.TestCase):
 
     def test_sys_modules_deletion(self):
         self.assertRaises(ZeroDivisionError, __import__, 'test.module_deleter')
+
+    #XXX: this is probably a good test to push upstream to CPython.
+    if hasattr(os, "symlink"):
+        def test_symlinks(self):
+            # Ensure imports work over symlinks.  Did not work in Jython from
+            # 2.1 to 2.5.0, fixed in 2.5.1  See
+            # http://bugs.jython.org/issue645615.
+            sym = test_support.TESTFN+"1"
+            try:
+                os.mkdir(test_support.TESTFN)
+                init = os.path.join(test_support.TESTFN, "__init__.py")
+                fp = open(init, 'w')
+                fp.write("test = 'imported'")
+                fp.close()
+                os.symlink(test_support.TESTFN, sym)
+                module = os.path.basename(sym)
+                module_obj = __import__(module)
+                self.assertEquals(module_obj.test, 'imported')
+
+            finally:
+                shutil.rmtree(test_support.TESTFN)
+                test_support.unlink(sym)
 
 def test_main():
     test_support.run_unittest(MislabeledImportTestCase,

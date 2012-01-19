@@ -64,6 +64,15 @@ exec_tests = [
     "break",
     # Continue
     "continue",
+    # Parens and BoolOp
+    "(a == '') and b",
+    "not (a == '') or b",
+    # Parens and BinOp
+    "(a - b) * c",
+    # for statements with naked tuples
+    "for a,b in c: pass",
+    "[(a,b) for a,b in c]",
+    "((a,b) for a,b in c)",
 ]
 
 # These are compiled through "single"
@@ -297,7 +306,7 @@ def main():
             print kind+"_results = ["
             for s in statements:
                 print repr(to_tuple(compile(s, "?", kind, 0x400)))+","
-                print "]"
+            print "]"
         print "main()"
         raise SystemExit
     test_main()
@@ -326,6 +335,12 @@ exec_results = [
 ('Module', [('Pass', (1, 0))]),
 ('Module', [('Break', (1, 0))]),
 ('Module', [('Continue', (1, 0))]),
+('Module', [('Expr', (1, 0), ('BoolOp', (1, 0), ('And',), [('Compare', (1, 1), ('Name', (1, 1), 'a', ('Load',)), [('Eq',)], [('Str', (1, 6), '')]), ('Name', (1, 14), 'b', ('Load',))]))]),
+('Module', [('Expr', (1, 0), ('BoolOp', (1, 0), ('Or',), [('UnaryOp', (1, 0), ('Not',), ('Compare', (1, 5), ('Name', (1, 5), 'a', ('Load',)), [('Eq',)], [('Str', (1, 10), '')])), ('Name', (1, 17), 'b', ('Load',))]))]),
+('Module', [('Expr', (1, 0), ('BinOp', (1, 0), ('BinOp', (1, 1), ('Name', (1, 1), 'a', ('Load',)), ('Sub',), ('Name', (1, 5), 'b', ('Load',))), ('Mult',), ('Name', (1, 10), 'c', ('Load',))))]),
+('Module', [('For', (1, 0), ('Tuple', (1, 4), [('Name', (1, 4), 'a', ('Store',)), ('Name', (1, 6), 'b', ('Store',))], ('Store',)), ('Name', (1, 11), 'c', ('Load',)), [('Pass', (1, 14))], [])]),
+('Module', [('Expr', (1, 0), ('ListComp', (1, 1), ('Tuple', (1, 2), [('Name', (1, 2), 'a', ('Load',)), ('Name', (1, 4), 'b', ('Load',))], ('Load',)), [('comprehension', ('Tuple', (1, 11), [('Name', (1, 11), 'a', ('Store',)), ('Name', (1, 13), 'b', ('Store',))], ('Store',)), ('Name', (1, 18), 'c', ('Load',)), [])]))]),
+('Module', [('Expr', (1, 0), ('GeneratorExp', (1, 1), ('Tuple', (1, 2), [('Name', (1, 2), 'a', ('Load',)), ('Name', (1, 4), 'b', ('Load',))], ('Load',)), [('comprehension', ('Tuple', (1, 11), [('Name', (1, 11), 'a', ('Store',)), ('Name', (1, 13), 'b', ('Store',))], ('Store',)), ('Name', (1, 18), 'c', ('Load',)), [])]))]),
 ]
 single_results = [
 ('Interactive', [('Expr', (1, 0), ('BinOp', (1, 0), ('Num', (1, 0), 1), ('Add',), ('Num', (1, 2), 2)))]),

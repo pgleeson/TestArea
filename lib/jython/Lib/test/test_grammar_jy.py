@@ -2,16 +2,17 @@
 """
 
 from test import test_support
+import sys
 import unittest
 
 class GrammarTest(unittest.TestCase):
     def test_triple_quote_len(self):
-        s1 = r""" 
+        s1 = r"""
         \""" 1.triple-quote
         \""" 2.triple-quote
         """
 
-        s2 = r''' 
+        s2 = r'''
         \""" 1.triple-quote
         \""" 2.triple-quote
         '''
@@ -32,8 +33,21 @@ class GrammarTest(unittest.TestCase):
         self.assertEquals(7, foo(1, 7))
         self.assertEquals(10, foo(b=10))
 
-def test_main():
+
+pep263 = """
+    # verify that PEP263 encoding is only set by magic comments, not
+    # by other similar looking input; seen in issue 1506
+    >>> line = '"Content-Transfer-Encoding: 8bit"'
+    >>> print line
+    "Content-Transfer-Encoding: 8bit"
+    """
+
+__test__ = dict(pep263=pep263)
+
+
+def test_main(verbose=None):
     test_support.run_unittest(GrammarTest)
+    test_support.run_doctest(sys.modules[__name__], verbose)
 
 if __name__ == '__main__':
-    test_main()
+    test_main(verbose=True)

@@ -1,7 +1,7 @@
 
 # Jython Database Specification API 2.0
 #
-# $Id: jndi.py 4185 2008-02-28 16:55:33Z cgroves $
+# $Id: jndi.py 6647 2009-08-10 17:23:22Z fwierzbicki $
 #
 # Copyright (c) 2001 brian zimmer <bzimmer@ziclix.com>
 
@@ -22,12 +22,12 @@ ds.setPort(3306)
 
 ctx = InitialContext(env)
 try:
-        try:
-                ctx.bind("/jdbc/mysqldb", ds)
-        except NameAlreadyBoundException, e:
-                ctx.unbind("/jdbc/mysqldb")
-                ctx.bind("/jdbc/mysqldb", ds)
+    try:
+        ctx.bind("/jdbc/mysqldb", ds)
+    except NameAlreadyBoundException, e:
+        ctx.unbind("/jdbc/mysqldb")
+        ctx.bind("/jdbc/mysqldb", ds)
 finally:
-        ctx.close()
+    ctx.close()
 
 print "bound [%s] at /jdbc/mysqldb" % (ds)

@@ -1,7 +1,7 @@
 Jython
 
-Used for the Jython based scripting interface (in development)
+Used by neuroConstruct for the Jython based scripting interface
 
-See LICENSE.txt
+See LICENSE_Jython.txt
 
 Obtained from http://www.jython.org/Project

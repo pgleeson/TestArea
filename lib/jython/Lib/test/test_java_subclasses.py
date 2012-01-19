@@ -10,6 +10,7 @@ from java.lang import (Boolean, Class, ClassLoader, Comparable,Integer, Object, 
 from java.util import Date, Hashtable, Vector
 
 from java.awt import Color, Component, Dimension, Rectangle
+from javax.swing import ComboBoxModel, ListModel
 from javax.swing.table import AbstractTableModel
 
 from org.python.tests import BeanInterface, Callbacker, Coercions, OwnMethodCaller
@@ -43,7 +44,16 @@ class InterfaceTest(unittest.TestCase):
         c = ComparableRunner()
         c.compareTo(None)
         c.run()
-        self.assertEquals(calls, ["ComparableRunner.compareTo", "Runner.run"]) 
+        self.assertEquals(calls, ["ComparableRunner.compareTo", "Runner.run"])
+
+    def test_inherit_interface_twice(self):
+        # http://bugs.jython.org/issue1504
+        class A(ListModel): pass
+        class B(A, ComboBoxModel): pass
+        # Regression caused B's proxy to occur in B's mro twice. That
+        # caused the declaration of C to fail with an inconsistent mro
+        class C(B): pass
+        
 
 class TableModelTest(unittest.TestCase):
     def test_class_coercion(self):
@@ -54,19 +64,19 @@ class TableModelTest(unittest.TestCase):
 
             def getColumnCount(self):
                 return len(self.columnNames)
-                   
+
             def getRowCount(self):
                 return len(self.data)
-                
+
             def getColumnName(self, col):
                 return self.columnNames[col]
 
             def getValueAt(self, row, col):
                 return self.data[row][col]
-                
+
             def getColumnClass(self, c):
                 return Object.getClass(self.getValueAt(0, c))
-                
+
             def isCellEditable(self, row, col):
                 return col >= 2
 
@@ -125,13 +135,13 @@ class PythonSubclassesTest(unittest.TestCase):
             def method(self):
                 return "SubDateMethod"
 
-            def toString(self): 
+            def toString(self):
                 s = Date.toString(self)
                 return 'SubDate -> Date'
 
         class SubSubDate(SubDate, Runnable):
             def toString(self):
-                return 'SubSubDate -> ' + SubDate.toString(self) 
+                return 'SubSubDate -> ' + SubDate.toString(self)
 
         self.assertEquals("SubDate -> Date", SubDate().toString())
         self.assertEquals("SubSubDate -> SubDate -> Date", SubSubDate().toString())
@@ -173,7 +183,7 @@ class PythonSubclassesTest(unittest.TestCase):
         class A(Component):
             pass
         A()
-    
+
     def test_return_proxy(self):
         "Jython proxies properly return back from Java code"
         class FooVector(Vector):
@@ -254,7 +264,7 @@ GKPnQcD30ELgIHQQEexJURZ6SmgN4h1BzKtcEaJlUarV9ZyqeivTEyv2WelDlRO8TXWtM7UojBrM
 
 class AbstractOnSyspathTest(unittest.TestCase):
     '''Subclasses an abstract class that isn't on the startup classpath.
-    
+
     Checks for http://jython.org/bugs/1861985
     '''
     def setUp(self):
@@ -270,7 +280,7 @@ class AbstractOnSyspathTest(unittest.TestCase):
 
     def test_can_subclass_abstract(self):
         import Abstract
-        
+
         class A(Abstract):
             def method(self):
                 pass
@@ -295,7 +305,7 @@ wLozITS4BxwxdsHYgBBkrlVTr9KbP6qaLFc=
 """.decode('base64').decode('zlib')
 class ContextClassloaderTest(unittest.TestCase):
     '''Classes on the context classloader should be importable and subclassable.
-    
+
     http://bugs.jython.org/issue1216'''
     def setUp(self):
         self.orig_context = Thread.currentThread().contextClassLoader
@@ -328,3 +338,7 @@ def test_main():
             PythonSubclassesTest,
             AbstractOnSyspathTest,
             ContextClassloaderTest)
+
+
+if __name__ == '__main__':
+    test_main()

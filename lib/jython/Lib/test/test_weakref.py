@@ -12,8 +12,9 @@ if test_support.is_jython:
     def extra_collect():
         """Kick Java's GC into gear"""
         gc.collect()
-        time.sleep(0.1)
+        time.sleep(0.2)
         gc.collect()
+        time.sleep(0.2)
         gc.collect()
 else:
     def extra_collect():
@@ -659,7 +660,7 @@ class ReferencesTestCase(TestBase):
             weakref.ref(referenced, callback)
 
         finally:
-            # XXX: threshold not applicable to Jython 
+            # XXX: threshold not applicable to Jython
             if not test_support.is_jython:
                 gc.set_threshold(*thresholds)
 

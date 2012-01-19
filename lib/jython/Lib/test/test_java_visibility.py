@@ -3,11 +3,14 @@ import unittest
 import subprocess
 import sys
 from test import test_support
-from java.lang import Byte, Class
-from java.util import ArrayList, Collections, HashMap, Observable, Observer 
+from java.lang import Byte, Class, Integer
+from java.util import ArrayList, Collections, HashMap, LinkedList, Observable, Observer
 from org.python.tests import (Coercions, HiddenSuper, InterfaceCombination, Invisible, Matryoshka,
         OnlySubclassable, OtherSubVisible, SomePyMethods, SubVisible, Visible, VisibleOverride)
 from org.python.tests import VisibilityResults as Results
+from org.python.tests.RedundantInterfaceDeclarations import (Implementation, ExtraClass,
+        ExtraString, ExtraStringAndClass, ExtraClassAndString)
+from org.python.tests.multihidden import BaseConnection
 
 class VisibilityTest(unittest.TestCase):
     def test_invisible(self):
@@ -79,7 +82,7 @@ class VisibilityTest(unittest.TestCase):
         self.assertEquals(Results.OVERLOADED_EXTRA_ARG_PUBLIC_METHOD,
                 v.visibleInstance('a', 'b'))
         self.assertEquals(Results.PUBLIC_STATIC_METHOD, Visible.visibleStatic(0))
-        self.assertEquals(Results.OVERLOADED_PUBLIC_STATIC_METHOD, 
+        self.assertEquals(Results.OVERLOADED_PUBLIC_STATIC_METHOD,
                 v.visibleStatic('a'))
         self.assertEquals(Results.EXTRA_ARG_PUBLIC_STATIC_METHOD,
                 v.visibleStatic(0, 'a'))
@@ -101,11 +104,11 @@ class VisibilityTest(unittest.TestCase):
         self.assertEquals(Results.SUBCLASS_OVERRIDE, s.visibleInstance(3))
         self.assertEquals(Results.SUBCLASS_OVERLOAD, s.visibleInstance(3.0, 'a'))
         self.assertEquals(Results.PACKAGE_METHOD, s.packageMethod())
-        # Java methods don't allow direct calling of the superclass method, so it should 
+        # Java methods don't allow direct calling of the superclass method, so it should
         # return the subclass value here.
         self.assertEquals(Results.SUBCLASS_OVERRIDE, Visible.visibleInstance(s, 3))
         self.assertEquals(Results.PUBLIC_STATIC_FIELD, SubVisible.StaticInner.visibleStaticField)
-        
+
         self.assertEquals(Results.VISIBLE_SHARED_NAME_FIELD, Visible.sharedNameField)
         self.assertEquals(Results.SUBVISIBLE_SHARED_NAME_FIELD, SubVisible.sharedNameField)
         self.assertEquals(Results.VISIBLE_SHARED_NAME_FIELD * 10, Visible().sharedNameField)
@@ -127,7 +130,7 @@ class VisibilityTest(unittest.TestCase):
                 "methods from IIFace should be visible on Implementation")
         self.assertEquals(InterfaceCombination.TWO_ARG_RESULT, i.getValue("one arg", "two arg"),
                 "methods from Base should be visible on Implementation")
-        self.assertRaises(TypeError, i.getValue, "one arg", "two arg", "three arg", 
+        self.assertRaises(TypeError, i.getValue, "one arg", "two arg", "three arg",
                 "methods defined solely on Implementation shouldn't be visible")
         self.assertFalse(hasattr(i, "internalMethod"),
                 "methods from private interfaces shouldn't be visible on a private class")
@@ -154,6 +157,25 @@ class VisibilityTest(unittest.TestCase):
         synchList = Collections.synchronizedList(ArrayList())
         synchList.add("a string")
         self.assertEquals("a string", synchList.remove(0))
+
+    def test_interface_methods_merged(self):
+        '''Checks that declaring an interface redundantly doesn't hide merged methods.
+
+        Bug #1381'''
+        for impl in Implementation, ExtraString, ExtraClass, ExtraStringAndClass, ExtraClassAndString:
+            instance = impl()
+            self.assertEquals("String", instance.call("string argument"))
+            self.assertEquals("int", instance.call(7))
+            self.assertEquals("Class", instance.call(LinkedList))
+
+    def test_extending_multiple_hidden_classes(self):
+        '''Tests multiple levels of non-public classes overriding public methods from superclasses
+
+        Bug #1430'''
+        conn = BaseConnection.newConnection()
+        self.assertEquals("wrapper close", conn.close())
+        self.assertEquals("special close", conn.close(7))
+
 
 class JavaClassTest(unittest.TestCase):
     def test_class_methods_visible(self):

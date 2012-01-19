@@ -2,6 +2,8 @@ import unittest
 from test import test_support
 
 if test_support.is_jython:
+    from java.io import (ByteArrayInputStream, ByteArrayOutputStream,
+                         ObjectInputStream, ObjectOutputStream)
     from java.util import Random
     from javatests import PySetInJavaTest
 
@@ -20,7 +22,7 @@ class SetTestCase(unittest.TestCase):
         self.assertEqual(s & foo, 'rand')
         self.assertEqual(s ^ foo, 'rxor')
 
-    
+
 class SetInJavaTestCase(unittest.TestCase):
 
     """Tests for derived dict behaviour"""
@@ -47,6 +49,17 @@ class SetInJavaTestCase(unittest.TestCase):
         PySetInJavaTest.accessAndRemovePySetItems(s)
         # Check that the Java removal affected the underlying set
         self.assertEquals(0, len(s))
+
+    def test_serialization(self):
+        s = set(range(5, 10))
+        output = ByteArrayOutputStream()
+        serializer = ObjectOutputStream(output)
+        serializer.writeObject(s)
+        serializer.close()
+
+        input = ByteArrayInputStream(output.toByteArray())
+        unserializer = ObjectInputStream(input)
+        self.assertEqual(s, unserializer.readObject())
 
 
 def test_main():

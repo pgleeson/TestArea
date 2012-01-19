@@ -110,7 +110,7 @@ def test_utf8():
     >>> parser = expat.ParserCreate(namespace_separator='!')
     >>> HANDLER_NAMES = [
     ...     'StartElementHandler', 'EndElementHandler',
-    ...     'CharacterDataHandler', 
+    ...     'CharacterDataHandler',
     ...     'ProcessingInstructionHandler',
     ...     'UnparsedEntityDeclHandler', 'NotationDeclHandler',
     ...     'StartNamespaceDeclHandler', 'EndNamespaceDeclHandler',
@@ -451,9 +451,9 @@ def test_DTD():
 
 def test_entity():
     """
-    
+
     TODO: need a fallback for entity-resolver so that empty source is returned.
-    
+
     >>> xml = ''' <!DOCTYPE doc SYSTEM "external.dtd" [
     ...           <!ENTITY ext-entity SYSTEM "external-entity">
     ...           ]>
@@ -748,6 +748,23 @@ def test_resolveEntity():
     >>> main()
     Entity-Resolver2 enabled: True
     Entity name: entity
+    """
+
+def test_close_files():
+    # http://bugs.jython.org/issue1479
+    """
+    >>> import os
+    >>> from test import test_support
+    >>> from xml.etree import ElementTree as ET
+
+    >>> ET.ElementTree(ET.XML('<test/>')).write(test_support.TESTFN)
+    >>> os.remove(test_support.TESTFN)
+
+    >>> fp = open(test_support.TESTFN, 'w')
+    >>> fp.write('<test/>')
+    >>> fp.close()
+    >>> tree = ET.parse(test_support.TESTFN)
+    >>> os.remove(test_support.TESTFN)
     """
 
 if __name__ == "__main__":

@@ -1,10 +1,12 @@
+import copy
 import operator
 import os
 import unittest
 import subprocess
 import sys
 import re
- 
+
+from collections import deque
 from test import test_support
 
 from java.lang import (ClassCastException, ExceptionInInitializerError, String, Runnable, System,
@@ -20,8 +22,11 @@ from java.awt.event import ComponentEvent
 from javax.swing.tree import TreePath
 
 from org.python.core.util import FileUtil
-from org.python.tests import BeanImplementation, Child, Child2, Listenable, CustomizableMapHolder
+from org.python.tests import (BeanImplementation, Child, Child2,
+                              CustomizableMapHolder, Listenable, ToUnicode)
 from org.python.tests.mro import (ConfusedOnGetitemAdd, FirstPredefinedGetitem, GetitemAdder)
+from javatests.ProxyTests import Person
+
 
 class InstantiationTest(unittest.TestCase):
     def test_cant_instantiate_abstract(self):
@@ -35,6 +40,13 @@ class InstantiationTest(unittest.TestCase):
 
     def test_str_doesnt_coerce_to_int(self):
         self.assertRaises(TypeError, Date, '99-01-01', 1, 1)
+
+    def test_class_in_failed_constructor(self):
+        try:
+            Dimension(123, 456, 789)
+        except TypeError, exc:
+            self.failUnless("java.awt.Dimension" in exc.message)
+
 
 class BeanTest(unittest.TestCase):
     def test_shared_names(self):
@@ -55,7 +67,7 @@ class BeanTest(unittest.TestCase):
         self.assertEquals(1, len(called))
         m.fireComponentHidden(ComponentEvent(Container(), 0))
         self.assertEquals(2, len(called))
-    
+
     def test_bean_interface(self):
         b = BeanImplementation()
         self.assertEquals("name", b.getName())
@@ -104,7 +116,7 @@ class SysIntegrationTest(unittest.TestCase):
         f = open(test_support.TESTFN)
         self.assertEquals('hello', f.read())
         f.close()
-                
+
 class IOTest(unittest.TestCase):
     def test_io_errors(self):
         "Check that IOException isn't mangled into an IOError"
@@ -125,11 +137,11 @@ class JavaReservedNamesTest(unittest.TestCase):
     def test_system_in(self):
         s = System.in
         self.assert_("java.io.BufferedInputStream" in str(s))
-             
+
     def test_runtime_exec(self):
         e = Runtime.getRuntime().exec
         self.assert_(re.search("method .*exec", str(e)) is not None)
-                       
+
     def test_byte_class(self):
         b = Byte(10)
         self.assert_("java.lang.Byte" in str(b.class))
@@ -176,7 +188,7 @@ class PyReservedNamesTest(unittest.TestCase):
 
     def test_in(self):
         self.assertEquals(self.kws.in(), "in")
-    
+
     def test_exec(self):
         self.assertEquals(self.kws.exec(), "exec")
 
@@ -277,7 +289,7 @@ class ColorTest(unittest.TestCase):
 
     def test_static_fields(self):
         self.assertEquals(Color(255, 0, 0), Color.RED)
-        # The bean accessor for getRed should be active on instances, but the static field red 
+        # The bean accessor for getRed should be active on instances, but the static field red
         # should be visible on the class
         self.assertEquals(255, Color.red.red)
         self.assertEquals(Color(0, 0, 255), Color.blue)
@@ -409,9 +421,12 @@ class JavaDelegationTest(unittest.TestCase):
         self.assertTrue(not x.equals(z))
         self.assertNotEquals(x, z)
         self.assertTrue(not (x == z))
-       
+
 class SecurityManagerTest(unittest.TestCase):
     def test_nonexistent_import_with_security(self):
+        if os._name == 'nt':
+            # http://bugs.jython.org/issue1371
+            return
         script = test_support.findfile("import_nonexistent.py")
         home = os.path.realpath(sys.prefix)
         if not os.path.commonprefix((home, os.path.realpath(script))) == home:
@@ -445,35 +460,134 @@ class JavaWrapperCustomizationTest(unittest.TestCase):
         self.assertEquals(7, m.held["initial"], "Existing fields should still be accessible")
         self.assertEquals(7, m.initial)
         self.assertEquals(None, m.nonexistent, "Nonexistent fields should be passed on to the Map")
-    
-    def test_adding_on_interface(self):    
+
+    def test_adding_on_interface(self):
         GetitemAdder.addPredefined()
         class UsesInterfaceMethod(FirstPredefinedGetitem):
             pass
         self.assertEquals("key", UsesInterfaceMethod()["key"])
-        
+
     def test_add_on_mro_conflict(self):
         """Adding same-named methods to Java classes with MRO conflicts produces TypeError"""
         GetitemAdder.addPredefined()
         self.assertRaises(TypeError, __import__, "org.python.tests.mro.ConfusedOnImport")
         self.assertRaises(TypeError, GetitemAdder.addPostdefined)
 
+
+def roundtrip_serialization(obj):
+    """Returns a deep copy of an object, via serializing it
+ 
+    see http://weblogs.java.net/blog/emcmanus/archive/2007/04/cloning_java_ob.html
+    """
+    output = ByteArrayOutputStream()
+    serializer = CloneOutput(output)
+    serializer.writeObject(obj)
+    serializer.close()
+    input = ByteArrayInputStream(output.toByteArray())
+    unserializer = CloneInput(input, serializer) # to get the list of classes seen, in order
+    return unserializer.readObject()
+
+class CloneOutput(ObjectOutputStream):
+    def __init__(self, output):
+        ObjectOutputStream.__init__(self, output)
+        self.classQueue = deque()
+
+    def annotateClass(self, c):
+        self.classQueue.append(c)
+
+    def annotateProxyClass(self, c):
+        self.classQueue.append(c)
+
+class CloneInput(ObjectInputStream):
+
+    def __init__(self, input, output):
+        ObjectInputStream.__init__(self, input)
+        self.output = output
+
+    def resolveClass(self, obj_stream_class):
+        return self.output.classQueue.popleft()
+
+    def resolveProxyClass(self, interfaceNames):
+        return self.output.classQueue.popleft()
+
+
 class SerializationTest(unittest.TestCase):
 
     def test_java_serialization(self):
         date_list = [Date(), Date()]
-        output = ByteArrayOutputStream()
-        serializer = ObjectOutputStream(output)
-        serializer.writeObject(date_list)
-        serializer.close()
+        self.assertEqual(date_list, roundtrip_serialization(date_list))
 
-        input = ByteArrayInputStream(output.toByteArray())
-        unserializer = ObjectInputStream(input)
-        self.assertEqual(date_list, unserializer.readObject())
+    def test_java_serialization_pycode(self):
+
+        def universal_answer():
+            return 42
+
+        serialized_code = roundtrip_serialization(universal_answer.func_code)
+        self.assertEqual(eval(serialized_code), universal_answer())
+
+    def test_builtin_names(self):
+        import __builtin__
+        names = [x for x in dir(__builtin__)]
+        self.assertEqual(names, roundtrip_serialization(names))
+
+
+
+class CopyTest(unittest.TestCase):
+    
+    def test_copy(self):
+        fruits = ArrayList(["apple", "banana"])
+        fruits_copy = copy.copy(fruits)
+        self.assertEqual(fruits, fruits_copy)
+        self.assertNotEqual(id(fruits), id(fruits_copy))
+
+    def test_deepcopy(self):
+        items = ArrayList([ArrayList(["apple", "banana"]),
+                           ArrayList(["trs80", "vic20"])])
+        items_copy = copy.deepcopy(items)
+        self.assertEqual(items, items_copy)
+        self.assertNotEqual(id(items), id(items_copy))
+        self.assertNotEqual(id(items[0]), id(items_copy[0]))
+        self.assertNotEqual(id(items[1]), id(items_copy[1]))
+
+    def test_copy_when_not_cloneable(self):
+        bdfl = Person("Guido", "von Rossum")
+        self.assertRaises(TypeError, copy.copy, bdfl)
+
+        # monkeypatching in a __copy__ should now work
+        Person.__copy__ = lambda p: Person(p.firstName, p.lastName)
+        copy_bdfl = copy.copy(bdfl)
+        self.assertEqual(str(bdfl), str(copy_bdfl))
+
+    def test_copy_when_not_serializable(self):
+        bdfl = Person("Guido", "von Rossum")
+        self.assertRaises(TypeError, copy.deepcopy, bdfl)
+
+        # monkeypatching in a __deepcopy__ should now work
+        Person.__deepcopy__ = lambda p, memo: Person(p.firstName, p.lastName)
+        copy_bdfl = copy.deepcopy(bdfl)
+        self.assertEqual(str(bdfl), str(copy_bdfl))
+
+    def test_immutable(self):
+        abc = String("abc")
+        abc_copy = copy.copy(abc)
+        self.assertEqual(id(abc), id(abc_copy))
+        
+        fruits = ArrayList([String("apple"), String("banana")])
+        fruits_copy = copy.copy(fruits)
+        self.assertEqual(fruits, fruits_copy)
+        self.assertNotEqual(id(fruits), id(fruits_copy))
+
+
+class UnicodeTest(unittest.TestCase):
+
+    def test_unicode_conversion(self):
+        test = unicode(ToUnicode())
+        self.assertEqual(type(test), unicode)
+        self.assertEqual(test, u"Circle is 360\u00B0")
 
 def test_main():
-    test_support.run_unittest(InstantiationTest, 
-                              BeanTest, 
+    test_support.run_unittest(InstantiationTest,
+                              BeanTest,
                               SysIntegrationTest,
                               IOTest,
                               JavaReservedNamesTest,
@@ -486,7 +600,9 @@ def test_main():
                               JavaDelegationTest,
                               SecurityManagerTest,
                               JavaWrapperCustomizationTest,
-                              SerializationTest)
+                              SerializationTest,
+                              CopyTest,
+                              UnicodeTest)
 
 if __name__ == "__main__":
     test_main()

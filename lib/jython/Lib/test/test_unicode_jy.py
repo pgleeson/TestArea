@@ -6,6 +6,7 @@ Made for Jython.
 import re
 import sys
 import unittest
+from StringIO import StringIO
 from test import test_support
 
 class UnicodeTestCase(unittest.TestCase):
@@ -122,7 +123,7 @@ class UnicodeTestCase(unittest.TestCase):
             return
 
         f = open(test_support.TESTFN, "w")
-        self.assertRaises(UnicodeEncodeError, f, write, EURO_SIGN, 
+        self.assertRaises(UnicodeEncodeError, f, write, EURO_SIGN,
                 "Shouldn't be able to write out a Euro sign without first encoding")
         f.close()
 
@@ -137,9 +138,19 @@ class UnicodeTestCase(unittest.TestCase):
         self.assertEquals('\xe2\x82\xac', encoded_euro)
         self.assertEquals(EURO_SIGN, encoded_euro.decode('utf-8'))
 
+    def test_translate(self):
+        # http://bugs.jython.org/issue1483
+        self.assertEqual(
+            u'\u0443\u043a\u0430\u0437\u0430\u0442\u044c'.translate({}),
+            u'\u0443\u043a\u0430\u0437\u0430\u0442\u044c')
+        self.assertEqual(u'\u0443oo'.translate({0x443: 102}), u'foo')
+        self.assertEqual(
+            unichr(sys.maxunicode).translate({sys.maxunicode: 102}),
+            u'f')
+
 
 class UnicodeFormatTestCase(unittest.TestCase):
-    
+
     def test_unicode_mapping(self):
         assertTrue = self.assertTrue
         class EnsureUnicode(dict):
@@ -156,9 +167,25 @@ class UnicodeFormatTestCase(unittest.TestCase):
         self.assertEquals(u"\u00e7%s" % "foo", u"\u00e7foo")
 
 
+class UnicodeStdIOTestCase(unittest.TestCase):
+
+    def setUp(self):
+        self.stdout = sys.stdout
+
+    def tearDown(self):
+        sys.stdout = self.stdout
+
+    def test_intercepted_stdout(self):
+        msg = u'Circle is 360\u00B0'
+        sys.stdout = StringIO()
+        print msg,
+        self.assertEqual(sys.stdout.getvalue(), msg)
+
+
 def test_main():
     test_support.run_unittest(UnicodeTestCase,
-                              UnicodeFormatTestCase)
+                              UnicodeFormatTestCase,
+                              UnicodeStdIOTestCase)
 
 
 if __name__ == "__main__":

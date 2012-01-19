@@ -1,6 +1,7 @@
 """
  test some jython internals
 """
+import gc
 import unittest
 import time
 from test.test_support import run_suite
@@ -9,8 +10,56 @@ import java
 import jarray
 
 from org.python.core import Py
+from org.python.util import PythonInterpreter
+from javatests.TestSupport import getField
 from java.sql import Date, Time, Timestamp
 import datetime
+
+
+class MemoryLeakTests(unittest.TestCase):
+
+    def test_class_to_test_weakness(self):
+        # regrtest for bug 1522, adapted from test code submitted by Matt Brinkley
+
+        # work around the fact that we can't look at PyType directly
+        # by using this helper function that reflects on PyType (and
+        # demonstrates here that it's the same as the builtin function
+        # `type`!)
+        class_to_type_map = getField(type, 'class_to_type').get(None)
+
+        def make_clean():
+            # gc a few times just to be really sure, since in this
+            # case we don't really care if it takes a few cycles of GC
+            # for the garbage to be reached
+            gc.collect()
+            time.sleep(0.1)
+            gc.collect()
+            time.sleep(0.5)
+            gc.collect()
+
+        def create_proxies():
+            pi = PythonInterpreter()
+            pi.exec("""
+from java.lang import Comparable
+
+class Dog(Comparable):
+    def compareTo(self, o):
+        return 0
+    def bark(self):
+        return 'woof woof'
+
+Dog().bark()
+""")
+            make_clean()
+    
+        # get to steady state first, then verify we don't create new proxies
+        for i in xrange(2):
+            create_proxies()
+        start_size = class_to_type_map.size()
+        for i in xrange(5):
+            create_proxies()
+        make_clean()
+        self.assertEqual(start_size, class_to_type_map.size())
 
 
 class WeakIdentityMapTests(unittest.TestCase):
@@ -97,9 +146,9 @@ class LongAsScaledDoubleValueTests(unittest.TestCase):
                 assert e[0] == 0
 
         for d in range(8):
-          for y in [0,255]:
-            assert float((v+d)*256+y) == sdv(((v+d)*256+y)*256, e)
-            assert e[0] == 1
+            for y in [0,255]:
+                assert float((v+d)*256+y) == sdv(((v+d)*256+y)*256, e)
+                assert e[0] == 1
 
 class ExtraMathTests(unittest.TestCase):
     def test_epsilon(self):
@@ -198,7 +247,7 @@ class FrameTest(unittest.TestCase):
                     self = frame.f_locals[frame.f_code.co_varnames[0]]
                     myclass = self.__class__
                     if type(myclass) == ClassType:
-                       classname = myclass.__name__
+                        classname = myclass.__name__
                     else:
                         classname = None
 
@@ -210,14 +259,14 @@ class FrameTest(unittest.TestCase):
             assert (g[0] == "__main__" or g[0] == "test.test_jy_internals")
             self.assertEquals(g[1], None)
             self.assertEquals(g[2], "foo")
-        
+
         class Bar:
             def baz(self):
                 g = getinfo()
                 assert (g[0] == "__main__" or g[0] == "test.test_jy_internals")
                 assert (g[1] == "Bar")
                 assert (g[2] == "baz")
-        
+
         g = getinfo()
         assert (g[0] == "__main__" or g[0] == "test.test_jy_internals")
         self.assertEquals(g[1], None)
@@ -249,8 +298,8 @@ def test_main():
     suite_add(IdTest)
     suite_add(FrameTest)
     suite_add(ModuleTest)
+    suite_add(MemoryLeakTests)
     run_suite(test_suite)
 
 if __name__ == "__main__":
     test_main()
-

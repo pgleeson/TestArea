@@ -1,7 +1,10 @@
-import sys
+from __future__ import with_statement
+import os
 import re
+import sys
+import tempfile
 import unittest
-import test.test_support
+from test import test_support
 
 class SysTest(unittest.TestCase):
 
@@ -75,12 +78,12 @@ def exec_code_separately(function, sharing=False):
         from org.python.core import Py
         from org.python.util import PythonInterpreter
         from org.python.core import PySystemState
- 
+
         ps = PySystemState()
         pi = PythonInterpreter({}, ps)
         if not sharing:
             ps.shadow()
-            ps.builtins = ps.builtins.copy() 
+            ps.builtins = ps.builtins.copy()
         pi.exec(function.func_code)
 
     import threading
@@ -94,7 +97,7 @@ def set_globally():
     import test.sys_jy_test_module # used as a probe
 
     # can't use 'foo', test_with wants to have that undefined
-    sys.builtins['test_sys_jy_foo'] = 42 
+    sys.builtins['test_sys_jy_foo'] = 42
 
 
 def set_shadow():
@@ -127,10 +130,62 @@ class ShadowingTest(unittest.TestCase):
     def test_sys_modules_per_instance(self):
         import sys
         self.assertTrue('sys_jy_test_module' not in sys.modules, "sys.modules should be per PySystemState instance")
+
+
+class SyspathResourceTest(unittest.TestCase):
+    def setUp(self):
+        self.orig_path = sys.path
+        sys.path.insert(0, test_support.findfile("bug1373.jar"))
+
+    def tearDown(self):
+        sys.path = self.orig_path
+
+    def test_resource_stream_from_syspath(self):
+        from pck import Main
+        self.assert_(Main.getResourceAsStream('Main.txt'))
+
+    def test_resource_url_from_syspath(self):
+        from pck import Main
+        self.assert_(Main.getResource('Main.txt'))
+
+
+class SyspathUnicodeTest(unittest.TestCase):
+    """bug 1693: importing from a unicode path threw a unicode encoding
+    error"""
+
+    def test_nonexisting_import_from_unicodepath(self):
+        # \xf6 = german o umlaut
+        sys.path.append(u'/home/tr\xf6\xf6t')
+        self.assertRaises(ImportError, __import__, 'non_existing_module')
+
+    def test_import_from_unicodepath(self):
+        # \xf6 = german o umlaut
+        moduleDir = tempfile.mkdtemp(suffix=u'tr\xf6\xf6t')
+        try:
+            self.assertTrue(os.path.exists(moduleDir))
+            module = 'unicodetempmodule'
+            moduleFile = '%s/%s.py' % (moduleDir, module)
+            try:
+                with open(moduleFile, 'w') as f:
+                    f.write('# empty module')
+                self.assertTrue(os.path.exists(moduleFile))
+                sys.path.append(moduleDir)
+                __import__(module)
+                moduleClassFile = '%s/%s$py.class' % (moduleDir, module) 
+                self.assertTrue(os.path.exists(moduleClassFile))
+                os.remove(moduleClassFile)
+            finally:
+                os.remove(moduleFile)
+        finally:
+            os.rmdir(moduleDir)
+        self.assertFalse(os.path.exists(moduleDir))        
         
 
 def test_main():
-    test.test_support.run_unittest(SysTest, ShadowingTest)
+    test_support.run_unittest(SysTest,
+                              ShadowingTest,
+                              SyspathResourceTest,
+                              SyspathUnicodeTest)
 
 if __name__ == "__main__":
     test_main()

@@ -97,6 +97,24 @@ class TestDescrTestCase(unittest.TestCase):
         except AttributeError, e:
             self.assertEquals("Custom message", str(e))
 
+    def test_set_without_get(self):
+        class Descr(object):
+
+            def __init__(self, name):
+                self.name = name
+
+            def __set__(self, obj, value):
+                obj.__dict__[self.name] = value
+        descr = Descr("a")
+
+        class X(object):
+            a = descr
+
+        x = X()
+        self.assertTrue(x.a is descr)
+        x.a = 42
+        self.assertEqual(x.a, 42)
+
 
 class SubclassDescrTestCase(unittest.TestCase):
 
@@ -230,7 +248,7 @@ class SubclassDescrTestCase(unittest.TestCase):
             pass
         class Bar(object):
             def __radd__(self, other):
-		return 3
+                return 3
         self.assertEqual(Foo() + Bar(), 3)
 
     def test_int_mul(self):

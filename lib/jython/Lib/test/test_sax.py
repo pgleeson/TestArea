@@ -157,7 +157,7 @@ def test_xmlgen_escaped_content():
 def test_xmlgen_escaped_attr():
     result = StringIO()
     gen = XMLGenerator(result)
-    
+
     gen.startDocument()
     gen.startElement("doc", {"x": unicode("\\u3042", "unicode-escape")})
     gen.endElement("doc")
@@ -406,6 +406,29 @@ def test_expat_nsattrs_wattr():
            attrs.values() == ["val"] and \
            attrs.getValue((ns_uri, "attr")) == "val" and \
            attrs[(ns_uri, "attr")] == "val"
+
+def test_expat_nsattrs_no_namespace():
+    parser = make_parser()
+    parser.setFeature(handler.feature_namespaces, 1)
+    gather = AttrGatherer()
+    parser.setContentHandler(gather)
+
+    parser.parse(StringIO("<doc attr='val'/>"))
+
+    attrs = gather._attrs
+
+    return attrs.getLength() == 1 and \
+           attrs.getNames() == [(None, "attr")] and \
+           attrs.getQNames() == ["attr"] and \
+           len(attrs) == 1 and \
+           attrs.has_key((None, "attr")) and \
+           attrs.keys() == [(None, "attr")] and \
+           attrs.get((None, "attr")) == "val" and \
+           attrs.get((None, "attr"), 25) == "val" and \
+           attrs.items() == [((None, "attr"), "val")] and \
+           attrs.values() == ["val"] and \
+           attrs.getValue((None, "attr")) == "val" and \
+           attrs[(None, "attr")] == "val"
 
 # ===== InputSource support
 
