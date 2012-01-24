@@ -12,7 +12,7 @@ part of NeuroML or any standardised XML specification. -->
    <string>Project for testing parallel functionality...    </string>
   </void>
   <void property="projectFileVersion">
-   <string>neuroConstruct v1.5.2</string>
+   <string>neuroConstruct v1.5.3</string>
   </void>
   <void property="projectName">
    <string>Parallel</string>
@@ -832,7 +832,7 @@ print &quot;Done...&quot;</string>
    <float>1.0E-5</float>
   </void>
   <void property="reference">
-   <string>Sim1_45</string>
+   <string>Sim1_48</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -1085,30 +1085,30 @@ print &quot;Done...&quot;</string>
          <void method="put">
           <object id="MpiSettings$KnownSimulators0" class="java.lang.Enum" method="valueOf">
            <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
-           <string>PY_NEURON</string>
-          </object>
-          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv -python</string>
-         </void>
-         <void method="put">
-          <object id="MpiSettings$KnownSimulators1" class="java.lang.Enum" method="valueOf">
-           <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
-           <string>MOOSE</string>
-          </object>
-          <string>/share/apps/neuro/moose/moose</string>
-         </void>
-         <void method="put">
-          <object id="MpiSettings$KnownSimulators2" class="java.lang.Enum" method="valueOf">
-           <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
            <string>NEURON</string>
           </object>
           <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv</string>
          </void>
          <void method="put">
-          <object class="java.lang.Enum" method="valueOf">
+          <object id="MpiSettings$KnownSimulators1" class="java.lang.Enum" method="valueOf">
+           <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
+           <string>PY_NEURON</string>
+          </object>
+          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv -python</string>
+         </void>
+         <void method="put">
+          <object id="MpiSettings$KnownSimulators2" class="java.lang.Enum" method="valueOf">
            <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
            <string>GENESIS</string>
           </object>
           <string>/share/apps/neuro/genesis-2.3/genesis/genesis</string>
+         </void>
+         <void method="put">
+          <object id="MpiSettings$KnownSimulators3" class="java.lang.Enum" method="valueOf">
+           <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
+           <string>MOOSE</string>
+          </object>
+          <string>/share/apps/neuro/moose/moose</string>
          </void>
         </void>
         <void property="hostname">
@@ -1189,13 +1189,66 @@ print &quot;Done...&quot;</string>
      <void id="MpiConfiguration1" property="mpiConf">
       <void property="hostList">
        <void index="0">
+        <void property="hostname">
+         <string>node0</string>
+        </void>
         <void property="numProcessors">
-         <int>4</int>
+         <int>2</int>
         </void>
        </void>
       </void>
+      <void property="mpiVersion">
+       <string>OPENMPI v2.*</string>
+      </void>
       <void property="name">
-       <string>Local machine (4p)</string>
+       <string>MatLem (1 x 2p)</string>
+      </void>
+      <void property="queueInfo">
+       <object class="ucl.physiol.neuroconstruct.hpc.mpi.QueueInfo">
+        <void property="account">
+         <string></string>
+        </void>
+        <void property="queueType">
+         <object idref="QueueInfo$QueueType0"/>
+        </void>
+        <void property="wallTimeMins">
+         <int>6</int>
+        </void>
+       </object>
+      </void>
+      <void property="remoteLogin">
+       <object class="ucl.physiol.neuroconstruct.hpc.mpi.RemoteLogin">
+        <void property="executables">
+         <void method="put">
+          <object idref="MpiSettings$KnownSimulators0"/>
+          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv</string>
+         </void>
+         <void method="put">
+          <object idref="MpiSettings$KnownSimulators1"/>
+          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv -python</string>
+         </void>
+         <void method="put">
+          <object idref="MpiSettings$KnownSimulators2"/>
+          <string>/share/apps/neuro/genesis-2.3/genesis/genesis</string>
+         </void>
+         <void method="put">
+          <object idref="MpiSettings$KnownSimulators3"/>
+          <string>/share/apps/neuro/moose/moose</string>
+         </void>
+        </void>
+        <void property="hostname">
+         <string>128.16.14.177</string>
+        </void>
+        <void property="userName">
+         <string>ucgbpgl</string>
+        </void>
+        <void property="workDir">
+         <string>/home/ucgbpgl/nCsims</string>
+        </void>
+       </object>
+      </void>
+      <void property="useScp">
+       <boolean>true</boolean>
       </void>
      </void>
      <void property="mpiConf">
@@ -1332,15 +1385,15 @@ print &quot;Done...&quot;</string>
         <void property="executables">
          <void method="put">
           <object idref="MpiSettings$KnownSimulators0"/>
-          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv -python</string>
+          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv</string>
          </void>
          <void method="put">
           <object idref="MpiSettings$KnownSimulators1"/>
-          <string>/share/apps/neuro/moose</string>
+          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv -python</string>
          </void>
          <void method="put">
-          <object idref="MpiSettings$KnownSimulators2"/>
-          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv</string>
+          <object idref="MpiSettings$KnownSimulators3"/>
+          <string>/share/apps/neuro/moose</string>
          </void>
         </void>
         <void property="hostname">
