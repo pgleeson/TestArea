@@ -31,15 +31,15 @@ UNITS {
 }
 
 PARAMETER {
-	gmax=1	(nS)
+	gmax=20	(nS)
 	e= 0.0	(mV)
-	tau1=70 (ms)	:90 :
-	tau2=3:5	(ms) 
+	tau1=70 (ms)
+	tau2=3	(ms) 
 	tau_ampa=1	(ms)	
-	n=0.3:0.25 	:(/mM)	
+	n=0.3 (/mM)	
 	gama=0.08 	(/mV) 
 	dt (ms)
-	ntar= 2	:NMDA to AMPA ratio
+	ntar= 1	:NMDA to AMPA ratio
 	v		(mV)
 	cah   = 8	(/ms)		: max act rate  
 	tauh   = 1000	(/ms)		: max deact rate 
