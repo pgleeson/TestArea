@@ -35,7 +35,7 @@ PARAMETER {
 	e= 0.0	(mV)
 	tau1=70 (ms)	:90 :
 	tau2=3:5	(ms) 
-	tau_ampa=1	(ms)	
+	tau_ampa=2	(ms)	
 	n=0.3:0.25 	:(/mM)	
 	gama=0.08 	(/mV) 
 	dt (ms)
