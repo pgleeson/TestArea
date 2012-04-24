@@ -28,7 +28,7 @@ Erev set via neuroConstruct to 50mV for Na and -87mV for K (according to Larkum 
 Reported problem of Neuron 7 with tables: when the external parameter &quot;vshift &quot; is changed the tables are not updated and the NeuroML model behaves differently from Neuron 6.2</string>
   </void>
   <void property="projectFileVersion">
-   <string>neuroConstruct v1.5.3</string>
+   <string>neuroConstruct v1.6.0</string>
   </void>
   <void property="projectName">
    <string>LarkumEtAl2009</string>
@@ -2312,12 +2312,12 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
   </void>
   <void property="nativeBlocks">
    <void method="put">
-    <float>-1.0</float>
-    <string></string>
-   </void>
-   <void method="put">
     <float>1.0</float>
     <string>forall Ra=85</string>
+   </void>
+   <void method="put">
+    <float>-1.0</float>
+    <string></string>
    </void>
    <void method="put">
     <float>2.0</float>
@@ -5130,6 +5130,52 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
         <int>8470</int>
        </void>
       </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="delay">
+      <void property="fixedNum">
+       <float>200.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="duration">
+      <void property="fixedNum">
+       <float>5.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.2</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>testsyn</string>
+     </void>
+     <void property="segChooser">
+      <void property="listOfSegmentIds">
+       <void index="0">
+        <int>4460</int>
+       </void>
+      </void>
+     </void>
+     <void property="synapseType">
+      <string>glutamate</string>
      </void>
     </object>
    </void>
