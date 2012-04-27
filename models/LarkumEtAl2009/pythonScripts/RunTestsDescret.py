@@ -34,7 +34,7 @@ projFile = File(os.getcwd(), "../LarkumEtAl2009.ncx")
 
 simConfigs = []
 
-simConfigs.append("Vnoise")
+simConfigs.append("background activity")
 #simConfigs.append("CA1Cell")
 
 simDt =                 0.025
@@ -53,6 +53,7 @@ analyseSims =           True
 verbose = True
 
 maxElecLens =               [0.05,0.025,0.01,0.005,0.0025,0.001,0.0005]
+#maxElecLens =               [0.05,0.025]
 
 #############################################
 
@@ -76,6 +77,9 @@ def testAll(argv=None):
                                varTimestepNeuron =    varTimestepNeuron)
 
 
+    simManager.reloadSims(plotVoltageOnly =   plotVoltageOnly,
+                          plotSims =          plotSims,
+                          analyseSims =       analyseSims)
 
 if __name__ == "__main__":
     testAll()

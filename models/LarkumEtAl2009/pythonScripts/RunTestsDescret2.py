@@ -41,7 +41,7 @@ simDt =                 0.025
 
 simulators =            ["NEURON"]
 
-numConcurrentSims =     1
+numConcurrentSims =     4
 
 varTimestepNeuron =     False
 
@@ -51,6 +51,9 @@ runInBackground =       True
 analyseSims =           True
 
 verbose = True
+
+maxElecLens =               [0.05,0.025,0.01,0.005,0.0025]
+#maxElecLens =               [0.05,0.025]
 
 #############################################
 
@@ -68,36 +71,15 @@ def testAll(argv=None):
 
     simManager.runMultipleSims(simConfigs =           simConfigs,
                                simDt =                simDt,
+                               maxElecLens =          maxElecLens,
                                simulators =           simulators,
                                runInBackground =      runInBackground,
                                varTimestepNeuron =    varTimestepNeuron)
 
+
     simManager.reloadSims(plotVoltageOnly =   plotVoltageOnly,
                           plotSims =          plotSims,
                           analyseSims =       analyseSims)
-
-                          
-    spikeTimesToCheck = {'pyr_group_0': [61.925,71.45,85.05,132.3,142.9,192.05,202.675,250.775,261.5,308.5,319.275,365.25,376.125,421.15,432.075]}
-
-    spikeTimeAccuracy = 6 
-
-    report = simManager.checkSims(spikeTimesToCheck = spikeTimesToCheck,
-                                  spikeTimeAccuracy = spikeTimeAccuracy)
-
-    print report
-    
-    spikeTimesToCheck = {'pyr_group_0': [61.625, 71.075, 84.7, 133.5, 144.0, 190.65, 200.85, 251.775, 262.4, 311.0, 321.7, 369.15, 379.925, 426.3, 437.15]}
-
-    spikeTimeAccuracy = 1 
-
-    report = simManager.checkSims(spikeTimesToCheck = spikeTimesToCheck,
-                                  spikeTimeAccuracy = spikeTimeAccuracy)
-
-    print report
-    
-
-    return report
-
 
 if __name__ == "__main__":
     testAll()
