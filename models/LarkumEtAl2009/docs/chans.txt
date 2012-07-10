@@ -1,6 +1,8 @@
 
-chan    tested      cml1.7.3
+chan    tested      cml1.8.1
 
 hd      yes         yes
 kap     yes         yes
-hh3K    yes
+hh3K    yes         yes
+hh3k2   yes         yes
+hh3Na   yes         yes

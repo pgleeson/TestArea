@@ -71,6 +71,9 @@
 		       
 					that in case vshift = constant is A / (1 + exp((v-V1/2)/B)) (sigmoid) with A = 1; V1 = -80; B = -3
                 -->
+                
+                <!-- An *incorrect* initialisation value for this, in order to compare to original mod file. Normally should be ignored!! -->
+                <initialisation value="0"/>
 
                      
                 <time_course name="tau" from="n0" to="n" expr_form="generic" expr="1.5"/>
