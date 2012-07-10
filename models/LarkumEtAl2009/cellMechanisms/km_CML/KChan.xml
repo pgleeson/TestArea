@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema  http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.0/Level2/ChannelML_v1.8.0.xsd" units="Physiological Units">
 
-	<meta:notes>ChannelML file containing a single Channel description</meta:notes>
+<channelml xmlns="http://morphml.org/channelml/schema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:meta="http://morphml.org/metadata/schema"
+    xsi:schemaLocation="http://morphml.org/channelml/schema    http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd"
+    units="Physiological Units">
+        
+    <meta:notes>ChannelML file containing a single Channel description</meta:notes>
     
-    <channel_type name="km_CML">        
+    <channel_type name="km_CML">
 	    
         <status value="stable">
-                <meta:comment>NOTE: in the orginial mod file the conductance was multiplied by e-4, remember to scale your Gmax</meta:comment>
-                <meta:contributor>
+            <meta:comment>NOTE: in the orginial mod file the conductance was multiplied by e-4, remember to scale your Gmax</meta:comment>
+            <meta:contributor>
                 <meta:name>Matteo Farinella</meta:name>
             </meta:contributor>
         </status>
         
         <meta:notes>Voltage-gated K channel translated from the original .mod file used in Kole MH, Ilschner SU, Kampa BM, Williams SR, Ruben PC, Stuart GJ, Action potential generation requires a high sodium channel density in the axon initial segment. Nat Neurosci. 2008 Feb;11(2):178-86.
-            Based on I-M (muscarinic K channel) Slow, noninactivating</meta:notes>
+            Based on I-M (muscarinic K channel) Slow, noninactivating
+        </meta:notes>
 
 
         <meta:authorList>
@@ -84,11 +90,11 @@
                             
                 <transition name="beta" from="n" to="n0" expr_form="exp_linear" rate="0.009" scale="-9" midpoint="-30"/>
                 
-               <steady_state name = "inf" from = "n0" to = "n" expr_form = "generic" expr = "temp_adj_n*alpha/(alpha+beta)"/>
+                <steady_state name = "inf" from = "n0" to = "n" expr_form = "generic" expr = "temp_adj_n*alpha/(alpha+beta)"/>
                     
             </gate>
         
-        </current_voltage_relation> 
+        </current_voltage_relation>
 	
         <impl_prefs>
             <table_settings max_v="100" min_v="-120" table_divisions="199"/>

@@ -6,3 +6,8 @@ kap     yes         yes
 hh3K    yes         yes
 hh3k2   yes         yes
 hh3Na   yes         yes
+km      yes         yes
+sca
+kca
+
+cad

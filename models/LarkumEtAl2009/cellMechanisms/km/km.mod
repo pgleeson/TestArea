@@ -14,6 +14,9 @@ NEURON {
 	USEION k READ ek WRITE ik
 	RANGE n, gk, gmax
 	RANGE ninf, ntau
+
+	RANGE nadj  : Padraig Gleeson added this to allow comparison to ChannelML 'n'
+
 	GLOBAL Ra, Rb
 	GLOBAL q10, temp, tadj, vmin, vmax
 }
@@ -47,6 +50,7 @@ ASSIGNED {
 	ik 		(mA/cm2)
 	gk		(pS/um2)
 	ek		(mV)
+    nadj
 	ninf
 	ntau (ms)	
 	tadj
@@ -61,8 +65,9 @@ INITIAL {
 }
 
 BREAKPOINT {
-        SOLVE states
-	gk = gmax*n*tadj
+    SOLVE states
+    nadj = n*tadj
+	gk = gmax*nadj
 	ik = (1e-4) * gk * (v - ek)
 } 
 

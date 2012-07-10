@@ -166,6 +166,12 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
     <void method="add">
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/>
     </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/>
+    </void>
    </void>
    <void method="get">
     <string>Cell Type</string>
@@ -220,6 +226,12 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
     <void method="add">
      <string>CMLtest_Cell_hh3Na</string>
     </void>
+    <void method="add">
+     <string>Channeltest_Cell_km</string>
+    </void>
+    <void method="add">
+     <string>CMLtest_Cell_km</string>
+    </void>
    </void>
    <void method="get">
     <string>Priority</string>
@@ -273,6 +285,12 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
     </void>
     <void method="add">
      <int>-6</int>
+    </void>
+    <void method="add">
+     <int>-7</int>
+    </void>
+    <void method="add">
+     <int>-8</int>
     </void>
    </void>
    <void method="get">
@@ -413,6 +431,22 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
       <int>255</int>
      </object>
     </void>
+    <void method="add">
+     <object class="java.awt.Color">
+      <int>230</int>
+      <int>67</int>
+      <int>83</int>
+      <int>255</int>
+     </object>
+    </void>
+    <void method="add">
+     <object class="java.awt.Color">
+      <int>254</int>
+      <int>149</int>
+      <int>110</int>
+      <int>255</int>
+     </object>
+    </void>
    </void>
    <void method="get">
     <string>Region Name</string>
@@ -430,6 +464,12 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
     </void>
     <void method="add">
      <string>exc_region</string>
+    </void>
+    <void method="add">
+     <string>pyr_region</string>
+    </void>
+    <void method="add">
+     <string>pyr_region</string>
     </void>
     <void method="add">
      <string>pyr_region</string>
@@ -520,6 +560,12 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
     </void>
     <void method="add">
      <string>CG_cmlTest_hhna</string>
+    </void>
+    <void method="add">
+     <string>CG_chanTest_km</string>
+    </void>
+    <void method="add">
+     <string>CG_cmlTest_km</string>
     </void>
    </void>
   </void>
@@ -3520,6 +3566,124 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
      </void>
     </object>
    </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CG_chanTest_km</string>
+     </void>
+     <void property="cellNumber">
+      <string>*</string>
+     </void>
+     <void property="graphWindow">
+      <string>CG_chanTest_km_v</string>
+     </void>
+     <void property="maxValue">
+      <float>50.0</float>
+     </void>
+     <void property="minValue">
+      <float>-90.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>CG_chanTest_km_v</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CG_cmlTest_km</string>
+     </void>
+     <void property="cellNumber">
+      <string>*</string>
+     </void>
+     <void property="graphWindow">
+      <string>CG_chanTest_km_v</string>
+     </void>
+     <void property="maxValue">
+      <float>50.0</float>
+     </void>
+     <void property="minValue">
+      <float>-90.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>CG_cmlTest_km_v</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CG_chanTest_km</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_0</string>
+     </void>
+     <void property="maxValue">
+      <float>1.0</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>Var_38</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>km:nadj</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CG_cmlTest_km</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_0</string>
+     </void>
+     <void property="maxValue">
+      <float>1.0</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>Var_39</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>km_CML:n</string>
+     </void>
+    </object>
+   </void>
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.project.ProjectProperties">
@@ -3569,11 +3733,11 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
   </void>
   <void property="nativeBlocks">
    <void method="put">
-    <float>1.0</float>
+    <float>-1.0</float>
     <string></string>
    </void>
    <void method="put">
-    <float>-1.0</float>
+    <float>1.0</float>
     <string></string>
    </void>
    <void method="put">
@@ -3602,7 +3766,7 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
    <float>-65.0</float>
   </void>
   <void property="reference">
-   <string>sim_47</string>
+   <string>sim_49</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -6795,6 +6959,62 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
      </void>
     </object>
    </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+     <void property="amp">
+      <void property="fixedNum">
+       <float>0.02</float>
+      </void>
+     </void>
+     <void property="cellGroup">
+      <string>CG_chanTest_km</string>
+     </void>
+     <void property="del">
+      <void property="fixedNum">
+       <float>50.0</float>
+      </void>
+     </void>
+     <void property="dur">
+      <void property="fixedNum">
+       <float>100.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="reference">
+      <string>Input_13</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+     <void property="amp">
+      <void property="fixedNum">
+       <float>0.02</float>
+      </void>
+     </void>
+     <void property="cellGroup">
+      <string>CG_cmlTest_km</string>
+     </void>
+     <void property="del">
+      <void property="fixedNum">
+       <float>50.0</float>
+      </void>
+     </void>
+     <void property="dur">
+      <void property="fixedNum">
+       <float>100.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="reference">
+      <string>Input_14</string>
+     </void>
+    </object>
+   </void>
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.project.SimConfigInfo">
@@ -7271,16 +7491,22 @@ NOTE: this simulation configuration is used by the testmodel script to compare L
     <object class="ucl.physiol.neuroconstruct.project.SimConfig">
      <void property="cellGroups">
       <void method="add">
-       <string>CG_chanTest_hhna</string>
+       <string>CG_chanTest_km</string>
       </void>
       <void method="add">
-       <string>CG_cmlTest_hhna</string>
+       <string>CG_cmlTest_km</string>
       </void>
      </void>
      <void property="description">
       <string>Testing individual channels, each on its own cell with passive current</string>
      </void>
      <void property="inputs">
+      <void method="add">
+       <string>Input_14</string>
+      </void>
+      <void method="add">
+       <string>Input_13</string>
+      </void>
       <void method="add">
        <string>Input_12</string>
       </void>
@@ -7320,6 +7546,9 @@ NOTE: this simulation configuration is used by the testmodel script to compare L
        <string>CG_chanTest_hhna_v</string>
       </void>
       <void method="add">
+       <string>CG_chanTest_km_v</string>
+      </void>
+      <void method="add">
        <string>CG_cmlTest_hhk2_v</string>
       </void>
       <void method="add">
@@ -7327,6 +7556,9 @@ NOTE: this simulation configuration is used by the testmodel script to compare L
       </void>
       <void method="add">
        <string>CG_cmlTest_kap_v</string>
+      </void>
+      <void method="add">
+       <string>CG_cmlTest_km_v</string>
       </void>
       <void method="add">
        <string>CG_chanTest_v</string>
@@ -7339,6 +7571,12 @@ NOTE: this simulation configuration is used by the testmodel script to compare L
       </void>
       <void method="add">
        <string>CG_cmlTest_hd_v</string>
+      </void>
+      <void method="add">
+       <string>Var_39</string>
+      </void>
+      <void method="add">
+       <string>Var_38</string>
       </void>
       <void method="add">
        <string>Var_37</string>
