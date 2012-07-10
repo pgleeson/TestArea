@@ -12,7 +12,8 @@ Note the following:
 
 </comment>
 <entry key="Description">Voltage-gated K channel translated from the original .mod file used in Kole MH, Ilschner SU, Kampa BM, Williams SR, Ruben PC, Stuart GJ, Action potential generation requires a high sodium channel density in the axon initial segment. Nat Neurosci. 2008 Feb;11(2):178-86.
-            Based on I-M (muscarinic K channel) Slow, noninactivating</entry>
+            Based on I-M (muscarinic K channel) Slow, noninactivating
+        </entry>
 <entry key="NEURON mapping">ChannelML_v1.8.1_NEURONmod.xsl</entry>
 <entry key="GENESIS mapping">ChannelML_v1.8.1_GENESIStab.xsl</entry>
 <entry key="Implementation method">ChannelML based Cell Mechanism</entry>

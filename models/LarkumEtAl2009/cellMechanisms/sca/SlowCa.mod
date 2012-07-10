@@ -20,11 +20,14 @@ NEURON {
 	USEION ca READ eca WRITE ica
 	RANGE m, h, gca, gmax
 	RANGE minf, hinf, mtau, htau, inactF, actF
+
+	RANGE hadj  : Padraig Gleeson added this to allow comparison to ChannelML 'h'
+
 	GLOBAL q10, temp, tadj, vmin, vmax, vshift
 }
 
 PARAMETER {
-        inactF = 3
+    inactF = 3
 	actF   = 1
 	gmax = %Max Conductance Density%   	(pS/um2)	: 0.12 mho/cm2
 	vshift = -10	(mV)		: voltage shift (affects all), modified from 0
@@ -57,9 +60,13 @@ ASSIGNED {
 	ica 		(mA/cm2)
 	gca		(pS/um2)
 	eca		(mV)
-	minf 		hinf
-	mtau (ms)	htau (ms)
+	minf
+    hinf
+	mtau (ms)	
+    htau (ms)
+
 	tadj
+    hadj
 }
  
 
@@ -72,17 +79,18 @@ INITIAL {
 }
 
 BREAKPOINT {
-        SOLVE states
-        gca = gmax*m*m*h*tadj
-	ica = (1e-4) * gca * (v - eca)
+    SOLVE states
+    hadj = h*tadj
+    gca = gmax*m*m*hadj
+    ica = (1e-4) * gca * (v - eca)
 } 
 
 LOCAL mexp, hexp
 
 PROCEDURE states() {
-        trates(v+vshift)      
-        m = m + mexp*(minf-m)
-        h = h + hexp*(hinf-h)
+    trates(v+vshift)
+    m = m + mexp*(minf-m)
+    h = h + hexp*(hinf-h)
 	VERBATIM
 	return 0;
 	ENDVERBATIM
@@ -90,39 +98,39 @@ PROCEDURE states() {
 
 
 PROCEDURE trates(v) {  
-                      
-        LOCAL tinc
-        TABLE minf, mexp, hinf, hexp
-	DEPEND dt, celsius, temp, inactF
-	
-	FROM vmin TO vmax WITH 199
 
-	rates(v): not consistently executed from here if usetable == 1
+    LOCAL tinc
+    TABLE minf, mexp, hinf, hexp
+    DEPEND dt, celsius, temp, inactF
 
-        tadj = q10^((celsius - temp)/10)
-        tinc = -dt * tadj
+    FROM vmin TO vmax WITH 199
 
-        mexp = 1 - exp(tinc/mtau)
-        hexp = 1 - exp(tinc/htau)
+    rates(v): not consistently executed from here if usetable == 1
+
+    tadj = q10^((celsius - temp)/10)
+    tinc = -dt * tadj
+
+    mexp = 1 - exp(tinc/mtau)
+    hexp = 1 - exp(tinc/htau)
 }
 
 
 PROCEDURE rates(vm) {  
-        LOCAL  a, b
+    LOCAL  a, b
 
-	a = 0.055*(-27 - vm)/(exp((-27-vm)/3.8) - 1)/actF
-	b = 0.94*exp((-75-vm)/17)/actF
-	
-	mtau = 1/(a+b)
-	minf = a*mtau
+    a = 0.055*(-27 - vm)/(exp((-27-vm)/3.8) - 1)/actF
+    b = 0.94*exp((-75-vm)/17)/actF
 
-		:"h" inactivation 
+    mtau = 1/(a+b)
+    minf = a*mtau
 
-	a = 0.000457*exp((-13-vm)/50)/inactF
-	b = 0.0065/(exp((-vm-15)/28) + 1)/inactF
+    :"h" inactivation
 
-	htau = 1/(a+b)		: originally *1
-	hinf = a*htau
+    a = 0.000457*exp((-13-vm)/50)/inactF
+    b = 0.0065/(exp((-vm-15)/28) + 1)/inactF
+
+    htau = 1/(a+b)		: originally *1
+    hinf = a*htau
 }
 
 FUNCTION efun(z) {

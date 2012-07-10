@@ -7,7 +7,7 @@ hh3K    yes         yes
 hh3k2   yes         yes
 hh3Na   yes         yes
 km      yes         yes
-sca
+sca     yes         yes
 kca
 
-cad
+cad                     : issues: different value for FARADAY, calculation of volume as thickness x surf area, one way ca flow

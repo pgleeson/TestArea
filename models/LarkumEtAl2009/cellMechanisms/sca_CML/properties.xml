@@ -12,7 +12,8 @@ Note the following:
 
 </comment>
 <entry key="Description">HVA Ca current Based on Reuveni, Friedman, Amitai and Gutnick (1993) J. Neurosci. 13: 4609-4621
-                                 changed from (AS Oct0899) ca.mod, uses fixed eca instead of GHK eqn</entry>
+                                 changed from (AS Oct0899) ca.mod, uses fixed eca instead of GHK eqn
+        </entry>
 <entry key="NEURON mapping">ChannelML_v1.8.1_NEURONmod.xsl</entry>
 <entry key="GENESIS mapping">ChannelML_v1.8.1_GENESIStab.xsl</entry>
 <entry key="Implementation method">ChannelML based Cell Mechanism</entry>

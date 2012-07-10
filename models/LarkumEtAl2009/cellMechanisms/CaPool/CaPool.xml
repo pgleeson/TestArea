@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema   ../../Schemata/v1.1/Level2/ChannelML_v1.1.xsd" units="SI Units">
+
+<channelml xmlns="http://morphml.org/channelml/schema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:meta="http://morphml.org/metadata/schema"
+    xsi:schemaLocation="http://morphml.org/channelml/schema    http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd"
+    units="SI Units">
 
   <meta:notes>Internal calcium concentration due to calcium currents and pump</meta:notes>
     
@@ -52,19 +57,14 @@
             <meta:modelName>Synaptic integration in tuft dendrites of layer 5 pyramidal neurons (Larkum et al. 2009)</meta:modelName>
             <meta:uri>http://senselab.med.yale.edu/ModelDB/ShowModel.asp?model=124043</meta:uri>
         </meta:modelDBref>
-        
-        <ion_species>ca</ion_species>
-        
-        <decaying_pool_model>
-            <resting_conc>100e-6</resting_conc>
-            <decay_constant>0.08</decay_constant>
-            
-            <pool_volume_info>
-                <shell_thickness>0.1e-6</shell_thickness>
-            </pool_volume_info>
-            
+
+        <ion_species name="ca"/>
+
+        <decaying_pool_model resting_conc ="100e-6" decay_constant="0.08">
+
+            <pool_volume_info shell_thickness = "0.1e-6"/>
+
         </decaying_pool_model>
-        
         
     </ion_concentration>
 </channelml>
