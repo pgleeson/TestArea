@@ -78,9 +78,9 @@ def testAll(argv=None):
 
     # These were discovered using analyseSims = True above.
     # They need to hold for all simulators
-    spikeTimesToCheck = {'Channeltestgroup_0': [51.648, 62.126, 75.58, 89.09]}
+    spikeTimesToCheck = {'Channeltestgroup_0': [51.648, 62.126, 75.58, 89.09], 'CMLtestGroup_0': [51.648, 62.126, 75.58, 89.09]}
 
-    spikeTimeAccuracy = 0.01
+    spikeTimeAccuracy = 0.011
 
     report = simManager.checkSims(spikeTimesToCheck = spikeTimesToCheck,
                                   spikeTimeAccuracy = spikeTimeAccuracy)

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema  ../../Schemata/v1.6/Level2/ChannelML_v1.6.xsd" units="Physiological Units">
+<channelml xmlns="http://morphml.org/channelml/schema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:meta="http://morphml.org/metadata/schema"
+    xsi:schemaLocation="http://morphml.org/channelml/schema    http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd"
+    units="Physiological Units">
 
     <meta:notes>Channel model from Larkum et al. 2009</meta:notes>
-
-    <ion name="k" default_erev="-77" charge="1"/>          <!-- phys units: mV -->
-
-
 
     <channel_type name="kap_CML" density="yes">
 
@@ -15,10 +15,9 @@
             </meta:contributor>
         </status>
 
-        <meta:notes>A type K channel. Comment from original mod: K-A channel from Klee Ficker and Heinemann,
+        <meta:notes>A type K+ channel. Comment from original mod: K-A channel from Klee Ficker and Heinemann,
         modified to account for Dax A Current --- M.Migliore Jun 1997,
         modified to be used with cvode  M.Migliore 2001</meta:notes>
-
 
         <meta:authorList>
             <meta:modelAuthor>
@@ -47,98 +46,41 @@
             <meta:uri>http://senselab.med.yale.edu/ModelDB/ShowModel.asp?model=55035</meta:uri>
         </meta:modelDBref>
 
+        <current_voltage_relation cond_law="ohmic" ion="k" default_gmax="30" default_erev="-87">
 
-        <current_voltage_relation>
-            <ohmic ion="k">
-                <conductance default_gmax="30">          <!-- phys units: mS/cm2-->
+            <q10_settings gate="n" q10_factor="5" experimental_temp="24"/>
+            <q10_settings gate="l" fixed_q10="1" experimental_temp="35"/>
 
+            <gate name="n" instances="1">
+                
+                <closed_state id="n0"/>
+                <open_state id="n" fraction="1"/>
+                     
+                <transition name="alpha" from="n0" to="n" expr_form="generic" expr="(exp ( (1e-3 * (-1.5 + (-1)/(1+(exp ((v-(-40))/5)))) * (v - 11) * 9.648e4) / (8.315*(273.16+ (celsius) )) ))" />
+                    
+                <transition name="beta" from="n" to="n0" expr_form="generic" expr="(exp ( (1e-3 * (-1.5 + (-1)/(1+(exp ((v-(-40))/5)))) * 0.55 * (v - 11) * 9.648e4) / (8.315*(273.16+ (celsius) )) ))" />
+                    
+                <time_course name="tau" from="n0" to="n" expr_form="generic" expr="beta/(0.05 * (1 + alpha) * temp_adj_n) &lt; 0.1 ? (0.1 * temp_adj_n) : beta/(0.05 * (1 + alpha)) " />
+                    
+                <steady_state name="inf" from="n0" to="n" expr_form="generic" expr="1/(1 + alpha)" />
+                    
+            </gate>
+        
+            <gate name="l" instances="1">
 
-                    <rate_adjustments>
-                        <q10_settings gate="n" q10_factor="5" experimental_temp="24"/>
-                        <q10_settings gate="l" fixed_q10="1" experimental_temp="35"/>     <!-- temp value from Migliore et al simulation-->
-
-                    </rate_adjustments>
-
-                    <gate power="1">
-                        <state name="n" fraction="1"/>
-                    </gate>
-                    <gate power="1">
-                        <state name="l" fraction="1"/>
-                    </gate>
-                </conductance>
-            </ohmic>
+                <closed_state id="l0"/>
+                <open_state id="l" fraction="1"/>
+                     
+                <transition name="alpha" from="l0" to="l" expr_form="generic" expr="(exp ( (1e-3 * (3) * (v - (-56)) * 9.648e4) / (8.315*(273.16+ (celsius) )) ))" />
+                    
+                <transition name="beta" from="l" to="l0" expr_form="generic" expr="(exp ( (1e-3 * (3) * 1 * (v - (-56)) * 9.648e4) / (8.315*(273.16+ (celsius) )) ))" />
+                    
+                <time_course name="tau" from="l0" to="l" expr_form="generic" expr="0.26*(v+50) &lt; 2 ? 2 : 0.26*(v+50)" />
+                    
+                <steady_state name="inf" from="l0" to="l" expr_form="generic" expr="1/(1 + alpha)" />
+                    
+            </gate>
         </current_voltage_relation>
-
-
-        <hh_gate state="n">
-            <transition>
-                <voltage_gate>
-                        <!-- Based on:
-                            vhalfn=11   (mV)
-                            vhalfl=-56   (mV)
-                            a0l=0.05      (/ms)
-                            a0n=0.05    (/ms)
-                            zetan=-1.5    (1)
-                            zetal=3    (1)
-                            gmn=0.55   (1)
-                            gml=1   (1)
-                            lmin=2  (mS)
-                            nmin=0.1  (mS)
-                            pw=-1    (1)
-                            tq=-40
-                            qq=5
-
-                            zeta=zetan+pw/(1+exp((v-tq)/qq))
-                            alpn = exp(1.e-3*zeta*(v-vhalfn)*9.648e4/(8.315*(273.16+celsius)))
-  -->
-
-                    <alpha>
-                       <generic_equation_hh expr="(exp ( (1e-3 * (-1.5 + (-1)/(1+(exp ((v-(-40))/5)))) * (v - 11) * 9.648e4) / (8.315*(273.16+ (celsius) )) ))"/>
-                    </alpha>
-                    <beta>
-                            <!-- betn = exp(1.e-3*zeta*gmn*(v-vhalfn)*9.648e4/(8.315*(273.16+celsius))) -->
-
-                       <generic_equation_hh expr="(exp ( (1e-3 * (-1.5 + (-1)/(1+(exp ((v-(-40))/5)))) * 0.55 * (v - 11) * 9.648e4) / (8.315*(273.16+ (celsius) )) ))"/>
-                    </beta>
-
-                    <tau>
-                            <!-- Note: this puts a lower limit on tau. It can be a function of alpha and beta -->
-
-                        <generic_equation_hh expr="beta/(0.05 * (1 + alpha) * temp_adj_n) &lt; 0.1 ? (0.1 * temp_adj_n) : beta/(0.05 * (1 + alpha))  "/>
-                    </tau>
-                    <inf>
-                        <generic_equation_hh expr="1/(1 + alpha)"/>
-                    </inf>
-
-                </voltage_gate>
-            </transition>
-        </hh_gate>
-
-
-        <hh_gate state="l">
-            <transition>
-                <voltage_gate>
-                    <alpha>
-                            <!-- alpl = exp(1.e-3*zetal*(v-vhalfl)*9.648e4/(8.315*(273.16+celsius)))  -->
-
-                       <generic_equation_hh expr="(exp ( (1e-3 * (3) * (v - (-56)) * 9.648e4) / (8.315*(273.16+ (celsius) )) ))"/>
-                    </alpha>
-                    <beta>
-                            <!-- betl = exp(1.e-3*zetal*gml*(v-vhalfl)*9.648e4/(8.315*(273.16+celsius)))  -->
-
-                       <generic_equation_hh expr="(exp ( (1e-3 * (3) * 1 * (v - (-56)) * 9.648e4) / (8.315*(273.16+ (celsius) )) ))"/>
-                    </beta>
-
-                    <tau>
-                        <generic_equation_hh expr="0.26*(v+50) &lt; 2 ? 2 : 0.26*(v+50)"/>
-                    </tau>
-                    <inf>
-                        <generic_equation_hh expr="1/(1 + alpha)"/>
-                    </inf>
-                </voltage_gate>
-            </transition>
-        </hh_gate>
-
 
         <impl_prefs>
             <table_settings max_v="100" min_v="-100" table_divisions="2000"/>

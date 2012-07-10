@@ -11,7 +11,7 @@ Note the following:
    Mechanism Type should only have values: Channel mechanism, Synaptic mechanism, Ion concentration, Point process, Gap junction
 
 </comment>
-<entry key="Description">A type K channel. Comment from original mod: K-A channel from Klee Ficker and Heinemann,
+<entry key="Description">A type K+ channel. Comment from original mod: K-A channel from Klee Ficker and Heinemann,
         modified to account for Dax A Current --- M.Migliore Jun 1997,
         modified to be used with cvode  M.Migliore 2001</entry>
 <entry key="NEURON mapping">ChannelML_v1.8.1_NEURONmod.xsl</entry>

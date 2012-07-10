@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema  ../../../../../trunk/web/NeuroMLFiles/Schemata/v1.7.3/Level2/ChannelML_v1.7.3.xsd" units="Physiological Units">
+<channelml xmlns="http://morphml.org/channelml/schema" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:meta="http://morphml.org/metadata/schema"
+    xsi:schemaLocation="http://morphml.org/channelml/schema    http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd"
+    units="Physiological Units">
 
     <meta:notes>Channel model from Larkum et al. 2009</meta:notes>
     
     <channel_type name="hd_CML">
         
         <status value="stable">
-           
+			<meta:contributor>
+                <meta:name>Padraig Gleeson</meta:name>
+            </meta:contributor>
         </status>
         
-        <meta:notes>I-h channel from Magee 1998 for distal dendrites</meta:notes>
+        <meta:notes>Comment from original mod file: I-h channel from Magee 1998 for distal dendrites</meta:notes>
     
        <meta:authorList>
              <meta:modelAuthor>

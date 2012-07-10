@@ -47,7 +47,7 @@
         </meta:neuronDBref>
 
         
-        <current_voltage_relation cond_law="ohmic" ion="k" default_gmax="5.0" default_erev="-77">
+        <current_voltage_relation cond_law="ohmic" ion="k" default_gmax="5.0" default_erev="-87">
             
             <q10_settings q10_factor="2.3" experimental_temp="23"/>
             

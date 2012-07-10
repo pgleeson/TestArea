@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="1.6.0_23" class="java.beans.XMLDecoder">
+<java version="1.6.0_24" class="java.beans.XMLDecoder">
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -148,6 +148,12 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
     <void method="add">
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/>
     </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/>
+    </void>
    </void>
    <void method="get">
     <string>Cell Type</string>
@@ -184,6 +190,12 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
     <void method="add">
      <string>Channeltest_Cell_cad</string>
     </void>
+    <void method="add">
+     <string>Channeltest_Cell_hh3_K</string>
+    </void>
+    <void method="add">
+     <string>CMLtest_Cell_hh3K</string>
+    </void>
    </void>
    <void method="get">
     <string>Priority</string>
@@ -219,6 +231,12 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
     </void>
     <void method="add">
      <int>0</int>
+    </void>
+    <void method="add">
+     <int>-1</int>
+    </void>
+    <void method="add">
+     <int>-2</int>
     </void>
    </void>
    <void method="get">
@@ -311,6 +329,22 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
       <int>255</int>
      </object>
     </void>
+    <void method="add">
+     <object class="java.awt.Color">
+      <int>122</int>
+      <int>5</int>
+      <int>45</int>
+      <int>255</int>
+     </object>
+    </void>
+    <void method="add">
+     <object class="java.awt.Color">
+      <int>36</int>
+      <int>118</int>
+      <int>203</int>
+      <int>255</int>
+     </object>
+    </void>
    </void>
    <void method="get">
     <string>Region Name</string>
@@ -328,6 +362,12 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
     </void>
     <void method="add">
      <string>exc_region</string>
+    </void>
+    <void method="add">
+     <string>pyr_region</string>
+    </void>
+    <void method="add">
+     <string>pyr_region</string>
     </void>
     <void method="add">
      <string>pyr_region</string>
@@ -382,6 +422,12 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
     </void>
     <void method="add">
      <string>CG_cad_2</string>
+    </void>
+    <void method="add">
+     <string>CG_chanTest_hhk</string>
+    </void>
+    <void method="add">
+     <string>CG_cmlTest_hhk</string>
     </void>
    </void>
   </void>
@@ -2938,6 +2984,90 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
      </void>
     </object>
    </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="cellNumber">
+      <string>*</string>
+     </void>
+     <void property="graphWindow">
+      <string>LV_pyr_group_v</string>
+     </void>
+     <void property="maxValue">
+      <float>50.0</float>
+     </void>
+     <void property="minValue">
+      <float>-90.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>pyr_soma_V_1</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CG_chanTest_hhk</string>
+     </void>
+     <void property="cellNumber">
+      <string>*</string>
+     </void>
+     <void property="graphWindow">
+      <string>CG_chanTest_hhk_v</string>
+     </void>
+     <void property="maxValue">
+      <float>50.0</float>
+     </void>
+     <void property="minValue">
+      <float>-90.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>CG_chanTest_hhk_v</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CG_cmlTest_hhk</string>
+     </void>
+     <void property="cellNumber">
+      <string>*</string>
+     </void>
+     <void property="graphWindow">
+      <string>CG_cmlTest_hhk_v</string>
+     </void>
+     <void property="maxValue">
+      <float>50.0</float>
+     </void>
+     <void property="minValue">
+      <float>-90.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>CG_cmlTest_hhk_v</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+    </object>
+   </void>
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.project.ProjectProperties">
@@ -2972,7 +3102,7 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
    <float>1.0</float>
   </void>
   <void property="resolution3DElements">
-   <int>3</int>
+   <int>12</int>
   </void>
   <void property="showInputsAs">
    <string>Spheres</string>
@@ -3020,7 +3150,7 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
    <float>-65.0</float>
   </void>
   <void property="reference">
-   <string>sim_22</string>
+   <string>sim_38</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -5989,6 +6119,118 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
      </void>
     </object>
    </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+     <void property="amp">
+      <void property="fixedNum">
+       <float>1.0</float>
+      </void>
+     </void>
+     <void property="cellGroup">
+      <string>pyr_group</string>
+     </void>
+     <void property="del">
+      <void property="fixedNum">
+       <float>100.0</float>
+      </void>
+     </void>
+     <void property="dur">
+      <void property="fixedNum">
+       <float>2000.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="reference">
+      <string>Input_5</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+     <void property="amp">
+      <void property="fixedNum">
+       <float>1.0</float>
+      </void>
+     </void>
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="del">
+      <void property="fixedNum">
+       <float>50.0</float>
+      </void>
+     </void>
+     <void property="dur">
+      <void property="fixedNum">
+       <float>400.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="reference">
+      <string>Input_6</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+     <void property="amp">
+      <void property="fixedNum">
+       <float>0.02</float>
+      </void>
+     </void>
+     <void property="cellGroup">
+      <string>CG_chanTest_hhk</string>
+     </void>
+     <void property="del">
+      <void property="fixedNum">
+       <float>50.0</float>
+      </void>
+     </void>
+     <void property="dur">
+      <void property="fixedNum">
+       <float>100.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="reference">
+      <string>Input_7</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+     <void property="amp">
+      <void property="fixedNum">
+       <float>0.02</float>
+      </void>
+     </void>
+     <void property="cellGroup">
+      <string>CG_cmlTest_hhk</string>
+     </void>
+     <void property="del">
+      <void property="fixedNum">
+       <float>50.0</float>
+      </void>
+     </void>
+     <void property="dur">
+      <void property="fixedNum">
+       <float>100.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="reference">
+      <string>Input_8</string>
+     </void>
+    </object>
+   </void>
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.project.SimConfigInfo">
@@ -6415,6 +6657,9 @@ NOTE: the IClamp waveform aims to reproduce the stimulus used in Larkum et al. 2
     <object class="ucl.physiol.neuroconstruct.project.SimConfig">
      <void property="cellGroups">
       <void method="add">
+       <string>pyrCML_group</string>
+      </void>
+      <void method="add">
        <string>pyr_group</string>
       </void>
      </void>
@@ -6429,16 +6674,22 @@ NOTE: this simulation configuration is used by the testmodel script to compare L
       <void method="add">
        <string>test_IClamp</string>
       </void>
+      <void method="add">
+       <string>Input_6</string>
+      </void>
      </void>
      <void property="name">
       <string>test_IClamp</string>
      </void>
      <void property="plots">
       <void method="add">
-       <string>FigS2_apic11</string>
+       <string>pyr_soma_V_1</string>
       </void>
       <void method="add">
        <string>pyr_soma_V</string>
+      </void>
+      <void method="add">
+       <string>FigS2_apic11</string>
       </void>
       <void method="add">
        <string>FigS2_apic59</string>
@@ -6573,6 +6824,43 @@ NOTE: this simulation configuration is used by the testmodel script to compare L
      </void>
      <void property="simDuration">
       <float>1300.0</float>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+     <void property="cellGroups">
+      <void method="add">
+       <string>pyr_group</string>
+      </void>
+     </void>
+     <void property="description">
+      <string>Current clamp at soma</string>
+     </void>
+     <void property="inputs">
+      <void method="add">
+       <string>Input_5</string>
+      </void>
+     </void>
+     <void property="name">
+      <string>Soma_IClamp</string>
+     </void>
+     <void property="plots">
+      <void method="add">
+       <string>pyr_soma_V</string>
+      </void>
+      <void method="add">
+       <string>FigS2_apic11</string>
+      </void>
+      <void method="add">
+       <string>FigS2_apic59</string>
+      </void>
+      <void method="add">
+       <string>FigS2_apic58</string>
+      </void>
+     </void>
+     <void property="simDuration">
+      <float>2100.0</float>
      </void>
     </object>
    </void>

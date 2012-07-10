@@ -1,0 +1,6 @@
+
+chan    tested      cml1.7.3
+
+hd      yes         yes
+kap     yes         yes
+hh3K    yes
