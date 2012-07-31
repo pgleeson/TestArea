@@ -3972,6 +3972,37 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
      </void>
     </object>
    </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CG_cmlTest_sca</string>
+     </void>
+     <void property="cellNumber">
+      <string>*</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_21</string>
+     </void>
+     <void property="maxValue">
+      <float>150.0</float>
+     </void>
+     <void property="minValue">
+      <float>-90.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>CG_cmlTest_sca_v_1</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>sca_CML:REV_POT:ca</string>
+     </void>
+    </object>
+   </void>
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.project.ProjectProperties">
@@ -4054,7 +4085,7 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
    <float>-65.0</float>
   </void>
   <void property="reference">
-   <string>sim_74</string>
+   <string>sim_83</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -7901,9 +7932,6 @@ NOTE: this simulation configuration is used by the testmodel script to compare L
     <object class="ucl.physiol.neuroconstruct.project.SimConfig">
      <void property="cellGroups">
       <void method="add">
-       <string>CG_chanTest_sca</string>
-      </void>
-      <void method="add">
        <string>CG_cmlTest_sca</string>
       </void>
      </void>
@@ -8005,6 +8033,9 @@ NOTE: this simulation configuration is used by the testmodel script to compare L
       </void>
       <void method="add">
        <string>CG_cmlTest_hd_v</string>
+      </void>
+      <void method="add">
+       <string>CG_cmlTest_sca_v_1</string>
       </void>
       <void method="add">
        <string>CMLtestgroup_v_9</string>

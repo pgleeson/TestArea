@@ -4054,7 +4054,7 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
    <float>-65.0</float>
   </void>
   <void property="reference">
-   <string>sim_67</string>
+   <string>sim_83</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -7077,6 +7077,16 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
      <void property="reference">
       <string>Input_6</string>
      </void>
+     <void property="segChooser">
+      <void property="fractionAlong">
+       <float>0.71</float>
+      </void>
+      <void property="listOfSegmentIds">
+       <void index="0">
+        <int>8470</int>
+       </void>
+      </void>
+     </void>
     </object>
    </void>
    <void method="add">
@@ -7890,9 +7900,6 @@ NOTE: this simulation configuration is used by the testmodel script to compare L
    <void method="add">
     <object class="ucl.physiol.neuroconstruct.project.SimConfig">
      <void property="cellGroups">
-      <void method="add">
-       <string>CG_chanTest_sca</string>
-      </void>
       <void method="add">
        <string>CG_cmlTest_sca</string>
       </void>
