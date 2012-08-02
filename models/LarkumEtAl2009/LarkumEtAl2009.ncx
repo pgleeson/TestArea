@@ -4003,6 +4003,37 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
      </void>
     </object>
    </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CG_chanTest_sca</string>
+     </void>
+     <void property="cellNumber">
+      <string>*</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_21</string>
+     </void>
+     <void property="maxValue">
+      <float>150.0</float>
+     </void>
+     <void property="minValue">
+      <float>-90.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>CMLtestgroup_v_11</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>eca</string>
+     </void>
+    </object>
+   </void>
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.project.ProjectProperties">
@@ -4085,7 +4116,7 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
    <float>-65.0</float>
   </void>
   <void property="reference">
-   <string>sim_83</string>
+   <string>sim_89</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -8011,6 +8042,9 @@ NOTE: this simulation configuration is used by the testmodel script to compare L
        <string>CG_chanTest_v</string>
       </void>
       <void method="add">
+       <string>CMLtestgroup_v_11</string>
+      </void>
+      <void method="add">
        <string>CMLtestgroup_v_10</string>
       </void>
       <void method="add">
@@ -8036,9 +8070,6 @@ NOTE: this simulation configuration is used by the testmodel script to compare L
       </void>
       <void method="add">
        <string>CG_cmlTest_sca_v_1</string>
-      </void>
-      <void method="add">
-       <string>CMLtestgroup_v_9</string>
       </void>
       <void method="add">
        <string>Var_39</string>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 ../../../../NeuroML2/Schemas/NeuroML2/NeuroML_v2alpha.xsd"
+         id="cad2_NML2">
+        
+    <notes>NeuroML 2 file containing a single ionChannel</notes>
+
+    <ComponentType  name="larkumCaPoolConcentrationModel"
+        extends="concentrationModel"
+        description="Model of buffering of concentration of an ion (currently hard coded to be calcium, due to requirement for _iCa) which has a baseline level _restingConc and tends to this value with time course _decayConstant. The ion is assumed to occupy a shell inside the membrane of thickness _shellThickness.">
+
+        <Parameter name="restingConc" dimension="concentration"/>
+        <Parameter name="decayConstant" dimension="time"/>
+        <Parameter name="shellThickness" dimension="length"/>
+
+        <Constant name="Faraday" dimension="charge_per_mole" value="96485.3C_per_mol"/>
+        <Constant name="AREA_SCALE" dimension="area" value="1m2"/>
+        <Constant name="LENGTH_SCALE" dimension="length" value="1m"/>
+
+        <Requirement name="iCa" dimension="current"/>
+
+        <Text name="species"/> 
+
+        <Behavior>
+
+            <StateVariable name="concentration" exposure="concentration" dimension="concentration"/>
+            <StateVariable name="extConcentration" exposure="extConcentration" dimension="concentration"/>
+
+            <DerivedVariable name="effectiveRadius" dimension="length" value="LENGTH_SCALE * sqrt(cellSurfaceArea/(AREA_SCALE * (4 * 3.14159)))"/> 
+            <DerivedVariable name="innerRadius" dimension="length" value="effectiveRadius - shellThickness"/>
+
+            <DerivedVariable name="shellVolume" dimension="volume" value="(4 * (effectiveRadius * effectiveRadius * effectiveRadius) * 3.14159 / 3) - (4 * (innerRadius * innerRadius * innerRadius) * 3.14159 / 3)"/>
+
+            <TimeDerivative variable="concentration" value="iCa / (2 * Faraday * shellVolume) - ((concentration - restingConc) / decayConstant)"/>
+
+            <OnStart>
+                <StateAssignment variable="concentration" value="initialConcentration"/>
+                <StateAssignment variable="extConcentration" value="initialExtConcentration"/>
+            </OnStart>
+
+        </Behavior>
+
+    </ComponentType>
+
+</neuroml>
