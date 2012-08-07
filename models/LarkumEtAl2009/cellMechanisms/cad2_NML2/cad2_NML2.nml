@@ -4,8 +4,12 @@
          xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 ../../../../NeuroML2/Schemas/NeuroML2/NeuroML_v2alpha.xsd"
          id="cad2_NML2">
         
-    <notes>NeuroML 2 file containing a single ionChannel</notes>
+    <notes>NeuroML 2 file containing a single Concentration Model</notes>
 
+
+    <decayingPoolConcentrationModel id="cad2_NML2" restingConc="7.55e-5mM" decayConstant="1e-2s" shellThickness="8.4e-8m" ion="ca"/>
+    
+    <!--
     <ComponentType  name="larkumCaPoolConcentrationModel"
         extends="concentrationModel"
         description="Model of buffering of concentration of an ion (currently hard coded to be calcium, due to requirement for _iCa) which has a baseline level _restingConc and tends to this value with time course _decayConstant. The ion is assumed to occupy a shell inside the membrane of thickness _shellThickness.">
@@ -41,6 +45,6 @@
 
         </Behavior>
 
-    </ComponentType>
+    </ComponentType>-->
 
 </neuroml>

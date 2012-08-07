@@ -16,5 +16,5 @@ Note the following:
 <entry key="Mechanism Type">NeuroML 2 concentration model</entry>
 <entry key="Implementation method">NeuroML 2 Component</entry>
 <entry key="ChannelML file">cad2_NML2.nml</entry>
-<entry key="Description">NeuroML 2 file containing a single ionChannel</entry>
+<entry key="Description">NeuroML 2 file containing a single Concentration Model</entry>
 </properties>

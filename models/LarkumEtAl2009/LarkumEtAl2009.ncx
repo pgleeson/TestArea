@@ -4083,11 +4083,11 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
   </void>
   <void property="nativeBlocks">
    <void method="put">
-    <float>1.0</float>
+    <float>-1.0</float>
     <string></string>
    </void>
    <void method="put">
-    <float>-1.0</float>
+    <float>1.0</float>
     <string></string>
    </void>
    <void method="put">
@@ -4116,7 +4116,7 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
    <float>-65.0</float>
   </void>
   <void property="reference">
-   <string>sim_89</string>
+   <string>sim_99</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -7415,7 +7415,7 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
      </void>
      <void property="del">
       <void property="fixedNum">
-       <float>50.0</float>
+       <float>200.0</float>
       </void>
      </void>
      <void property="dur">
@@ -8072,6 +8072,9 @@ NOTE: this simulation configuration is used by the testmodel script to compare L
        <string>CG_cmlTest_sca_v_1</string>
       </void>
       <void method="add">
+       <string>CMLtestgroup_v_9</string>
+      </void>
+      <void method="add">
        <string>Var_39</string>
       </void>
       <void method="add">
@@ -8130,7 +8133,7 @@ NOTE: this simulation configuration is used by the testmodel script to compare L
       </void>
      </void>
      <void property="simDuration">
-      <float>300.0</float>
+      <float>1000.0</float>
      </void>
     </object>
    </void>
