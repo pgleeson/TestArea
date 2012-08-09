@@ -7,16 +7,14 @@
     <notes>NeuroML 2 file containing a single Concentration Model</notes>
 
 
-    <decayingPoolConcentrationModel id="cad2_NML2" restingConc="7.55e-5mM" decayConstant="1e-2s" shellThickness="8.4e-8m" ion="ca"/>
-    
-    <!--
-    <ComponentType  name="larkumCaPoolConcentrationModel"
-        extends="concentrationModel"
-        description="Model of buffering of concentration of an ion (currently hard coded to be calcium, due to requirement for _iCa) which has a baseline level _restingConc and tends to this value with time course _decayConstant. The ion is assumed to occupy a shell inside the membrane of thickness _shellThickness.">
+    <concentrationModel id="cad2_NML2" type="concentrationModelLarkumEtAl" restingConc="1e-4 mM" decayConstant="80 ms" shellThickness="0.1 um" ion="ca"/>
+
+    <ComponentType name="concentrationModelLarkumEtAl" extends="concentrationModel" description="Model of buffering of concentration of specific to Larkum Et Al 2009">
 
         <Parameter name="restingConc" dimension="concentration"/>
         <Parameter name="decayConstant" dimension="time"/>
         <Parameter name="shellThickness" dimension="length"/>
+       
 
         <Constant name="Faraday" dimension="charge_per_mole" value="96485.3C_per_mol"/>
         <Constant name="AREA_SCALE" dimension="area" value="1m2"/>
@@ -31,20 +29,21 @@
             <StateVariable name="concentration" exposure="concentration" dimension="concentration"/>
             <StateVariable name="extConcentration" exposure="extConcentration" dimension="concentration"/>
 
-            <DerivedVariable name="effectiveRadius" dimension="length" value="LENGTH_SCALE * sqrt(cellSurfaceArea/(AREA_SCALE * (4 * 3.14159)))"/> 
-            <DerivedVariable name="innerRadius" dimension="length" value="effectiveRadius - shellThickness"/>
+            <DerivedVariable name="currDensCa" dimension="currentDensity" value="iCa / surfaceArea"/>
 
-            <DerivedVariable name="shellVolume" dimension="volume" value="(4 * (effectiveRadius * effectiveRadius * effectiveRadius) * 3.14159 / 3) - (4 * (innerRadius * innerRadius * innerRadius) * 3.14159 / 3)"/>
+            <DerivedVariable name="drive_channel0" dimension="current" value="currDensCa / (2 * Faraday * shellThickness)"/>
+            
+            <DerivedVariable name="drive_channel" dimension="current" value="drive_channel0" valueCondition="drive_channel0 .gt. 0" valueIfFalse="0"/>
 
-            <TimeDerivative variable="concentration" value="iCa / (2 * Faraday * shellVolume) - ((concentration - restingConc) / decayConstant)"/>
+            <TimeDerivative variable="concentration" value="drive_channel - ((concentration - restingConc) / decayConstant)"/>
 
             <OnStart>
-                <StateAssignment variable="concentration" value="initialConcentration"/>
+                <StateAssignment variable="concentration" value="restingConc"/>
                 <StateAssignment variable="extConcentration" value="initialExtConcentration"/>
             </OnStart>
 
         </Behavior>
 
-    </ComponentType>-->
+    </ComponentType>
 
 </neuroml>
