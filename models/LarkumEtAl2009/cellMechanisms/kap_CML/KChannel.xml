@@ -56,13 +56,13 @@
                 <closed_state id="n0"/>
                 <open_state id="n" fraction="1"/>
                      
-                <transition name="alpha" from="n0" to="n" expr_form="generic" expr="(exp ( (1e-3 * (-1.5 + (-1)/(1+(exp ((v-(-40))/5)))) * (v - 11) * 9.648e4) / (8.315*(273.16+ (celsius) )) ))" />
+                <transition name="alpha" from="n0" to="n" expr_form="generic" expr="(exp ( ( ( (-1.5) - 1/(1+(exp ((v-(-40))/5)))) * (v-11) * 96.48) / (8.315*(273.16+ (celsius) )) ))" />
                     
-                <transition name="beta" from="n" to="n0" expr_form="generic" expr="(exp ( (1e-3 * (-1.5 + (-1)/(1+(exp ((v-(-40))/5)))) * 0.55 * (v - 11) * 9.648e4) / (8.315*(273.16+ (celsius) )) ))" />
+                <transition name="beta" from="n" to="n0" expr_form="generic" expr="(exp ( (1e-3 * (-1.5 + (-1)/(1+(exp ((v-(-40))/5)))) * 0.55 * (v-11) * 9.648e4) / (8.315*(273.16+ (celsius) )) ))" />
                     
                 <time_course name="tau" from="n0" to="n" expr_form="generic" expr="beta/(0.05 * (1 + alpha) * temp_adj_n) &lt; 0.1 ? (0.1 * temp_adj_n) : beta/(0.05 * (1 + alpha)) " />
                     
-                <steady_state name="inf" from="n0" to="n" expr_form="generic" expr="1/(1 + alpha)" />
+                <steady_state name="inf" from="n0" to="n" expr_form="generic" expr="1/(1 + (exp ( (1e-3 * (-1.5 + (-1)/(1+(exp ((v-(-40))/5)))) * (v - 11) * 9.648e4) / (8.315*(273.16+ (celsius) )) )))" />
                     
             </gate>
         
@@ -77,7 +77,7 @@
                     
                 <time_course name="tau" from="l0" to="l" expr_form="generic" expr="0.26*(v+50) &lt; 2 ? 2 : 0.26*(v+50)" />
                     
-                <steady_state name="inf" from="l0" to="l" expr_form="generic" expr="1/(1 + alpha)" />
+                <steady_state name="inf" from="l0" to="l" expr_form="generic" expr="1/(1 + (exp ( (1e-3 * (3) * (v - (-56)) * 9.648e4) / (8.315*(273.16+ (celsius) )) )))" />
                     
             </gate>
         </current_voltage_relation>
