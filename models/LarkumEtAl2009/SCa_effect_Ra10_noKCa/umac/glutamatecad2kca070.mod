@@ -1,0 +1,1 @@
+../glutamatecad2kca070.mod
