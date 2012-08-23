@@ -1,1 +1,0 @@
-../focalstim.mod

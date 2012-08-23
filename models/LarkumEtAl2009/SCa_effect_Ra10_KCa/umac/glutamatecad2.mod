@@ -1,1 +1,0 @@
-../glutamatecad2.mod

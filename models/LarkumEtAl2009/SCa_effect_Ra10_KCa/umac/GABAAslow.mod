@@ -1,1 +1,0 @@
-../GABAAslow.mod

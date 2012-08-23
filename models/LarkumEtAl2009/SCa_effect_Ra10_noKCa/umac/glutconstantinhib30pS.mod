@@ -1,1 +1,0 @@
-../glutconstantinhib30pS.mod
