@@ -28,7 +28,7 @@ Erev set via neuroConstruct to 50mV for Na and -87mV for K (according to Larkum 
 Reported problem of Neuron 7 with tables: when the external parameter &quot;vshift &quot; is changed the tables are not updated and the NeuroML model behaves differently from Neuron 6.2</string>
   </void>
   <void property="projectFileVersion">
-   <string>neuroConstruct v1.6.1</string>
+   <string>neuroConstruct v1.6.0</string>
   </void>
   <void property="projectName">
    <string>LarkumEtAl2009</string>
@@ -835,7 +835,7 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
    <void method="add">
     <object class="ucl.physiol.neuroconstruct.project.SimPlot">
      <void property="cellGroup">
-      <string>pyrCML_group</string>
+      <string>pyr_group</string>
      </void>
      <void property="cellNumber">
       <string>*</string>
@@ -1697,7 +1697,7 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
    <void method="add">
     <object class="ucl.physiol.neuroconstruct.project.SimPlot">
      <void property="cellGroup">
-      <string>pyrCML_group</string>
+      <string>pyr_group</string>
      </void>
      <void property="cellNumber">
       <string>0</string>
@@ -4371,11 +4371,11 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
   </void>
   <void property="nativeBlocks">
    <void method="put">
-    <float>1.0</float>
+    <float>-1.0</float>
     <string></string>
    </void>
    <void method="put">
-    <float>-1.0</float>
+    <float>1.0</float>
     <string></string>
    </void>
    <void method="put">
@@ -4404,7 +4404,7 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
    <float>-65.0</float>
   </void>
   <void property="reference">
-   <string>sim_221</string>
+   <string>sim_219</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -4852,11 +4852,11 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
    <void method="add">
     <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
      <void property="cellGroup">
-      <string>pyrCML_group</string>
+      <string>pyr_group</string>
      </void>
      <void property="delay">
       <void property="fixedNum">
-       <float>500.0</float>
+       <float>100.0</float>
       </void>
       <void property="numberType">
        <int>11</int>
@@ -4864,7 +4864,7 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
      </void>
      <void property="duration">
       <void property="fixedNum">
-       <float>5.0</float>
+       <float>1.0</float>
       </void>
       <void property="numberType">
        <int>11</int>
@@ -4872,16 +4872,13 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
      </void>
      <void property="rate">
       <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
-       <void property="fixedNum">
-        <float>0.2</float>
-       </void>
        <void property="numberType">
         <int>11</int>
        </void>
       </object>
      </void>
      <void property="reference">
-      <string>SynchronousDistributed</string>
+      <string>SynchrousDistributed</string>
      </void>
      <void property="segChooser">
       <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
@@ -4901,7 +4898,7 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
    <void method="add">
     <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainSettings">
      <void property="cellGroup">
-      <string>pyrCML_group</string>
+      <string>pyr_group</string>
      </void>
      <void property="rate">
       <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
@@ -5074,7 +5071,7 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
    <void method="add">
     <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
      <void property="cellGroup">
-      <string>pyrCML_group</string>
+      <string>pyr_group</string>
      </void>
      <void property="delay">
       <void property="fixedNum">
@@ -7365,7 +7362,7 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
      </void>
      <void property="dur">
       <void property="fixedNum">
-       <float>1000.0</float>
+       <float>10000.0</float>
       </void>
       <void property="numberType">
        <int>11</int>
@@ -8063,7 +8060,7 @@ NOTE: the IClamp waveform aims to reproduce the stimulus used in Larkum et al. 2
     <object class="ucl.physiol.neuroconstruct.project.SimConfig">
      <void property="cellGroups">
       <void method="add">
-       <string>pyrCML_group</string>
+       <string>pyr_group</string>
       </void>
      </void>
      <void property="description">
@@ -8074,78 +8071,22 @@ NOTE: the IClamp waveform aims to reproduce the stimulus used in Larkum et al. 2
        <string>SynchrousDistributed</string>
       </void>
      </void>
-     <void id="MpiConfiguration0" property="mpiConf">
-      <void property="mpiVersion">
-       <string>OPENMPI v2.*</string>
-      </void>
-      <void property="name">
-       <string>MatLem, nrn62 (1 x 1p)</string>
-      </void>
-      <void property="queueInfo">
-       <object class="ucl.physiol.neuroconstruct.hpc.mpi.QueueInfo">
-        <void property="account">
-         <string></string>
-        </void>
-        <void property="queueType">
-         <object id="QueueInfo$QueueType0" class="java.lang.Enum" method="valueOf">
-          <class>ucl.physiol.neuroconstruct.hpc.mpi.QueueInfo$QueueType</class>
-          <string>SGE</string>
-         </object>
-        </void>
-        <void property="wallTimeMins">
-         <int>6</int>
-        </void>
-       </object>
-      </void>
-      <void property="remoteLogin">
-       <object class="ucl.physiol.neuroconstruct.hpc.mpi.RemoteLogin">
-        <void property="executables">
-         <void method="put">
-          <object id="MpiSettings$KnownSimulators0" class="java.lang.Enum" method="valueOf">
-           <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
-           <string>PY_NEURON</string>
-          </object>
-          <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv -python</string>
-         </void>
-         <void method="put">
-          <object id="MpiSettings$KnownSimulators1" class="java.lang.Enum" method="valueOf">
-           <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
-           <string>NEURON</string>
-          </object>
-          <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv</string>
-         </void>
-        </void>
-        <void property="hostname">
-         <string>128.16.14.177</string>
-        </void>
-        <void property="userName">
-         <string>ucbtmfa</string>
-        </void>
-        <void property="workDir">
-         <string>/home/ucbtmfa/nCsims</string>
-        </void>
-       </object>
-      </void>
-      <void property="useScp">
-       <boolean>true</boolean>
-      </void>
-     </void>
-     <void property="mpiConf">
-      <object idref="MpiConfiguration0"/>
-     </void>
      <void property="name">
       <string>Synchronous Distributed Syn</string>
      </void>
      <void property="plots">
       <void method="add">
-       <string>pyrCML_soma_V</string>
+       <string>pyr_apical(59)_V</string>
       </void>
       <void method="add">
-       <string>pyrCML_apical(59)_V</string>
+       <string>pyr_CaZone_V</string>
+      </void>
+      <void method="add">
+       <string>pyr_soma_V</string>
       </void>
      </void>
      <void property="simDuration">
-      <float>1000.0</float>
+      <float>200.0</float>
      </void>
     </object>
    </void>
@@ -8153,7 +8094,7 @@ NOTE: the IClamp waveform aims to reproduce the stimulus used in Larkum et al. 2
     <object class="ucl.physiol.neuroconstruct.project.SimConfig">
      <void property="cellGroups">
       <void method="add">
-       <string>pyrCML_group</string>
+       <string>pyr_group</string>
       </void>
      </void>
      <void property="description">
@@ -8163,56 +8104,6 @@ NOTE: the IClamp waveform aims to reproduce the stimulus used in Larkum et al. 2
       <void method="add">
        <string>NMDAs_17</string>
       </void>
-     </void>
-     <void id="MpiConfiguration1" property="mpiConf">
-      <void property="mpiVersion">
-       <string>OPENMPI v2.*</string>
-      </void>
-      <void property="name">
-       <string>MatLem, nrn62 (1 x 1p)</string>
-      </void>
-      <void property="queueInfo">
-       <object class="ucl.physiol.neuroconstruct.hpc.mpi.QueueInfo">
-        <void property="account">
-         <string></string>
-        </void>
-        <void property="queueType">
-         <object idref="QueueInfo$QueueType0"/>
-        </void>
-        <void property="wallTimeMins">
-         <int>6</int>
-        </void>
-       </object>
-      </void>
-      <void property="remoteLogin">
-       <object class="ucl.physiol.neuroconstruct.hpc.mpi.RemoteLogin">
-        <void property="executables">
-         <void method="put">
-          <object idref="MpiSettings$KnownSimulators0"/>
-          <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv -python</string>
-         </void>
-         <void method="put">
-          <object idref="MpiSettings$KnownSimulators1"/>
-          <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv</string>
-         </void>
-        </void>
-        <void property="hostname">
-         <string>128.16.14.177</string>
-        </void>
-        <void property="userName">
-         <string>ucbtmfa</string>
-        </void>
-        <void property="workDir">
-         <string>/home/ucbtmfa/nCsims</string>
-        </void>
-       </object>
-      </void>
-      <void property="useScp">
-       <boolean>true</boolean>
-      </void>
-     </void>
-     <void property="mpiConf">
-      <object idref="MpiConfiguration1"/>
      </void>
      <void property="name">
       <string>NMDAspike input</string>
