@@ -4371,11 +4371,11 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
   </void>
   <void property="nativeBlocks">
    <void method="put">
-    <float>-1.0</float>
+    <float>1.0</float>
     <string></string>
    </void>
    <void method="put">
-    <float>1.0</float>
+    <float>-1.0</float>
     <string></string>
    </void>
    <void method="put">
@@ -4881,7 +4881,7 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
       </object>
      </void>
      <void property="reference">
-      <string>SynchrousDistributed</string>
+      <string>SynchronousDistributed</string>
      </void>
      <void property="segChooser">
       <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
@@ -8103,16 +8103,16 @@ NOTE: the IClamp waveform aims to reproduce the stimulus used in Larkum et al. 2
          <void method="put">
           <object id="MpiSettings$KnownSimulators0" class="java.lang.Enum" method="valueOf">
            <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
-           <string>NEURON</string>
+           <string>PY_NEURON</string>
           </object>
-          <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv</string>
+          <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv -python</string>
          </void>
          <void method="put">
           <object id="MpiSettings$KnownSimulators1" class="java.lang.Enum" method="valueOf">
            <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
-           <string>PY_NEURON</string>
+           <string>NEURON</string>
           </object>
-          <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv -python</string>
+          <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv</string>
          </void>
         </void>
         <void property="hostname">
@@ -8189,11 +8189,11 @@ NOTE: the IClamp waveform aims to reproduce the stimulus used in Larkum et al. 2
         <void property="executables">
          <void method="put">
           <object idref="MpiSettings$KnownSimulators0"/>
-          <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv</string>
+          <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv -python</string>
          </void>
          <void method="put">
           <object idref="MpiSettings$KnownSimulators1"/>
-          <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv -python</string>
+          <string>/share/apps/neuro/nrn62_pympi/x86_64/bin/nrniv</string>
          </void>
         </void>
         <void property="hostname">

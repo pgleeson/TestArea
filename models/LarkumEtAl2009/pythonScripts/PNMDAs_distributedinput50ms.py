@@ -108,7 +108,7 @@ if numGenerated > 0:
 
 	  
 	  stim = myProject.elecInputInfo.getStim("SynchronousDistributed")
-          stim.setDelay(300)     
+          stim.setDelay(500)     
 	  stim.setDuration(ms)
 	  stim.setRate(Hz)
 	  location = stim.getSegChooser()
