@@ -14,7 +14,7 @@ NEURON {
 	NONSPECIFIC_CURRENT i  :the two components are lumped together
 
 	RANGE e ,gmax,ntar,local_v, i	
-	RANGE g, gnmda, inmda, ica
+	RANGE g, gnmda, inmda, ica, gh, iampa
 	
 	GLOBAL n, gama,tau1,tau2,tau_ampa,tauh,cah
 
@@ -55,6 +55,7 @@ ASSIGNED {
 	
 	ica 		(mA/cm2)
 	cai		(mM)
+	iampa		(nA)  
 	gh		(nS)
 	
 }
@@ -97,7 +98,8 @@ BREAKPOINT {
 	gh=(exp(-h))
 	inmda =(1e-3)* gnmda * gh * (v-e)
 	ica=inmda/10
-	i= (1e-3)*g* (v- e) + inmda
+	iampa = (1e-3)*g* (v- e)
+	i= iampa + inmda
 	local_v=v
 }
 
