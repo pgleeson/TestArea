@@ -4850,16 +4850,16 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
   </void>
   <void property="nativeBlocks">
    <void method="put">
-    <float>1.0</float>
-    <string></string>
-   </void>
-   <void method="put">
     <float>-1.0</float>
     <string>// This needs to be defined in Type -1 
 
 objref vclampobj1
 objref vclampobj2
 </string>
+   </void>
+   <void method="put">
+    <float>1.0</float>
+    <string></string>
    </void>
    <void method="put">
     <float>2.0</float>
@@ -4919,7 +4919,7 @@ vclampobj2.amp[1]=-60
    <float>-65.0</float>
   </void>
   <void property="reference">
-   <string>sim_244</string>
+   <string>sim_249</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
