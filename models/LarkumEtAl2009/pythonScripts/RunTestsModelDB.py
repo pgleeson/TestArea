@@ -76,19 +76,22 @@ def testAll(argv=None):
                           plotSims =          plotSims,
                           analyseSims =       analyseSims)
 
-                          
-    spikeTimesToCheck = {'pyr_group_0': [61.925,71.45,85.05,132.3,142.9,192.05,202.675,250.775,261.5,308.5,319.275,365.25,376.125,421.15,432.075]}
+    # Times from ModelDB version at dt 0.025...
+    spikeTimesToCheck = {'pyr_group_0': [61.6, 71.05, 84.675, 133.475, 143.975, 190.625, 200.825, 251.75, 262.35, 310.975, 321.675, 369.125, 379.9, 426.275, 437.125]}
 
-    spikeTimeAccuracy = 6 
+    spikeTimeAccuracy = 0.1
 
     report = simManager.checkSims(spikeTimesToCheck = spikeTimesToCheck,
                                   spikeTimeAccuracy = spikeTimeAccuracy)
 
     print report
-    
-    spikeTimesToCheck = {'pyr_group_0': [61.625, 71.075, 84.7, 133.5, 144.0, 190.65, 200.85, 251.775, 262.4, 311.0, 321.7, 369.15, 379.925, 426.3, 437.15]}
 
-    spikeTimeAccuracy = 1 
+    # Times recorded from nC mod based impl
+    times = [61.625, 71.075, 84.7, 133.5, 144.0, 190.65, 200.85, 251.775, 262.4, 311.0, 321.7, 369.15, 379.925, 426.3, 437.15]
+    spikeTimesToCheck = {'pyr_group_0': times,
+                         'pyrCML_group_0': times}
+
+    spikeTimeAccuracy = 0.1
 
     report = simManager.checkSims(spikeTimesToCheck = spikeTimesToCheck,
                                   spikeTimeAccuracy = spikeTimeAccuracy)

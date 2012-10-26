@@ -4868,7 +4868,7 @@ objref vclampobj2
    <void method="put">
     <float>0.0</float>
     <string>
-#SIM_CONFIG_INCLUDE TestCML_pyr_Vclamp
+#SIM_CONFIG_INCLUDE TestCML_pyr_Vclampxx
 
 // This will apply a VClamp
 
@@ -4898,7 +4898,7 @@ vclampobj2.amp[1]=-60
 
 }
 
-#END_SIM_CONFIG_INCLUDE TestCML_pyr_Vclamp
+#END_SIM_CONFIG_INCLUDE TestCML_pyr_Vclampxx
 </string>
    </void>
   </void>
@@ -4918,8 +4918,11 @@ vclampobj2.amp[1]=-60
   <void property="initVm">
    <float>-65.0</float>
   </void>
+  <void property="minElectroLen">
+   <float>5.0E-5</float>
+  </void>
   <void property="reference">
-   <string>sim_249</string>
+   <string>sim_281</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -8336,6 +8339,44 @@ vclampobj2.amp[1]=-60
      </void>
     </object>
    </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+     <void property="amp">
+      <void property="fixedNum">
+       <float>1.0</float>
+      </void>
+     </void>
+     <void property="cellGroup">
+      <string>pyrNML_group</string>
+     </void>
+     <void property="del">
+      <void property="fixedNum">
+       <float>50.0</float>
+      </void>
+     </void>
+     <void property="dur">
+      <void property="fixedNum">
+       <float>400.0</float>
+      </void>
+      <void property="numberType">
+       <int>11</int>
+      </void>
+     </void>
+     <void property="reference">
+      <string>Input_23</string>
+     </void>
+     <void property="segChooser">
+      <void property="fractionAlong">
+       <float>0.71</float>
+      </void>
+      <void property="listOfSegmentIds">
+       <void index="0">
+        <int>8470</int>
+       </void>
+      </void>
+     </void>
+    </object>
+   </void>
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.project.SimConfigInfo">
@@ -8355,10 +8396,10 @@ vclampobj2.amp[1]=-60
      </void>
      <void property="inputs">
       <void method="add">
-       <string>CMLtest_IClamp</string>
+       <string>Channeltest_IClamp</string>
       </void>
       <void method="add">
-       <string>Channeltest_IClamp</string>
+       <string>CMLtest_IClamp</string>
       </void>
      </void>
      <void property="name">
@@ -8366,88 +8407,88 @@ vclampobj2.amp[1]=-60
      </void>
      <void property="plots">
       <void method="add">
-       <string>Var_9</string>
-      </void>
-      <void method="add">
-       <string>Var_8</string>
-      </void>
-      <void method="add">
-       <string>Var_7</string>
-      </void>
-      <void method="add">
-       <string>Var_6</string>
-      </void>
-      <void method="add">
-       <string>Var_5</string>
-      </void>
-      <void method="add">
-       <string>Var_4</string>
-      </void>
-      <void method="add">
-       <string>Var_3</string>
-      </void>
-      <void method="add">
-       <string>Var_2</string>
-      </void>
-      <void method="add">
-       <string>Var_1</string>
-      </void>
-      <void method="add">
-       <string>Var_0</string>
+       <string>Channeltestgroup_v</string>
       </void>
       <void method="add">
        <string>CMLtestgroup_v</string>
       </void>
       <void method="add">
-       <string>Channeltestgroup_v</string>
+       <string>CMLtestgroup_v_1</string>
       </void>
       <void method="add">
        <string>CMLtestgroup_v_2</string>
       </void>
       <void method="add">
-       <string>CMLtestgroup_v_1</string>
+       <string>Var_0</string>
       </void>
       <void method="add">
-       <string>Var_23</string>
+       <string>Var_1</string>
       </void>
       <void method="add">
-       <string>Var_22</string>
-      </void>
-      <void method="add">
-       <string>Var_21</string>
-      </void>
-      <void method="add">
-       <string>Var_20</string>
-      </void>
-      <void method="add">
-       <string>Var_19</string>
-      </void>
-      <void method="add">
-       <string>Var_18</string>
-      </void>
-      <void method="add">
-       <string>Var_17</string>
-      </void>
-      <void method="add">
-       <string>Var_16</string>
-      </void>
-      <void method="add">
-       <string>Var_15</string>
-      </void>
-      <void method="add">
-       <string>Var_14</string>
-      </void>
-      <void method="add">
-       <string>Var_13</string>
-      </void>
-      <void method="add">
-       <string>Var_12</string>
+       <string>Var_10</string>
       </void>
       <void method="add">
        <string>Var_11</string>
       </void>
       <void method="add">
-       <string>Var_10</string>
+       <string>Var_12</string>
+      </void>
+      <void method="add">
+       <string>Var_13</string>
+      </void>
+      <void method="add">
+       <string>Var_14</string>
+      </void>
+      <void method="add">
+       <string>Var_15</string>
+      </void>
+      <void method="add">
+       <string>Var_16</string>
+      </void>
+      <void method="add">
+       <string>Var_17</string>
+      </void>
+      <void method="add">
+       <string>Var_18</string>
+      </void>
+      <void method="add">
+       <string>Var_19</string>
+      </void>
+      <void method="add">
+       <string>Var_2</string>
+      </void>
+      <void method="add">
+       <string>Var_20</string>
+      </void>
+      <void method="add">
+       <string>Var_21</string>
+      </void>
+      <void method="add">
+       <string>Var_22</string>
+      </void>
+      <void method="add">
+       <string>Var_23</string>
+      </void>
+      <void method="add">
+       <string>Var_3</string>
+      </void>
+      <void method="add">
+       <string>Var_4</string>
+      </void>
+      <void method="add">
+       <string>Var_5</string>
+      </void>
+      <void method="add">
+       <string>Var_6</string>
+      </void>
+      <void method="add">
+       <string>Var_7</string>
+      </void>
+      <void method="add">
+       <string>Var_8</string>
+      </void>
+      <void method="add">
+       <string>Var_9</string>
       </void>
      </void>
      <void property="simDuration">
@@ -8459,10 +8500,10 @@ vclampobj2.amp[1]=-60
     <object class="ucl.physiol.neuroconstruct.project.SimConfig">
      <void property="cellGroups">
       <void method="add">
-       <string>pyrCML_group</string>
+       <string>pyr_group</string>
       </void>
       <void method="add">
-       <string>pyr_group</string>
+       <string>pyrCML_group</string>
       </void>
      </void>
      <void property="description">
@@ -8472,10 +8513,10 @@ NOTE: the IClamp waveform aims to reproduce the stimulus used in Larkum et al. 2
      </void>
      <void property="inputs">
       <void method="add">
-       <string>pyrCML_apical59_IClamp</string>
+       <string>pyr_apical59_IClamp</string>
       </void>
       <void method="add">
-       <string>pyr_apical59_IClamp</string>
+       <string>pyrCML_apical59_IClamp</string>
       </void>
      </void>
      <void property="name">
@@ -8483,16 +8524,16 @@ NOTE: the IClamp waveform aims to reproduce the stimulus used in Larkum et al. 2
      </void>
      <void property="plots">
       <void method="add">
-       <string>pyr_soma_V</string>
-      </void>
-      <void method="add">
        <string>pyr_apical(59)_V</string>
       </void>
       <void method="add">
-       <string>Var_46</string>
+       <string>pyr_soma_V</string>
       </void>
       <void method="add">
        <string>pyrCML_apical(59)_V</string>
+      </void>
+      <void method="add">
+       <string>Var_46</string>
       </void>
      </void>
      <void property="simDuration">
@@ -8625,10 +8666,10 @@ NOTE: the IClamp waveform aims to reproduce the stimulus used in Larkum et al. 2
      </void>
      <void property="plots">
       <void method="add">
-       <string>pyrCML_soma_V</string>
+       <string>pyrCML_apical17_V</string>
       </void>
       <void method="add">
-       <string>pyrCML_apical17_V</string>
+       <string>pyrCML_soma_V</string>
       </void>
      </void>
      <void property="simDuration">
@@ -8659,10 +8700,10 @@ NOTE: the IClamp waveform aims to reproduce the stimulus used in Larkum et al. 2
      </void>
      <void property="plots">
       <void method="add">
-       <string>pyrCML_soma_V</string>
+       <string>pyrCML_apical17_V</string>
       </void>
       <void method="add">
-       <string>pyrCML_apical17_V</string>
+       <string>pyrCML_soma_V</string>
       </void>
      </void>
      <void property="simDuration">
@@ -8682,10 +8723,10 @@ NOTE: the IClamp waveform aims to reproduce the stimulus used in Larkum et al. 2
      </void>
      <void property="inputs">
       <void method="add">
-       <string>Vnoise</string>
+       <string>NMDAs_17</string>
       </void>
       <void method="add">
-       <string>NMDAs_17</string>
+       <string>Vnoise</string>
       </void>
      </void>
      <void property="name">
@@ -8693,13 +8734,13 @@ NOTE: the IClamp waveform aims to reproduce the stimulus used in Larkum et al. 2
      </void>
      <void property="plots">
       <void method="add">
+       <string>pyrCML_apical17_V</string>
+      </void>
+      <void method="add">
        <string>pyrCML_CaZone_V</string>
       </void>
       <void method="add">
        <string>pyrCML_soma_V</string>
-      </void>
-      <void method="add">
-       <string>pyrCML_apical17_V</string>
       </void>
      </void>
      <void property="simDuration">
@@ -8722,13 +8763,13 @@ NOTE: the IClamp waveform aims to reproduce the stimulus used in Larkum et al. 2
      </void>
      <void property="inputs">
       <void method="add">
-       <string>FigS2_stim3</string>
+       <string>FigS2_stim1</string>
       </void>
       <void method="add">
        <string>FigS2_stim2</string>
       </void>
       <void method="add">
-       <string>FigS2_stim1</string>
+       <string>FigS2_stim3</string>
       </void>
      </void>
      <void property="name">
@@ -8744,13 +8785,13 @@ NOTE: the IClamp waveform aims to reproduce the stimulus used in Larkum et al. 2
        <string>FigS2_apic11</string>
       </void>
       <void method="add">
-       <string>pyr_soma_V</string>
+       <string>FigS2_apic58</string>
       </void>
       <void method="add">
        <string>FigS2_apic59</string>
       </void>
       <void method="add">
-       <string>FigS2_apic58</string>
+       <string>pyr_soma_V</string>
       </void>
      </void>
      <void property="simDuration">
@@ -8762,10 +8803,10 @@ NOTE: the IClamp waveform aims to reproduce the stimulus used in Larkum et al. 2
     <object class="ucl.physiol.neuroconstruct.project.SimConfig">
      <void property="cellGroups">
       <void method="add">
-       <string>pyrCML_group</string>
+       <string>pyr_group</string>
       </void>
       <void method="add">
-       <string>pyr_group</string>
+       <string>pyrCML_group</string>
       </void>
      </void>
      <void property="description">
@@ -8777,10 +8818,10 @@ NOTE: this simulation configuration is used by the testmodel script to compare L
      </void>
      <void property="inputs">
       <void method="add">
-       <string>test_IClamp</string>
+       <string>Input_6</string>
       </void>
       <void method="add">
-       <string>Input_6</string>
+       <string>test_IClamp</string>
       </void>
      </void>
      <void property="name">
@@ -8788,19 +8829,19 @@ NOTE: this simulation configuration is used by the testmodel script to compare L
      </void>
      <void property="plots">
       <void method="add">
-       <string>pyr_soma_V_1</string>
-      </void>
-      <void method="add">
-       <string>pyr_soma_V</string>
-      </void>
-      <void method="add">
        <string>FigS2_apic11</string>
+      </void>
+      <void method="add">
+       <string>FigS2_apic58</string>
       </void>
       <void method="add">
        <string>FigS2_apic59</string>
       </void>
       <void method="add">
-       <string>FigS2_apic58</string>
+       <string>pyr_soma_V</string>
+      </void>
+      <void method="add">
+       <string>pyr_soma_V_1</string>
       </void>
      </void>
      <void property="simDuration">
@@ -8820,52 +8861,52 @@ NOTE: this simulation configuration is used by the testmodel script to compare L
      </void>
      <void property="inputs">
       <void method="add">
-       <string>Input_20</string>
-      </void>
-      <void method="add">
-       <string>Input_19</string>
-      </void>
-      <void method="add">
-       <string>Input_16</string>
-      </void>
-      <void method="add">
-       <string>Input_15</string>
-      </void>
-      <void method="add">
-       <string>Input_14</string>
-      </void>
-      <void method="add">
-       <string>Input_13</string>
-      </void>
-      <void method="add">
-       <string>Input_12</string>
-      </void>
-      <void method="add">
-       <string>Input_11</string>
-      </void>
-      <void method="add">
-       <string>Input_10</string>
-      </void>
-      <void method="add">
-       <string>Input_9</string>
-      </void>
-      <void method="add">
-       <string>Input_8</string>
-      </void>
-      <void method="add">
-       <string>Input_7</string>
-      </void>
-      <void method="add">
-       <string>Input_3</string>
-      </void>
-      <void method="add">
-       <string>Input_2</string>
+       <string>Input_0</string>
       </void>
       <void method="add">
        <string>Input_1</string>
       </void>
       <void method="add">
-       <string>Input_0</string>
+       <string>Input_10</string>
+      </void>
+      <void method="add">
+       <string>Input_11</string>
+      </void>
+      <void method="add">
+       <string>Input_12</string>
+      </void>
+      <void method="add">
+       <string>Input_13</string>
+      </void>
+      <void method="add">
+       <string>Input_14</string>
+      </void>
+      <void method="add">
+       <string>Input_15</string>
+      </void>
+      <void method="add">
+       <string>Input_16</string>
+      </void>
+      <void method="add">
+       <string>Input_19</string>
+      </void>
+      <void method="add">
+       <string>Input_2</string>
+      </void>
+      <void method="add">
+       <string>Input_20</string>
+      </void>
+      <void method="add">
+       <string>Input_3</string>
+      </void>
+      <void method="add">
+       <string>Input_7</string>
+      </void>
+      <void method="add">
+       <string>Input_8</string>
+      </void>
+      <void method="add">
+       <string>Input_9</string>
       </void>
      </void>
      <void property="name">
@@ -8873,10 +8914,31 @@ NOTE: this simulation configuration is used by the testmodel script to compare L
      </void>
      <void property="plots">
       <void method="add">
+       <string>CG_chanTest_hhk2_v</string>
+      </void>
+      <void method="add">
+       <string>CG_chanTest_hhk_v</string>
+      </void>
+      <void method="add">
        <string>CG_chanTest_hhna_v</string>
       </void>
       <void method="add">
+       <string>CG_ChanTest_kap_v</string>
+      </void>
+      <void method="add">
+       <string>CG_chanTest_kca_v</string>
+      </void>
+      <void method="add">
        <string>CG_chanTest_km_v</string>
+      </void>
+      <void method="add">
+       <string>CG_chanTest_sca_v</string>
+      </void>
+      <void method="add">
+       <string>CG_chanTest_v</string>
+      </void>
+      <void method="add">
+       <string>CG_cmlTest_hd_v</string>
       </void>
       <void method="add">
        <string>CG_cmlTest_hhk2_v</string>
@@ -8885,10 +8947,13 @@ NOTE: this simulation configuration is used by the testmodel script to compare L
        <string>CG_cmlTest_hhk_v</string>
       </void>
       <void method="add">
-       <string>CG_chanTest_kca_v</string>
+       <string>CG_cmlTest_hhna_v</string>
       </void>
       <void method="add">
        <string>CG_cmlTest_kap_v</string>
+      </void>
+      <void method="add">
+       <string>CG_cmlTest_kca_v</string>
       </void>
       <void method="add">
        <string>CG_cmlTest_km_v</string>
@@ -8897,118 +8962,94 @@ NOTE: this simulation configuration is used by the testmodel script to compare L
        <string>CG_cmlTest_sca_v</string>
       </void>
       <void method="add">
-       <string>CG_chanTest_v</string>
-      </void>
-      <void method="add">
-       <string>CMLtestgroup_v_14</string>
-      </void>
-      <void method="add">
-       <string>CMLtestgroup_v_13</string>
-      </void>
-      <void method="add">
-       <string>CMLtestgroup_v_12</string>
-      </void>
-      <void method="add">
-       <string>CMLtestgroup_v_11</string>
-      </void>
-      <void method="add">
-       <string>CMLtestgroup_v_10</string>
-      </void>
-      <void method="add">
-       <string>Var_45</string>
-      </void>
-      <void method="add">
-       <string>Var_44</string>
-      </void>
-      <void method="add">
-       <string>Var_43</string>
-      </void>
-      <void method="add">
-       <string>Var_42</string>
-      </void>
-      <void method="add">
-       <string>Var_41</string>
-      </void>
-      <void method="add">
-       <string>Var_40</string>
-      </void>
-      <void method="add">
-       <string>CG_ChanTest_kap_v</string>
-      </void>
-      <void method="add">
-       <string>CG_chanTest_hhk2_v</string>
-      </void>
-      <void method="add">
-       <string>CG_cmlTest_hd_v</string>
+       <string>CG_cmlTest_sca_v_1</string>
       </void>
       <void method="add">
        <string>CG_cmlTest_sca_v_2</string>
       </void>
       <void method="add">
-       <string>CG_cmlTest_sca_v_1</string>
+       <string>CMLtestgroup_v_10</string>
+      </void>
+      <void method="add">
+       <string>CMLtestgroup_v_11</string>
+      </void>
+      <void method="add">
+       <string>CMLtestgroup_v_12</string>
+      </void>
+      <void method="add">
+       <string>CMLtestgroup_v_13</string>
+      </void>
+      <void method="add">
+       <string>CMLtestgroup_v_14</string>
       </void>
       <void method="add">
        <string>CMLtestgroup_v_9</string>
       </void>
       <void method="add">
-       <string>Var_39</string>
-      </void>
-      <void method="add">
-       <string>Var_38</string>
-      </void>
-      <void method="add">
-       <string>Var_37</string>
-      </void>
-      <void method="add">
-       <string>Var_36</string>
-      </void>
-      <void method="add">
-       <string>Var_35</string>
-      </void>
-      <void method="add">
-       <string>Var_34</string>
-      </void>
-      <void method="add">
-       <string>Var_33</string>
-      </void>
-      <void method="add">
-       <string>Var_32</string>
-      </void>
-      <void method="add">
-       <string>Var_31</string>
-      </void>
-      <void method="add">
-       <string>Var_30</string>
-      </void>
-      <void method="add">
-       <string>CG_chanTest_hhk_v</string>
-      </void>
-      <void method="add">
-       <string>Var_29</string>
-      </void>
-      <void method="add">
-       <string>Var_28</string>
-      </void>
-      <void method="add">
-       <string>CG_chanTest_sca_v</string>
-      </void>
-      <void method="add">
-       <string>Var_27</string>
-      </void>
-      <void method="add">
-       <string>Var_26</string>
+       <string>Var_24</string>
       </void>
       <void method="add">
        <string>Var_25</string>
       </void>
       <void method="add">
-       <string>Var_24</string>
+       <string>Var_26</string>
       </void>
       <void method="add">
-       <string>CG_cmlTest_hhna_v</string>
+       <string>Var_27</string>
       </void>
       <void method="add">
-       <string>CG_cmlTest_kca_v</string>
+       <string>Var_28</string>
+      </void>
+      <void method="add">
+       <string>Var_29</string>
+      </void>
+      <void method="add">
+       <string>Var_30</string>
+      </void>
+      <void method="add">
+       <string>Var_31</string>
+      </void>
+      <void method="add">
+       <string>Var_32</string>
+      </void>
+      <void method="add">
+       <string>Var_33</string>
+      </void>
+      <void method="add">
+       <string>Var_34</string>
+      </void>
+      <void method="add">
+       <string>Var_35</string>
+      </void>
+      <void method="add">
+       <string>Var_36</string>
+      </void>
+      <void method="add">
+       <string>Var_37</string>
+      </void>
+      <void method="add">
+       <string>Var_38</string>
+      </void>
+      <void method="add">
+       <string>Var_39</string>
+      </void>
+      <void method="add">
+       <string>Var_40</string>
+      </void>
+      <void method="add">
+       <string>Var_41</string>
+      </void>
+      <void method="add">
+       <string>Var_42</string>
+      </void>
+      <void method="add">
+       <string>Var_43</string>
+      </void>
+      <void method="add">
+       <string>Var_44</string>
+      </void>
+      <void method="add">
+       <string>Var_45</string>
       </void>
      </void>
      <void property="simDuration">
@@ -9020,10 +9061,10 @@ NOTE: this simulation configuration is used by the testmodel script to compare L
     <object class="ucl.physiol.neuroconstruct.project.SimConfig">
      <void property="cellGroups">
       <void method="add">
-       <string>CG_cad_2</string>
+       <string>CG_cad</string>
       </void>
       <void method="add">
-       <string>CG_cad</string>
+       <string>CG_cad_2</string>
       </void>
      </void>
      <void property="description">
@@ -9044,28 +9085,28 @@ NOTE: this simulation configuration is used by the testmodel script to compare L
      </void>
      <void property="plots">
       <void method="add">
-       <string>CG_cad_v</string>
-      </void>
-      <void method="add">
-       <string>CMLtestgroup_v_8</string>
-      </void>
-      <void method="add">
-       <string>CMLtestgroup_v_7</string>
-      </void>
-      <void method="add">
        <string>CG_cad_2_v</string>
       </void>
       <void method="add">
-       <string>CMLtestgroup_v_6</string>
+       <string>CG_cad_v</string>
       </void>
       <void method="add">
-       <string>CMLtestgroup_v_5</string>
+       <string>CMLtestgroup_v_3</string>
       </void>
       <void method="add">
        <string>CMLtestgroup_v_4</string>
       </void>
       <void method="add">
-       <string>CMLtestgroup_v_3</string>
+       <string>CMLtestgroup_v_5</string>
+      </void>
+      <void method="add">
+       <string>CMLtestgroup_v_6</string>
+      </void>
+      <void method="add">
+       <string>CMLtestgroup_v_7</string>
+      </void>
+      <void method="add">
+       <string>CMLtestgroup_v_8</string>
       </void>
      </void>
      <void property="simDuration">
@@ -9093,16 +9134,16 @@ NOTE: this simulation configuration is used by the testmodel script to compare L
      </void>
      <void property="plots">
       <void method="add">
-       <string>pyr_soma_V</string>
+       <string>FigS2_apic11</string>
       </void>
       <void method="add">
-       <string>FigS2_apic11</string>
+       <string>FigS2_apic58</string>
       </void>
       <void method="add">
        <string>FigS2_apic59</string>
       </void>
       <void method="add">
-       <string>FigS2_apic58</string>
+       <string>pyr_soma_V</string>
       </void>
      </void>
      <void property="simDuration">
@@ -9123,54 +9164,59 @@ NOTE: this simulation configuration is used by the testmodel script to compare L
      <void property="description">
       <string>Testing mod impl vs CML impl of Pyramidal cellusing Voltage clamp</string>
      </void>
+     <void property="inputs">
+      <void method="add">
+       <string>Input_23</string>
+      </void>
+      <void method="add">
+       <string>test_IClamp</string>
+      </void>
+     </void>
      <void property="name">
       <string>TestCML_pyr_Vclamp</string>
      </void>
      <void property="plots">
       <void method="add">
-       <string>pyr_soma_V</string>
-      </void>
-      <void method="add">
-       <string>CMLtestgroup_v_26</string>
-      </void>
-      <void method="add">
-       <string>CMLtestgroup_v_25</string>
-      </void>
-      <void method="add">
-       <string>CMLtestgroup_v_24</string>
-      </void>
-      <void method="add">
-       <string>CMLtestgroup_v_23</string>
-      </void>
-      <void method="add">
-       <string>CMLtestgroup_v_22</string>
-      </void>
-      <void method="add">
-       <string>CMLtestgroup_v_21</string>
-      </void>
-      <void method="add">
-       <string>CMLtestgroup_v_20</string>
-      </void>
-      <void method="add">
-       <string>pyr_apical(59)_V</string>
-      </void>
-      <void method="add">
-       <string>CMLtestgroup_v_19</string>
-      </void>
-      <void method="add">
-       <string>CMLtestgroup_v_18</string>
-      </void>
-      <void method="add">
-       <string>CMLtestgroup_v_17</string>
+       <string>CMLtestgroup_v_15</string>
       </void>
       <void method="add">
        <string>CMLtestgroup_v_16</string>
       </void>
       <void method="add">
-       <string>CMLtestgroup_v_15</string>
+       <string>CMLtestgroup_v_17</string>
       </void>
       <void method="add">
-       <string>Var_46</string>
+       <string>CMLtestgroup_v_18</string>
+      </void>
+      <void method="add">
+       <string>CMLtestgroup_v_19</string>
+      </void>
+      <void method="add">
+       <string>CMLtestgroup_v_20</string>
+      </void>
+      <void method="add">
+       <string>CMLtestgroup_v_21</string>
+      </void>
+      <void method="add">
+       <string>CMLtestgroup_v_22</string>
+      </void>
+      <void method="add">
+       <string>CMLtestgroup_v_23</string>
+      </void>
+      <void method="add">
+       <string>CMLtestgroup_v_24</string>
+      </void>
+      <void method="add">
+       <string>CMLtestgroup_v_25</string>
+      </void>
+      <void method="add">
+       <string>CMLtestgroup_v_26</string>
+      </void>
+      <void method="add">
+       <string>pyr_apical(59)_V</string>
+      </void>
+      <void method="add">
+       <string>pyr_soma_V</string>
       </void>
       <void method="add">
        <string>pyrCML_apical(59)_V</string>
@@ -9181,6 +9227,19 @@ NOTE: this simulation configuration is used by the testmodel script to compare L
       <void method="add">
        <string>pyrNML_group_v</string>
       </void>
+      <void method="add">
+       <string>Var_46</string>
+      </void>
+     </void>
+     <void property="simDuration">
+      <float>150.0</float>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+     <void property="name">
+      <string>TestTemp</string>
      </void>
      <void property="simDuration">
       <float>150.0</float>

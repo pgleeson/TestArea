@@ -78,10 +78,10 @@ strdef simConfig
 {celsius = 34.0}
 {forall Ra = 85}
 
-//  Giving all cells an initial potential of: -60.0
+//  Giving all cells an initial potential of: -65.0
 
 proc initialiseValues0() {
-	forall {v=-60.0}
+	forall {v=-65.0}
 }
 
 objref fih0
