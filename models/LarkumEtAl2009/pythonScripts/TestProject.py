@@ -73,6 +73,7 @@ def testAll(argv=None):
 
     arrayListsIdentical(sci.getSimConfig("Default Simulation Configuration").getCellGroups(), ["Channeltestgroup", "CMLtestGroup"])
     arrayListsIdentical(sci.getSimConfig("test_IClamp").getCellGroups(), ["pyr_group", "pyrCML_group"])
+    arrayListsIdentical(sci.getSimConfig("background activity").getCellGroups(), ["pyr_group"])
 
 
     print "\n**************************************"
