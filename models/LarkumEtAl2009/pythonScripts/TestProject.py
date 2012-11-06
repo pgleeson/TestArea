@@ -71,7 +71,7 @@ def testAll(argv=None):
     assert(cgi.getCellType("Channeltestgroup") == "Channeltest_Cell")
     assert(cgi.getCellType("CMLtestGroup") == "CMLtest_Cell")
     assert(cgi.getCellType("pyr_group") == "LarkumPyr")
-    assert(cgi.getCellType("pyrCML_group") == "LarkumPyr_CML")
+    assert(cgi.getCellType("pyrCML_group") == "LarkumPyr_NML")
 
     arrayListsIdentical(sci.getSimConfig("Default Simulation Configuration").getCellGroups(), ["Channeltestgroup", "CMLtestGroup"])
     arrayListsIdentical(sci.getSimConfig("test_IClamp").getCellGroups(), ["pyr_group", "pyrCML_group"])
