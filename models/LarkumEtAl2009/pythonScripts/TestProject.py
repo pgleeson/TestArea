@@ -68,6 +68,8 @@ def testAll(argv=None):
     sci = project.simConfigInfo
     cgi = project.cellGroupsInfo
 
+    assert(cgi.getCellType("Channeltestgroup") == "Channeltest_Cell")
+    assert(cgi.getCellType("CMLtestGroup") == "CMLtest_Cell")
     assert(cgi.getCellType("pyr_group") == "LarkumPyr")
     assert(cgi.getCellType("pyrCML_group") == "LarkumPyr_CML")
 

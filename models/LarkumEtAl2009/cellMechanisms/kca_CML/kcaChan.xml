@@ -6,7 +6,7 @@
     xsi:schemaLocation="http://morphml.org/channelml/schema    http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd"
     units="Physiological Units">
 
-    <meta:notes>WARNING: in the orginial mod file the conductance was multiplied by e-4, remember to scale your Gmax</meta:notes>
+    <meta:notes>WARNING: in the original mod file the conductance was multiplied by e-4, remember to scale your Gmax</meta:notes>
     
     <channel_type name="kca_CML">
         

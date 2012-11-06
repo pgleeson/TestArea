@@ -4279,7 +4279,7 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
       <string>0</string>
      </void>
      <void property="valuePlotted">
-      <string>kca_CML:n</string>
+      <string>kca_NML:n_q</string>
      </void>
     </object>
    </void>
@@ -4801,9 +4801,221 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
      </void>
     </object>
    </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>LV_pyr_group_v</string>
+     </void>
+     <void property="maxValue">
+      <float>50.0</float>
+     </void>
+     <void property="minValue">
+      <float>-90.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>FigS2_apic59_1</string>
+     </void>
+     <void property="segmentId">
+      <string>8608</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>LV_pyr_group_v</string>
+     </void>
+     <void property="maxValue">
+      <float>50.0</float>
+     </void>
+     <void property="minValue">
+      <float>-90.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>FigS2_apic58_1</string>
+     </void>
+     <void property="segmentId">
+      <string>8473</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>pyr_group</string>
+     </void>
+     <void property="cellNumber">
+      <string>0</string>
+     </void>
+     <void property="graphWindow">
+      <string>LV_pyr_group_v</string>
+     </void>
+     <void property="maxValue">
+      <float>50.0</float>
+     </void>
+     <void property="minValue">
+      <float>-90.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>FigS2_apic11_1</string>
+     </void>
+     <void property="segmentId">
+      <string>3887</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>pyr_group</string>
+     </void>
+     <void property="cellNumber">
+      <string>*</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_2</string>
+     </void>
+     <void property="maxValue">
+      <float>2.0E-20</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>CMLtestgroup_v_27</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>cai</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="cellNumber">
+      <string>*</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_2</string>
+     </void>
+     <void property="maxValue">
+      <float>2.0E-20</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>CMLtestgroup_v_28</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>cai</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>pyr_group</string>
+     </void>
+     <void property="cellNumber">
+      <string>*</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_2</string>
+     </void>
+     <void property="maxValue">
+      <float>2.0E-20</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>CMLtestgroup_v_29</string>
+     </void>
+     <void property="segmentId">
+      <string>8608</string>
+     </void>
+     <void property="valuePlotted">
+      <string>cai</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>pyrCML_group</string>
+     </void>
+     <void property="cellNumber">
+      <string>*</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_2</string>
+     </void>
+     <void property="maxValue">
+      <float>2.0E-20</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>CMLtestgroup_v_30</string>
+     </void>
+     <void property="segmentId">
+      <string>8608</string>
+     </void>
+     <void property="valuePlotted">
+      <string>cai</string>
+     </void>
+    </object>
+   </void>
   </void>
  </object>
- <object class="ucl.physiol.neuroconstruct.project.ProjectProperties"/>
+ <object class="ucl.physiol.neuroconstruct.project.ProjectProperties">
+  <void property="preferredSaveFormat">
+   <string>Java Serialized Object Format</string>
+  </void>
+ </object>
  <object class="ucl.physiol.neuroconstruct.utils.Display3DProperties">
   <void property="antiAliasing">
    <int>1</int>
@@ -4846,16 +5058,16 @@ Reported problem of Neuron 7 with tables: when the external parameter &quot;vshi
   </void>
   <void property="nativeBlocks">
    <void method="put">
-    <float>1.0</float>
-    <string></string>
-   </void>
-   <void method="put">
     <float>-1.0</float>
     <string>// This needs to be defined in Type -1 
 
 objref vclampobj1
 objref vclampobj2
 </string>
+   </void>
+   <void method="put">
+    <float>1.0</float>
+    <string></string>
    </void>
    <void method="put">
     <float>2.0</float>
@@ -4918,7 +5130,7 @@ vclampobj2.amp[1]=-60
    <float>5.0E-5</float>
   </void>
   <void property="reference">
-   <string>sim_291</string>
+   <string>sim_334</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -8825,13 +9037,34 @@ NOTE: this simulation configuration is used by the testmodel script to compare L
      </void>
      <void property="plots">
       <void method="add">
+       <string>CMLtestgroup_v_27</string>
+      </void>
+      <void method="add">
+       <string>CMLtestgroup_v_28</string>
+      </void>
+      <void method="add">
+       <string>CMLtestgroup_v_29</string>
+      </void>
+      <void method="add">
+       <string>CMLtestgroup_v_30</string>
+      </void>
+      <void method="add">
        <string>FigS2_apic11</string>
+      </void>
+      <void method="add">
+       <string>FigS2_apic11_1</string>
       </void>
       <void method="add">
        <string>FigS2_apic58</string>
       </void>
       <void method="add">
+       <string>FigS2_apic58_1</string>
+      </void>
+      <void method="add">
        <string>FigS2_apic59</string>
+      </void>
+      <void method="add">
+       <string>FigS2_apic59_1</string>
       </void>
       <void method="add">
        <string>pyr_soma_V</string>
@@ -8849,7 +9082,10 @@ NOTE: this simulation configuration is used by the testmodel script to compare L
     <object class="ucl.physiol.neuroconstruct.project.SimConfig">
      <void property="cellGroups">
       <void method="add">
-       <string>CG_cmlTest_kap</string>
+       <string>CG_chanTest_kca</string>
+      </void>
+      <void method="add">
+       <string>CG_cmlTest_kca</string>
       </void>
      </void>
      <void property="description">
@@ -9234,8 +9470,23 @@ NOTE: this simulation configuration is used by the testmodel script to compare L
    </void>
    <void method="add">
     <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+     <void property="cellGroups">
+      <void method="add">
+       <string>CMLtestGroup</string>
+      </void>
+     </void>
+     <void property="inputs">
+      <void method="add">
+       <string>CMLtest_IClamp</string>
+      </void>
+     </void>
      <void property="name">
       <string>TestTemp</string>
+     </void>
+     <void property="plots">
+      <void method="add">
+       <string>CMLtestgroup_v</string>
+      </void>
      </void>
      <void property="simDuration">
       <float>150.0</float>
