@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channelml xmlns="http://morphml.org/channelml/schema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:meta="http://morphml.org/metadata/schema"
+    xsi:schemaLocation="http://morphml.org/channelml/schema    http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd"
+    units="Physiological Units">
+
+    <meta:notes>Channel model from Larkum et al. 2009</meta:notes>
+    
+    <channel_type name="hh3K_CML">
+        
+        <status value="stable">
+			<meta:contributor>
+                <meta:name>Padraig Gleeson</meta:name>
+            </meta:contributor>
+        </status>
+        
+        <meta:notes>Mel-modified Hodgkin-Huxley conductances accounting only for the K component</meta:notes>
+    
+        <meta:authorList>
+             <meta:modelAuthor>
+                <meta:name>Alon Polsky</meta:name>
+                <meta:comment>Cited implementer according to ModelDB</meta:comment>
+            </meta:modelAuthor>
+            <meta:modelTranslator>
+                <meta:name>Matteo Farinella</meta:name>
+                <meta:institution>UCL</meta:institution>    
+                <meta:email>m.farinella - at - ucl.ac.uk</meta:email>
+            </meta:modelTranslator>
+        </meta:authorList>
+
+         <meta:publication>
+            <meta:fullTitle>Larkum ME, Nevian T, Sandler M, Polsky A, Schiller J (2009) Synaptic integration in tuft dendrites of layer 5 pyramidal neurons: a new unifying principle.  Science. 2009 Aug 7;325(5941):756-60</meta:fullTitle>
+            <meta:pubmedRef>http://www.ncbi.nlm.nih.gov/pubmed/19661433</meta:pubmedRef>
+        </meta:publication>
+
+        <meta:neuronDBref>
+            <meta:modelName>K channels</meta:modelName>
+            <meta:uri>http://senselab.med.yale.edu/senselab/NeuronDB/channelGene2.htm#table3</meta:uri>
+        </meta:neuronDBref>
+
+        <meta:modelDBref>
+            <meta:modelName>Synaptic integration in tuft dendrites of layer 5 pyramidal neurons (Larkum et al. 2009)</meta:modelName>
+            <meta:uri>http://senselab.med.yale.edu/ModelDB/ShowModel.asp?model=124043</meta:uri>
+        </meta:modelDBref>
+
+        <parameters>
+            <parameter name="vshift" value="0"/>
+        </parameters>
+        
+        <current_voltage_relation cond_law="ohmic" ion="k" default_gmax="1.2" default_erev="-87">
+            
+            <gate name="n" instances="3">
+				
+                <closed_state id="n0"/>
+                <open_state id="n"/>
+                
+                <!--
+                    n = n + (1 - exp(-dt/taun))*(1 / (1 + exp((v + 40+vshift)/(-3)))  - n)
+		       
+					should be n = n + nexp*(ninf-n) with nexp = 1 - exp(-dt * tadj/ntau); ninf = a*ntau; ntau = 1/(a+b)
+		            
+					therefore...
+		       
+					tadj = 0
+		       
+					ntau = 1.5
+		       
+					ninf = 1 / (1 + exp((v + 40+vshift)/(-3))) 
+		       
+					that in case vshift = constant is A / (1 + exp((v-V1/2)/B)) (sigmoid) with A = 1; V1 = -80; B = -3
+                -->
+                
+                <!-- An *incorrect* initialisation value for this, in order to compare to original mod file. Normally should be ignored!! -->
+                <initialisation value="0"/>
+
+                     
+                <time_course name="tau" from="n0" to="n" expr_form="generic" expr="1.5"/>
+                
+                <steady_state name="inf" from="n0" to="n" expr_form="generic" expr="1/(1 + exp((v + 40+vshift)/(-3)))"/>
+				 	                           
+	            <!--
+	        
+				<steady_state name="inf" from="n0" to="n" expr_form="sigmoid" rate="1" scale="-80" midpoint="-3" />
+		              
+				-->
+
+                    
+            </gate>
+            
+        </current_voltage_relation> 
+        
+        
+    </channel_type>
+</channelml>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channelml xmlns="http://morphml.org/channelml/schema" 
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:meta="http://morphml.org/metadata/schema"
+           xsi:schemaLocation="http://morphml.org/channelml/schema  http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd"
+           units="SI Units">
+
+    <meta:notes>ChannelML file containing a single Channel description</meta:notes>        
+
+
+    <channel_type name="LCa3_mit_usb_ChannelML" density="yes">
+        
+        <status value="stable">
+            <meta:comment>L type Ca2+ channel data from: T. Hirano and S. Hagiwara Pflugers A 413(5) pp463-469, 1989</meta:comment>
+            <meta:contributor>
+                <meta:name>Simon O'Connor</meta:name>
+            </meta:contributor>
+        </status>
+
+        <meta:notes>L type calcium conductance Hirano and Hagiwara 1989</meta:notes>
+        
+        <meta:authorList>
+            <meta:modelAuthor>
+                <meta:name>Upinder S. Bhalla</meta:name>
+                <meta:comment>Cited implementer in original GENESIS implementation</meta:comment>
+            </meta:modelAuthor>
+            <meta:modelAuthor>
+                <meta:name>James M. Bower</meta:name>
+                <meta:comment>Cited implementer in original GENESIS implementation</meta:comment>
+            </meta:modelAuthor>
+            <meta:modelTranslator>
+                <meta:name>Simon O'Connor</meta:name>
+                <meta:institution>University of Cardiff</meta:institution>    
+                <meta:email>simon.oconnor@btinternet.com</meta:email>
+            </meta:modelTranslator>
+            <meta:modelTranslator>
+                <meta:name>Padraig Gleeson</meta:name>
+                <meta:institution>UCL</meta:institution>
+                <meta:email>p.gleeson - at - ucl.ac.uk</meta:email>
+            </meta:modelTranslator>
+        </meta:authorList>
+
+        <meta:publication>
+		<meta:fullTitle>U. S. Bhalla and J. M. Bower, Exploring parameter space in detailed single neuron models: simulations of the mitral and granule cells of the olfactory bulb, J. Neurophysiol., vol. 69, pp. 1948-1965, 1993.</meta:fullTitle>
+		<meta:pubmedRef>http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=pubmed&amp;dopt=Abstract&amp;list_uids=7688798</meta:pubmedRef>
+        </meta:publication>
+        
+        <meta:neuronDBref>
+            <meta:modelName>Calcium channels</meta:modelName>
+            <meta:uri>http://senselab.med.yale.edu/senselab/NeuronDB/channelGene2.htm#table1</meta:uri>
+        </meta:neuronDBref>
+
+
+        <current_voltage_relation cond_law="ohmic" 
+                                  ion="ca" 
+                                  default_gmax="120" 
+                                  default_erev="0.070"
+                                  charge="2"
+                                  fixed_erev="yes">  <!-- [Ca2+] alterations don't alter erev for channel from 70mV -->
+
+            <gate name="s" instances="1">
+
+                <closed_state id="s0"/>
+                <open_state id="s" fraction="1"/>
+                
+                <transition name="alpha" from="s0" to="s" expr_form="sigmoid" rate="7500" scale="-0.007" midpoint="0.013" />
+                
+                <transition name="beta" from="s" to="s0" expr_form="sigmoid" rate="1650" scale="0.004" midpoint="0.014" />
+                
+            </gate>
+            
+            <gate name="r" instances="1">
+
+                <closed_state id="r0"/>
+                <open_state id="r" fraction="1"/>
+                
+                <transition name="alpha" from="r0" to="r" expr_form="sigmoid" rate="6.8" scale="0.012" midpoint="-0.030" />
+                
+                <transition name="beta" from="r" to="r0" expr_form="sigmoid" rate="60" scale="-0.011" midpoint="0.0" />
+                
+            </gate>
+
+        </current_voltage_relation>
+            
+        <!-- Using same table settings as orig file for LCa3_mit_usb.g -->
+
+	<impl_prefs>
+		<table_settings max_v="0.05" min_v="-0.1" table_divisions="3000"/>
+	</impl_prefs>
+
+    </channel_type>
+</channelml>

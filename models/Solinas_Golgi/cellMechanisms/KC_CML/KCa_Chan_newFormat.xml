@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channelml xmlns="http://morphml.org/channelml/schema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:meta="http://morphml.org/metadata/schema"
+    xsi:schemaLocation="http://morphml.org/channelml/schema  http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd"
+    units="Physiological Units">
+
+    <meta:notes>ChannelML file containing a single Channel description from Solinas et al 2007</meta:notes>
+
+    <channel_type name="KC_CML">
+    
+    <status value="in_progress">
+               
+    </status>
+            
+        <meta:notes>Calcium dependent K channel</meta:notes>
+        
+
+
+       <current_voltage_relation cond_law="ohmic" ion="k" default_gmax="9" default_erev = "-85">
+            
+            <conc_dependence name="Calcium" ion="ca" charge="2" variable_name="ca_conc" min_conc="7.55e-7" max_conc="0.050"/>  
+                
+            <q10_settings q10_factor="3" experimental_temp="30"/>
+                        
+            <gate name="c" instances="1">
+
+                <closed_state id="c0"/>
+                <open_state id="c"/>
+                                
+		<!--
+			Aalpha_c = 7 (/ms)
+			Balpha_c = 1.5e-3 (mM)
+
+			Kalpha_c =  -11.765 (mV)
+
+			Abeta_c = 1 (/ms)
+			Bbeta_c = 0.15e-3 (mM)
+
+			Kbeta_c = -11.765 (mV)
+			
+			alp_c = tcorr*Aalpha_c/(1+(Balpha_c*exp(v/Kalpha_c)/cai))
+				7/(1 + (1.5e-3 * exp(v/-11.765)/ca_conc))
+				
+			bet_c = tcorr*Abeta_c/(1+cai/(Bbeta_c*exp(v/Kbeta_c)))
+				1/(1 + cai/(0.15e-3*exp(v/-11.765))
+
+                -->
+                     
+                <transition name="alpha" from="c0" to="c" expr_form="generic" expr="7/(1 + (0.0015 * (exp (v/-11.765))/(ca_conc * 1e6)))"/>
+                <transition name="beta" from="c" to="c0" expr_form="generic" expr="1/(1 + (ca_conc * 1e6)/(0.00015* (exp (v/-11.765)) ))"/>
+
+                <!--<time_course name="tau" from="c0" to="c" expr_form="generic" expr="1/(alpha+beta)"/>-->
+
+                    
+            </gate>
+        </current_voltage_relation> 
+        
+     <impl_prefs>
+		<table_settings max_v="30" min_v="-100" table_divisions="13000"/>
+	</impl_prefs>
+        
+    </channel_type>
+</channelml>

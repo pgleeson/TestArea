@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version2" metaid="metaid_0000001" level="2" version="2"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sbml.org/sbml/level2/version2   http://sbml.org/Special/xml-schemas/sbml-l2v2-schema/sbml.xsd">
+
+<model id="Arch_SBML" name="Arch_SBML" >
+
+<notes>
+  <p xmlns="http://www.w3.org/1999/xhtml">Archaerhodopsin...</p>
+</notes>
+
+
+
+<listOfCompartments>
+  <compartment id="cell" size="1"/>
+</listOfCompartments>
+
+<!-- No species present!! -->
+
+
+<listOfParameters>
+  <parameter id="erev" value="-77"/>
+
+  <parameter id="v" value="-70" constant="false" sboTerm="SBO:0000259"/> <!-- Will be mapped to v in NEURON-->
+
+  <parameter id="n" value="0"   constant="false" />
+  <parameter id="alpha_n" value="0"   constant="false" />
+  <parameter id="beta_n" value="0"   constant="false" />
+
+  <parameter id="gmax" value="0.036"   constant="false" /> <!-- sboTerm="SBO:0000257"conductance -->
+  <parameter id="i" value="0"   constant="false" sboTerm="SBO:0000999"/> <!-- *DUMMY* SBO term to indicate a parameter refers to transmembrane current. -->
+</listOfParameters>
+
+
+
+<listOfRules>
+    
+  <rateRule metaid="metaid_0000047" variable="n">
+    <notes>
+      <p xmlns="http://www.w3.org/1999/xhtml"> dn/dt = alpha_n * (1.0 - n) - beta_n * n </p>
+    </notes>
+    <annotation>
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+        <rdf:Description rdf:about="#metaid_0000047">
+          <bqbiol:isPartOf>
+            <rdf:Bag>
+              <rdf:li rdf:resource="urn:miriam:obo.go:GO%3A0005249"/>
+            </rdf:Bag>
+          </bqbiol:isPartOf>
+        </rdf:Description>
+      </rdf:RDF>
+    </annotation>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+        <minus/>
+        <apply>
+          <times/>
+          <ci> alpha_n </ci>
+          <apply>
+            <minus/>
+            <cn> 1 </cn>
+            <ci> n </ci>
+          </apply>
+        </apply>
+        <apply>
+          <times/>
+          <ci> beta_n </ci>
+          <ci> n </ci>
+        </apply>
+      </apply>
+    </math>
+  </rateRule>
+
+  <assignmentRule variable="i">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> gmax </ci>
+          <apply>
+              <power/>
+              <ci> n </ci>
+              <cn> 4 </cn>
+          </apply>
+          <apply>
+            <minus/>
+            <ci> v </ci>
+            <ci> erev </ci>
+          </apply>
+        </apply>
+    </math>
+  </assignmentRule>
+
+   <assignmentRule  variable="beta_n">
+    <notes>
+      <p xmlns="http://www.w3.org/1999/xhtml"> beta_n = 0.125 * exp[v - [-65] / 80.0] </p>
+    </notes>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+        <times/>
+        <cn> 0.125 </cn>
+        <apply>
+          <exp/>
+          <apply>
+            <divide/>
+            <apply>
+                <minus/>
+                <ci> v </ci>
+                <cn type="integer"> -65 </cn>
+            </apply>
+            <cn> -80 </cn>
+          </apply>
+        </apply>
+      </apply>
+    </math>
+  </assignmentRule>
+
+  <assignmentRule variable="alpha_n">
+    <notes>
+      <p xmlns="http://www.w3.org/1999/xhtml"> alpha_n = 0.01 * (v - [-55])/(1 - exp[(v - [-55]) / -10]) </p>
+    </notes>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+        <divide/>
+        <apply>
+          <times/>
+          <cn> 0.01 </cn>
+          <apply>
+            <minus/>
+            <ci> v </ci>
+            <cn type="integer"> -55 </cn>
+          </apply>
+        </apply>
+        <apply>
+          <minus/>
+          <cn type="integer"> 1 </cn>
+          <apply>
+            <exp/>
+            <apply>
+              <divide/>
+              <apply>
+                <minus/>
+                <ci> v </ci>
+                <cn type="integer"> -55 </cn>
+              </apply>
+              <cn type="integer"> -10 </cn>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+    </math>
+  </assignmentRule>
+
+</listOfRules>
+
+
+</model>
+</sbml>

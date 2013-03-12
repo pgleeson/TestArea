@@ -1,0 +1,247 @@
+Warning: no access to tty (Bad file descriptor).
+Thus no job control in this shell.
+bash: no job control in this shell
+Creating x86_64 directory for .o files.
+
+/home/ucbtdcr/simulations/segmentation_effects/glutamate200_dt0.025_original/
+AMPA.mod cad2.mod DoubExpSyn.mod FastSynInput.mod focalstim.mod GABAAslow.mod GABA.mod glutamate.mod glutconstantinhib15pS.mod glutconstantinhib30pS.mod h2.mod hh3.mod h.mod ih.mod it2.mod kap.mod kca.mod kdf.mod kdr2.mod Kdr.mod km.mod LeakCond.mod NonPlasticSyn.mod SlowCa.mod
+AMPA.mod cad2.mod DoubExpSyn.mod FastSynInput.mod focalstim.mod GABAAslow.mod GABA.mod glutamate.mod glutconstantinhib15pS.mod glutconstantinhib30pS.mod h2.mod hh3.mod h.mod ih.mod it2.mod kap.mod kca.mod kdf.mod kdr2.mod Kdr.mod km.mod LeakCond.mod NonPlasticSyn.mod SlowCa.mod
+"/share/apps/neuro/nrn71/x86_64/bin/nocmodl" AMPA
+Translating AMPA.mod into AMPA.c
+Notice: Use of state_discontinuity is not thread safeNotice: Use of state_discontinuity in a NET_RECEIVE block is unnecessary and prevents use of this mechanism in a multithreaded simulation.
+Notice: Use of state_discontinuity is not thread safeNotice: Use of state_discontinuity in a NET_RECEIVE block is unnecessary and prevents use of this mechanism in a multithreaded simulation.
+Notice: Use of state_discontinuity is not thread safeNotice: Use of state_discontinuity in a NET_RECEIVE block is unnecessary and prevents use of this mechanism in a multithreaded simulation.
+"/share/apps/neuro/nrn71/share/nrn/libtool" --tag=CC --mode=compile mpicc -DHAVE_CONFIG_H  -I. -I.. -I"/share/apps/neuro/nrn71/include/nrn" -I"/share/apps/neuro/nrn71/x86_64/lib"    -g -O2 -c -o AMPA.lo AMPA.c
+mkdir .libs
+ mpicc -DHAVE_CONFIG_H -I. -I.. -I/share/apps/neuro/nrn71/include/nrn -I/share/apps/neuro/nrn71/x86_64/lib -g -O2 -c AMPA.c  -fPIC -DPIC -o .libs/AMPA.o
+"/share/apps/neuro/nrn71/x86_64/bin/nocmodl" cad2
+Translating cad2.mod into cad2.c
+Notice: euler is not thread safe. Complain to Hines
+"/share/apps/neuro/nrn71/share/nrn/libtool" --tag=CC --mode=compile mpicc -DHAVE_CONFIG_H  -I. -I.. -I"/share/apps/neuro/nrn71/include/nrn" -I"/share/apps/neuro/nrn71/x86_64/lib"    -g -O2 -c -o cad2.lo cad2.c
+ mpicc -DHAVE_CONFIG_H -I. -I.. -I/share/apps/neuro/nrn71/include/nrn -I/share/apps/neuro/nrn71/x86_64/lib -g -O2 -c cad2.c  -fPIC -DPIC -o .libs/cad2.o
+"/share/apps/neuro/nrn71/x86_64/bin/nocmodl" DoubExpSyn
+Translating DoubExpSyn.mod into DoubExpSyn.c
+Notice: Use of state_discontinuity is not thread safeNotice: Use of state_discontinuity in a NET_RECEIVE block is unnecessary and prevents use of this mechanism in a multithreaded simulation.
+Notice: Use of state_discontinuity is not thread safeNotice: Use of state_discontinuity in a NET_RECEIVE block is unnecessary and prevents use of this mechanism in a multithreaded simulation.
+Notice: Assignment to the GLOBAL variable, "total", is not thread safe
+"/share/apps/neuro/nrn71/share/nrn/libtool" --tag=CC --mode=compile mpicc -DHAVE_CONFIG_H  -I. -I.. -I"/share/apps/neuro/nrn71/include/nrn" -I"/share/apps/neuro/nrn71/x86_64/lib"    -g -O2 -c -o DoubExpSyn.lo DoubExpSyn.c
+ mpicc -DHAVE_CONFIG_H -I. -I.. -I/share/apps/neuro/nrn71/include/nrn -I/share/apps/neuro/nrn71/x86_64/lib -g -O2 -c DoubExpSyn.c  -fPIC -DPIC -o .libs/DoubExpSyn.o
+"/share/apps/neuro/nrn71/x86_64/bin/nocmodl" FastSynInput
+Translating FastSynInput.mod into FastSynInput.c
+Notice: Use of state_discontinuity is not thread safeNotice: Use of state_discontinuity in a NET_RECEIVE block is unnecessary and prevents use of this mechanism in a multithreaded simulation.
+Notice: Use of state_discontinuity is not thread safeNotice: Use of state_discontinuity in a NET_RECEIVE block is unnecessary and prevents use of this mechanism in a multithreaded simulation.
+Notice: Assignment to the GLOBAL variable, "total", is not thread safe
+"/share/apps/neuro/nrn71/share/nrn/libtool" --tag=CC --mode=compile mpicc -DHAVE_CONFIG_H  -I. -I.. -I"/share/apps/neuro/nrn71/include/nrn" -I"/share/apps/neuro/nrn71/x86_64/lib"    -g -O2 -c -o FastSynInput.lo FastSynInput.c
+ mpicc -DHAVE_CONFIG_H -I. -I.. -I/share/apps/neuro/nrn71/include/nrn -I/share/apps/neuro/nrn71/x86_64/lib -g -O2 -c FastSynInput.c  -fPIC -DPIC -o .libs/FastSynInput.o
+"/share/apps/neuro/nrn71/x86_64/bin/nocmodl" focalstim
+Translating focalstim.mod into focalstim.c
+Notice: Use of state_discontinuity is not thread safeNotice: Use of state_discontinuity in a NET_RECEIVE block is unnecessary and prevents use of this mechanism in a multithreaded simulation.
+Notice: Use of state_discontinuity is not thread safeNotice: Use of state_discontinuity in a NET_RECEIVE block is unnecessary and prevents use of this mechanism in a multithreaded simulation.
+Notice: Use of state_discontinuity is not thread safeNotice: Use of state_discontinuity in a NET_RECEIVE block is unnecessary and prevents use of this mechanism in a multithreaded simulation.
+"/share/apps/neuro/nrn71/share/nrn/libtool" --tag=CC --mode=compile mpicc -DHAVE_CONFIG_H  -I. -I.. -I"/share/apps/neuro/nrn71/include/nrn" -I"/share/apps/neuro/nrn71/x86_64/lib"    -g -O2 -c -o focalstim.lo focalstim.c
+ mpicc -DHAVE_CONFIG_H -I. -I.. -I/share/apps/neuro/nrn71/include/nrn -I/share/apps/neuro/nrn71/x86_64/lib -g -O2 -c focalstim.c  -fPIC -DPIC -o .libs/focalstim.o
+"/share/apps/neuro/nrn71/x86_64/bin/nocmodl" GABAAslow
+Translating GABAAslow.mod into GABAAslow.c
+Notice: Use of state_discontinuity is not thread safeNotice: Use of state_discontinuity in a NET_RECEIVE block is unnecessary and prevents use of this mechanism in a multithreaded simulation.
+Notice: Use of state_discontinuity is not thread safeNotice: Use of state_discontinuity in a NET_RECEIVE block is unnecessary and prevents use of this mechanism in a multithreaded simulation.
+"/share/apps/neuro/nrn71/share/nrn/libtool" --tag=CC --mode=compile mpicc -DHAVE_CONFIG_H  -I. -I.. -I"/share/apps/neuro/nrn71/include/nrn" -I"/share/apps/neuro/nrn71/x86_64/lib"    -g -O2 -c -o GABAAslow.lo GABAAslow.c
+ mpicc -DHAVE_CONFIG_H -I. -I.. -I/share/apps/neuro/nrn71/include/nrn -I/share/apps/neuro/nrn71/x86_64/lib -g -O2 -c GABAAslow.c  -fPIC -DPIC -o .libs/GABAAslow.o
+"/share/apps/neuro/nrn71/x86_64/bin/nocmodl" GABA
+Translating GABA.mod into GABA.c
+Notice: Use of state_discontinuity is not thread safeNotice: Use of state_discontinuity in a NET_RECEIVE block is unnecessary and prevents use of this mechanism in a multithreaded simulation.
+Notice: Use of state_discontinuity is not thread safeNotice: Use of state_discontinuity in a NET_RECEIVE block is unnecessary and prevents use of this mechanism in a multithreaded simulation.
+Notice: Assignment to the GLOBAL variable, "total", is not thread safe
+"/share/apps/neuro/nrn71/share/nrn/libtool" --tag=CC --mode=compile mpicc -DHAVE_CONFIG_H  -I. -I.. -I"/share/apps/neuro/nrn71/include/nrn" -I"/share/apps/neuro/nrn71/x86_64/lib"    -g -O2 -c -o GABA.lo GABA.c
+ mpicc -DHAVE_CONFIG_H -I. -I.. -I/share/apps/neuro/nrn71/include/nrn -I/share/apps/neuro/nrn71/x86_64/lib -g -O2 -c GABA.c  -fPIC -DPIC -o .libs/GABA.o
+"/share/apps/neuro/nrn71/x86_64/bin/nocmodl" glutamate
+Translating glutamate.mod into glutamate.c
+Notice: Use of state_discontinuity is not thread safeNotice: Use of state_discontinuity in a NET_RECEIVE block is unnecessary and prevents use of this mechanism in a multithreaded simulation.
+Notice: Use of state_discontinuity is not thread safeNotice: Use of state_discontinuity in a NET_RECEIVE block is unnecessary and prevents use of this mechanism in a multithreaded simulation.
+Notice: Use of state_discontinuity is not thread safeNotice: Use of state_discontinuity in a NET_RECEIVE block is unnecessary and prevents use of this mechanism in a multithreaded simulation.
+"/share/apps/neuro/nrn71/share/nrn/libtool" --tag=CC --mode=compile mpicc -DHAVE_CONFIG_H  -I. -I.. -I"/share/apps/neuro/nrn71/include/nrn" -I"/share/apps/neuro/nrn71/x86_64/lib"    -g -O2 -c -o glutamate.lo glutamate.c
+ mpicc -DHAVE_CONFIG_H -I. -I.. -I/share/apps/neuro/nrn71/include/nrn -I/share/apps/neuro/nrn71/x86_64/lib -g -O2 -c glutamate.c  -fPIC -DPIC -o .libs/glutamate.o
+"/share/apps/neuro/nrn71/x86_64/bin/nocmodl" glutconstantinhib15pS
+Translating glutconstantinhib15pS.mod into glutconstantinhib15pS.c
+Notice: Use of state_discontinuity is not thread safeNotice: Use of state_discontinuity in a NET_RECEIVE block is unnecessary and prevents use of this mechanism in a multithreaded simulation.
+Notice: Use of state_discontinuity is not thread safeNotice: Use of state_discontinuity in a NET_RECEIVE block is unnecessary and prevents use of this mechanism in a multithreaded simulation.
+Notice: Use of state_discontinuity is not thread safeNotice: Use of state_discontinuity in a NET_RECEIVE block is unnecessary and prevents use of this mechanism in a multithreaded simulation.
+"/share/apps/neuro/nrn71/share/nrn/libtool" --tag=CC --mode=compile mpicc -DHAVE_CONFIG_H  -I. -I.. -I"/share/apps/neuro/nrn71/include/nrn" -I"/share/apps/neuro/nrn71/x86_64/lib"    -g -O2 -c -o glutconstantinhib15pS.lo glutconstantinhib15pS.c
+ mpicc -DHAVE_CONFIG_H -I. -I.. -I/share/apps/neuro/nrn71/include/nrn -I/share/apps/neuro/nrn71/x86_64/lib -g -O2 -c glutconstantinhib15pS.c  -fPIC -DPIC -o .libs/glutconstantinhib15pS.o
+"/share/apps/neuro/nrn71/x86_64/bin/nocmodl" glutconstantinhib30pS
+Translating glutconstantinhib30pS.mod into glutconstantinhib30pS.c
+Notice: Use of state_discontinuity is not thread safeNotice: Use of state_discontinuity in a NET_RECEIVE block is unnecessary and prevents use of this mechanism in a multithreaded simulation.
+Notice: Use of state_discontinuity is not thread safeNotice: Use of state_discontinuity in a NET_RECEIVE block is unnecessary and prevents use of this mechanism in a multithreaded simulation.
+Notice: Use of state_discontinuity is not thread safeNotice: Use of state_discontinuity in a NET_RECEIVE block is unnecessary and prevents use of this mechanism in a multithreaded simulation.
+"/share/apps/neuro/nrn71/share/nrn/libtool" --tag=CC --mode=compile mpicc -DHAVE_CONFIG_H  -I. -I.. -I"/share/apps/neuro/nrn71/include/nrn" -I"/share/apps/neuro/nrn71/x86_64/lib"    -g -O2 -c -o glutconstantinhib30pS.lo glutconstantinhib30pS.c
+ mpicc -DHAVE_CONFIG_H -I. -I.. -I/share/apps/neuro/nrn71/include/nrn -I/share/apps/neuro/nrn71/x86_64/lib -g -O2 -c glutconstantinhib30pS.c  -fPIC -DPIC -o .libs/glutconstantinhib30pS.o
+"/share/apps/neuro/nrn71/x86_64/bin/nocmodl" h2
+Translating h2.mod into h2.c
+Notice: Assignment to the GLOBAL variable, "qinf", is not thread safe
+Notice: Assignment to the GLOBAL variable, "tauh", is not thread safe
+"/share/apps/neuro/nrn71/share/nrn/libtool" --tag=CC --mode=compile mpicc -DHAVE_CONFIG_H  -I. -I.. -I"/share/apps/neuro/nrn71/include/nrn" -I"/share/apps/neuro/nrn71/x86_64/lib"    -g -O2 -c -o h2.lo h2.c
+ mpicc -DHAVE_CONFIG_H -I. -I.. -I/share/apps/neuro/nrn71/include/nrn -I/share/apps/neuro/nrn71/x86_64/lib -g -O2 -c h2.c  -fPIC -DPIC -o .libs/h2.o
+"/share/apps/neuro/nrn71/x86_64/bin/nocmodl" hh3
+Translating hh3.mod into hh3.c
+Notice: VERBATIM blocks are not thread safe
+Notice: This mechanism cannot be used with CVODE
+Warning: Default 37 of PARAMETER celsius will be ignored and set by NEURON.
+Warning: Default -80 of PARAMETER ek will be ignored and set by NEURON.
+Warning: Default 40 of PARAMETER ena will be ignored and set by NEURON.
+"/share/apps/neuro/nrn71/share/nrn/libtool" --tag=CC --mode=compile mpicc -DHAVE_CONFIG_H  -I. -I.. -I"/share/apps/neuro/nrn71/include/nrn" -I"/share/apps/neuro/nrn71/x86_64/lib"    -g -O2 -c -o hh3.lo hh3.c
+ mpicc -DHAVE_CONFIG_H -I. -I.. -I/share/apps/neuro/nrn71/include/nrn -I/share/apps/neuro/nrn71/x86_64/lib -g -O2 -c hh3.c  -fPIC -DPIC -o .libs/hh3.o
+"/share/apps/neuro/nrn71/x86_64/bin/nocmodl" h
+Translating h.mod into h.c
+Notice: Assignment to the GLOBAL variable, "linf", is not thread safe
+Notice: Assignment to the GLOBAL variable, "taul", is not thread safe
+Warning: Default 33 of PARAMETER celsius will be ignored and set by NEURON.
+"/share/apps/neuro/nrn71/share/nrn/libtool" --tag=CC --mode=compile mpicc -DHAVE_CONFIG_H  -I. -I.. -I"/share/apps/neuro/nrn71/include/nrn" -I"/share/apps/neuro/nrn71/x86_64/lib"    -g -O2 -c -o h.lo h.c
+ mpicc -DHAVE_CONFIG_H -I. -I.. -I/share/apps/neuro/nrn71/include/nrn -I/share/apps/neuro/nrn71/x86_64/lib -g -O2 -c h.c  -fPIC -DPIC -o .libs/h.o
+"/share/apps/neuro/nrn71/x86_64/bin/nocmodl" ih
+Translating ih.mod into ih.c
+Thread Safe
+"/share/apps/neuro/nrn71/share/nrn/libtool" --tag=CC --mode=compile mpicc -DHAVE_CONFIG_H  -I. -I.. -I"/share/apps/neuro/nrn71/include/nrn" -I"/share/apps/neuro/nrn71/x86_64/lib"    -g -O2 -c -o ih.lo ih.c
+ mpicc -DHAVE_CONFIG_H -I. -I.. -I/share/apps/neuro/nrn71/include/nrn -I/share/apps/neuro/nrn71/x86_64/lib -g -O2 -c ih.c  -fPIC -DPIC -o .libs/ih.o
+"/share/apps/neuro/nrn71/x86_64/bin/nocmodl" it2
+Translating it2.mod into it2.c
+Notice: VERBATIM blocks are not thread safe
+Notice: This mechanism cannot be used with CVODE
+"/share/apps/neuro/nrn71/share/nrn/libtool" --tag=CC --mode=compile mpicc -DHAVE_CONFIG_H  -I. -I.. -I"/share/apps/neuro/nrn71/include/nrn" -I"/share/apps/neuro/nrn71/x86_64/lib"    -g -O2 -c -o it2.lo it2.c
+ mpicc -DHAVE_CONFIG_H -I. -I.. -I/share/apps/neuro/nrn71/include/nrn -I/share/apps/neuro/nrn71/x86_64/lib -g -O2 -c it2.c  -fPIC -DPIC -o .libs/it2.o
+"/share/apps/neuro/nrn71/x86_64/bin/nocmodl" kap
+Translating kap.mod into kap.c
+Notice: Assignment to the GLOBAL variable, "linf", is not thread safe
+Notice: Assignment to the GLOBAL variable, "ninf", is not thread safe
+Notice: Assignment to the GLOBAL variable, "taun", is not thread safe
+Notice: Assignment to the GLOBAL variable, "taul", is not thread safe
+"/share/apps/neuro/nrn71/share/nrn/libtool" --tag=CC --mode=compile mpicc -DHAVE_CONFIG_H  -I. -I.. -I"/share/apps/neuro/nrn71/include/nrn" -I"/share/apps/neuro/nrn71/x86_64/lib"    -g -O2 -c -o kap.lo kap.c
+ mpicc -DHAVE_CONFIG_H -I. -I.. -I/share/apps/neuro/nrn71/include/nrn -I/share/apps/neuro/nrn71/x86_64/lib -g -O2 -c kap.c  -fPIC -DPIC -o .libs/kap.o
+"/share/apps/neuro/nrn71/x86_64/bin/nocmodl" kca
+Translating kca.mod into kca.c
+Notice: VERBATIM blocks are not thread safe
+Notice: This mechanism cannot be used with CVODE
+Notice: Assignment to the GLOBAL variable, "tadj", is not thread safe
+"/share/apps/neuro/nrn71/share/nrn/libtool" --tag=CC --mode=compile mpicc -DHAVE_CONFIG_H  -I. -I.. -I"/share/apps/neuro/nrn71/include/nrn" -I"/share/apps/neuro/nrn71/x86_64/lib"    -g -O2 -c -o kca.lo kca.c
+ mpicc -DHAVE_CONFIG_H -I. -I.. -I/share/apps/neuro/nrn71/include/nrn -I/share/apps/neuro/nrn71/x86_64/lib -g -O2 -c kca.c  -fPIC -DPIC -o .libs/kca.o
+"/share/apps/neuro/nrn71/x86_64/bin/nocmodl" kdf
+Translating kdf.mod into kdf.c
+Notice: Assignment to the GLOBAL variable, "tadj", is not thread safe
+"/share/apps/neuro/nrn71/share/nrn/libtool" --tag=CC --mode=compile mpicc -DHAVE_CONFIG_H  -I. -I.. -I"/share/apps/neuro/nrn71/include/nrn" -I"/share/apps/neuro/nrn71/x86_64/lib"    -g -O2 -c -o kdf.lo kdf.c
+ mpicc -DHAVE_CONFIG_H -I. -I.. -I/share/apps/neuro/nrn71/include/nrn -I/share/apps/neuro/nrn71/x86_64/lib -g -O2 -c kdf.c  -fPIC -DPIC -o .libs/kdf.o
+"/share/apps/neuro/nrn71/x86_64/bin/nocmodl" kdr2
+Translating kdr2.mod into kdr2.c
+Thread Safe
+"/share/apps/neuro/nrn71/share/nrn/libtool" --tag=CC --mode=compile mpicc -DHAVE_CONFIG_H  -I. -I.. -I"/share/apps/neuro/nrn71/include/nrn" -I"/share/apps/neuro/nrn71/x86_64/lib"    -g -O2 -c -o kdr2.lo kdr2.c
+ mpicc -DHAVE_CONFIG_H -I. -I.. -I/share/apps/neuro/nrn71/include/nrn -I/share/apps/neuro/nrn71/x86_64/lib -g -O2 -c kdr2.c  -fPIC -DPIC -o .libs/kdr2.o
+"/share/apps/neuro/nrn71/x86_64/bin/nocmodl" Kdr
+Translating Kdr.mod into Kdr.c
+Thread Safe
+"/share/apps/neuro/nrn71/share/nrn/libtool" --tag=CC --mode=compile mpicc -DHAVE_CONFIG_H  -I. -I.. -I"/share/apps/neuro/nrn71/include/nrn" -I"/share/apps/neuro/nrn71/x86_64/lib"    -g -O2 -c -o Kdr.lo Kdr.c
+ mpicc -DHAVE_CONFIG_H -I. -I.. -I/share/apps/neuro/nrn71/include/nrn -I/share/apps/neuro/nrn71/x86_64/lib -g -O2 -c Kdr.c  -fPIC -DPIC -o .libs/Kdr.o
+"/share/apps/neuro/nrn71/x86_64/bin/nocmodl" km
+Translating km.mod into km.c
+Notice: VERBATIM blocks are not thread safe
+Notice: This mechanism cannot be used with CVODE
+Notice: Assignment to the GLOBAL variable, "tadj", is not thread safe
+"/share/apps/neuro/nrn71/share/nrn/libtool" --tag=CC --mode=compile mpicc -DHAVE_CONFIG_H  -I. -I.. -I"/share/apps/neuro/nrn71/include/nrn" -I"/share/apps/neuro/nrn71/x86_64/lib"    -g -O2 -c -o km.lo km.c
+ mpicc -DHAVE_CONFIG_H -I. -I.. -I/share/apps/neuro/nrn71/include/nrn -I/share/apps/neuro/nrn71/x86_64/lib -g -O2 -c km.c  -fPIC -DPIC -o .libs/km.o
+"/share/apps/neuro/nrn71/x86_64/bin/nocmodl" LeakCond
+Translating LeakCond.mod into LeakCond.c
+Thread Safe
+"/share/apps/neuro/nrn71/share/nrn/libtool" --tag=CC --mode=compile mpicc -DHAVE_CONFIG_H  -I. -I.. -I"/share/apps/neuro/nrn71/include/nrn" -I"/share/apps/neuro/nrn71/x86_64/lib"    -g -O2 -c -o LeakCond.lo LeakCond.c
+ mpicc -DHAVE_CONFIG_H -I. -I.. -I/share/apps/neuro/nrn71/include/nrn -I/share/apps/neuro/nrn71/x86_64/lib -g -O2 -c LeakCond.c  -fPIC -DPIC -o .libs/LeakCond.o
+"/share/apps/neuro/nrn71/x86_64/bin/nocmodl" NonPlasticSyn
+Translating NonPlasticSyn.mod into NonPlasticSyn.c
+Notice: Use of state_discontinuity is not thread safeNotice: Use of state_discontinuity in a NET_RECEIVE block is unnecessary and prevents use of this mechanism in a multithreaded simulation.
+Notice: Use of state_discontinuity is not thread safeNotice: Use of state_discontinuity in a NET_RECEIVE block is unnecessary and prevents use of this mechanism in a multithreaded simulation.
+Notice: Assignment to the GLOBAL variable, "total", is not thread safe
+"/share/apps/neuro/nrn71/share/nrn/libtool" --tag=CC --mode=compile mpicc -DHAVE_CONFIG_H  -I. -I.. -I"/share/apps/neuro/nrn71/include/nrn" -I"/share/apps/neuro/nrn71/x86_64/lib"    -g -O2 -c -o NonPlasticSyn.lo NonPlasticSyn.c
+ mpicc -DHAVE_CONFIG_H -I. -I.. -I/share/apps/neuro/nrn71/include/nrn -I/share/apps/neuro/nrn71/x86_64/lib -g -O2 -c NonPlasticSyn.c  -fPIC -DPIC -o .libs/NonPlasticSyn.o
+"/share/apps/neuro/nrn71/x86_64/bin/nocmodl" SlowCa
+Translating SlowCa.mod into SlowCa.c
+Notice: VERBATIM blocks are not thread safe
+Notice: This mechanism cannot be used with CVODE
+Notice: Assignment to the GLOBAL variable, "tadj", is not thread safe
+"/share/apps/neuro/nrn71/share/nrn/libtool" --tag=CC --mode=compile mpicc -DHAVE_CONFIG_H  -I. -I.. -I"/share/apps/neuro/nrn71/include/nrn" -I"/share/apps/neuro/nrn71/x86_64/lib"    -g -O2 -c -o SlowCa.lo SlowCa.c
+ mpicc -DHAVE_CONFIG_H -I. -I.. -I/share/apps/neuro/nrn71/include/nrn -I/share/apps/neuro/nrn71/x86_64/lib -g -O2 -c SlowCa.c  -fPIC -DPIC -o .libs/SlowCa.o
+"/share/apps/neuro/nrn71/share/nrn/libtool" --tag=CC --mode=compile mpicc -DHAVE_CONFIG_H  -I. -I.. -I"/share/apps/neuro/nrn71/include/nrn" -I"/share/apps/neuro/nrn71/x86_64/lib"    -g -O2 -c -o mod_func.lo mod_func.c
+ mpicc -DHAVE_CONFIG_H -I. -I.. -I/share/apps/neuro/nrn71/include/nrn -I/share/apps/neuro/nrn71/x86_64/lib -g -O2 -c mod_func.c  -fPIC -DPIC -o .libs/mod_func.o
+"/share/apps/neuro/nrn71/share/nrn/libtool" --tag=CC --mode=link mpicc -module  -g -O2    -o libnrnmech.la -rpath "/share/apps/neuro/nrn71/x86_64/lib"  AMPA.lo cad2.lo DoubExpSyn.lo FastSynInput.lo focalstim.lo GABAAslow.lo GABA.lo glutamate.lo glutconstantinhib15pS.lo glutconstantinhib30pS.lo h2.lo hh3.lo h.lo ih.lo it2.lo kap.lo kca.lo kdf.lo kdr2.lo Kdr.lo km.lo LeakCond.lo NonPlasticSyn.lo SlowCa.lo mod_func.lo  -L"/share/apps/neuro/nrn71/x86_64/lib" -lnrnoc -loc -lmemacs -lnrnmpi -lscopmath -lsparse13 -lreadline -ltermcap -L"/share/apps/neuro/nrn71/x86_64/lib" "/share/apps/neuro/nrn71/x86_64/lib/libnrniv.la" -livoc -lneuron_gnu -lmeschach -lsundials -livos      -lm -ldl
+gcc -shared  .libs/AMPA.o .libs/cad2.o .libs/DoubExpSyn.o .libs/FastSynInput.o .libs/focalstim.o .libs/GABAAslow.o .libs/GABA.o .libs/glutamate.o .libs/glutconstantinhib15pS.o .libs/glutconstantinhib30pS.o .libs/h2.o .libs/hh3.o .libs/h.o .libs/ih.o .libs/it2.o .libs/kap.o .libs/kca.o .libs/kdf.o .libs/kdr2.o .libs/Kdr.o .libs/km.o .libs/LeakCond.o .libs/NonPlasticSyn.o .libs/SlowCa.o .libs/mod_func.o  -Wl,--rpath -Wl,/share/apps/neuro/nrn71/x86_64/lib -Wl,--rpath -Wl,/share/apps/neuro/nrn71/x86_64/lib -L/share/apps/neuro/nrn71/x86_64/lib /share/apps/neuro/nrn71/x86_64/lib/libnrnoc.so /share/apps/neuro/nrn71/x86_64/lib/liboc.so -L/usr/lib64 /share/apps/neuro/nrn71/x86_64/lib/libmemacs.so /share/apps/neuro/nrn71/x86_64/lib/libnrnmpi.so /share/apps/neuro/nrn71/x86_64/lib/libscopmath.so /share/apps/neuro/nrn71/x86_64/lib/libsparse13.so -lreadline -ltermcap /share/apps/neuro/nrn71/x86_64/lib/libnrniv.so /share/apps/neuro/nrn71/x86_64/lib/libivoc.so /share/apps/neuro/nrn71/x86_64/lib/libneuron_gnu.so /share/apps/neuro/nrn71/x86_64/lib/libmeschach.so /share/apps/neuro/nrn71/x86_64/lib/libsundials.so /share/apps/neuro/nrn71/x86_64/lib/libivos.so -lm -ldl  -Wl,-soname -Wl,libnrnmech.so.0 -o .libs/libnrnmech.so.0.0.0
+(cd .libs && rm -f libnrnmech.so.0 && ln -s libnrnmech.so.0.0.0 libnrnmech.so.0)
+(cd .libs && rm -f libnrnmech.so && ln -s libnrnmech.so.0.0.0 libnrnmech.so)
+creating libnrnmech.la
+(cd .libs && rm -f libnrnmech.la && ln -s ../libnrnmech.la libnrnmech.la)
+Successfully created x86_64/special
+bash: no job control in this shell
+numprocs=1
+NEURON -- Release 7.1 (359:7f113b76a94b) 2009-10-26
+Duke, Yale, and the BlueBrain Project -- Copyright 1984-2008
+See http://www.neuron.yale.edu/credits.html
+
+Additional mechanisms from files
+ AMPA.mod cad2.mod DoubExpSyn.mod FastSynInput.mod focalstim.mod GABAAslow.mod GABA.mod glutamate.mod glutconstantinhib15pS.mod glutconstantinhib30pS.mod h2.mod hh3.mod h.mod ih.mod it2.mod kap.mod kca.mod kdf.mod kdr2.mod Kdr.mod km.mod LeakCond.mod NonPlasticSyn.mod SlowCa.mod
+	1 
+--------------------------------------------------------------------------
+An MPI process has executed an operation involving a call to the
+"fork()" system call to create a child process.  Open MPI is currently
+operating in a condition that could result in memory corruption or
+other system errors; your MPI job may hang, crash, or produce silent
+data corruption.  The use of fork() (or system() or other calls that
+create child processes) is strongly discouraged.  
+
+The process that invoked fork was:
+
+  Local host:          lemmon-5-1.local (PID 2508)
+  MPI_COMM_WORLD rank: 0
+
+If you are *absolutely sure* that your application will successfully
+and correctly survive a call to fork(), you may disable this warning
+by setting the mpi_warn_on_fork MCA parameter to 0.
+--------------------------------------------------------------------------
+
+Current working dir: /home/ucbtdcr/simulations/segmentation_effects/glutamate200_dt0.025_original
+
+	0 
+	0 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	Vector[4] 
+	1 
+	Vector[5] 
+	1 
+	Vector[6] 
+	1 
+	Vector[7] 
+	0 
+Setup time for simulation: 1.3336357e+09  seconds
+Starting simulation of duration 300 ms, dt: 0.025 ms, reference: glutamate200_dt0.025_original
+Finished simulation in 79.87 seconds
+Storing the data...
+	1 
+	1 
+	12001 
+	0 
+	1 
+	1 
+	12001 
+	0 
+	1 
+	1 
+	12001 
+	0 
+	1 
+	1 
+	12001 
+	0 
+Data stored in 0.049999952 secs in directory: /home/ucbtdcr/simulations/segmentation_effects/glutamate200_dt0.025_original/
+	1 
+	0 
+	0 

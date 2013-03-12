@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channelml xmlns="http://morphml.org/channelml/schema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:meta="http://morphml.org/metadata/schema"
+    xsi:schemaLocation="http://morphml.org/channelml/schema    http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd"
+    units="Physiological Units">
+
+    <meta:notes>ChannelML file containing a single Channel description</meta:notes>
+    
+    <channel_type name="sca_CML">
+        
+        <status value="stable">
+            <meta:comment>NOTE: in the orginial mod file the conductance was multiplied by e-4, remember to scale your Gmax</meta:comment>
+            <meta:comment>NOTE: vshift in original mod file incorporated into rate equations </meta:comment>
+            <meta:contributor>
+                <meta:name>Matteo Farinella</meta:name>
+            </meta:contributor>
+        </status>
+        
+        <meta:notes>HVA Ca current Based on Reuveni, Friedman, Amitai and Gutnick (1993) J. Neurosci. 13: 4609-4621
+                                 changed from (AS Oct0899) ca.mod, uses fixed eca instead of GHK eqn
+        </meta:notes>
+    
+        <meta:authorList>
+            <meta:modelAuthor>
+                <meta:name>Zach Mainen</meta:name>
+                <meta:institution>Salk Institute</meta:institution>
+                <meta:comment>Cited implementer according to the original .mod file</meta:comment>
+            </meta:modelAuthor>
+
+            <meta:modelTranslator>
+                <meta:name>Matteo Farinella</meta:name>
+                <meta:institution>UCL</meta:institution>
+                <meta:email>m.farinella - at - ucl.ac.uk</meta:email>
+            </meta:modelTranslator>
+        </meta:authorList>
+
+        <meta:publication>
+            <meta:fullTitle>Larkum ME, Nevian T, Sandler M, Polsky A, Schiller J (2009) Synaptic integration in tuft dendrites of layer 5 pyramidal neurons: a new unifying principle.  Science. 2009 Aug 7;325(5941):756-60</meta:fullTitle>
+            <meta:pubmedRef>http://www.ncbi.nlm.nih.gov/pubmed/19661433</meta:pubmedRef>
+        </meta:publication>
+
+        <meta:neuronDBref>
+            <meta:modelName>K channels</meta:modelName>
+            <meta:uri>http://senselab.med.yale.edu/senselab/NeuronDB/channelGene2.htm#table3</meta:uri>
+        </meta:neuronDBref>
+
+        <meta:modelDBref>
+            <meta:modelName>Synaptic integration in tuft dendrites of layer 5 pyramidal neurons (Larkum et al. 2009)</meta:modelName>
+            <meta:uri>http://senselab.med.yale.edu/ModelDB/ShowModel.asp?model=124043</meta:uri>
+        </meta:modelDBref>
+
+        
+        <current_voltage_relation cond_law="ohmic" ion="ca" default_gmax="0.1" default_erev="132.458" charge="2">
+            
+            <q10_settings q10_factor="2.3" experimental_temp="23"/>
+          
+            <gate name="m" instances="2">
+            
+                <closed_state id="m0"/>
+                <open_state id="m"/>
+                
+                <!--
+
+                a = 0.055 * (-27 - (vm-10)) / (exp((-27-(vm-10))/3.8) - 1) / 1
+
+                a = 0.209 * ((vm + 17)/3.8) / (1 - exp(-(vm + 17)/3.8))
+
+
+                Alpha(v) = A  * ((v-V1/2)/B) /(1 - exp(-(v-V1/2)/B)) (exp_linear) with A = 0.209; V1/2= -17; B = 3.8
+
+
+                b = 0.94*exp((-75-vm)/17)/1
+
+                b = 0.94*exp((vm-(-75))/-17)
+
+                beta(v) = A*exp((v-V1/2)/B)    (exponential) with A = 0.94; V1/2= -65 ; B = -17
+
+                -->
+                     
+                <transition name="alpha" from="m0" to="m" expr_form="exp_linear" rate="0.209" scale="3.8" midpoint="-17"/>
+                
+                <transition name="beta" from="m" to="m0" expr_form="exponential" rate="0.94" scale="-17" midpoint="-65"/>
+
+                <!--
+                <time_course  name="tau" from="m" to="m0" expr_form="generic" expr="1/(1 - exp(-dt * temp_adj_m/(1/(alpha+beta))))"/>
+
+                <steady_state name = "inf" from = "m0" to = "m" expr_form = "generic" expr = "alpha/(alpha+beta)"/>
+                -->
+            </gate>
+            
+            <gate name="h" instances="1">
+	                
+                <closed_state id="h0"/>
+                <open_state id="h"/>
+
+                <!--
+
+                a = 0.000457*exp((-13-(vm-10))/50)/3
+
+                a = 1.52333e-4*exp((vm+3)/-50)
+
+                Alpha(v) = A*exp((v-V1/2)/B)    (exponential) with A = 1.52333e-4; V1/2= -3; B = -50
+
+
+                b = 0.0065/(exp((-(vm-10)-15)/28) + 1)/3
+
+                b = 0.0021667/(1 + exp((vm+5))/-28))
+
+	            beta(v) = A / (1 + exp((v-V1/2)/B))    (sigmoid) with A = 0.0021667; V1/2= -5; B = -28
+
+                -->
+
+		 
+                <transition name="alpha" from="h0" to="h" expr_form="exponential" rate="1.52333e-4" scale="-50" midpoint="-3"/>
+		 
+                <transition name="beta" from="h" to="h0" expr_form="sigmoid" rate="0.0021667" scale="-28" midpoint="-5"/>
+         
+                <steady_state name = "inf" from = "h0" to = "h" expr_form = "generic" expr = "temp_adj_h*alpha/(alpha+beta)"/>
+		                 
+            </gate>
+        
+        </current_voltage_relation>
+        
+        <impl_prefs>
+            <table_settings max_v="100" min_v="-120" table_divisions="199"/>
+        </impl_prefs>
+        
+        
+    </channel_type>
+</channelml>

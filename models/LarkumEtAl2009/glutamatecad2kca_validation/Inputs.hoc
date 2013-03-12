@@ -1,0 +1,21 @@
+n_stim_IClamp_CaSpike = 1
+objectvar stim_IClamp_CaSpike[n_stim_IClamp_CaSpike]
+
+
+//  Note: the stimulation was specified as being at a point 0.318182 along segment: Seg0_apic_40
+
+//  in section: apic_40. For NEURON, this translates to a point 0.0056892587 along section: apic_40
+
+access apic[58]
+
+stim_IClamp_CaSpike[0] = new IClamp(0.318182)
+stim_IClamp_CaSpike[0].del = 50.0
+stim_IClamp_CaSpike[0].dur = 400.0
+stim_IClamp_CaSpike[0].amp = 1.0
+
+forall ek=-87
+
+
+access soma
+
+

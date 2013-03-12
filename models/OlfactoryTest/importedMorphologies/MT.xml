@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<neuroml xmlns="http://morphml.org/neuroml/schema"
+    xmlns:mml="http://morphml.org/morphml/schema"
+    xmlns:meta="http://morphml.org/metadata/schema"
+    xmlns:bio="http://morphml.org/biophysics/schema"
+    xmlns:cml="http://morphml.org/channelml/schema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://morphml.org/neuroml/schema http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.0/Level3/NeuroML_Level3_v1.8.0.xsd"
+    name = "NeuroML Level 2 file exported from NEURON"
+    lengthUnits="micron">
+
+<meta:notes>NeuroML Level 2 file generated from ModelView by: NEURON -- Release 6.2.3 (2203) 2008-08-28
+Authors: Michael Hines, Sushil Kambampati and Padraig Gleeson,
+Yale University and UCL</meta:notes>
+
+<cells>
+  <cell name="Mitral_0">
+    <meta:notes>Cell: Mitral_0 exported from NEURON ModelView</meta:notes>
+    <segments  xmlns="http://morphml.org/morphml/schema"> <!-- Changing the namespace from neuroml to morphml-->
+<!-- Section: Mitral[0].soma -->
+      <segment id="0" name = "Seg0_soma" cable = "0">
+        <proximal x="0" y="0" z="0" diameter="20"/>
+        <distal x="0" y="25" z="0" diameter="20"/>
+      </segment>
+<!-- Section: Mitral[0].hillock -->
+      <segment id="6" name = "Seg0_hillock" parent="0" cable = "5">  <!-- Connected at 0 on parent section: Mitral[0].soma  -->
+        <proximal x="0" y="0" z="0" diameter="16.9167"/>
+        <distal x="0" y="-5" z="0" diameter="4.58333"/>
+      </segment>
+<!-- Section: Mitral[0].secden[1] -->
+      <segment id="4" name = "Seg0_secden_1" parent="0" cable = "3">  <!-- Connected at 0.5 on parent section: Mitral[0].soma  -->
+        <proximal x="0" y="12.5" z="0" diameter="2"/>
+        <distal x="-1000" y="12.5" z="0" diameter="2"/>
+      </segment>
+<!-- Section: Mitral[0].secden[0] -->
+      <segment id="3" name = "Seg0_secden_0" parent="0" cable = "2">  <!-- Connected at 0.5 on parent section: Mitral[0].soma  -->
+        <proximal x="0" y="12.5" z="0" diameter="2"/>
+        <distal x="1000" y="12.5" z="0" diameter="2"/>
+      </segment>
+<!-- Section: Mitral[0].priden -->
+      <segment id="2" name = "Seg0_priden" parent="0" cable = "1">  <!-- Parent section: Mitral[0].soma -->
+        <proximal x="0" y="25" z="0" diameter="3"/>
+        <distal x="0" y="325" z="0" diameter="3"/>
+      </segment>
+<!-- Section: Mitral[0].initialseg -->
+      <segment id="7" name = "Seg0_initialseg" parent="6" cable = "6">  <!-- Parent section: Mitral[0].hillock -->
+        <proximal x="0" y="-5" z="0" diameter="1.5"/>
+        <distal x="0" y="-35" z="0" diameter="1.5"/>
+      </segment>
+<!-- Section: Mitral[0].tuftden -->
+      <segment id="5" name = "Seg0_tuftden" parent="2" cable = "4">  <!-- Parent section: Mitral[0].priden -->
+        <proximal x="0" y="325" z="0" diameter="0.4"/>
+        <distal x="0" y="625" z="0" diameter="0.4"/>
+      </segment>
+    </segments>
+    <cables  xmlns="http://morphml.org/morphml/schema"> <!-- Changing namespace from neuroml to morphml-->
+      <cable id = "0" name = "soma" fract_along_parent = "0"/>
+      <cable id = "5" name = "hillock" fract_along_parent = "0">
+        <meta:properties>
+          <meta:property>
+            <meta:tag>numberInternalDivisions</meta:tag> <!-- Discetization of model at time of export. Can be overridden by importing application-->
+            <meta:value>3</meta:value>
+          </meta:property>
+        </meta:properties>
+      </cable>
+      <cable id = "3" name = "secden_1" fract_along_parent = "0.5">
+        <meta:properties>
+          <meta:property>
+            <meta:tag>numberInternalDivisions</meta:tag> <!-- Discetization of model at time of export. Can be overridden by importing application-->
+            <meta:value>50</meta:value>
+          </meta:property>
+        </meta:properties>
+      </cable>
+      <cable id = "2" name = "secden_0" fract_along_parent = "0.5">
+        <meta:properties>
+          <meta:property>
+            <meta:tag>numberInternalDivisions</meta:tag> <!-- Discetization of model at time of export. Can be overridden by importing application-->
+            <meta:value>50</meta:value>
+          </meta:property>
+        </meta:properties>
+      </cable>
+      <cable id = "1" name = "priden">
+        <meta:properties>
+          <meta:property>
+            <meta:tag>numberInternalDivisions</meta:tag> <!-- Discetization of model at time of export. Can be overridden by importing application-->
+            <meta:value>5</meta:value>
+          </meta:property>
+        </meta:properties>
+      </cable>
+      <cable id = "6" name = "initialseg">
+        <meta:properties>
+          <meta:property>
+            <meta:tag>numberInternalDivisions</meta:tag> <!-- Discetization of model at time of export. Can be overridden by importing application-->
+            <meta:value>3</meta:value>
+          </meta:property>
+        </meta:properties>
+      </cable>
+      <cable id = "4" name = "tuftden">
+        <meta:properties>
+          <meta:property>
+            <meta:tag>numberInternalDivisions</meta:tag> <!-- Discetization of model at time of export. Can be overridden by importing application-->
+            <meta:value>10</meta:value>
+          </meta:property>
+        </meta:properties>
+      </cable>
+      <cablegroup name="all"> <!-- Replacing subset name ModelViewParmSubset_0 with all, as it contains all sections -->
+        <cable id = "0"/>
+        <cable id = "5"/>
+        <cable id = "3"/>
+        <cable id = "2"/>
+        <cable id = "1"/>
+        <cable id = "6"/>
+        <cable id = "4"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_1"> 
+        <cable id = "0"/>
+        <cable id = "5"/>
+        <cable id = "3"/>
+        <cable id = "2"/>
+        <cable id = "1"/>
+        <cable id = "4"/>
+      </cablegroup>
+      <cablegroup name="OneSecGrp_SectionRef_7"> <!-- Creating a group containing a single section: Mitral[0].tuftden... -->
+        <cable id = "4"/>
+      </cablegroup>
+      <cablegroup name="OneSecGrp_SectionRef_6"> <!-- Creating a group containing a single section: Mitral[0].initialseg... -->
+        <cable id = "6"/>
+      </cablegroup>
+    </cables>
+    <biophysics  units = "Physiological Units"> <!-- Note: values of cond dens are different in NEURON and phy units-->
+      <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
+        <bio:parameter name="gmax" value="0.0833333">  
+          <bio:group>ModelViewParmSubset_1</bio:group>
+        </bio:parameter>
+        <bio:parameter name="gmax" value="1">  
+          <bio:group>OneSecGrp_SectionRef_6</bio:group>
+        </bio:parameter>
+        <bio:parameter name="e" value="-65">  
+          <bio:group>all</bio:group>
+        </bio:parameter>
+      </bio:mechanism>
+      <bio:mechanism name="kamt" type="Channel Mechanism">
+        <bio:parameter name="gmax" value="4">  
+          <bio:group>ModelViewParmSubset_1</bio:group>
+        </bio:parameter>
+        <bio:parameter name="gmax" value="80">  
+          <bio:group>OneSecGrp_SectionRef_6</bio:group>
+        </bio:parameter>
+      </bio:mechanism>
+      <bio:mechanism name="kdrmt" type="Channel Mechanism">
+        <bio:parameter name="gmax" value="0.1">  
+          <bio:group>all</bio:group>
+        </bio:parameter>
+      </bio:mechanism>
+      <bio:mechanism name="nax" type="Channel Mechanism">
+        <bio:parameter name="sh" value="0">  
+          <bio:group>OneSecGrp_SectionRef_6</bio:group>
+        </bio:parameter>
+        <bio:parameter name="sh" value="10">  
+          <bio:group>ModelViewParmSubset_1</bio:group>
+        </bio:parameter>
+        <bio:parameter name="gmax" value="40">  
+          <bio:group>ModelViewParmSubset_1</bio:group>
+        </bio:parameter>
+        <bio:parameter name="gmax" value="800">  
+          <bio:group>OneSecGrp_SectionRef_6</bio:group>
+        </bio:parameter>
+      </bio:mechanism>
+      <bio:spec_capacitance>
+        <bio:parameter value="1.8">  
+          <bio:group>all</bio:group>
+        </bio:parameter>
+      </bio:spec_capacitance>
+      <bio:spec_axial_resistance>
+        <bio:parameter value="0.15">  
+          <bio:group>all</bio:group>
+        </bio:parameter>
+        <bio:parameter value="0.02">  
+          <bio:group>OneSecGrp_SectionRef_7</bio:group>
+        </bio:parameter>
+      </bio:spec_axial_resistance>
+    </biophysics>
+  </cell>
+</cells>
+</neuroml>

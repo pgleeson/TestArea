@@ -1,0 +1,19 @@
+create soma
+access soma
+insert KConductanceKSm
+insert pas
+
+psection()
+
+print n_KConductanceKSm, " - ", alpha_n1_n2_KConductanceKSm
+
+init(-65)
+
+print n_KConductanceKSm, " - ", alpha_n1_n2_KConductanceKSm
+
+tstop=1
+
+run()
+
+
+print n_KConductanceKSm, " - ", alpha_n1_n2_KConductanceKSm

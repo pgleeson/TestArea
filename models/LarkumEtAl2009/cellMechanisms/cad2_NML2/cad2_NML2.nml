@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 ../../../../NeuroML2/Schemas/NeuroML2/NeuroML_v2alpha.xsd"
+         id="cad2_NML2">
+        
+    <notes>NeuroML 2 file containing a single Concentration Model</notes>
+
+
+    <concentrationModel id="cad2_NML2" type="concentrationModelLarkumEtAl" restingConc="1e-4 mM" decayConstant="80 ms" shellThickness="0.1 um" ion="ca"/>
+
+    <ComponentType name="concentrationModelLarkumEtAl" extends="concentrationModel" description="Model of buffering of concentration of specific to Larkum Et Al 2009">
+
+        <Parameter name="restingConc" dimension="concentration"/>
+        <Parameter name="decayConstant" dimension="time"/>
+        <Parameter name="shellThickness" dimension="length"/>
+       
+
+        <Constant name="Faraday" dimension="charge_per_mole" value="96485.3C_per_mol"/>
+        <Constant name="AREA_SCALE" dimension="area" value="1m2"/>
+        <Constant name="LENGTH_SCALE" dimension="length" value="1m"/>
+
+        <Requirement name="iCa" dimension="current"/>
+
+        <Text name="species"/> 
+
+        <Behavior>
+
+            <StateVariable name="concentration" exposure="concentration" dimension="concentration"/>
+            <StateVariable name="extConcentration" exposure="extConcentration" dimension="concentration"/>
+
+            <DerivedVariable name="currDensCa" dimension="currentDensity" value="iCa / surfaceArea"/>
+
+            <DerivedVariable name="drive_channel0" dimension="current" value="currDensCa / (2 * Faraday * shellThickness)"/>
+            
+            <DerivedVariable name="drive_channel" dimension="current" value="drive_channel0" valueCondition="drive_channel0 .gt. 0" valueIfFalse="0"/>
+
+            <TimeDerivative variable="concentration" value="drive_channel - ((concentration - restingConc) / decayConstant)"/>
+
+            <OnStart>
+                <StateAssignment variable="concentration" value="restingConc"/>
+                <StateAssignment variable="extConcentration" value="initialExtConcentration"/>
+            </OnStart>
+
+        </Behavior>
+
+    </ComponentType>
+
+</neuroml>

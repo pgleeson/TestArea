@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema  ../../Schemata/v1.3beta/Level2/ChannelML_v1.3.xsd" units="Physiological Units">
+    
+    <meta:notes>ChannelML file describing a more complex synaptic mechanism</meta:notes>
+    
+     
+    <synapse_type name="PlasticSyn">
+    
+        <meta:notes>Example of a synaptic mechanism incorporating multiple decay constants, facilitation, ...</meta:notes>
+        
+        <meta:neuronDBref>
+    <meta:modelName>Receptor properties</meta:modelName>
+
+            <meta:uri>http://senselab.med.yale.edu/senselab/NeuronDB/receptors2.asp</meta:uri></meta:neuronDBref>
+        
+        <plastic_syn max_conductance="8E-5" rise_time="1" decay_time_1="2" decay_time_2="2" decay_time_3="2" reversal_potential="0">
+         
+        </plastic_syn>
+  
+    </synapse_type>
+    
+    
+    
+</channelml>

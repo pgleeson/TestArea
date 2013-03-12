@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2" level="2" version="1">
+<model id="VarSynSBML">
+<notes>A simple example in SBML...</notes>
+
+<listOfCompartments>
+    <compartment id="default" size="1"/>
+</listOfCompartments>
+
+<listOfSpecies>
+    <species id="s1" name="s1" compartment="default" initialAmount="1" charge="0"/>
+    <species id="s2" name="s2" compartment="default" initialAmount="0"/>
+</listOfSpecies>
+
+
+<listOfParameters>
+    <parameter id="VOLTAGE" name="VOLTAGE" value="-60"/>
+</listOfParameters>
+
+<listOfReactions>
+    <reaction id="re1" reversible="false" fast="false">
+
+        <listOfReactants>
+            <speciesReference species="s1"/>
+        </listOfReactants>
+
+        <listOfProducts>
+            <speciesReference species="s2"/>
+        </listOfProducts>
+
+        <kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <apply>
+                    <times/>
+                    <ci> s1 </ci>
+                    <ci> k1 </ci>
+                    <ci> VOLTAGE </ci>
+                </apply>
+          </math>
+            <listOfParameters>
+                <parameter id="k1" name="k1" value="-0.0001"/>
+            </listOfParameters>
+        </kineticLaw>
+
+    </reaction>
+
+
+</listOfReactions>
+</model>
+</sbml>

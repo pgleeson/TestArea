@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channelml xmlns="http://morphml.org/channelml/schema" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:meta="http://morphml.org/metadata/schema"
+    xsi:schemaLocation="http://morphml.org/channelml/schema    http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd"
+    units="Physiological Units">
+
+    <meta:notes>Channel model from Larkum et al. 2009</meta:notes>
+    
+    <channel_type name="hd_CML">
+        
+        <status value="stable">
+			<meta:contributor>
+                <meta:name>Padraig Gleeson</meta:name>
+            </meta:contributor>
+        </status>
+        
+        <meta:notes>Comment from original mod file: I-h channel from Magee 1998 for distal dendrites</meta:notes>
+    
+       <meta:authorList>
+             <meta:modelAuthor>
+                <meta:name>Alon Polsky</meta:name>
+                <meta:comment>Cited implementer according to ModelDB</meta:comment>
+            </meta:modelAuthor>
+            <meta:modelTranslator>
+                <meta:name>Matteo Farinella</meta:name>
+                <meta:institution>UCL</meta:institution>    
+                <meta:email>m.farinella - at - ucl.ac.uk</meta:email>
+            </meta:modelTranslator>
+        </meta:authorList>
+
+         <meta:publication>
+            <meta:fullTitle>Larkum ME, Nevian T, Sandler M, Polsky A, Schiller J (2009) Synaptic integration in tuft dendrites of layer 5 pyramidal neurons: a new unifying principle.  Science. 2009 Aug 7;325(5941):756-60</meta:fullTitle>
+            <meta:pubmedRef>http://www.ncbi.nlm.nih.gov/pubmed/19661433</meta:pubmedRef>
+        </meta:publication>
+
+        <meta:modelDBref>
+            <meta:modelName>Synaptic integration in tuft dendrites of layer 5 pyramidal neurons (Larkum et al. 2009)</meta:modelName>
+            <meta:uri>http://senselab.med.yale.edu/ModelDB/ShowModel.asp?model=124043</meta:uri>
+        </meta:modelDBref>        
+
+        
+        <current_voltage_relation cond_law="ohmic" ion="hd" default_gmax="0.1" default_erev="-34">
+            
+            <!--<q10_settings q10_factor="4.5" experimental_temp="33"/> the temperature correction is incorporated in tau-->            
+            
+            <gate name="l" instances="1">
+            
+                <closed_state id="l0"/>
+                <open_state id="l"/>
+                
+                    <!--
+                
+                        a = exp(0.0378*2.2*(v-(-75))) = exp(0.08316*(v+75))
+						b = exp(0.0378*2.2*0.4*(v-(-75))) = exp(0.033264*(v+75))
+
+						taul = b/(0.011*(1+a))
+
+						linf = 1/(1 + exp(-(v-(-81))/-8))
+                
+                -->
+
+                     
+                <time_course name="tau" from="l0" to="l" expr_form="generic" expr="exp(0.033264*(v+75))/((4.5^((celsius-33)/10))*0.011*(1+exp(0.08316*(v+75))))"/>
+				 	                           
+				<steady_state name="inf" from="l0" to="l" expr_form="generic" expr="1/(1 + exp((v+81)/8))"/>
+                    
+            </gate>
+            
+        </current_voltage_relation> 
+        
+        
+    </channel_type>
+</channelml>
